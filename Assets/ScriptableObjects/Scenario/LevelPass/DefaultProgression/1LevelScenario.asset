@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ac49c469a048fc9c568e5aa5110ae0, type: 3}
+  m_Name: 1LevelScenario
+  m_EditorClassIdentifier: 
+  Name: Default level pass Scenario 11
+  questSos:
+  - {fileID: 11400000, guid: 0bfe3cc7e305d6c45b2f80a08e11e3ba, type: 2}
+  enemySoIntDictionary:
+    enemySos:
+    - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}
+    - {fileID: 11400000, guid: 063ba29dadbcb3244abc0fdefccf18e3, type: 2}
+    enemyAmount: 0200000003000000

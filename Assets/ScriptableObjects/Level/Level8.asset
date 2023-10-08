@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695724f88f5233345bc1c746c28576c8, type: 3}
+  m_Name: Level8
+  m_EditorClassIdentifier: 
+  sceneName: Level8
+  scenarioSos:
+  - {fileID: 11400000, guid: 90c6c280e28abaa49a72dd4600fd391e, type: 2}
+  randomScenarioSos:
+  - {fileID: 11400000, guid: 853cc4821809faf45940e11a6392767b, type: 2}
+  - {fileID: 11400000, guid: e0e15a4601f981a4d82e7731b9d2b6f8, type: 2}
+  - {fileID: 11400000, guid: cfb323d74445fd2478e15b4b4d23cc7a, type: 2}
+  - {fileID: 11400000, guid: 7f5d450ab0c69a74db693dce0cdbe67b, type: 2}
+  - {fileID: 11400000, guid: b9ee30d0ec5d2994a99204afa09fbf73, type: 2}
+  - {fileID: 11400000, guid: a2a1915d181cf4545bf6e63e016fd10d, type: 2}
+  - {fileID: 11400000, guid: 155dfc22eb4615c4e800cc97d789cf8a, type: 2}
+  - {fileID: 11400000, guid: 36cfcc4be2bac55449a9521c1fa85218, type: 2}

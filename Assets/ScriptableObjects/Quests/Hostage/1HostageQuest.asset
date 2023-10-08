@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94fd186bf9b45d0b3509b199dbd9127, type: 3}
+  m_Name: 1HostageQuest
+  m_EditorClassIdentifier: 
+  ruTitle: "\u0421\u043F\u0430\u0441\u0438\u0442\u0435\u043B\u044C"
+  enTitle: Savior
+  trTitle: "Kurtar\u0131c\u0131"
+  ruGoal: "\u0421\u043F\u0430\u0441\u0442\u0438 \u0437\u0430\u043B\u043E\u0436\u043D\u0438\u043A\u043E\u0432"
+  enGoal: Rescue the hostages
+  trGoal: "Rehineleri kurtar\u0131n"
+  hostagesAmount: 1
+  hostagePrefab: {fileID: 154179903965232344, guid: 70d43d17eb5d22a429655b33538ca330, type: 3}
