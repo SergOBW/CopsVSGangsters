@@ -10,6 +10,6 @@ namespace Abstract
         }
         public void EnterState(IStateMachine stateMachine);
         public void UpdateState();
-        public void ExitState(IState monoState);
+        public void ExitState(IState IState);
     }
 }

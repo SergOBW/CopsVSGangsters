@@ -16,14 +16,14 @@ namespace EnemyCore.States
         private EnemyAnimationManager animationManager;
 
         // States
-        public AttackMonoState attackMonoState = new AttackMonoState();
-        public ChaseMonoState chaseMonoState = new ChaseMonoState();
-        public DeadMonoState deadMonoState = new DeadMonoState();
-        public WounderMonoState wounderMonoState = new WounderMonoState();
-        public IdleMonoState idleMonoState = new IdleMonoState();
-        public PauseMonoState pauseMonoState = new PauseMonoState();
-        public FindTargetMonoState findTargetMonoState = new FindTargetMonoState();
-        public FindTargetMonoWithEndPoint findTargetMonoWithEndPoint = new FindTargetMonoWithEndPoint();
+        public AttackState attackState = new AttackState();
+        public ChaseState chaseState = new ChaseState();
+        public DeadState deadState = new DeadState();
+        public WounderState wounderState = new WounderState();
+        public IdleState idleState = new IdleState();
+        public PauseState pauseState = new PauseState();
+        public FindTargetState findTargetState = new FindTargetState();
+        public FindTargetWithEndPoint findTargetWithEndPoint = new FindTargetWithEndPoint();
         public ChaseWithEndPoint chaseWithEndPoint = new ChaseWithEndPoint();
 
         private PlayerCharacter targetCharacter;
@@ -34,18 +34,18 @@ namespace EnemyCore.States
             GetComponents();
             
             enemyStatsController.OnEnemyDie += OnOnEnemyDie;
-            if (LevelMonoStateMachine.Instance != null)
+            if (LevelStateMachine.Instance != null)
             {
-                LevelMonoStateMachine.Instance.OnLevelPaused += OnLevelPaused;
+                LevelStateMachine.Instance.OnLevelPaused += OnLevelPaused;
             }
             if (enemyAi.GetEndPoint() != null)
             {
                 endPoint = enemyAi.GetEndPoint();
-                findTargetMonoState = findTargetMonoWithEndPoint;
-                chaseMonoState = chaseWithEndPoint;
+                findTargetState = findTargetWithEndPoint;
+                chaseState = chaseWithEndPoint;
             }
             // Start in the Idle state
-            ChangeState(idleMonoState);
+            ChangeState(idleState);
             if (enemyDebugUi != null)
             {
                 enemyDebugUi.Initialize(this);
@@ -55,9 +55,9 @@ namespace EnemyCore.States
         public void DeInitialize()
         {
             enemyStatsController.OnEnemyDie -= OnOnEnemyDie;
-            if (LevelMonoStateMachine.Instance != null)
+            if (LevelStateMachine.Instance != null)
             {
-                LevelMonoStateMachine.Instance.OnLevelPaused -= OnLevelPaused;
+                LevelStateMachine.Instance.OnLevelPaused -= OnLevelPaused;
             }
 
             SetDefaultStates();
@@ -65,24 +65,24 @@ namespace EnemyCore.States
 
         private void OnLevelPaused()
         {
-            if (!LevelMonoStateMachine.Instance.IsPlayState() && CurrentMonoState != pauseMonoState && CurrentMonoState != deadMonoState)
+            if (!LevelStateMachine.Instance.IsPlayState() && CurrentState != pauseState && CurrentState != deadState)
             {
-                ChangeState(pauseMonoState);
+                ChangeState(pauseState);
             }
         }
 
-        public override void ChangeState(IMonoState monoState)
+        public override void ChangeState(IState monoState)
         {
             if (enemyStatsController.isDead)
             {
-                if (CurrentMonoState != null)
+                if (CurrentState != null)
                 {
-                    PreviousMonoState = CurrentMonoState;
+                    PreviousState = CurrentState;
                 }
 
-                CurrentMonoState = deadMonoState;
-                CurrentMonoState.EnterState(this);
-                OnStateChanged(PreviousMonoState, CurrentMonoState);
+                CurrentState = deadState;
+                CurrentState.EnterState(this);
+                OnStateChanged(PreviousState, CurrentState);
                 return;
             }
             base.ChangeState(monoState);
@@ -108,7 +108,7 @@ namespace EnemyCore.States
 
         private void OnOnEnemyDie(EnemyStatsController obj)
         {
-            ChangeState(deadMonoState);
+            ChangeState(deadState);
         }
 
         public NavMeshAgent GetNavMeshAgent()

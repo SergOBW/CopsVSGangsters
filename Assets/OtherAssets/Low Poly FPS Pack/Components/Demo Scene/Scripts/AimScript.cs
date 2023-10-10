@@ -44,16 +44,15 @@ public class AimScript : MonoBehaviour {
 	void Start () {
 
 		//Hide the cursor at start
-		Cursor.visible = false;
 		_armControllerScript = GetComponentInParent<ArmControllerScript>();
 		_starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
 	}
 
 	void Update () {
 
-		if (LevelMonoStateMachine.Instance != null)
+		if (LevelStateMachine.Instance != null)
 		{
-			if (!LevelMonoStateMachine.Instance.IsPlayState())
+			if (!LevelStateMachine.Instance.IsPlayState())
 			{
 				return;
 			}

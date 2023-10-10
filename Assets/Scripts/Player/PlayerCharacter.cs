@@ -1,37 +1,37 @@
 using System;
+using StarterAssets;
 using UnityEngine;
-
 public class PlayerCharacter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private ArmControllerScript _armControllerScript;
+    private FirstPersonController _firstPersonController;
+    private AiSensor _aiSensor;
+    [SerializeField] private Camera armsCamera;
+    private void Awake()
     {
-        
+        _aiSensor = GetComponent<AiSensor>();
+        _firstPersonController = GetComponent<FirstPersonController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsSeeEnemy(GameObject gameObject)
     {
-        
-    }
-
-    public bool isSeeEnemy(GameObject o)
-    {
-        throw new System.NotImplementedException();
+        if (_aiSensor != null)
+        {
+            return _aiSensor.IsInSight(gameObject);
+        }
+        return false;
     }
 
     public event Action OnFireEvent;
 
     public void SetupSensitivity(float getPlayerSensitivity)
     {
-        Debug.Log("SETUP SENSITIVITY");
-        throw new NotImplementedException();
+        _firstPersonController.SetSensitivity(getPlayerSensitivity);
     }
 
     public bool IsAiming()
     {
-        Debug.Log("IS AIMING");
-        throw new NotImplementedException();
+        return _armControllerScript.IsAiming;
     }
 
     public string GetWeaponName()
@@ -42,6 +42,19 @@ public class PlayerCharacter : MonoBehaviour
 
     public int GetAmmunitionCurrent()
     {
-        throw new NotImplementedException();
+        return _armControllerScript.currentAmmo;
+    }
+
+    protected virtual void OnOnFireEvent()
+    {
+        OnFireEvent?.Invoke();
+    }
+
+    public void SetupArms(GameObject armControllerGo)
+    {
+        GameObject arms = Instantiate(armControllerGo, armsCamera.transform);
+        arms.GetComponent<AimScript>().SetPlayerCamera(armsCamera);
+        _armControllerScript = arms.GetComponent<ArmControllerScript>();
+        _armControllerScript.OnFire += OnOnFireEvent;
     }
 }

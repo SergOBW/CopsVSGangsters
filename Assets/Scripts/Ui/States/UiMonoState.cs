@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Ui.States
 {
-    public class UiMonoState : MonoBehaviour, IMonoState
+    public class UiMonoState : MonoBehaviour, IState
     {
         protected UiMonoStateMachine currentMonoStateMachine;
-        public virtual void EnterState(MonoStateMachine monoStateMachine)
+        public virtual void EnterState(IStateMachine monoStateMachine)
         {
             currentMonoStateMachine = monoStateMachine as UiMonoStateMachine;
             gameObject.SetActive(true);
@@ -17,7 +17,7 @@ namespace Ui.States
             
         }
 
-        public virtual void ExitState(IMonoState monoState)
+        public virtual void ExitState(IState monoState)
         {
             gameObject.SetActive(false);
             currentMonoStateMachine.ChangeState(monoState);

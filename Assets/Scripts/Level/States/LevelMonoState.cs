@@ -2,12 +2,12 @@
 
 namespace Level.States
 {
-    public class LevelMonoState : IMonoState
+    public class LevelMonoState : IState
     {
-        protected LevelMonoStateMachine currentMonoStateMachine;
-        public virtual void EnterState(MonoStateMachine monoStateMachine)
+        protected LevelStateMachine currentMonoStateMachine;
+        public virtual void EnterState(IStateMachine monoStateMachine)
         {
-            currentMonoStateMachine = monoStateMachine as  LevelMonoStateMachine;
+            currentMonoStateMachine = monoStateMachine as  LevelStateMachine;
         }
 
         public virtual void UpdateState()
@@ -15,9 +15,9 @@ namespace Level.States
             
         }
 
-        public virtual void ExitState(IMonoState monoState)
+        public virtual void ExitState(IState IState)
         {
-            currentMonoStateMachine.ChangeState(monoState);
+            currentMonoStateMachine.ChangeState(IState);
         }
     }
 }

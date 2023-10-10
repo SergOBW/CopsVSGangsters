@@ -3,28 +3,39 @@ using System.Collections.Concurrent;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yandex.Plugins.Login;
 
 public class Loader : MonoBehaviour
 {
     [SerializeField] private GameObject uiPrefab;
-    [SerializeField] private GameObject gameManagerPrefab;
+    [SerializeField] private GameObject globalMechanicSetupPrefab;
 
     [SerializeField] private string startedSceneName = "Hub";
     
 
     private void Start()
     {
-        Dispatcher.Instance.Invoke(() =>
-        {
-            Application.targetFrameRate = 144;
-            GameObject gameManager = Instantiate(gameManagerPrefab);
-            DontDestroyOnLoad(gameManager);
-            gameManager.name = "GameManager";
-            GameObject ui = Instantiate(uiPrefab);
-            DontDestroyOnLoad(ui);
-            ui.GetComponent<UiMonoStateMachine>().Initialize();
-            LoadTheScene();
-        });
+        Application.targetFrameRate = 144;
+            
+        SaveGameMechanic saveGameMechanic = new SaveGameMechanic();
+        saveGameMechanic.Initialize();
+        LoginManager loginManager = new LoginManager();
+        loginManager.Initialize();
+        LanguageManager languageManager = new LanguageManager();
+        languageManager.Initialize();
+        WeaponManagerMechanic weaponManagerMechanic = new WeaponManagerMechanic();
+        weaponManagerMechanic.Initialize();
+            
+        GameObject gameManager = Instantiate(globalMechanicSetupPrefab);
+        DontDestroyOnLoad(gameManager);
+        gameManager.name = "GameManager";
+        gameManager.GetComponent<GlobalMechanicSetup>().InitializeMechanics();
+            
+        GameObject ui = Instantiate(uiPrefab);
+        DontDestroyOnLoad(ui);
+        ui.GetComponent<UiMonoStateMachine>().Initialize();
+            
+        LoadTheScene();
     }
     
 

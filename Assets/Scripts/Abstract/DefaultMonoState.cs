@@ -1,14 +1,12 @@
-﻿using UnityEngine;
-
-namespace Abstract
+﻿namespace Abstract
 {
-    public class DefaultMonoState : IMonoState
+    public class DefaultMonoState : IState
     {
-        public MonoStateMachine CurrentMonoStateMachine { get; set; }
-        public void EnterState(MonoStateMachine monoStateMachine)
+        public IStateMachine CurrentMonoStateMachine { get; set; }
+
+        public void EnterState(IStateMachine stateMachine)
         {
-            Debug.Log("Hello im default");
-            CurrentMonoStateMachine = monoStateMachine;
+            CurrentMonoStateMachine = stateMachine;
         }
 
         public void UpdateState()
@@ -16,9 +14,10 @@ namespace Abstract
             
         }
 
-        public void ExitState(IMonoState monoState)
+        public void ExitState(IState IState)
         {
-            Debug.Log("Bye im default");
+            CurrentMonoStateMachine.ChangeState(IState);
         }
+        
     }
 }

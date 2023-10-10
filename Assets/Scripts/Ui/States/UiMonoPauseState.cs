@@ -14,7 +14,7 @@ namespace Ui.States
 
         [SerializeField] private SettingsPopup settingsPopup;
 
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             backToGameButton.OnPointerDownEvent += UnPauseButton;
@@ -27,7 +27,7 @@ namespace Ui.States
             
             if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
             {
-                if (currentMonoStateMachine.PreviousMonoState is UiMonoPlayState)
+                if (currentMonoStateMachine.PreviousState is UiMonoPlayState)
                 {
                     CrazyEvents.Instance.GameplayStop();
                 }
@@ -36,20 +36,20 @@ namespace Ui.States
 
         private void UnPauseButton()
         {
-            LevelMonoStateMachine.Instance.UnPause();
+            LevelStateMachine.Instance.UnPause();
             ExitState(currentMonoStateMachine.uiMonoPlayState);
         }
 
         private void BackToHubButton()
         {
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.ExitLevel();
+            LevelsMonoMechanic.Instance.ExitLevel();
         }
 
         private void RestartLevelButton()
         {
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.RestartLevel();
+            LevelsMonoMechanic.Instance.RestartLevel();
         }
 
         private void OpenSettings()
@@ -58,7 +58,7 @@ namespace Ui.States
             settingsPopup.Show();
         }
 
-        public override void ExitState(IMonoState monoState)
+        public override void ExitState(IState monoState)
         {
             backToHubButton.onClick.RemoveListener(BackToHubButton);
             backToGameButton.OnPointerDownEvent -= UnPauseButton;

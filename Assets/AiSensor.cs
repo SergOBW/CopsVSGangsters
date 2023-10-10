@@ -115,7 +115,7 @@ public class AiSensor : MonoBehaviour
 
         if (obj.TryGetComponent(out PlayerCharacter character))
         {
-            if (character.isSeeEnemy(gameObject))
+            if (character.IsSeeEnemy(gameObject))
             {
                 return true;
             }

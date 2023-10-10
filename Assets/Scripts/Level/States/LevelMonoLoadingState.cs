@@ -6,7 +6,7 @@ namespace Level.States
     public class LevelMonoLoadingState : LevelMonoState
     {
         private string sceneName = "Hub";
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             
@@ -24,9 +24,9 @@ namespace Level.States
             
         }
 
-        public override void ExitState(IMonoState monoState)
+        public override void ExitState(IState IState)
         {
-            currentMonoStateMachine.ChangeState(monoState);
+            currentMonoStateMachine.ChangeState(IState);
         }
     }
 }

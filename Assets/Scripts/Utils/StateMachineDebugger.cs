@@ -12,20 +12,20 @@ public class StateMachineDebugger : MonoBehaviour
 
     private float startedHealth;
 
-    public void Initialize(MonoStateMachine monoStateMachine)
+    public void Initialize(IStateMachine monoStateMachine)
     {
         monoStateMachine.OnStateChangedEvent += OnStateChangedEvent;
-        if (monoStateMachine.PreviousMonoState != null)
+        if (monoStateMachine.PreviousState != null)
         {
-            OnStateChangedEvent(monoStateMachine.PreviousMonoState,monoStateMachine.CurrentMonoState);
+            OnStateChangedEvent(monoStateMachine.PreviousState,monoStateMachine.CurrentState);
         }
         else
         {
-            OnStateChangedEvent(monoStateMachine.CurrentMonoState,monoStateMachine.CurrentMonoState);
+            OnStateChangedEvent(monoStateMachine.CurrentState,monoStateMachine.CurrentState);
         }
     }
     
-    private void OnStateChangedEvent(IMonoState arg1, IMonoState arg2)
+    private void OnStateChangedEvent(IState arg1, IState arg2)
     {
         if (previousState != null)
         {

@@ -14,7 +14,7 @@ namespace Ui.States
         [SerializeField] private ButtonWithCursor buttonWithCursor;
         
         [SerializeField] private Animation mainAnimation;
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             mainAnimation.Play();
@@ -24,7 +24,7 @@ namespace Ui.States
             buttonWithCursor.gameObject.SetActive(false);
             if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
             {
-                if (currentMonoStateMachine.PreviousMonoState is UiMonoPlayState)
+                if (currentMonoStateMachine.PreviousState is UiMonoPlayState)
                 {
                     CrazyEvents.Instance.GameplayStop();
                 }
@@ -39,7 +39,7 @@ namespace Ui.States
             continueRewardedButton.onClick.AddListener(ContinueRewardedButton);
         }
 
-        public override void ExitState(IMonoState monoState)
+        public override void ExitState(IState monoState)
         {
             backToHubButton.onClick.RemoveListener(BackToHubButton);
             restartLevelButton.onClick.RemoveListener(RestartLevelButton);
@@ -50,13 +50,13 @@ namespace Ui.States
         private void BackToHubButton()
         {
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.ExitLevel();
+            LevelsMonoMechanic.Instance.ExitLevel();
         }
 
         private void RestartLevelButton()
         {
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.RestartLevel();
+            LevelsMonoMechanic.Instance.RestartLevel();
         }
 
         #region CuntinueReward
@@ -82,7 +82,7 @@ namespace Ui.States
         private void ReturnToGame()
         {
             FindObjectOfType<PlayerStatsController>().ReviveBonus();
-            LevelMonoStateMachine.Instance.SetLevelPlayState();
+            LevelStateMachine.Instance.SetLevelPlayState();
             ExitState(currentMonoStateMachine.uiMonoPlayState);
         }
 
@@ -96,7 +96,7 @@ namespace Ui.States
         {
             if (AddManager.Instance.canShowAdd)
             {
-                SoundMechanic.Instance.DisableSound();
+                SoundMonoMechanic.Instance.DisableSound();
                 TryToShowAdd();
             }
             else

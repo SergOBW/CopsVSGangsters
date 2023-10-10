@@ -4,7 +4,6 @@ using Abstract;
 using ForWeapon;
 using ForWeapon.New;
 using UnityEngine;
-using Yandex.Plugins.Login;
 
 public class PlayerWeaponStats
 {
@@ -32,6 +31,8 @@ public class PlayerWeaponStats
     private readonly float _reloadSpeedPriceLevelMultiplayer;
     private readonly float _accuracyPriceLevelMultiplayer;
     private readonly int _bulletCountPriceLevelMultiplayer;
+    
+    public bool isStarted;
 
     
     // GamePlay Mechanics
@@ -40,7 +41,7 @@ public class PlayerWeaponStats
     public int AccuracyLevel;
     public int BulletCountLevel;
 
-    public int IsOpen;
+    public bool IsOpen;
     
     // Current 
 
@@ -81,17 +82,17 @@ public class PlayerWeaponStats
         _reloadSpeedPriceLevelMultiplayer = playerWeaponStatsSo.reloadSpeedPriceLevelMultiplayer;
         _bulletCountPriceLevelMultiplayer = playerWeaponStatsSo.bulletCountPriceLevelMultiplayer;
         _accuracyPriceLevelMultiplayer = playerWeaponStatsSo.accuracyPriceLevelMultiplayer;
-        // Load saves
-        SaveWeapon saveWeapon = SaveManagerMechanic.Instance.GetWeaponSave(WeaponName);
 
-        DamageLevel = saveWeapon.DamageLevel;
-        ReloadSpeedLevel = saveWeapon.ReloadSpeedLevel;
-        AccuracyLevel = saveWeapon.AccuracyLevel;
-        BulletCountLevel = saveWeapon.BulletCountLevel;
+        isStarted = playerWeaponStatsSo.isStarted;
+        
+        DamageLevel = 0;
+        ReloadSpeedLevel = 0;
+        AccuracyLevel = 0;
+        BulletCountLevel = 0;
 
-        IsOpen = saveWeapon.IsOpen;
+        IsOpen = false;
 
-        //WeaponArms = playerWeaponStatsSo.weaponArms;
+        WeaponArms = playerWeaponStatsSo.weaponArms;
     }
 
     public void CalculateStats()
@@ -106,314 +107,61 @@ public class PlayerWeaponStats
         BulletCountPrice = _startedBulletCountCost + _bulletCountPriceLevelMultiplayer * BulletCountLevel;
         AccuracyPrice = _startedAccuracyCost + _accuracyPriceLevelMultiplayer * AccuracyLevel;
     }
+
+    public void LoadSaves()
+    {
+        SaveWeapon saveWeapon = SaveGameMechanic.Instance.GetWeaponSave(WeaponName);
+
+        DamageLevel = saveWeapon.DamageLevel;
+        ReloadSpeedLevel = saveWeapon.ReloadSpeedLevel;
+        AccuracyLevel = saveWeapon.AccuracyLevel;
+        BulletCountLevel = saveWeapon.BulletCountLevel;
+        
+        IsOpen = saveWeapon.IsOpen;
+    }
 }
 
-public class WeaponManagerMechanic : GlobalMechanic
+public class WeaponManagerMechanic : IMechanic
 {
     public static WeaponManagerMechanic Instance;
 
-    [SerializeField] private PlayerWeaponStatsSo[] _playerWeaponStatsSo;
-    private List<PlayerWeaponStats> _playerWeaponStats = new List<PlayerWeaponStats>();
-    private PlayerCharacter _playerCharacter;
+    private PlayerWeaponStatsSo[] _playerWeaponStatsSo;
+    private Dictionary<string, PlayerWeaponStats> _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
+    private PlayerWeaponStats _currentPlayerWeaponStats;
     
-    [SerializeField]private string _currentWeaponName = "Makarov";
-    [SerializeField]private string startingWeaponName = "MAKAROV";
-
-    public event Action OnNewWeaponValues;
-
-    private int _grenadeCount;
-    [SerializeField] private int startingGrenadeCount = 3;
-    [SerializeField] private int grenadeDamage = 100;
-
-    private void Awake()
+    public void Initialize()
     {
         Instance = this;
-    }
-    
-    public override void Initialize()
-    {
-        SaveManagerMechanic.Instance.OnDataRefreshed += Setup;
+        _playerWeaponStatsSo = Resources.LoadAll<PlayerWeaponStatsSo>("ScriptableObjects/PlayerWeapons");
+        SaveGameMechanic.Instance.OnDataRefreshed += Setup;
         Setup();
     }
     
     private void Setup()
     {
-        _playerWeaponStats = new List<PlayerWeaponStats>();
-        foreach (var playerWeaponStatsSo in _playerWeaponStatsSo)
+        _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
+        for (int i = 0; i < _playerWeaponStatsSo.Length; i++)
         {
-            PlayerWeaponStats newPlayerWeapon = new PlayerWeaponStats(playerWeaponStatsSo);
-            SaveWeapon saveWeapon = SaveManagerMechanic.Instance.GetWeaponSave(newPlayerWeapon.WeaponName);
-            newPlayerWeapon.DamageLevel = saveWeapon.DamageLevel;
-            newPlayerWeapon.ReloadSpeedLevel = saveWeapon.ReloadSpeedLevel;
-            newPlayerWeapon.BulletCountLevel = saveWeapon.BulletCountLevel;
-            newPlayerWeapon.AccuracyLevel = saveWeapon.AccuracyLevel;
+            PlayerWeaponStats newPlayerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[i]);
+            newPlayerWeapon.LoadSaves();
             newPlayerWeapon.CalculateStats();
-            _playerWeaponStats.Add(newPlayerWeapon);
-        }
-
-        _grenadeCount = startingGrenadeCount;
-        OnNewWeaponValues?.Invoke();
-    }
-
-    public void InitializeNewPlayer(PlayerCharacter playerCharacter)
-    {
-        _playerCharacter = playerCharacter;
-    }
-
-    #region Getters
-
-    public PlayerWeaponStats GetWeaponStats(string weaponName)
-    {
-        foreach (var playerWeaponStats in _playerWeaponStats)
-        {
-            if (playerWeaponStats.WeaponName == weaponName)
+            _playerWeaponStatsDictionary.Add(newPlayerWeapon.WeaponName, newPlayerWeapon);
+            if (newPlayerWeapon.isStarted)
             {
-                return playerWeaponStats;
+                SetWeapon(newPlayerWeapon.WeaponName);
             }
         }
-        return null;
     }
-
-    public List<PlayerWeaponStats> GetWeaponsStats()
-    {
-        return _playerWeaponStats;
-    }
-    
-    public PlayerWeaponStatsSo[] GetPlayerWeaponStatsSo()
-    {
-        return _playerWeaponStatsSo;
-    }
-    
-    public float GetCurrentWeaponDamage()
-    {
-        float damage = 30;
-        string weaponName = _playerCharacter.GetWeaponName();
-        PlayerWeaponStats playerWeaponStats = GetWeaponStats(weaponName);
-        if (playerWeaponStats == null)
-        {
-            return damage;
-        }
-
-        playerWeaponStats.CalculateStats();
-        damage = playerWeaponStats.Damage;
-        return damage;
-    }
-    
-    public WeaponBehaviour[] GetWeaponsToPlay(WeaponBehaviour[] weaponBehaviours)
-    {
-        List<WeaponBehaviour> avaibleWeaponBehaviours = new List<WeaponBehaviour>();
-        WeaponBehaviour[] weaponBehavioursFromInventory = weaponBehaviours;
-        if (weaponBehavioursFromInventory.Length <= 0)
-        {
-            Debug.Log("There is no weapons in inventory");
-            return null;
-        }
-
-        for (int i = 0; i < weaponBehavioursFromInventory.Length; i++)
-        {
-            string weaponName = weaponBehavioursFromInventory[i].GetWeaponName();
-            PlayerWeaponStats playerWeaponStats = null;
-            foreach (var playerWeaponStat in _playerWeaponStats)
-            {
-                if (playerWeaponStat.WeaponName == weaponName)
-                {
-                    playerWeaponStats = playerWeaponStat;
-                    break;
-                }
-            }
-
-            if (playerWeaponStats == null)
-            {
-                Debug.Log("There is no weaponStat with that name");
-                continue;
-            }
-
-            if (playerWeaponStats.IsOpen == 1)
-            {
-                avaibleWeaponBehaviours.Add(weaponBehavioursFromInventory[i]);
-            }
-        }
-
-        return avaibleWeaponBehaviours.ToArray();
-
-    }
-    
-    public string GetStartedWeaponName()
-    {
-        return startingWeaponName;
-    }
-    
-    public float GetGrenadeDamage()
-    {
-        return grenadeDamage;
-    }
-
-    #endregion
-    
-    
     public void SetWeapon(string weaponName)
     {
-        _currentWeaponName = weaponName;
-    }
-    
-    public void TryToUpgradeStat(WeaponStatType type)
-    {
-        Debug.Log($"TryToUpgrade{type}");
-    
-        PlayerWeaponStats playerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[0]);
-    
-        foreach (var playerWeaponStats in _playerWeaponStats)
+        if (_playerWeaponStatsDictionary.ContainsKey(weaponName))
         {
-            if (playerWeaponStats.WeaponName == _currentWeaponName)
-            {
-                playerWeapon = playerWeaponStats;
-                break;
-            }
+            _currentPlayerWeaponStats = _playerWeaponStatsDictionary[weaponName];
         }
-    
-        switch (type)
-        {
-            case WeaponStatType.Damage:
-                if (playerWeapon.DamageLevel >= 5) return;
-                if (EconomyMechanic.Instance.TryToSpend(playerWeapon.DamageUpgradePrice))
-                    playerWeapon.DamageLevel++;
-                break;
-            case WeaponStatType.ReloadSpeed:
-                if (playerWeapon.ReloadSpeedLevel >= 5) return;
-                if (EconomyMechanic.Instance.TryToSpend(playerWeapon.ReloadSpeedPrice))
-                    playerWeapon.ReloadSpeedLevel++;
-                break;
-            case WeaponStatType.BulletCount:
-                if (playerWeapon.BulletCountLevel >= 5) return;
-                if (EconomyMechanic.Instance.TryToSpend(playerWeapon.BulletCountPrice))
-                    playerWeapon.BulletCountLevel++;
-                break;
-            case WeaponStatType.Accuracy:
-                if (playerWeapon.AccuracyLevel >= 5) return;
-                if (EconomyMechanic.Instance.TryToSpend(playerWeapon.AccuracyPrice))
-                    playerWeapon.AccuracyLevel++;
-                break;
-            default:
-                return;
-        }
-    
-        playerWeapon.CalculateStats();
-        SaveManagerMechanic.Instance.SaveWeapon(playerWeapon);
     }
 
-    public bool TryToBuyWeapon(string weaponName)
+    public PlayerWeaponStats GetCurrentWeapon()
     {
-        Debug.Log("Try to buy " + weaponName );
-        PlayerWeaponStats playerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[0]);
-    
-        foreach (var playerWeaponStats in _playerWeaponStats)
-        {
-            if (playerWeaponStats.WeaponName == weaponName)
-            {
-                playerWeapon = playerWeaponStats;
-                break;
-            }
-        }
-
-        if (playerWeapon.IsOpen > 0)
-        {
-            Debug.Log("You already have this weapon");
-            return false;
-        }
-
-        if (EconomyMechanic.Instance.TryToSpend(playerWeapon.WeaponBuyPrice))
-        {
-            playerWeapon.IsOpen = 1;
-        }
-        
-        SaveManagerMechanic.Instance.SaveWeapon(playerWeapon);
-        return true;
-    }
-
-    public bool CanBuyUpgradeOnCurrentWeapon()
-    {
-        bool isAllOk = false;
-        PlayerWeaponStats playerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[0]);
-    
-        foreach (var playerWeaponStats in _playerWeaponStats)
-        {
-            if (playerWeaponStats.WeaponName == _currentWeaponName)
-            {
-                playerWeapon = playerWeaponStats;
-                break;
-            }
-        }
-        if (EconomyMechanic.Instance.HasEnoughMoney(playerWeapon.DamageUpgradePrice))
-        {
-            if (playerWeapon.DamageLevel < 5) isAllOk = true;
-        }
-
-        if (EconomyMechanic.Instance.HasEnoughMoney(playerWeapon.ReloadSpeedPrice))
-        {
-            if (playerWeapon.ReloadSpeedLevel < 5) isAllOk = true;
-        }
-        if (EconomyMechanic.Instance.HasEnoughMoney(playerWeapon.BulletCountPrice))
-        {
-            if (playerWeapon.BulletCountLevel < 5) isAllOk = true;
-        }
-        if (EconomyMechanic.Instance.HasEnoughMoney(playerWeapon.AccuracyPrice))
-        {
-            if (playerWeapon.AccuracyLevel < 5) isAllOk = true;
-        }
-
-        return isAllOk;
-    }
-
-    public bool IsMaxLevel(WeaponStatType type, string weaponName)
-    {
-        PlayerWeaponStats playerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[0]);
-    
-        foreach (var playerWeaponStats in _playerWeaponStats)
-        {
-            if (playerWeaponStats.WeaponName == weaponName)
-            {
-                playerWeapon = playerWeaponStats;
-                break;
-            }
-        }
-    
-        switch (type)
-        {
-            case WeaponStatType.Damage:
-                if (playerWeapon.DamageLevel >= 5) return true;
-                break;
-            case WeaponStatType.ReloadSpeed:
-                if (playerWeapon.ReloadSpeedLevel >= 5) return true;
-                break;
-            case WeaponStatType.BulletCount:
-                if (playerWeapon.BulletCountLevel >= 5) return true;
-                break;
-            case WeaponStatType.Accuracy:
-                if (playerWeapon.AccuracyLevel >= 5) return true;
-                break;
-            default:
-                return false;
-        }
-        
-        return false;
-    }
-    
-
-    public void TrowGrenade()
-    {
-        _grenadeCount--;
-    }
-
-    public bool CanThrowGrenade()
-    {
-        return _grenadeCount > 0;
-    }
-}
-
-public class WeaponBehaviour
-{
-    public string GetWeaponName()
-    {
-        throw new NotImplementedException();
+        return _currentPlayerWeaponStats;
     }
 }

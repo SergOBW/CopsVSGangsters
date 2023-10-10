@@ -12,9 +12,9 @@ public class AddMoneyPopup : MonoBehaviour
     private int lastLevelWathcedAdd;
     private void OnEnable()
     {
-        moneyToAdd = LevelsMechanic.Instance.GetLastSavedLevel() * 200 + 1000;
+        moneyToAdd = LevelsMonoMechanic.Instance.GetLastSavedLevel() * 200 + 1000;
         moneyCountText.text = "+ " + moneyToAdd;
-        if (LevelsMechanic.Instance.GetLastSavedLevel() % 2 == 0 && lastLevelWathcedAdd != LevelsMechanic.Instance.GetLastSavedLevel())
+        if (LevelsMonoMechanic.Instance.GetLastSavedLevel() % 2 == 0 && lastLevelWathcedAdd != LevelsMonoMechanic.Instance.GetLastSavedLevel())
         {
             comeLaterText.gameObject.SetActive(false);
             watchAddText.gameObject.SetActive(true);
@@ -35,7 +35,7 @@ public class AddMoneyPopup : MonoBehaviour
 
     private void WatchAdd()
     {
-        lastLevelWathcedAdd = LevelsMechanic.Instance.GetLastSavedLevel();
+        lastLevelWathcedAdd = LevelsMonoMechanic.Instance.GetLastSavedLevel();
         watchAddText.gameObject.SetActive(false);
         comeLaterText.gameObject.SetActive(true);
         watchAddsButton.onClick.RemoveListener(WatchAdd);
@@ -45,7 +45,7 @@ public class AddMoneyPopup : MonoBehaviour
 
     private void AddClosed()
     {
-        EconomyMechanic.Instance.AddMoney(moneyToAdd);
+        EconomyMonoMechanic.Instance.AddMoney(moneyToAdd);
         AddManager.Instance.OnRewardedAddClosed -= AddClosed;
     }
 }

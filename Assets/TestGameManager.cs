@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestGameManager : MonoBehaviour
 {
-    [SerializeField] private GlobalMechanic[] monoMechanics;
+    [SerializeField] private GlobalMonoMechanic[] monoMechanics;
     [SerializeField] private EnemySpawnMechanic _enemySpawnMechanic;
 
     private void Start()

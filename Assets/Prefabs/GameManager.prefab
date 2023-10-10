@@ -1,76 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1302547570020742835
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4767000025849603751}
-  - component: {fileID: 6582491860460020034}
-  - component: {fileID: 9079628560921519035}
-  - component: {fileID: 1709513258567806897}
-  m_Layer: 0
-  m_Name: OutGame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4767000025849603751
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302547570020742835}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 390082000312652734}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6582491860460020034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302547570020742835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a85607091bfad7478094f933d3a36e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startedLanguage: ru
---- !u!114 &9079628560921519035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302547570020742835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2b30ce217d8e645929719bbc79cda2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1709513258567806897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302547570020742835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1bdcdb38f8dc974db06b01252feac92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6027494209080262370
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,9 +309,7 @@ GameObject:
   - component: {fileID: 390082000312652734}
   - component: {fileID: 6811155363528524990}
   - component: {fileID: 8941266700296672572}
-  - component: {fileID: 5181611264093847362}
   - component: {fileID: 7754323005418844874}
-  - component: {fileID: 8306768009705177670}
   - component: {fileID: 1743999464976036662}
   - component: {fileID: 4639955356401764326}
   - component: {fileID: 4383178100819990690}
@@ -412,7 +339,6 @@ Transform:
   m_Children:
   - {fileID: 5717002973096163730}
   - {fileID: 1855789889905789424}
-  - {fileID: 4767000025849603751}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -430,8 +356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _monoMechanics:
   - {fileID: 9043305496221921634}
-  - {fileID: 9079628560921519035}
-  - {fileID: 8306768009705177670}
   - {fileID: 7754323005418844874}
   - {fileID: 4639955356401764326}
   - {fileID: 1743999464976036662}
@@ -455,18 +379,6 @@ MonoBehaviour:
   - {fileID: 780325707021310065}
   - {fileID: 6267863418015566204}
   - {fileID: 6331291934285394514}
---- !u!114 &5181611264093847362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254582670927975062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e9860143de8ff43b1b5f33d553c86d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7754323005418844874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,45 +395,9 @@ MonoBehaviour:
   defaultPlayerStats: {fileID: 11400000, guid: a3f0b40b3a35a8f44b749e91ddf3a14c, type: 2}
   maxLevels: 90
   mapsSo:
-  - {fileID: 11400000, guid: f73de11b61467ed4b834f221a945c4e0, type: 2}
-  - {fileID: 11400000, guid: 8db4ad641a129564b8f940457cb680cd, type: 2}
-  - {fileID: 11400000, guid: 5f0761e5eb537c34a9ec5485505cfaea, type: 2}
-  - {fileID: 11400000, guid: db39fd55641d6034891bfc0d26db87e9, type: 2}
-  - {fileID: 11400000, guid: ff7c04b7a353d2c48a6eadb2edbd327f, type: 2}
-  - {fileID: 11400000, guid: 3e1fdfa7e9f5ede41b69f8da6d9a7c1a, type: 2}
-  - {fileID: 11400000, guid: a5d1475a43842c84f8eac440bd713db8, type: 2}
-  - {fileID: 11400000, guid: 9249ab039d7cf364094288d97bf0c34e, type: 2}
-  - {fileID: 11400000, guid: cfef96efdd5156a46a9ec9028ee89203, type: 2}
-  - {fileID: 11400000, guid: f071357cfb697c441831b527f205f7de, type: 2}
+  - {fileID: 11400000, guid: 2da2910009ae60f4cbef5fc5b3cb30cd, type: 2}
   startedLevelWinMoney: 1000
   eachLevelWinMoney: 200
---- !u!114 &8306768009705177670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254582670927975062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197ede1942a01fc42a785851c2f2f0e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerWeaponStatsSo:
-  - {fileID: 11400000, guid: 3f0960897ee29ea41827c0fc19f20a6f, type: 2}
-  - {fileID: 11400000, guid: 382070285c7cfdb439b11d1aa75ffc94, type: 2}
-  - {fileID: 11400000, guid: 017e9c7273eef684bba69afd6c551ac8, type: 2}
-  - {fileID: 11400000, guid: ea4242a03f360d642837d61b0af29f56, type: 2}
-  - {fileID: 11400000, guid: 42b3ff39ad5a0814a89a90d29e6c67f5, type: 2}
-  - {fileID: 11400000, guid: 6e330574200ab96428a5167a179a4c4a, type: 2}
-  - {fileID: 11400000, guid: 442f009d81071f54f8fc8d3ba70fb368, type: 2}
-  - {fileID: 11400000, guid: dba41af34a4e8184ebe4c3eae0ed6c61, type: 2}
-  - {fileID: 11400000, guid: 5dfd5eed5dbb2de4a91b237b7cd860e3, type: 2}
-  - {fileID: 11400000, guid: b30553f37032f9d41875fc87025325b7, type: 2}
-  _currentWeaponName: MAKAROV
-  startingWeaponName: MAKAROV
-  startingGrenadeCount: 3
-  grenadeDamage: 100
 --- !u!114 &1743999464976036662
 MonoBehaviour:
   m_ObjectHideFlags: 0

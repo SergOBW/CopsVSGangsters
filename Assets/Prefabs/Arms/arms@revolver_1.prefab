@@ -10616,7 +10616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5617361229647716502
 Transform:
   m_ObjectHideFlags: 0
@@ -10884,7 +10884,7 @@ MonoBehaviour:
   currentAmmo: 0
   _layerMask:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 0
   MeleeSettings:
     isMeleeWeapon: 0
   ShootSettings:

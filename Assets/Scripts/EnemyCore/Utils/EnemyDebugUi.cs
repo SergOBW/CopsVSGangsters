@@ -20,10 +20,10 @@ public class EnemyDebugUi : MonoBehaviour
         healthText.text = obj.ToString();
     }
 
-    private void OnStateChanged(EnemyMonoState previousEnemyMonoState, EnemyMonoState currentEnemyMonoState)
+    private void OnStateChanged(EnemyState previousEnemyState, EnemyState currentEnemyState)
     {
-        previousStateText.text = previousEnemyMonoState.ToString();
-        currentStatText.text = currentEnemyMonoState.ToString();
+        previousStateText.text = previousEnemyState.ToString();
+        currentStatText.text = currentEnemyState.ToString();
     }
 
     private void OnDistanceChanged(float distance)

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GlobalMechanicSetup : MonoBehaviour
 {
-    [SerializeField] private List<GlobalMechanic> _monoMechanics;
+    [SerializeField] private List<GlobalMonoMechanic> _monoMechanics;
 
-    private void Start()
+    public void InitializeMechanics()
     {
         for (int i = 0; i < _monoMechanics.Count; i++)
         {

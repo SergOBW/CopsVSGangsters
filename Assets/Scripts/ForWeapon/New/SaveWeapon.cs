@@ -4,20 +4,20 @@
     {
         public string name;
         public string attachments;
-        public int IsOpen;
+        public bool IsOpen;
         
         public int DamageLevel;
         public int ReloadSpeedLevel;
         public int AccuracyLevel;
         public int BulletCountLevel;
 
-        public SaveWeapon(string name, string attachments, int isOpen)
+        public SaveWeapon(string name, string attachments, bool isOpen)
         {
             this.name = name;
             
             this.attachments = attachments;
             
-            this.IsOpen = isOpen;
+            IsOpen = isOpen;
 
             DamageLevel = 0;
             ReloadSpeedLevel = 0;
