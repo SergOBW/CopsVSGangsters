@@ -127,6 +127,7 @@ public class WeaponManagerMechanic : IMechanic
 
     private PlayerWeaponStatsSo[] _playerWeaponStatsSo;
     private Dictionary<string, PlayerWeaponStats> _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
+    private List<PlayerWeaponStats> _avaibleWeaponStats;
     private PlayerWeaponStats _currentPlayerWeaponStats;
     
     public void Initialize()
@@ -140,6 +141,7 @@ public class WeaponManagerMechanic : IMechanic
     private void Setup()
     {
         _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
+        _avaibleWeaponStats = new List<PlayerWeaponStats>();
         for (int i = 0; i < _playerWeaponStatsSo.Length; i++)
         {
             PlayerWeaponStats newPlayerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[i]);
@@ -148,8 +150,17 @@ public class WeaponManagerMechanic : IMechanic
             _playerWeaponStatsDictionary.Add(newPlayerWeapon.WeaponName, newPlayerWeapon);
             if (newPlayerWeapon.isStarted)
             {
-                SetWeapon(newPlayerWeapon.WeaponName);
+                _avaibleWeaponStats.Add(newPlayerWeapon);
             }
+        }
+        
+        if (_avaibleWeaponStats.Count > 0 )
+        {
+            SetWeapon(_avaibleWeaponStats[0].WeaponName);
+        }
+        else
+        {
+            Debug.LogError("There is no started weapons");
         }
     }
     public void SetWeapon(string weaponName)
@@ -163,5 +174,10 @@ public class WeaponManagerMechanic : IMechanic
     public PlayerWeaponStats GetCurrentWeapon()
     {
         return _currentPlayerWeaponStats;
+    }
+
+    public List<PlayerWeaponStats> GetAvaibleWeapons()
+    {
+        return _avaibleWeaponStats;
     }
 }

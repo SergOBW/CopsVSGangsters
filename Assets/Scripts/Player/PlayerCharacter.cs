@@ -1,12 +1,17 @@
 using System;
+using System.Collections.Generic;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 public class PlayerCharacter : MonoBehaviour
 {
-    private ArmControllerScript _armControllerScript;
+    private ArmControllerScript _currentWeapon;
     private FirstPersonController _firstPersonController;
     private AiSensor _aiSensor;
     [SerializeField] private Camera armsCamera;
+    private List<ArmControllerScript> _armControllerScripts = new List<ArmControllerScript>();
+    private int _currentWeaponIndex;
     private void Awake()
     {
         _aiSensor = GetComponent<AiSensor>();
@@ -31,7 +36,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public bool IsAiming()
     {
-        return _armControllerScript.IsAiming;
+        return _currentWeapon.IsAiming;
     }
 
     public string GetWeaponName()
@@ -42,7 +47,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public int GetAmmunitionCurrent()
     {
-        return _armControllerScript.currentAmmo;
+        return _currentWeapon.currentAmmo;
     }
 
     protected virtual void OnOnFireEvent()
@@ -50,11 +55,81 @@ public class PlayerCharacter : MonoBehaviour
         OnFireEvent?.Invoke();
     }
 
-    public void SetupArms(GameObject armControllerGo)
+    public void SetupArms(List<PlayerWeaponStats> avaibleWeaponStatsList)
     {
-        GameObject arms = Instantiate(armControllerGo, armsCamera.transform);
-        arms.GetComponent<AimScript>().SetPlayerCamera(armsCamera);
-        _armControllerScript = arms.GetComponent<ArmControllerScript>();
-        _armControllerScript.OnFire += OnOnFireEvent;
+        _armControllerScripts = new List<ArmControllerScript>();
+        foreach (var playerWeaponStats in avaibleWeaponStatsList)
+        {
+            GameObject gameObject =  Instantiate(playerWeaponStats.WeaponArms, armsCamera.transform);
+            ArmControllerScript armControllerScript = gameObject.GetComponent<ArmControllerScript>();
+            if (gameObject.TryGetComponent(out AimScript aimScript))
+            {
+                aimScript.SetPlayerCamera(armsCamera);
+            }
+            _armControllerScripts.Add(armControllerScript);
+        }
+
+        _currentWeaponIndex = 0;
+        PickWeapon(_currentWeaponIndex);
+    }
+
+
+    private void PickWeapon(int index)
+    {
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.OnFire -= OnOnFireEvent;
+        }
+
+        foreach (var armControllerScript in _armControllerScripts)
+        {
+            armControllerScript.gameObject.SetActive(false);
+        }
+        _currentWeapon = _armControllerScripts[index];
+        _currentWeapon.gameObject.SetActive(true);
+        _currentWeapon.OnFire += OnOnFireEvent;
+    }
+    
+    public void OnTryInventoryNext(InputAction.CallbackContext context)
+    {
+        if (_armControllerScripts.Count <= 0 )
+        {
+            return;
+        }
+        
+        //Switch.
+        switch (context)
+        {
+            //Performed.
+            case {phase: InputActionPhase.Performed}:
+                //Get the index increment direction for our inventory using the scroll wheel direction. If we're not
+                //actually using one, then just increment by one.
+                float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
+					
+                //Get the next index to switch to.
+                int indexNext = scrollValue > 0 ? GetNextIndex() : _armControllerScripts.Count - 1;
+                //Get the current weapon's index.
+                Debug.Log(_currentWeaponIndex);
+					
+                //Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
+                if (_currentWeaponIndex != indexNext)
+                    _currentWeaponIndex = indexNext;
+                PickWeapon(_currentWeaponIndex);
+                break;
+        }
+    }
+
+    private int GetNextIndex()
+    {
+        if (_currentWeaponIndex + 1 <= _armControllerScripts.Count - 1)
+        {
+            _currentWeaponIndex += 1;
+        }
+        else
+        {
+            _currentWeaponIndex = 0;
+        }
+
+        return _currentWeaponIndex;
     }
 }

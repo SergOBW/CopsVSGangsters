@@ -2,7 +2,7 @@ using System;
 using DefaultNamespace;
 using UnityEngine;
 
-public abstract class StatsHitReaction : MonoBehaviour
+public abstract class StatsHitReaction : MonoBehaviour, IDamageble
 {
     protected StatsController statsController;
     public event Action OnHit;
@@ -18,15 +18,14 @@ public abstract class StatsHitReaction : MonoBehaviour
         Destroy(this);
     }
 
-    public virtual void HitReaction(IDamaging damaging)
+    public virtual void Damage()
     {
         OnHit?.Invoke();
         statsController.GetComponent<EnemySoundManager>().PlayHitSound();
     }
 }
 
-public interface IDamaging
+public interface IDamageble
 {
-    float GetDamage();
     void Damage();
 }

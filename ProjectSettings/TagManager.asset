@@ -7,6 +7,8 @@ TagManager:
   - EnemyDetector
   - Blood
   - EndPoint
+  - ClingPoint
+  - Destroy
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - Player
   - Enemy
   - FirstPersonView
-  - 
-  - 
+  - EnemyVisuals
+  - DestroyItDebris
   - 
   - 
   - 

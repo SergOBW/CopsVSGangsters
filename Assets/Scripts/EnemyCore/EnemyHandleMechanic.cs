@@ -101,9 +101,9 @@ namespace EnemyCore
             
         }
 
-        public void TakeDamage(string colliderName,bool isHead, IDamaging damaging)
+        public void TakeDamage(string colliderName,bool isHead)
         {
-            float damage = damaging.GetDamage();
+            float damage = WeaponManagerMechanic.Instance.GetCurrentWeapon().Damage;
             if (_enemyStatsControllers.TryGetValue(colliderName, out var controller))
             {
                 if (isHead)

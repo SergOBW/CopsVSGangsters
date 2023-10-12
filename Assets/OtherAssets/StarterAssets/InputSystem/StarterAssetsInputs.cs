@@ -55,6 +55,15 @@ namespace StarterAssets
 		{
 			look = newLookDirection;
 		}
+		public void MoveInput(InputAction.CallbackContext callbackContext)
+		{
+			move = callbackContext.ReadValue<Vector2>();
+		} 
+
+		public void LookInput(InputAction.CallbackContext callbackContext)
+		{
+			look = callbackContext.ReadValue<Vector2>();
+		}
 
 		public void JumpInput(bool newJumpState)
 		{
@@ -66,15 +75,7 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 		
-		private void OnApplicationFocus(bool hasFocus)
-		{
-			SetCursorState(cursorLocked);
-		}
-
-		private void SetCursorState(bool newState)
-		{
-			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
-		}
+		
 	}
 	
 }

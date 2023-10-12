@@ -2,9 +2,9 @@ using EnemyCore;
 
 public class EnemyBodyHit : StatsHitReaction
 {
-    public override void HitReaction(IDamaging damaging)
+    public override void Damage()
     {
-        base.HitReaction(damaging);
-        EnemyHandleMechanic.Instance.TakeDamage(statsController.name,false,damaging);
+        base.Damage();
+        EnemyHandleMechanic.Instance.TakeDamage(statsController.name,false);
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using StarterAssets;
+using DestroyIt;
+using FirstPersonController = StarterAssets.FirstPersonController;
 using Random = UnityEngine.Random;
 
 public class ArmControllerScript : MonoBehaviour {
@@ -748,9 +749,17 @@ public class ArmControllerScript : MonoBehaviour {
 				
 				if (hit.transform.tag == ImpactTags.bloodImpactTag) {
 					//Spawn bullet impact on surface
-					if (hit.transform.TryGetComponent(out IDamaging iDamaging))
+					if (hit.transform.TryGetComponent(out IDamageble iDamaging))
 					{
 						iDamaging.Damage();
+					}
+				}
+				if (hit.transform.tag == "Destroy") {
+					//Spawn bullet impact on surface
+					Debug.Log("Hit destroy");
+					if (hit.transform.TryGetComponent(out Destructible destructible))
+					{
+						destructible.Destroy();
 					}
 				}
 			}    
@@ -887,9 +896,18 @@ public class ArmControllerScript : MonoBehaviour {
 			//If the raycast hit the tag "Dirt"
 			if (hit.transform.tag == ImpactTags.bloodImpactTag) {
 				//Spawn bullet impact on surface
-				if (hit.transform.TryGetComponent(out IDamaging iDamaging))
+				if (hit.transform.TryGetComponent(out IDamageble iDamaging))
 				{
 					iDamaging.Damage();
+				}
+			}
+			
+			if (hit.transform.tag == "Destroy") {
+				//Spawn bullet impact on surface
+				Debug.Log("Hit destroy");
+				if (hit.transform.TryGetComponent(out Destructible destructible))
+				{
+					destructible.Destroy();
 				}
 			}
 		}

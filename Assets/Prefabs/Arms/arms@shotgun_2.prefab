@@ -5606,7 +5606,7 @@ MonoBehaviour:
   currentAmmo: 0
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   MeleeSettings:
     isMeleeWeapon: 0
   ShootSettings:

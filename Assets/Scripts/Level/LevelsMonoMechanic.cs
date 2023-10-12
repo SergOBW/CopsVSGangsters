@@ -128,7 +128,7 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         // Setup player
         GameObject playerGameObject =  Instantiate(playerPrefab, FindObjectOfType<PlayerSpawnPoint>().transform.position,FindObjectOfType<PlayerSpawnPoint>().transform.rotation);
         PlayerStatsController playerStatsController = playerGameObject.GetComponent<PlayerStatsController>();
-        playerGameObject.GetComponent<PlayerCharacter>().SetupArms(WeaponManagerMechanic.Instance.GetCurrentWeapon().WeaponArms);
+        playerGameObject.GetComponent<PlayerCharacter>().SetupArms(WeaponManagerMechanic.Instance.GetAvaibleWeapons());
         playerStatsController.Initialize(defaultPlayerStats);
         playerStatsController.OnPlayerDie += LooseLevel;
         //playerStatsController.GetComponent<PlayerWeaponManager>().Initialize();
