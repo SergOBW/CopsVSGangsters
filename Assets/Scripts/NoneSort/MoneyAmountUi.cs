@@ -6,13 +6,13 @@ public class MoneyAmountUi : MonoBehaviour
     [SerializeField] private TMP_Text moneyText;
     private void OnEnable()
     {
-        EconomyMechanic.Instance.OnMoneyAmountChanged += Refresh;
-        Refresh(EconomyMechanic.Instance.GetCurrentMoney());
+        EconomyMonoMechanic.Instance.OnMoneyAmountChanged += Refresh;
+        Refresh(EconomyMonoMechanic.Instance.GetCurrentMoney());
     }
 
     private void OnDisable()
     {
-        EconomyMechanic.Instance.OnMoneyAmountChanged -= Refresh;
+        EconomyMonoMechanic.Instance.OnMoneyAmountChanged -= Refresh;
     }
 
     private void Refresh(float value)

@@ -4,10 +4,10 @@ namespace Abstract
 {
     public interface IStateMachine
     {
-        public IState currentState { get; set;  }
-        public IState previousState { get; set;}
+        public IState CurrentState { get; set; }
+        public IState PreviousState { get; set; }
     
-        public event Action<IState,IState> OnStateChanged;
+        public event Action<IState,IState> OnStateChangedEvent;
         
         public void Initialize();
 

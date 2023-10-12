@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EnemyCore.States
 {
-    public class ChaseWithEndPoint : ChaseMonoState
+    public class ChaseWithEndPoint : ChaseState
     {
         public override void UpdateState()
         {
@@ -26,7 +26,7 @@ namespace EnemyCore.States
                         currentMonoStateMachine.LookAtTarget();
                         if (statsContainer == null || statsContainer.isDead)
                         {
-                            ExitState(currentMonoStateMachine.findTargetMonoState);
+                            ExitState(currentMonoStateMachine.findTargetState);
                             return;
                         }
                         float distance = Vector3.Distance(currentMonoStateMachine.transform.position, target.transform.position);
@@ -34,7 +34,7 @@ namespace EnemyCore.States
                         float fireRangeOffest = currentMonoStateMachine.GetFireRangeOffest();
                         if (distance <= fireRange - fireRangeOffest)
                         {
-                            ExitState(currentMonoStateMachine.attackMonoState);
+                            ExitState(currentMonoStateMachine.attackState);
                             return;
                         }
                     }

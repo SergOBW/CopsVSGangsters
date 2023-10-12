@@ -33,16 +33,7 @@ namespace Player
         private bool[] wasEnabled;
 
         private bool haveArmourBonus;
-        [SerializeField] private bool isSelfInitialize;
-
-        private void Awake()
-        {
-            if (isSelfInitialize)
-            {
-                Initialize();
-            }
-        }
-
+        
         public override void Initialize(StatsSo statsSo = null)
         {
             if (statsSo == null)

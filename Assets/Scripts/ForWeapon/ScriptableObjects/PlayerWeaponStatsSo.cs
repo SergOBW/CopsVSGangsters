@@ -35,6 +35,10 @@ namespace ForWeapon
         public float accuracyPriceLevelMultiplayer = 1000;
         public int bulletCountPriceLevelMultiplayer = 1000;
 
-        //[Header("Visuals")] public GameObject weaponArms;
+        [Header("Visuals")] 
+        public GameObject weaponArms;
+
+        [Header("Options")]
+        public bool isStarted;
     }
 }

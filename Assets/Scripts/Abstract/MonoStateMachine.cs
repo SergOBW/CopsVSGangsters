@@ -3,45 +3,44 @@ using UnityEngine;
 
 namespace Abstract
 {
-    public abstract class MonoStateMachine : MonoBehaviour
+    public abstract class MonoStateMachine : MonoBehaviour, IStateMachine
     {
-        public IMonoState CurrentMonoState { get; protected set; }
-        public IMonoState PreviousMonoState { get; protected set; }
-    
-        public event Action<IMonoState,IMonoState> OnStateChangedEvent;
+        public IState CurrentState { get; set; }
+        public IState PreviousState { get; set; }
+        public event Action<IState,IState> OnStateChangedEvent;
 
 
         public abstract void Initialize();
 
-        public virtual void ChangeState(IMonoState monoState)
+        public virtual void ChangeState(IState monoState)
         {
-            if (CurrentMonoState != null)
+            if (CurrentState != null)
             {
-                PreviousMonoState = CurrentMonoState;
+                PreviousState = CurrentState;
             }
 
-            CurrentMonoState = monoState;
-            CurrentMonoState.EnterState(this);
-            OnStateChangedEvent?.Invoke(PreviousMonoState,CurrentMonoState);
+            CurrentState = monoState;
+            CurrentState.EnterState(this);
+            OnStateChangedEvent?.Invoke(PreviousState,CurrentState);
         }
 
-        protected void OnStateChanged(IMonoState previousState, IMonoState currentMonoState)
+        protected void OnStateChanged(IState previousState, IState currentMonoState)
         {
             OnStateChangedEvent?.Invoke(previousState,currentMonoState);
         }
 
         public virtual void Update()
         {
-            if (CurrentMonoState != null)
+            if (CurrentState != null)
             {
-                CurrentMonoState.UpdateState();
+                CurrentState.UpdateState();
             }
         }
 
         protected void SetDefaultStates()
         {
-            CurrentMonoState = new DefaultMonoState();
-            PreviousMonoState = new DefaultMonoState();
+            CurrentState = new DefaultMonoState();
+            PreviousState = new DefaultMonoState();
         }
 
     }

@@ -15,8 +15,13 @@ public class TutorialUi : MonoBehaviour
     private bool isClickCompleted;
     private float timer;
     private UiMonoPlayState _uiMonoPlayState;
+    
+    public void Initialize()
+    {
+        Debug.Log("Tutorial initialize");
+    }
 
-    public void StartTutorial(UiMonoPlayState uiMonoPlayState)
+    private void StartTutorial(UiMonoPlayState uiMonoPlayState)
     {
         if (AddManager.Instance.isMobile)
         {
@@ -26,7 +31,7 @@ public class TutorialUi : MonoBehaviour
         {
             shootTutorialPc.SetActive(true);
         }
-        LevelMonoStateMachine.Instance.Tutorial();
+        LevelStateMachine.Instance.Tutorial();
         isClickCompleted = false;
         playerInput.enabled = true;
         playerInput.ActivateInput();
@@ -75,12 +80,12 @@ public class TutorialUi : MonoBehaviour
             shootTutorialPc.SetActive(false);
             moveTutorialPc.SetActive(false);
         }
-        LevelMonoStateMachine.Instance.SetLevelPlayState();
+        LevelStateMachine.Instance.SetLevelPlayState();
         if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
         {
             CrazyEvents.Instance.GameplayStart();
         }
         playerInput.enabled = false;
-        _uiMonoPlayState.ShowQuests();
     }
+    
 }

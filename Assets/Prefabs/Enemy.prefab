@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4609749416363780770}
   - component: {fileID: 888338665236180206}
   - component: {fileID: 4859365980871516903}
-  m_Layer: 11
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: EnemyDetector
   m_Icon: {fileID: 0}

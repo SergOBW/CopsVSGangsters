@@ -1,7 +1,5 @@
 ﻿using Abstract;
-using CrazyGames;
 using Level;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,78 +7,50 @@ namespace Ui.States
 {
     public class UiMonoPlayState : UiMonoState
     {
-        private Crosshair crosshair;
         [SerializeField] private Button pauseButton;
         [SerializeField] private TutorialUi _tutorialUi;
         [SerializeField] private QuestsUi _questsUi;
         [SerializeField] private InteractionUi _interactionUi;
         [SerializeField] private bl_IndicatorManager _indicatorManager;
         [SerializeField] private bl_HudDamageManager _hudDamageManager;
-        private bool isTutorual;
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             SubscribeOnEvents();
-            crosshair = GetComponentInChildren<Crosshair>();
             
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            SetupQuests();
             
             _interactionUi.Initialize();
-            
-            transform.rotation = quaternion.identity;
-            
-            /*
-            
-            if (LevelsMechanic.Instance.GetLastSavedLevel() == 0 && !isTutorual)
-            {
-                _tutorialUi.StartTutorial(this);
-                isTutorual = true;
-                return;
-            }
-            */
-
-            if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
-            {
-                CrazyEvents.Instance.GameplayStart();
-            }
-            //FindObjectOfType<StarterAssetsInputs>().Initialize();
-            switch (LevelsMechanic.Instance.GetCurrentScenario())
-            {
-                case WaveDefenseScenario waveDefenseScenario :
-                    //_questsUi.gameObject.SetActive(false);
-                    break;
-                case LevelPassScenario levelPassScenario:
-                    //_questsUi.gameObject.SetActive(true);
-                    _questsUi.Initialize();
-                    break;
-            }
             _indicatorManager.SetupIndicators();
         }
         
+        public override void ExitState(IState monoState)
+        {
+            UnSubscribeOnEvents();
+            _indicatorManager.UnRegister();
+            _hudDamageManager.UnRegister();
+            base.ExitState(monoState);
+        }
+
         private void SubscribeOnEvents()
         {
-            LevelMonoStateMachine.Instance.OnLevelPaused += OnLevelPaused;
-            //FindObjectOfType<Character>().OnFire += OnFire;
-            LevelsMechanic.Instance.OnLevelWin += OnLevelWin;
-            LevelsMechanic.Instance.OnLevelLoose += OnLevelLoose;
+            LevelStateMachine.Instance.OnLevelPaused += OnLevelPaused;
+            LevelsMonoMechanic.Instance.OnLevelWin += OnLevelWin;
+            LevelsMonoMechanic.Instance.OnLevelLoose += OnLevelLoose;
             pauseButton.onClick.AddListener(PauseGame);
         }
         
         private void UnSubscribeOnEvents()
         {
-            LevelMonoStateMachine.Instance.OnLevelPaused -= OnLevelPaused;
-            //FindObjectOfType<Character>().OnFire -= OnFire;
-            LevelsMechanic.Instance.OnLevelWin -= OnLevelWin;
-            LevelsMechanic.Instance.OnLevelLoose -= OnLevelLoose;
+            LevelStateMachine.Instance.OnLevelPaused -= OnLevelPaused;
+            LevelsMonoMechanic.Instance.OnLevelWin -= OnLevelWin;
+            LevelsMonoMechanic.Instance.OnLevelLoose -= OnLevelLoose;
             pauseButton.onClick.RemoveListener(PauseGame);
         }
         
-        private void OnFire()
-        {
-            crosshair.Shot();
-        }
-
         private void OnLevelPaused()
         {
             ExitState(currentMonoStateMachine.uiMonoPauseState);
@@ -98,20 +68,26 @@ namespace Ui.States
         
         private void PauseGame()
         {
-            LevelMonoStateMachine.Instance.Pause();
+            LevelStateMachine.Instance.Pause();
         }
         
-        public override void ExitState(IMonoState monoState)
+        private void SetupQuests()
         {
-            UnSubscribeOnEvents();
-            _indicatorManager.UnRegister();
-            _hudDamageManager.UnRegister();
-            base.ExitState(monoState);
+            Scenario scenario;
+            scenario = LevelsMonoMechanic.Instance.GetCurrentScenario();
+            if (scenario == null)
+            {
+                return;
+            }
+            switch (scenario)
+            {
+                case WaveDefenseScenario waveDefenseScenario :
+                    break;
+                case LevelPassScenario levelPassScenario:
+                    _questsUi.Initialize();
+                    break;
+            }
         }
-
-        public void ShowQuests()
-        {
-            _questsUi.Initialize();
-        }
+        
     }
 }

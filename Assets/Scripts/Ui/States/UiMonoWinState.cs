@@ -22,11 +22,10 @@ namespace Ui.States
 
         [SerializeField] private WinningStar[] winningStars;
 
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             mainAnimation.Play();
-            CheckForUpgrades();
             
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -68,7 +67,7 @@ namespace Ui.States
 
             for (int i = 0; i < winningStars.Length; i++)
             {
-                if (i <= LevelsMechanic.Instance.GetStarts() - 1)
+                if (i <= LevelsMonoMechanic.Instance.GetStarts() - 1)
                 {
                     winningStars[i].SetupStar(true);
                 }
@@ -91,43 +90,29 @@ namespace Ui.States
         {
             mainMenuButton.onClick.RemoveListener(MainMenu);
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.ExitLevel();
+            LevelsMonoMechanic.Instance.ExitLevel();
         }
 
         private void NextLevel()
         {
             nextLevelButton.onClick.RemoveListener(NextLevel);
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.NextLevel();
+            LevelsMonoMechanic.Instance.NextLevel();
         }
 
         private void RestartLevel()
         {
             restartLevelButton.onClick.RemoveListener(RestartLevel);
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.RestartLevel();
+            LevelsMonoMechanic.Instance.RestartLevel();
         }
 
-        public override void ExitState(IMonoState monoState)
+        public override void ExitState(IState monoState)
         {
             base.ExitState(monoState);
             mainMenuButton.onClick.RemoveListener(MainMenu);
             nextLevelButton.onClick.RemoveListener(NextLevel);
             restartLevelButton.onClick.RemoveListener(RestartLevel);
-        }
-
-        private void CheckForUpgrades()
-        {
-            if (WeaponManagerMechanic.Instance.CanBuyUpgradeOnCurrentWeapon())
-            {
-                checkUpgradeAnimation.Play("CheckUpgrade");
-                checkUpgradeUi.SetActive(true);
-            }
-            else
-            {
-                checkUpgradeAnimation.Stop();
-                checkUpgradeUi.SetActive(false);
-            }
         }
         
         private void TryToShowAdd()
@@ -140,7 +125,7 @@ namespace Ui.States
         {
             if (AddManager.Instance.canShowAdd)
             {
-                SoundMechanic.Instance.DisableSound();
+                SoundMonoMechanic.Instance.DisableSound();
                 TryToShowAdd();
             }
             else

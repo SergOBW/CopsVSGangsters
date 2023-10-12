@@ -14,7 +14,7 @@ public class SettingsPopup : MonoBehaviour
 
     public void Show()
     {
-        if (SoundMechanic.Instance.IsSoundOn())
+        if (SoundMonoMechanic.Instance.IsSoundOn())
         {
             offSoundButton.gameObject.SetActive(true);
             onSoundButton.gameObject.SetActive(false);
@@ -35,12 +35,12 @@ public class SettingsPopup : MonoBehaviour
         onSoundButton.onClick.RemoveListener(OnSound);
         offSoundButton.onClick.RemoveListener(OffSound);
         gameObject.SetActive(false);
-        SaveManagerMechanic.Instance.Save();
+        SaveGameMechanic.Instance.Save();
     }
 
     private void OnSound()
     {
-        SoundMechanic.Instance.OnSound();
+        SoundMonoMechanic.Instance.OnSound();
         onSoundButton.gameObject.SetActive(false);
         offSoundButton.gameObject.SetActive(true);
         soundImage.sprite = onSound;
@@ -48,7 +48,7 @@ public class SettingsPopup : MonoBehaviour
 
     private void OffSound()
     {
-        SoundMechanic.Instance.OffSound();
+        SoundMonoMechanic.Instance.OffSound();
         onSoundButton.gameObject.SetActive(true);
         offSoundButton.gameObject.SetActive(false);
         soundImage.sprite = offSound;

@@ -277,9 +277,9 @@ public class ArmControllerScript : MonoBehaviour {
 	
 	void Update () {
 
-		if (LevelMonoStateMachine.Instance != null)
+		if (LevelStateMachine.Instance != null)
 		{
-			if (!LevelMonoStateMachine.Instance.IsPlayState())
+			if (!LevelStateMachine.Instance.IsPlayState())
 			{
 				return;
 			}

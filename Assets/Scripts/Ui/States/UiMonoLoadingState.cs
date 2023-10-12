@@ -9,13 +9,13 @@ namespace Ui.States
         [SerializeField] private GameObject loadingText;
         [SerializeField] private GameObject clickText;
         [SerializeField] private ButtonWithCursor clickButton;
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             loadingText.SetActive(true);
             clickText.SetActive(false);
-            LevelsMechanic.Instance.OnLevelLoaded += OnLevelLoaded;
-            LevelsMechanic.Instance.OnLevelUnLoaded += OnLevelUnloaded;
+            LevelsMonoMechanic.Instance.OnLevelLoaded += OnLevelLoaded;
+            LevelsMonoMechanic.Instance.OnLevelUnLoaded += OnLevelUnloaded;
         }
 
         private void OnLevelLoaded()
@@ -30,7 +30,7 @@ namespace Ui.States
         {
             clickText.SetActive(false);
             clickButton.gameObject.SetActive(false);
-            LevelMonoStateMachine.Instance.SetLevelPlayState();
+            LevelStateMachine.Instance.SetLevelPlayState();
             ExitState(currentMonoStateMachine.uiMonoPlayState);
         }
 
@@ -52,10 +52,10 @@ namespace Ui.States
             ExitState(currentMonoStateMachine.uiMonoMainMenuState);
         }
 
-        public override void ExitState(IMonoState monoState)
+        public override void ExitState(IState monoState)
         {
-            LevelsMechanic.Instance.OnLevelLoaded -= OnLevelLoaded;
-            LevelsMechanic.Instance.OnLevelUnLoaded -= OnLevelUnloaded;
+            LevelsMonoMechanic.Instance.OnLevelLoaded -= OnLevelLoaded;
+            LevelsMonoMechanic.Instance.OnLevelUnLoaded -= OnLevelUnloaded;
             clickButton.OnPointerDownEvent -= MobileGoToGame;
             base.ExitState(monoState);
         }

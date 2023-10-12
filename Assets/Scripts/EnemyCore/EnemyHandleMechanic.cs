@@ -121,9 +121,9 @@ namespace EnemyCore
                     controller.TakeDamage(damage);
                 }
 
-                if (SoundMechanic.Instance != null)
+                if (SoundMonoMechanic.Instance != null)
                 {
-                    SoundMechanic.Instance.PlayHit();
+                    SoundMonoMechanic.Instance.PlayHit();
                 }
             }
             
@@ -143,9 +143,9 @@ namespace EnemyCore
                 {
                     return;
                 }
-                if (LevelsMechanic.Instance != null)
+                if (LevelsMonoMechanic.Instance != null)
                 {
-                    LevelsMechanic.Instance.WinLevel();
+                    LevelsMonoMechanic.Instance.WinLevel();
                 }
             }
         }
@@ -168,7 +168,7 @@ namespace EnemyCore
 
         public float GetCurrentEnemyHealth(int startHealth)
         {
-            float health = startHealth * (float)Math.Pow(1.05,LevelsMechanic.Instance.GetLastSavedLevel());
+            float health = startHealth * (float)Math.Pow(1.05,LevelsMonoMechanic.Instance.GetLastSavedLevel());
             return health;
         }
 

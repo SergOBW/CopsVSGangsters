@@ -1,5 +1,5 @@
-﻿using Abstract;
-using CrazyGames;
+﻿using System.Collections.Generic;
+using Abstract;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,68 +7,44 @@ namespace Ui.States
 {
     public class UiMonoMainMenuState : UiMonoState
     {
-        [SerializeField] private Button gameStageButton;
-        [SerializeField] private Button moneyAddButton;
-        [SerializeField] private GameObject moneyAddPopup;
-        [SerializeField] private WeaponStageUi weaponStageUi;
-        [SerializeField] private SettingsPopup _settingsPopup;
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        [SerializeField] private Button playGameButton;
+        [SerializeField] private Button weaponSetupButton;
+        [SerializeField] private List<UiElement> uiElements;
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
-            moneyAddPopup.SetActive(false);
-            weaponStageUi.Initialize();
             
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
-            if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
-            {
-                if (currentMonoStateMachine.PreviousMonoState is UiMonoPlayState)
-                {
-                    CrazyEvents.Instance.GameplayStop();
-                }
-            }
             
             SetupButtons();
+            
+            foreach (var uiElement in uiElements)
+            {
+                uiElement.Show();
+            }
         }
         
         private void SetupButtons()
         {
-            AddManager.Instance.OnAddClose -= SetupButtons;
-            gameStageButton.onClick.AddListener(ToStageUi);
-            moneyAddButton.onClick.AddListener(ShowMoneyAddPopup);
-        }
-        
-        private void TryToShowAdd()
-        {
-            AddManager.Instance.OnAddClose += SetupButtons;
-            AddManager.Instance.ShowInterstitialAdd();
+            playGameButton.onClick.AddListener(GoPlayButton);
+            weaponSetupButton.onClick.AddListener(GoWeaponSetupButton);
         }
 
-        private void ToStageUi()
+        private void GoWeaponSetupButton()
         {
-            ExitState(currentMonoStateMachine.uiMonoStageState);
+            ExitState(currentMonoStateMachine.uiMonoWeaponSetupState);
+        }
+        private void GoPlayButton()
+        {
+            ExitState(currentMonoStateMachine.uiMonoLoadingState);
+            LevelsMonoMechanic.Instance.SelectLevel();
         }
 
-        private void ShowMoneyAddPopup()
+        public override void ExitState(IState monoState)
         {
-            moneyAddPopup.SetActive(true);
-            Animation animation = moneyAddPopup.GetComponent<Animation>();
-            animation.Play("PopupShowUp");
-        }
-
-        public void HideMoneyAddPopup()
-        {
-            Animation animation = moneyAddPopup.GetComponent<Animation>();
-            animation.Play("PopupShowDown");
-            moneyAddPopup.SetActive(false);
-        }
-
-        public override void ExitState(IMonoState monoState)
-        {
-            gameStageButton.onClick.RemoveListener(ToStageUi);
-            moneyAddButton.onClick.RemoveListener(ShowMoneyAddPopup);
-            weaponStageUi.DeInitialize();
+            playGameButton.onClick.RemoveListener(GoPlayButton);
+            weaponSetupButton.onClick.RemoveListener(GoWeaponSetupButton);
             base.ExitState(monoState);
         }
     }

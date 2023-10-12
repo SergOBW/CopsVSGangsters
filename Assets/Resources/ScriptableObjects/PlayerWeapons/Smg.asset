@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49cbb16a5f847a18056c9d1596729b6, type: 3}
+  m_Name: Smg
+  m_EditorClassIdentifier: 
+  weaponName: Smg
+  weaponBuyPrice: 6000
+  startedDamageCost: 1000
+  startedReloadSpeedCost: 1000
+  startedAccuracyCost: 1000
+  startedBulletCountCost: 1000
+  startedDamage: 25
+  startedReloadSpeed: 1
+  startedAccuracy: 5
+  startedBulletCount: 20
+  damageLevelMultiplayer: 5
+  reloadSpeedLevelMultiplayer: 0.2
+  accuracyLevelMultiplayer: 1
+  bulletCountLevelMultiplayer: 5
+  damagePriceLevelMultiplayer: 1000
+  reloadSpeedPriceLevelMultiplayer: 1000
+  accuracyPriceLevelMultiplayer: 1000
+  bulletCountPriceLevelMultiplayer: 1000
+  weaponArms: {fileID: 5455044952858247200, guid: 53caad5155f825f47aa1a8f6a1867e8e, type: 3}

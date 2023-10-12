@@ -150,9 +150,9 @@ public class QuestsMechanic : GameModeMechanic
             _quests.Remove(quest);
         }
 
-        if (_quests.Count <= 0 && LevelMonoStateMachine.Instance.IsPlayState())
+        if (_quests.Count <= 0 && LevelStateMachine.Instance.IsPlayState())
         {
-            LevelsMechanic.Instance.WinLevel();
+            LevelsMonoMechanic.Instance.WinLevel();
         }
     }
 

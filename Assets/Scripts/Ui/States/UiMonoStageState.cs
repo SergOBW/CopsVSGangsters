@@ -24,7 +24,7 @@ namespace Ui.States
         private int _currentPage;
         private int _totalPages;
 
-        public override void EnterState(MonoStateMachine monoStateMachine)
+        public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             SetupPage();
@@ -62,7 +62,7 @@ namespace Ui.States
             
             int lockStars;
             int levelsPerPage = 15;
-            int totalLevelCount = LevelsMechanic.Instance.GetTotalLevelCount();
+            int totalLevelCount = LevelsMonoMechanic.Instance.GetTotalLevelCount();
             
             _totalPages = Mathf.CeilToInt((float)totalLevelCount / levelsPerPage);
 
@@ -77,7 +77,7 @@ namespace Ui.States
                     {
                         StageItem stageItem =  Instantiate(stageItemPrefab,page.transform);
                         
-                        LevelSave levelSave = LevelsMechanic.Instance.GetInfoAboutLevel(levelNumber);
+                        LevelSave levelSave = LevelsMonoMechanic.Instance.GetInfoAboutLevel(levelNumber);
                         lockStars = levelSave.completedStars;
                             
                         stageItem.Initialize(3 - lockStars,lockStars,levelSave.isOpen == 0,levelNumber,this);
@@ -136,7 +136,7 @@ namespace Ui.States
                 stageItem.SetActiveInteractionFalse();
             }
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMechanic.Instance.SelectLevel(levelNumber);
+            LevelsMonoMechanic.Instance.SelectLevel(levelNumber);
         }
 
         private void BackToMenu()
@@ -144,7 +144,7 @@ namespace Ui.States
             ExitState(currentMonoStateMachine.uiMonoMainMenuState);
         }
 
-        public override void ExitState(IMonoState monoState)
+        public override void ExitState(IState monoState)
         {
             backToMainMenuButton.onClick.RemoveListener(BackToMenu);
             nextPage.onClick.RemoveListener(NextPage);

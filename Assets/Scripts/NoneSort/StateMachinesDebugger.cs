@@ -1,3 +1,4 @@
+using System;
 using Abstract;
 using TMPro;
 using UnityEngine;
@@ -15,9 +16,28 @@ public class StateMachinesDebugger : MonoBehaviour
     [SerializeField] private TMP_Text title;
 
     [SerializeField] private StateMachineType stateMachineType;
-    private MonoStateMachine _monoStateMachine;
+    private IStateMachine _monoStateMachine;
+    
 
-    private void OnEnable()
+    private void OnDisable()
+    {
+        _monoStateMachine.OnStateChangedEvent += UpdateUi;
+    }
+
+    private void UpdateUi(IState previousMonoState, IState currentMonoState)
+    {
+        if (previousMonoState != null)
+        {
+            prevoiusStateText.text = previousMonoState.GetType().Name;
+        }
+
+        if (currentMonoState != null)
+        {
+            currentStateText.text = currentMonoState.GetType().Name;
+        }
+    }
+
+    public void Initialize()
     {
         switch (stateMachineType)
         {
@@ -25,32 +45,14 @@ public class StateMachinesDebugger : MonoBehaviour
                 _monoStateMachine = UiMonoStateMachine.Instance;
                 break;
             case StateMachineType.Level:
-                _monoStateMachine = LevelMonoStateMachine.Instance;
+                _monoStateMachine = LevelStateMachine.Instance;
                 break;
         }
         if (_monoStateMachine != null)
         {
             _monoStateMachine.OnStateChangedEvent += UpdateUi;
-            UpdateUi(_monoStateMachine.PreviousMonoState, _monoStateMachine.CurrentMonoState);
+            UpdateUi(_monoStateMachine.PreviousState, _monoStateMachine.CurrentState);
             title.text = _monoStateMachine.GetType().ToString();
-        }
-    }
-
-    private void OnDisable()
-    {
-        _monoStateMachine.OnStateChangedEvent += UpdateUi;
-    }
-
-    private void UpdateUi(IMonoState previousMonoState, IMonoState currentMonoState)
-    {
-        if (previousMonoState != null)
-        {
-            prevoiusStateText.text = previousMonoState.ToString();
-        }
-
-        if (currentMonoState != null)
-        {
-            currentStateText.text = currentMonoState.ToString();
         }
     }
 }

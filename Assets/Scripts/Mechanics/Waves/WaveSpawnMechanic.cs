@@ -73,7 +73,7 @@ public class WaveSpawnMechanic : GameModeMechanic
     }
     private void Update()
     {
-        if (!LevelMonoStateMachine.Instance.IsPlayState() || _waves.Count <= 0)
+        if (!LevelStateMachine.Instance.IsPlayState() || _waves.Count <= 0)
         {
             return;
         }
