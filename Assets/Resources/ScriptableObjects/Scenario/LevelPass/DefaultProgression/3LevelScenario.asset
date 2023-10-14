@@ -15,7 +15,6 @@ MonoBehaviour:
   Name: Default level pass Scenario
   questSos:
   - {fileID: 11400000, guid: a2d206a119e31984bbf9ff47d09656e0, type: 2}
-  - {fileID: 11400000, guid: e008b0b0712f9a143a84916f6f60c5f4, type: 2}
   enemySoIntDictionary:
     enemySos:
     - {fileID: 11400000, guid: a7006d76b4899864dbf7cf5b47d57422, type: 2}

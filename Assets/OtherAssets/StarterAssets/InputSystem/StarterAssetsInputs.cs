@@ -75,6 +75,16 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 		
+		public void JumpInput(InputAction.CallbackContext callbackContext)
+		{
+			jump = callbackContext.performed;
+		}
+
+		public void SprintInput(InputAction.CallbackContext callbackContext)
+		{
+			sprint = callbackContext.performed;
+		}
+		
 		
 	}
 	

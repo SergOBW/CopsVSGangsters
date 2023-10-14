@@ -22,6 +22,11 @@ namespace Quests.Hostage
             }
         }
 
+        public void InteractionCanceled()
+        {
+            
+        }
+
         public void OnAnimationEnded()
         {
             Destroy(gameObject);

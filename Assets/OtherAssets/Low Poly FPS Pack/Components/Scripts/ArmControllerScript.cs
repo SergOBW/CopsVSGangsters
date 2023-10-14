@@ -310,6 +310,9 @@ public class ArmControllerScript : MonoBehaviour {
 				//If projectile weapon is true
 			} else if (ShootSettings.projectileWeapon == true) {
 				StartCoroutine(ProjectileShoot());
+			} else if (MeleeSettings.isMeleeWeapon)
+			{
+				MeleeShoot();
 			}
 
 			//If melee weapon is used, play random attack animation on left click
@@ -800,6 +803,124 @@ public class ArmControllerScript : MonoBehaviour {
 		OnFire?.Invoke();
 		
 		//Send out the raycast from the "bulletSpawnPoint" position
+		if (Physics.Raycast (Spawnpoints.bulletSpawnPoint.transform.position, 
+		                     Spawnpoints.bulletSpawnPoint.transform.forward, out hit, ShootSettings.bulletDistance,_layerMask)) {
+			
+			//If a rigibody is hit, add bullet force to it
+			if (hit.rigidbody != null)
+				hit.rigidbody.AddForce (ray.direction * ShootSettings.bulletForce);
+			
+			//********** USED IN THE DEMO SCENES **********
+			//If the raycast hit the tag "Target"
+			if (hit.transform.tag == "Target") {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.metalImpactPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+				//Toggle the isHit bool on the target object
+				hit.transform.gameObject.GetComponent<TargetScript>().isHit = true;
+			}
+			
+			//********** USED IN THE DEMO SCENES **********
+			//If the raycast hit the tag "ExplosiveBarrel"
+			if (hit.transform.tag == "ExplosiveBarrel") {
+				//Toggle the explode bool on the explosive barrel object
+				hit.transform.gameObject.GetComponent<ExplosiveBarrelScript>().explode = true;
+				//Spawn metal impact on surface of the barrel
+				Instantiate (Prefabs.metalImpactPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//********** USED IN THE DEMO SCENES **********
+			//If the raycast hit the tag "GasTank"
+			if (hit.transform.tag == "GasTank") {
+				//Toggle the explode bool on the explosive barrel object
+				hit.transform.gameObject.GetComponent<GasTankScript>().isHit = true;
+				//Spawn metal impact on surface of the gas tank
+				Instantiate (Prefabs.metalImpactPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Metal (Static)"
+			if (hit.transform.tag == ImpactTags.metalImpactStaticTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.metalImpactStaticPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Metal"
+			if (hit.transform.tag == ImpactTags.metalImpactTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.metalImpactPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Wood (Static)"
+			if (hit.transform.tag == ImpactTags.woodImpactStaticTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.woodImpactStaticPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Wood"
+			if (hit.transform.tag == ImpactTags.woodImpactTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.woodImpactPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Concrete (Static)"
+			if (hit.transform.tag == ImpactTags.concreteImpactStaticTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.concreteImpactStaticPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Concrete"
+			if (hit.transform.tag == ImpactTags.concreteImpactTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.concreteImpactPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Dirt (Static)"
+			if (hit.transform.tag == ImpactTags.dirtImpactStaticTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.dirtImpactStaticPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Dirt"
+			if (hit.transform.tag == ImpactTags.dirtImpactTag) {
+				//Spawn bullet impact on surface
+				Instantiate (Prefabs.dirtImpactPrefab, hit.point, 
+				             Quaternion.FromToRotation (Vector3.forward, hit.normal)); 
+			}
+			
+			//If the raycast hit the tag "Dirt"
+			if (hit.transform.tag == ImpactTags.bloodImpactTag) {
+				//Spawn bullet impact on surface
+				if (hit.transform.TryGetComponent(out IDamageble iDamaging))
+				{
+					iDamaging.Damage();
+				}
+			}
+			
+			if (hit.transform.tag == "Destroy") {
+				//Spawn bullet impact on surface
+				Debug.Log("Hit destroy");
+				if (hit.transform.TryGetComponent(out Destructible destructible))
+				{
+					destructible.Destroy();
+				}
+			}
+		}
+	}
+	
+	// Melee shoot
+	void MeleeShoot()
+	{
+		RaycastHit hit;
+		Ray ray = new Ray (transform.position, transform.forward);
 		if (Physics.Raycast (Spawnpoints.bulletSpawnPoint.transform.position, 
 		                     Spawnpoints.bulletSpawnPoint.transform.forward, out hit, ShootSettings.bulletDistance,_layerMask)) {
 			

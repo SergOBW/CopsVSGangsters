@@ -12,5 +12,11 @@ namespace DefaultNamespace
 
             return myRandomPositionInsideNavMesh;
         }
+
+        public static float GetNormalizeNumber(float value, float min = 0, float max = 1)
+        {
+            float normalizeNumber = (value -min) / (max - min);
+            return normalizeNumber;
+        }
     }
 }

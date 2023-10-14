@@ -26,7 +26,7 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private PlayerStatsSo defaultPlayerStats;
 
-    [SerializeField] private int maxLevels = 100;
+    [SerializeField] private int startedLevel;
     
     [SerializeField] private MapsSo[] mapsSo;
 
@@ -109,6 +109,7 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     {
         if (levelId == 0)
         {
+            levelId = startedLevel;
             Debug.Log("Need to load last level from save manager");
         }
         currentLevelIndex = levelId;
@@ -216,6 +217,11 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
 
     public int GetTotalLevelCount()
     {
+        int maxLevels = 0;
+        foreach (var mapSo in mapsSo)
+        {
+            maxLevels += mapSo.GetScenariosCount();
+        }
         return maxLevels;
     }
 

@@ -4,6 +4,7 @@ using Level;
 using Quests;
 using Quests.Hostage;
 using Quests.Item;
+using Quests.LootMoney;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

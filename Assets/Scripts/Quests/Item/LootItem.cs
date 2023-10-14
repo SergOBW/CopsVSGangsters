@@ -28,16 +28,24 @@ namespace Quests.Item
         }
         public void Interact()
         {
+            _isSelected = true;
             if (!_isUsed)
             {
                 QuestsMechanic.Instance.TryToProgressQuest(this);
-                Destroy(gameObject);
                 _isUsed = true;
+                Destroy(gameObject);
             }
+            
+        }
+
+        public void InteractionCanceled()
+        {
+            _isSelected = false;
         }
 
         private void Update()
         {
+            
             if (_isSelected)
             {
                 _outline.enabled = true;
@@ -46,12 +54,8 @@ namespace Quests.Item
             {
                 _outline.enabled = false;
             }
+            
         }
         
-        
-        public void HighLight()
-        {
-            _isSelected = true;
-        }
     }
 }

@@ -2,6 +2,7 @@ using Quests;
 using Quests.Hostage;
 using Quests.Item;
 using Quests.KillEnemy;
+using Quests.LootMoney;
 using TMPro;
 using UnityEngine;
 
@@ -58,6 +59,9 @@ public class QuestItemUi : MonoBehaviour
                 break;
             case LootItemQuest lootItemQuest:
                 progressionText.text = lootItemQuest.CurrentLootAmount + " / " + lootItemQuest.LootAmount;
+                break;
+            case LootMoneyQuest lootMoneyQuest :
+                progressionText.text = $"{lootMoneyQuest.CurrentMoneyAmount} / {lootMoneyQuest.MoneyToLoot}";
                 break;
         }
     }

@@ -691,7 +691,7 @@ MonoBehaviour:
     dirtImpactPrefab: {fileID: 0}
   Spawnpoints:
     casingSpawnPoints: []
-    bulletSpawnPoint: {fileID: 0}
+    bulletSpawnPoint: {fileID: 4078891182102904537}
   AudioClips:
     mainAudioSource: {fileID: 1669323398777774936}
     shootSound: {fileID: 8300000, guid: 36584c9624f0ddd41a1ffa2b0d8d6bd4, type: 3}
