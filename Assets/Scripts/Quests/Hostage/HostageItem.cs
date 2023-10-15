@@ -22,10 +22,11 @@ namespace Quests.Hostage
             }
         }
 
-        public void InteractionCanceled()
+        public bool CanInteract()
         {
-            
+            return true;
         }
+        
 
         public void OnAnimationEnded()
         {

@@ -129,8 +129,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 733963450663710129}
+  m_Children: []
   m_Father: {fileID: 1887068515857902733}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -431,8 +430,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drillKnife: {fileID: 5939183778765003460}
-  timeRemaining: {fileID: 0}
-  _slider: {fileID: 0}
+  timeRemaining: {fileID: 2899620197699528231}
+  slider: {fileID: 6728829199978672266}
+  drillTimer: 5
 --- !u!1 &6844399288958794680
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +462,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6065016754628584927}
+  - {fileID: 733963450663710129}
   m_Father: {fileID: 1887068515857902733}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -733,12 +734,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7328097001007055376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0000070780516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1079490823161965338}
+  m_Father: {fileID: 3111409220208013753}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

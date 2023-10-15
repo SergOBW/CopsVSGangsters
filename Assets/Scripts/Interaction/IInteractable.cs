@@ -3,6 +3,6 @@
     public interface IInteractable
     {
         public void Interact();
-        void InteractionCanceled();
+        bool CanInteract();
     }
 }

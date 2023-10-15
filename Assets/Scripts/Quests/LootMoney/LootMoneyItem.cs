@@ -25,19 +25,18 @@ namespace Quests.LootMoney
         public void Interact()
         {
             _currentHealth += Time.deltaTime;
-            _outline.enabled = true;
             if (_currentHealth >= maxHealth)
             {
                 QuestsMechanic.Instance.TryToProgressQuest(this);
-                InteractionCanceled();
                 Destroy(gameObject);
             }
         }
 
-        public void InteractionCanceled()
+        public bool CanInteract()
         {
-            _outline.enabled = false;
+            return true;
         }
+        
         
         public float GetHealth()
         {

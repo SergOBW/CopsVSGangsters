@@ -38,10 +38,11 @@ namespace Quests.Item
             
         }
 
-        public void InteractionCanceled()
+        public bool CanInteract()
         {
-            _isSelected = false;
+            return true;
         }
+        
 
         private void Update()
         {

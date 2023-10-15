@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6342029642694412293}
+  - component: {fileID: 933587720919055225}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -28,10 +29,24 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6078812337394114177}
+  - {fileID: 712454739973999160}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &933587720919055225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956127856900825039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dcd736782323c40a68c45c79dd7f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerBeforeBoom: 5
+  _text: {fileID: 6078812337394233193}
 --- !u!1 &2495570182115289834
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +368,7 @@ RectTransform:
   - {fileID: 2060046118299466067}
   - {fileID: 6949191687596338815}
   - {fileID: 3821549665490534626}
-  m_Father: {fileID: 6078812337394114177}
+  m_Father: {fileID: 712454739973999160}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -489,7 +504,7 @@ PrefabInstance:
       addedObject: {fileID: 4913105389115655157}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 034524b057fa4aa45b14d043e1da3ff2, type: 3}
---- !u!4 &6078812337394114177 stripped
+--- !u!4 &712454739973999160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 422376, guid: 034524b057fa4aa45b14d043e1da3ff2, type: 3}
   m_PrefabInstance: {fileID: 712454739974421456}

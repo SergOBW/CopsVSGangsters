@@ -33,6 +33,8 @@ public class InteractionUi : MonoBehaviour
                 case LootMoneyItem:
                     HandleMoneyItem();
                     break;
+                default: Default();
+                    break;
             }
         }
         else
@@ -41,6 +43,18 @@ public class InteractionUi : MonoBehaviour
             _text.gameObject.SetActive(false);
         }
 
+    }
+
+    private void Default()
+    {
+        if (_playerDetector.CurrentInteractable.CanInteract())
+        {
+            _text.gameObject.SetActive(true);
+        }
+        else
+        {
+            _text.gameObject.SetActive(false);
+        }
     }
 
     private void HandleMoneyItem()
