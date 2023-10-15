@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Level3
   scenarioSos:
-  - {fileID: 11400000, guid: 2f18103bc611fcb48bbd5f3181b8dabe, type: 2}
+  - {fileID: 11400000, guid: 9eb26b1ecd5cc5647b73433c019a7100, type: 2}
   randomScenarioSos:
   - {fileID: 11400000, guid: 853cc4821809faf45940e11a6392767b, type: 2}
   - {fileID: 11400000, guid: e0e15a4601f981a4d82e7731b9d2b6f8, type: 2}

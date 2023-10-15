@@ -385,7 +385,7 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 3073
-  detectionDistance: 5
+  detectionDistance: 2
 --- !u!114 &2153494058040718470
 MonoBehaviour:
   m_ObjectHideFlags: 0
