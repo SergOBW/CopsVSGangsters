@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84df10ee81acf564ba9b4a5790864ad4, type: 3}
+  m_Name: EnemyDefaultAk47
+  m_EditorClassIdentifier: 
+  enemySoundSo: {fileID: 11400000, guid: 437570509d7b33547a7514f02d13bb43, type: 2}
+  statsSo: {fileID: 11400000, guid: 7cb12798790633146a3b0d5a2ffcf4d4, type: 2}
+  visuals:
+  - {fileID: 11400000, guid: 5f362301c0bead54b8acaef2ff35d563, type: 2}
+  weaponStatsSo: {fileID: 11400000, guid: 5f63f011b4b4a884cae01404d667d694, type: 2}
+  aiStats:
+    radius: 15
+    angle: 110
+    targetMask:
+      serializedVersion: 2
+      m_Bits: 64
+    obstructionMask:
+      serializedVersion: 2
+      m_Bits: 3073
+  isEnemy: 1
+  enemyPrefab: {fileID: 4609749416363780770, guid: c354ada8ef3048347aa7351bcf79ab42, type: 3}
+  isBoss: 0
+  enemyBehaviour: 00000000

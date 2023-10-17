@@ -1,20 +1,17 @@
-﻿using Interaction;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Quests.LootMoney
 {
-    public class LootMoneyItem : QuestItem , IInteractable
+    public class LootMoneyItem : InteractableWithHealth 
     {
-        [SerializeField] private Outline _outline;
         [SerializeField] private GameObject[] _visuals;
         
         [SerializeField] private int moneyAmount;
-        [SerializeField] private float maxHealth;
-        private float _currentHealth;
 
-        private void Awake()
+        protected override void Initialize()
         {
+            base.Initialize();
             foreach (var gameObject in _visuals)
             {
                 gameObject.SetActive(false);
@@ -22,35 +19,13 @@ namespace Quests.LootMoney
             _visuals[Random.Range(0,_visuals.Length)].SetActive(true);
         }
 
-        public void Interact()
+        protected override void Handle()
         {
-            _currentHealth += Time.deltaTime;
-            if (_currentHealth >= maxHealth)
-            {
-                QuestsMechanic.Instance.TryToProgressQuest(this);
-                Destroy(gameObject);
-            }
-        }
-
-        public bool CanInteract()
-        {
-            return true;
+            base.Handle();
+            EconomyMonoMechanic.Instance.AddMoney(moneyAmount);
+            Debug.Log($"Money amount {moneyAmount} was looted");
+            Destroy(gameObject);
         }
         
-        
-        public float GetHealth()
-        {
-            return _currentHealth;
-        }
-
-        public float GetMaxHealth()
-        {
-            return maxHealth;
-        }
-
-        public int GetMoneyAmount()
-        {
-            return moneyAmount;
-        }
     }
 }

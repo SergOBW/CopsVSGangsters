@@ -40,7 +40,7 @@ Transform:
   - {fileID: 8757227752250281711}
   - {fileID: 6520549016797825093}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3339882
 MeshFilter:
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c637385c3726f645998c11d9d75ed17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startedHealth: 1
   bombSlot:
   - {fileID: 8757227752250281711}
   - {fileID: 6520549016797825093}

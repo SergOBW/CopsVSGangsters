@@ -132,7 +132,6 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         playerGameObject.GetComponent<PlayerCharacter>().SetupArms(WeaponManagerMechanic.Instance.GetAvaibleWeapons());
         playerStatsController.Initialize(defaultPlayerStats);
         playerStatsController.OnPlayerDie += LooseLevel;
-        //playerStatsController.GetComponent<PlayerWeaponManager>().Initialize();
         _gameModeMechanicsManager.Initialize(_currentGameLevelInfo);
         OnLevelLoaded?.Invoke();
     }

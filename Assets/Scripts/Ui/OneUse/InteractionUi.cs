@@ -1,6 +1,3 @@
-using DefaultNamespace;
-using Quests.Item;
-using Quests.LootMoney;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,71 +22,22 @@ public class InteractionUi : MonoBehaviour
 
         if (_playerDetector.CurrentInteractable != null)
         {
-            switch (_playerDetector.CurrentInteractable)
+            if (_playerDetector.CurrentInteractable.CanInteract())
             {
-                case LootItem :
-                    HandleLootItem();
-                    break;
-                case LootMoneyItem:
-                    HandleMoneyItem();
-                    break;
-                default: Default();
-                    break;
-            }
-        }
-        else
-        {
-            _image.fillAmount = 0;
-            _text.gameObject.SetActive(false);
-        }
-
-    }
-
-    private void Default()
-    {
-        if (_playerDetector.CurrentInteractable.CanInteract())
-        {
-            _text.gameObject.SetActive(true);
-        }
-        else
-        {
-            _text.gameObject.SetActive(false);
-        }
-    }
-
-    private void HandleMoneyItem()
-    {
-        LootMoneyItem lootItem = _playerDetector.CurrentInteractable as LootMoneyItem;
-        if (lootItem != null)
-        {
-            if (lootItem.GetMaxHealth() <= 0)
-            {
-                _image.fillAmount = 0;
+                _image.fillAmount = _playerDetector.CurrentInteractable.GetHealthNormalized();
+                _text.gameObject.SetActive(_playerDetector.CurrentInteractable.CanInteract());
             }
             else
             {
-                float fillAmount = SergOBWUtils.GetNormalizeNumber(lootItem.GetHealth(),0,lootItem.GetMaxHealth());
-                _image.fillAmount = fillAmount;
+                _image.fillAmount = 0;
+                _text.gameObject.SetActive(false);
             }
-            _text.gameObject.SetActive(true);
         }
         else
         {
             _image.fillAmount = 0;
             _text.gameObject.SetActive(false);
         }
-    }
 
-    private void HandleLootItem()
-    {
-        LootItem lootItem = _playerDetector.CurrentInteractable as LootItem;
-        if (lootItem != null)
-        {
-            _text.gameObject.SetActive(true);
-        }
-        else
-        {
-            _text.gameObject.SetActive(false);
-        }
     }
 }

@@ -38,6 +38,11 @@ namespace Quests.Item
             
         }
 
+        public float GetHealthNormalized()
+        {
+            return 0;
+        }
+
         public bool CanInteract()
         {
             return true;

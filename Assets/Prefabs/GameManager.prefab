@@ -249,6 +249,98 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
+--- !u!1 &6928439538146615987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7052702535492536369}
+  - component: {fileID: 5672688565845234369}
+  - component: {fileID: 7082594724137921005}
+  - component: {fileID: 5597990584417340261}
+  m_Layer: 0
+  m_Name: Destruction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7052702535492536369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928439538146615987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 390082000312652734}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5672688565845234369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928439538146615987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787a46710c5c1f2418efc062638d288a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDestroyedParticles: 20
+  maxPerDestructible: 5
+  withinSeconds: 4
+  updateFrequency: 0.5
+--- !u!114 &7082594724137921005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928439538146615987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24262ec55dbf62e43ab60bbe9e272d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoDeactivateDestructibles: 0
+  autoDeactivateDestructibleTerrainObjects: 1
+  destructibleTreesStayDeactivated: 1
+  deactivateAfter: 2
+  allowDamage: 1
+  maxPersistentDebris: 400
+  destroyedPrefabLimit: 15
+  withinSeconds: 4
+  defaultParticle: {fileID: 0}
+  obliterateMultiplier: 3
+  removeVisibleDebris: 1
+  updateFrequency: 0.5
+  useCameraDistanceLimit: 1
+  cameraDistanceLimit: 100
+  debrisLayer: -1
+  overlapColliders: []
+--- !u!114 &5597990584417340261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928439538146615987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f808b6d5af61ca4ab4d3ab5ac519f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsToPool: []
+  suppressWarnings: 0
 --- !u!1 &6977370634209754247
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,9 +410,6 @@ GameObject:
   - component: {fileID: 6267863418015566204}
   - component: {fileID: 6331291934285394514}
   - component: {fileID: 3621468556793806440}
-  - component: {fileID: 1500380635429688451}
-  - component: {fileID: 130520594360170054}
-  - component: {fileID: 5777297171435892050}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -342,6 +431,7 @@ Transform:
   m_Children:
   - {fileID: 5717002973096163730}
   - {fileID: 1855789889905789424}
+  - {fileID: 7052702535492536369}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -396,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 417483425836234796, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
   defaultPlayerStats: {fileID: 11400000, guid: a3f0b40b3a35a8f44b749e91ddf3a14c, type: 2}
-  startedLevel: 0
+  startedLevel: 3
   mapsSo:
   - {fileID: 11400000, guid: 88066d581f37b4b43ade64014be3f98d, type: 2}
   - {fileID: 11400000, guid: 2da2910009ae60f4cbef5fc5b3cb30cd, type: 2}
@@ -404,6 +494,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 16ca9b274d038f148afd509f42ceb14e, type: 2}
   - {fileID: 11400000, guid: 7510f56b206d8e848b07715275073e18, type: 2}
   - {fileID: 11400000, guid: d890e27cb1789a648b6b23234c24b049, type: 2}
+  - {fileID: 11400000, guid: 9ce3b9237a56999418645454e3c9c64c, type: 2}
   startedLevelWinMoney: 1000
   eachLevelWinMoney: 200
 --- !u!114 &1743999464976036662
@@ -509,61 +600,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0864c81a1fe6d6489eff11f53980791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1500380635429688451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254582670927975062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f808b6d5af61ca4ab4d3ab5ac519f89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabsToPool: []
-  suppressWarnings: 0
---- !u!114 &130520594360170054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254582670927975062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24262ec55dbf62e43ab60bbe9e272d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoDeactivateDestructibles: 0
-  autoDeactivateDestructibleTerrainObjects: 1
-  destructibleTreesStayDeactivated: 1
-  deactivateAfter: 2
-  allowDamage: 1
-  maxPersistentDebris: 400
-  destroyedPrefabLimit: 15
-  withinSeconds: 4
-  defaultParticle: {fileID: 19800004, guid: 6b46cad447c64dd48b8b715df6e3d2ad, type: 3}
-  obliterateMultiplier: 3
-  removeVisibleDebris: 1
-  updateFrequency: 0.5
-  useCameraDistanceLimit: 1
-  cameraDistanceLimit: 100
-  debrisLayer: -1
-  overlapColliders: []
---- !u!114 &5777297171435892050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254582670927975062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787a46710c5c1f2418efc062638d288a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDestroyedParticles: 20
-  maxPerDestructible: 5
-  withinSeconds: 4
-  updateFrequency: 0.5

@@ -163,7 +163,9 @@ GameObject:
   - component: {fileID: 33644465475103168}
   - component: {fileID: 23455501369044662}
   - component: {fileID: 6340571958018081705}
-  m_Layer: 0
+  - component: {fileID: 688448711335197803}
+  - component: {fileID: 2831626526978749124}
+  m_Layer: 11
   m_Name: SM_Bld_Brick_Door_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,6 +258,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0147318, y: 2.213498, z: 0.24627206}
   m_Center: {x: -0.507366, y: 1.106749, z: 0.038283203}
+--- !u!114 &688448711335197803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588003314095624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &2831626526978749124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588003314095624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397b2211a7d3cfa4d85907243bf7a8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startedHealth: 1
+  rotateVector: {x: 0, y: -140, z: 0}
+  moveVector: {x: 0, y: 0, z: 0}
 --- !u!1 &1720985999505800
 GameObject:
   m_ObjectHideFlags: 0

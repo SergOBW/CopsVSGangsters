@@ -42,6 +42,7 @@ namespace Quests.LootMoney
 
         public override void TryToProgressQuest(QuestItem questItem)
         {
+            /*
             base.TryToProgressQuest(questItem);
             LootMoneyItem lootMoneyItem = questItem as LootMoneyItem;
             if (_currentMoneyCount >= _moneyToLoot)
@@ -61,6 +62,7 @@ namespace Quests.LootMoney
                 _currentMoneyCount += lootMoneyItem.GetMoneyAmount();
                 FireOnQuestUpdatedEvent(this);
             }
+            */
         }
     }
 }
