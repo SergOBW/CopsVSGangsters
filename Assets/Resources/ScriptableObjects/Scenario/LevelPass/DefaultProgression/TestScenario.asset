@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Default level pass Scenario 11
   questSos:
-  - {fileID: 11400000, guid: 9bfd438c253c6a44397b5ca2eba84da4, type: 2}
+  - {fileID: 11400000, guid: 206b15fe384214f459c8f1d72b16174e, type: 2}
   enemySoIntDictionary:
     enemySos:
     - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}

@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 417483425836234796, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
   defaultPlayerStats: {fileID: 11400000, guid: a3f0b40b3a35a8f44b749e91ddf3a14c, type: 2}
-  startedLevel: 5
+  startedLevel: 0
   mapsSo:
   - {fileID: 11400000, guid: 88066d581f37b4b43ade64014be3f98d, type: 2}
   - {fileID: 11400000, guid: 2da2910009ae60f4cbef5fc5b3cb30cd, type: 2}

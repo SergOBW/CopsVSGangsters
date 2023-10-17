@@ -38,6 +38,11 @@ public class Interactable  : MonoBehaviour , IInteractable
 
     private void Start()
     {
+        Initialize();
+    }
+
+    public virtual void Initialize()
+    {
         outline = GetComponent<Outline>();
         outline.OutlineMode = Outline.Mode.OutlineVisible;
     }

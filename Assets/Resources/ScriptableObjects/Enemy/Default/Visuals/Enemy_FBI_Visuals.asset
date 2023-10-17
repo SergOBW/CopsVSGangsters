@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd93c0061dc16634d8d8b5d71c18d906, type: 3}
-  m_Name: Enemy_Boss_Commander_Visuals
+  m_Name: Enemy_FBI_Visuals
   m_EditorClassIdentifier: 
-  VisualGameObject: {fileID: 5484996652244671086, guid: 50bd8b0469ab6b045839abc282a81a87, type: 3}
-  Scale: {x: 0.9, y: 0.9, z: 0.9}
+  VisualGameObject: {fileID: 8931836195422457884, guid: 85c7c7987d592774293f7d088750cf9d, type: 3}
+  Scale: {x: 0.8, y: 0.8, z: 0.8}
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0}
   animatorOverrideController: {fileID: 22100000, guid: 3f5ed938438f00f449f77d767f701282, type: 2}

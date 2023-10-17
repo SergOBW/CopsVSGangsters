@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 5631526204476610253}
   - component: {fileID: 9054762671481328854}
   m_Layer: 6
-  m_Name: CharacterOLD
+  m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   scanFrequency: 30
   occlusionLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 3073
   targetLayers:
     serializedVersion: 2
     m_Bits: 128

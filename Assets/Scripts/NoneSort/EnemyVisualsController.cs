@@ -16,6 +16,7 @@ public class EnemyVisualsController : MonoBehaviour
 
     [SerializeField] private Transform meleeSlot;
     [SerializeField] private Transform weaponSlot;
+    protected int index;
     private void Awake()
     {
         _rigidbodies = GetComponentsInChildren<Rigidbody>();
@@ -56,28 +57,15 @@ public class EnemyVisualsController : MonoBehaviour
         }
     }
 
-    public void ChooseVisual(int index)
+    protected virtual void ChooseRandomVisual()
     {
         foreach (var goVisual in enemyVisuals)
         {
             goVisual.SetActive(false);   
         }
 
+        index = Random.Range(0, enemyVisuals.Length);
         GameObject enemyVisual = enemyVisuals[index];
-        timer = 1;
-        enemyVisual.SetActive(true);
-        _currentEnemyRenderer = enemyVisual.GetComponent<SkinnedMeshRenderer>();
-        _currentEnemyRenderer.materials = new[] { new Material(hitMaterial), _currentEnemyRenderer.materials[0] };
-    }
-
-    private void ChooseRandomVisual()
-    {
-        foreach (var goVisual in enemyVisuals)
-        {
-            goVisual.SetActive(false);   
-        }
-
-        GameObject enemyVisual = enemyVisuals[Random.Range(0, enemyVisuals.Length)];
         timer = 1;
         enemyVisual.SetActive(true);
         _currentEnemyRenderer = enemyVisual.GetComponent<SkinnedMeshRenderer>();

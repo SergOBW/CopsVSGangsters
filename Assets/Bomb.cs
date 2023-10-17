@@ -33,8 +33,14 @@ public class Bomb : MonoBehaviour
             _boomDoor.Boom();
             return;
         }
+        
+        _boomDoor.HandleAllBombs(_timer);
+        
+    }
 
-        int timer = (int)_timer;
+    public void HandleTime(float time)
+    {
+        int timer = (int)time;
         _text.text = timer.ToString();
     }
 }

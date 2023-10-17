@@ -25,7 +25,7 @@ MonoBehaviour:
       m_Bits: 64
     obstructionMask:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 3073
   isEnemy: 1
   enemyPrefab: {fileID: 4609749416363780770, guid: c354ada8ef3048347aa7351bcf79ab42, type: 3}
   isBoss: 0
