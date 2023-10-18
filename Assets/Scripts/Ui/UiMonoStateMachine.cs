@@ -14,6 +14,7 @@ public class UiMonoStateMachine : MonoStateMachine
     public UiMonoPauseState uiMonoPauseState;
     public UiMonoWinState uiMonoWinState;
     public UiMonoLooseState uiMonoLooseState;
+    public UiMonoStageState uiMonoStageState;
 
     public static UiMonoStateMachine Instance;
 

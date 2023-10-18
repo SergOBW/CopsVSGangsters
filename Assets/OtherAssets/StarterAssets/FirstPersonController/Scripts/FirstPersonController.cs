@@ -117,6 +117,13 @@ namespace StarterAssets
 
 		private void Update()
 		{
+			if (LevelStateMachine.Instance != null)
+			{
+				if (!LevelStateMachine.Instance.IsPlayState())
+				{
+					return;
+				}
+			}
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
@@ -124,6 +131,13 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
+			if (LevelStateMachine.Instance != null)
+			{
+				if (!LevelStateMachine.Instance.IsPlayState())
+				{
+					return;
+				}
+			}
 			CameraRotation();
 		}
 

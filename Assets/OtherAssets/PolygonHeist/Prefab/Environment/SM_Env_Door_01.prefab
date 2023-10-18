@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 8571204599347044492}
   - component: {fileID: 7512865516194795050}
   - component: {fileID: 1920971262519997083}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SM_Env_Door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ Transform:
   m_Children:
   - {fileID: 485748}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3331480
 MeshFilter:
@@ -322,7 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startedHealth: 0.5
-  vector3: {x: 0, y: -140, z: 0}
+  rotateVector: {x: 0, y: -140, z: 0}
+  moveVector: {x: 0, y: 0, z: 0}
 --- !u!208 &1920971262519997083
 NavMeshObstacle:
   m_ObjectHideFlags: 0

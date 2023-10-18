@@ -129,7 +129,7 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         // Setup player
         GameObject playerGameObject =  Instantiate(playerPrefab, FindObjectOfType<PlayerSpawnPoint>().transform.position,FindObjectOfType<PlayerSpawnPoint>().transform.rotation);
         PlayerStatsController playerStatsController = playerGameObject.GetComponent<PlayerStatsController>();
-        playerGameObject.GetComponent<PlayerCharacter>().SetupArms(WeaponManagerMechanic.Instance.GetAvaibleWeapons());
+        playerGameObject.GetComponent<PlayerCharacter>().SetupArms();
         playerStatsController.Initialize(defaultPlayerStats);
         playerStatsController.OnPlayerDie += LooseLevel;
         _gameModeMechanicsManager.Initialize(_currentGameLevelInfo);
@@ -279,6 +279,18 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         }
         return null;
     }
-    
-    
+
+
+    public int GetMapsCount()
+    {
+        return mapsSo.Length;
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            LevelStateMachine.Instance.Pause();
+        }
+    }
 }

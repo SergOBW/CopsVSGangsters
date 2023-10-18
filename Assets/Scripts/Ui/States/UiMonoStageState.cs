@@ -13,128 +13,43 @@ namespace Ui.States
         private List<StageItem> _currentStageItems = new List<StageItem>();
 
         [SerializeField] private Button backToMainMenuButton;
-
-        [SerializeField] private Button nextPage;
-        [SerializeField] private Button previousPage;
-
-        [SerializeField] private StageNavigation stageNavigation;
-
-        private List<GameObject> levelPages = new List<GameObject>();
         
-        private int _currentPage;
-        private int _totalPages;
 
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
-            SetupPage();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
+            SetupStageItems();
             SetupButtons();
         }
 
         private void SetupButtons()
         {
-            AddManager.Instance.OnAddClose -= SetupButtons;
             backToMainMenuButton.onClick.AddListener(BackToMenu);
-            nextPage.onClick.AddListener(NextPage);
-            previousPage.onClick.AddListener(PreviousPage);
-        }
-        
-        private void TryToShowAdd()
-        {
-            AddManager.Instance.OnAddClose += SetupButtons;
-            AddManager.Instance.ShowInterstitialAdd();
         }
 
-        private void SetupPage()
+        private void SetupStageItems()
         {
-            if (levelPages.Count > 0)
+            if (_currentStageItems.Count > 0)
             {
-                foreach (var gameObject in levelPages)
+                foreach (var stageItem in _currentStageItems)
                 {
-                    Destroy(gameObject);
+                    Destroy(stageItem.gameObject);
                 }
-                levelPages = new List<GameObject>();
-                _currentStageItems = new List<StageItem>();
             }
             
-            int lockStars;
-            int levelsPerPage = 15;
-            int totalLevelCount = LevelsMonoMechanic.Instance.GetTotalLevelCount();
             
-            _totalPages = Mathf.CeilToInt((float)totalLevelCount / levelsPerPage);
-
-            for (int pageIndex = 0; pageIndex < _totalPages; pageIndex++)
+            for (int i = 0; i < LevelsMonoMechanic.Instance.GetMapsCount(); i++)
             {
-                GameObject page = Instantiate(levelsGrid.gameObject,transform);
-                page.name = pageIndex.ToString();
-                for (int levelIndex = 0; levelIndex < levelsPerPage; levelIndex++)
-                {
-                    int levelNumber = pageIndex * levelsPerPage + levelIndex;
-                    if (levelNumber <= totalLevelCount - 1)
-                    {
-                        StageItem stageItem =  Instantiate(stageItemPrefab,page.transform);
-                        
-                        LevelSave levelSave = LevelsMonoMechanic.Instance.GetInfoAboutLevel(levelNumber);
-                        lockStars = levelSave.completedStars;
-                            
-                        stageItem.Initialize(3 - lockStars,lockStars,levelSave.isOpen == 0,levelNumber,this);
-
-                        _currentStageItems.Add(stageItem);
-                    }
-                }
-                levelPages.Add(page);
+                StageItem stageItem = Instantiate(stageItemPrefab, levelsGrid);
+                stageItem.Initialize(i,this);
+                _currentStageItems.Add(stageItem);
             }
-
-            foreach (var page in levelPages)
-            {
-                page.SetActive(false);
-            }
-            //_currentPage = 0;
-            levelPages[_currentPage].SetActive(true);
-            stageNavigation.SetPage(_currentPage);
-        }
-
-        private void NextPage()
-        {
-            if (_currentPage + 1 <= levelPages.Count - 1)
-            {
-                levelPages[_currentPage].SetActive(false);
-                _currentPage++;
-            }
-
-            else if (_currentPage +1 > levelPages.Count - 1)
-            {
-                levelPages[_currentPage].SetActive(false);
-                _currentPage = 0;
-            }
-            levelPages[_currentPage].SetActive(true);
-            stageNavigation.SetPage(_currentPage);
         }
         
-        private void PreviousPage()
-        {
-            if (_currentPage - 1 < 0)
-            {
-                levelPages[_currentPage].SetActive(false);
-                _currentPage = levelPages.Count - 1;
-            } else if (_currentPage - 1 >= 0)
-            {
-                levelPages[_currentPage].SetActive(false);
-                _currentPage--;
-            }
-            levelPages[_currentPage].SetActive(true);
-            stageNavigation.SetPage(_currentPage);
-        }
-
         public void SelectLevel(int levelNumber)
         {
-            foreach (var stageItem in _currentStageItems)
-            {
-                stageItem.SetActiveInteractionFalse();
-            }
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
             LevelsMonoMechanic.Instance.SelectLevel(levelNumber);
         }
@@ -147,8 +62,6 @@ namespace Ui.States
         public override void ExitState(IState monoState)
         {
             backToMainMenuButton.onClick.RemoveListener(BackToMenu);
-            nextPage.onClick.RemoveListener(NextPage);
-            previousPage.onClick.RemoveListener(PreviousPage);
             base.ExitState(monoState);
         }
     }

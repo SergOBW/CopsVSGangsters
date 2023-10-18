@@ -409,7 +409,6 @@ GameObject:
   - component: {fileID: 780325707021310065}
   - component: {fileID: 6267863418015566204}
   - component: {fileID: 6331291934285394514}
-  - component: {fileID: 3621468556793806440}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -484,17 +483,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bcb034695688bc4f939d3cd8b348f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 417483425836234796, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
+  playerPrefab: {fileID: 5618975644176743628, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
   defaultPlayerStats: {fileID: 11400000, guid: a3f0b40b3a35a8f44b749e91ddf3a14c, type: 2}
-  startedLevel: 3
+  startedLevel: 0
   mapsSo:
-  - {fileID: 11400000, guid: 88066d581f37b4b43ade64014be3f98d, type: 2}
   - {fileID: 11400000, guid: 2da2910009ae60f4cbef5fc5b3cb30cd, type: 2}
   - {fileID: 11400000, guid: 0824a947bedf41b48a657f42296b209d, type: 2}
   - {fileID: 11400000, guid: 16ca9b274d038f148afd509f42ceb14e, type: 2}
   - {fileID: 11400000, guid: 7510f56b206d8e848b07715275073e18, type: 2}
   - {fileID: 11400000, guid: d890e27cb1789a648b6b23234c24b049, type: 2}
   - {fileID: 11400000, guid: 9ce3b9237a56999418645454e3c9c64c, type: 2}
+  - {fileID: 11400000, guid: 65d444210e308e54492a61665033e85b, type: 2}
   startedLevelWinMoney: 1000
   eachLevelWinMoney: 200
 --- !u!114 &1743999464976036662
@@ -586,17 +585,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ebfbb315536f844ebfc9bbe7fd2f631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3621468556793806440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254582670927975062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0864c81a1fe6d6489eff11f53980791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

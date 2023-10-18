@@ -1,5 +1,12 @@
 ﻿using UnityEngine;
 
+public enum WeaponType
+{
+    Primary = 0,
+    Secondary = 1,
+    Melee = 2
+}
+
 namespace ForWeapon
 {
     [CreateAssetMenu()]
@@ -40,5 +47,8 @@ namespace ForWeapon
 
         [Header("Options")]
         public bool isStarted;
+        public WeaponType weaponType;
+
+        public GameObject weaponGameObject;
     }
 }

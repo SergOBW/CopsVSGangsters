@@ -7,7 +7,8 @@ namespace Ui.States
 {
     public class UiMonoMainMenuState : UiMonoState
     {
-        [SerializeField] private Button playGameButton;
+        [SerializeField] private Button stageButton;
+        [SerializeField] private Button playButton;
         [SerializeField] private Button weaponSetupButton;
         [SerializeField] private List<UiElement> uiElements;
         public override void EnterState(IStateMachine monoStateMachine)
@@ -27,15 +28,21 @@ namespace Ui.States
         
         private void SetupButtons()
         {
-            playGameButton.onClick.AddListener(GoPlayButton);
+            stageButton.onClick.AddListener(StageButton);
             weaponSetupButton.onClick.AddListener(GoWeaponSetupButton);
+            playButton.onClick.AddListener(PlayButton);
         }
 
         private void GoWeaponSetupButton()
         {
             ExitState(currentMonoStateMachine.uiMonoWeaponSetupState);
         }
-        private void GoPlayButton()
+        private void StageButton()
+        {
+            ExitState(currentMonoStateMachine.uiMonoStageState);
+        }
+
+        private void PlayButton()
         {
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
             LevelsMonoMechanic.Instance.SelectLevel();
@@ -43,8 +50,9 @@ namespace Ui.States
 
         public override void ExitState(IState monoState)
         {
-            playGameButton.onClick.RemoveListener(GoPlayButton);
+            stageButton.onClick.RemoveListener(StageButton);
             weaponSetupButton.onClick.RemoveListener(GoWeaponSetupButton);
+            playButton.onClick.RemoveListener(PlayButton);
             base.ExitState(monoState);
         }
     }

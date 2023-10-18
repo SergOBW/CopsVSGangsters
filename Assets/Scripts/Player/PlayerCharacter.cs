@@ -39,11 +39,11 @@ public class PlayerCharacter : MonoBehaviour
         return _currentWeapon.IsAiming;
     }
 
-    public string GetWeaponName()
+    public void Pause()
     {
-        Debug.Log("GetWeaponName");
-        throw new NotImplementedException();
+        LevelStateMachine.Instance.Pause();
     }
+    
 
     public int GetAmmunitionCurrent()
     {
@@ -55,8 +55,9 @@ public class PlayerCharacter : MonoBehaviour
         OnFireEvent?.Invoke();
     }
 
-    public void SetupArms(List<PlayerWeaponStats> avaibleWeaponStatsList)
+    public void SetupArms()
     {
+        List<PlayerWeaponStats> avaibleWeaponStatsList = WeaponManagerMechanic.Instance.GetCurrentWeapons();
         _armControllerScripts = new List<ArmControllerScript>();
         foreach (var playerWeaponStats in avaibleWeaponStatsList)
         {
