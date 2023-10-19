@@ -1,3 +1,4 @@
+using Abstract.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class Drill : MonoBehaviour
 
     [SerializeField] private float drillTimer = 60;
 
+    private float _drillSpeed;
+
     public void StartDrill(DrilledDoor drilledDoor)
     {
         slider.minValue = 0;
@@ -22,6 +25,15 @@ public class Drill : MonoBehaviour
         _timer = drillTimer;
         _isDrilled = true;
         _drilledDoor = drilledDoor;
+
+        if (Inventory.Instance.HasItem("Big drill"))
+        {
+            _drillSpeed = 2;
+        }
+        else
+        {
+            _drillSpeed = 1;
+        }
     }
 
     private void Update()
@@ -32,7 +44,7 @@ public class Drill : MonoBehaviour
         }
         if (_timer > 0)
         {
-            _timer -= Time.deltaTime;
+            _timer -= Time.deltaTime * _drillSpeed;
         }
         else
         {

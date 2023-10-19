@@ -21,11 +21,13 @@ namespace Ui.States
 
         private void BackToMenu()
         {
+            weaponUi.DeInitialize();
             ExitState(currentMonoStateMachine.uiMonoMainMenuState);
         }
 
         public override void ExitState(IState monoState)
         {
+            backButton.onClick.RemoveListener(BackToMenu);
             weaponCamera.gameObject.SetActive(false);
             base.ExitState(monoState);
         }

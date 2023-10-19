@@ -12,11 +12,13 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private Camera armsCamera;
     private List<ArmControllerScript> _armControllerScripts = new List<ArmControllerScript>();
     private int _currentWeaponIndex;
+    
     private void Awake()
     {
         _aiSensor = GetComponent<AiSensor>();
         _firstPersonController = GetComponent<FirstPersonController>();
     }
+
 
     public bool IsSeeEnemy(GameObject gameObject)
     {

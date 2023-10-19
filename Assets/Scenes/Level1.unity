@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8983,6 +8983,10 @@ PrefabInstance:
       value: SM_Env_VaultGate_Door_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 190666, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 190666, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9030,7 +9034,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6319633994769262674, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+    - {fileID: 423255599294166492, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14433,6 +14439,10 @@ PrefabInstance:
       value: SM_Env_VaultGate_Door_01
       objectReference: {fileID: 0}
     - target: {fileID: 190666, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 190666, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -14480,7 +14490,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6319633994769262674, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+    - {fileID: 423255599294166492, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -29370,6 +29382,10 @@ PrefabInstance:
       value: SM_Env_VaultGate_Door_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 190666, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 190666, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -29417,7 +29433,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6319633994769262674, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+    - {fileID: 423255599294166492, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40127,7 +40145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &2042182801
 Light:
   m_ObjectHideFlags: 0

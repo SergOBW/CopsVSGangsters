@@ -134,8 +134,10 @@ public class WeaponManagerMechanic : IMechanic
 
     private PlayerWeaponStatsSo[] _playerWeaponStatsSo;
     private Dictionary<string, PlayerWeaponStats> _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
-    private List<PlayerWeaponStats> _avaibleWeaponStats;
+    
+    
     private List<PlayerWeaponStats> _currentPlayerWeaponStatsList;
+    
     private PlayerWeaponStats _currentPlayerWeaponStats;
     
     public void Initialize()
@@ -150,7 +152,7 @@ public class WeaponManagerMechanic : IMechanic
     private void Setup()
     {
         _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
-        _avaibleWeaponStats = new List<PlayerWeaponStats>();
+        List<PlayerWeaponStats> _avaibleWeaponStats = new List<PlayerWeaponStats>();
         for (int i = 0; i < _playerWeaponStatsSo.Length; i++)
         {
             PlayerWeaponStats newPlayerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[i]);
@@ -232,5 +234,33 @@ public class WeaponManagerMechanic : IMechanic
         }
 
         return list;
+    }
+
+    public bool TryToEquip(PlayerWeaponStats currentWepaonStats)
+    {
+        if (!_currentPlayerWeaponStatsList.Contains(currentWepaonStats))
+        {
+            Debug.LogError($"The weapon - {currentWepaonStats.WeaponName}, is not unlocked");
+            return false;
+        }
+        SetWeapon(currentWepaonStats.WeaponName);
+        return true;
+    }
+
+    public bool TryToBuy(PlayerWeaponStats currentWepaonStats)
+    {
+        if (!_playerWeaponStatsDictionary.ContainsKey(currentWepaonStats.WeaponName))
+        {
+            Debug.LogError($"There is no weapon with this name - {currentWepaonStats.WeaponName}");
+            return false;
+        }
+        if (EconomyMonoMechanic.Instance.TryToSpend(currentWepaonStats.WeaponBuyPrice))
+        {
+            currentWepaonStats.IsOpen = true;
+            _currentPlayerWeaponStatsList.Add(currentWepaonStats);
+            SaveGameMechanic.Instance.SaveWeapon(currentWepaonStats);
+            return true;
+        }
+        return false;
     }
 }

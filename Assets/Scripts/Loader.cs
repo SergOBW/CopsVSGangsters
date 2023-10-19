@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using Abstract.Inventory;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,8 @@ public class Loader : MonoBehaviour
         languageManager.Initialize();
         WeaponManagerMechanic weaponManagerMechanic = new WeaponManagerMechanic();
         weaponManagerMechanic.Initialize();
+        Inventory inventory = new Inventory();
+        inventory.Initialize();
             
         GameObject gameManager = Instantiate(globalMechanicSetupPrefab);
         DontDestroyOnLoad(gameManager);

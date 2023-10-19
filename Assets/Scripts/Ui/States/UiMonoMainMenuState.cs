@@ -10,7 +10,11 @@ namespace Ui.States
         [SerializeField] private Button stageButton;
         [SerializeField] private Button playButton;
         [SerializeField] private Button weaponSetupButton;
+        [SerializeField] private Button shopButton;
+        [SerializeField] private Button inventoryButton;
+        
         [SerializeField] private List<UiElement> uiElements;
+        [SerializeField] private InventoryPopup inventoryPopup;
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
@@ -25,12 +29,34 @@ namespace Ui.States
                 uiElement.Show();
             }
         }
+        public override void ExitState(IState monoState)
+        {
+            stageButton.onClick.RemoveListener(StageButton);
+            weaponSetupButton.onClick.RemoveListener(GoWeaponSetupButton);
+            playButton.onClick.RemoveListener(PlayButton);
+            shopButton.onClick.RemoveListener(ShopButton);
+            inventoryButton.onClick.RemoveListener(InventoryButton);
+            base.ExitState(monoState);
+        }
+        
         
         private void SetupButtons()
         {
             stageButton.onClick.AddListener(StageButton);
             weaponSetupButton.onClick.AddListener(GoWeaponSetupButton);
             playButton.onClick.AddListener(PlayButton);
+            shopButton.onClick.AddListener(ShopButton);
+            inventoryButton.onClick.AddListener(InventoryButton);
+        }
+
+        private void InventoryButton()
+        {
+            inventoryPopup.Show();
+        }
+
+        private void ShopButton()
+        {
+            ExitState(currentMonoStateMachine.uiMonoShopState);
         }
 
         private void GoWeaponSetupButton()
@@ -47,13 +73,6 @@ namespace Ui.States
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
             LevelsMonoMechanic.Instance.SelectLevel();
         }
-
-        public override void ExitState(IState monoState)
-        {
-            stageButton.onClick.RemoveListener(StageButton);
-            weaponSetupButton.onClick.RemoveListener(GoWeaponSetupButton);
-            playButton.onClick.RemoveListener(PlayButton);
-            base.ExitState(monoState);
-        }
+        
     }
 }

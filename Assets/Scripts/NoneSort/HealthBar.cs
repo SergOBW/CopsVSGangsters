@@ -1,13 +1,14 @@
 using Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private TMP_Text healthText;
     private PlayerStatsController _playerStatsController;
-    [SerializeField] private Image healthImage;
+    [SerializeField] private Slider healthSlider;
 
     private void OnEnable()
     {
@@ -29,7 +30,9 @@ public class HealthBar : MonoBehaviour
 
     private void Refresh(float obj)
     {
-        healthText.text = obj.ToString();
-        healthImage.fillAmount = obj / 100;
+        //healthText.text = obj.ToString();
+        float startedHealth = _playerStatsController.GetStartedHealth();
+        healthSlider.maxValue = startedHealth;
+        healthSlider.value = obj;
     }
 }

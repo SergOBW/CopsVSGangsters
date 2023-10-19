@@ -25,18 +25,6 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
         OnMoneyAmountChanged?.Invoke(_currentMoney);
     }
 
-    private void Update()
-    {
-        /*
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            AddMoney(1000000);
-            SaveManagerMechanic.Instance.SaveMoney();
-            SaveManagerMechanic.Instance.Save();
-        }
-        */
-    }
-
     public bool TryToSpend(float value)
     {
         if (_currentMoney - value >= 0)
@@ -45,6 +33,7 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
             OnMoneySpended?.Invoke(value);
             OnMoneyAmountChanged?.Invoke(_currentMoney);
             SoundMonoMechanic.Instance.PlayBuy();
+            SaveGameMechanic.Instance.SaveMoney();
             return true;
         }
         return false;
@@ -63,6 +52,7 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
     {
         _currentMoney += value;
         OnMoneyAmountChanged?.Invoke(_currentMoney);
+        SaveGameMechanic.Instance.SaveMoney();
     }
     
 

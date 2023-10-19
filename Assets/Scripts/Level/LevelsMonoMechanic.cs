@@ -7,17 +7,11 @@ using EnemyCore;
 using JetBrains.Annotations;
 using Level;
 using Player;
+using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Yandex.Plugins.Login;
 using Random = UnityEngine.Random;
-
-[Serializable]
-public class LevelSave
-{
-    public int completedStars;
-    public int isOpen;
-}
 
 [RequireComponent(typeof(GameModeMechanicsManager))]
 public class LevelsMonoMechanic : GlobalMonoMechanic
@@ -144,7 +138,7 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     private IEnumerator UnLoadScene()
     {
         _gameModeMechanicsManager.DeInitialize();
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Hub");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainScene");
         while (!asyncOperation.isDone)
         {
             yield return null;

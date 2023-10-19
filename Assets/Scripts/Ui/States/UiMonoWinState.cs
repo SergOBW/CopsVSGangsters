@@ -19,9 +19,7 @@ namespace Ui.States
 
         [SerializeField] private GameObject[] headshotImages;
         [SerializeField] private GameObject[] hpImages;
-
-        [SerializeField] private WinningStar[] winningStars;
-
+        
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
@@ -64,18 +62,7 @@ namespace Ui.States
                     gameObject.SetActive(false);
                 }
             }
-
-            for (int i = 0; i < winningStars.Length; i++)
-            {
-                if (i <= LevelsMonoMechanic.Instance.GetStarts() - 1)
-                {
-                    winningStars[i].SetupStar(true);
-                }
-                else
-                {
-                    winningStars[i].SetupStar(false);
-                }
-            }
+            
         }
 
         private void SetupButtons()

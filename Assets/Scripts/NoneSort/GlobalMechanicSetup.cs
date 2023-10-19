@@ -13,4 +13,27 @@ public class GlobalMechanicSetup : MonoBehaviour
             _monoMechanics[i].Initialize();
         }
     }
+    
+    private bool d1;
+    private bool d2;
+    private void Update()
+    {
+        d1 = (Input.GetKey(KeyCode.LeftShift) ? true : false);
+        d2 = (Input.GetKey(KeyCode.Z) ? true : false); 
+ 
+        if (d1 && d2)
+        {
+            SaveGameMechanic.Instance.ResetData();
+        }
+        
+        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            EconomyMonoMechanic.Instance.AddMoney(1000000);
+            SaveGameMechanic.Instance.SaveMoney();
+        }
+        
+    }
 }
+
+

@@ -168,5 +168,10 @@ namespace Player
             float percent = (currentHealth / statsContainerData.startHealth) * 100;
             return percent >= 50;
         }
+
+        public float GetStartedHealth()
+        {
+            return statsContainerData.startHealth;
+        }
     }
 }

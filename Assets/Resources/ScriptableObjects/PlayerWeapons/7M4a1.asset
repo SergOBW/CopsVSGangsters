@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49cbb16a5f847a18056c9d1596729b6, type: 3}
+  m_Name: 7M4a1
+  m_EditorClassIdentifier: 
+  weaponName: M4a1
+  weaponBuyPrice: 10000
+  startedDamageCost: 1000
+  startedReloadSpeedCost: 1000
+  startedAccuracyCost: 1000
+  startedBulletCountCost: 1000
+  startedDamage: 35
+  startedReloadSpeed: 1
+  startedAccuracy: 5
+  startedBulletCount: 25
+  damageLevelMultiplayer: 5
+  reloadSpeedLevelMultiplayer: 0.2
+  accuracyLevelMultiplayer: 1
+  bulletCountLevelMultiplayer: 5
+  damagePriceLevelMultiplayer: 1000
+  reloadSpeedPriceLevelMultiplayer: 1000
+  accuracyPriceLevelMultiplayer: 1000
+  bulletCountPriceLevelMultiplayer: 1000
+  weaponArms: {fileID: 3010297690575668607, guid: d170b1adc92f3de4dbac2476e7fa61ae, type: 3}
+  isStarted: 0
+  weaponType: 0
+  weaponGameObject: {fileID: 111776, guid: 285b2a7e6af47fa46804e3777b7ba97b, type: 3}
