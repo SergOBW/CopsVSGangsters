@@ -14,17 +14,20 @@ namespace Ui.States
         
         [SerializeField] private ShopItemUi shopItemUiPrefab;
         private List<ShopItemUi> _shopItemUis = new List<ShopItemUi>();
+        [SerializeField] private RectTransform[] itemsToRebuild;
 
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             backButton.onClick.AddListener(GoToMenu);
+            Inventory.Instance.OnInventoryChanged += RefreshUi;
             RefreshUi();
         }
 
         public override void ExitState(IState monoState)
         {
             backButton.onClick.RemoveListener(GoToMenu);
+            Inventory.Instance.OnInventoryChanged -= RefreshUi;
             base.ExitState(monoState);
         }
 
@@ -37,6 +40,7 @@ namespace Ui.States
                     Destroy(shopItemUi.gameObject);
                 }
             }
+            LayoutRebuilder.ForceRebuildLayoutImmediate(shopItemsSlot);
 
             _shopItemUis = new List<ShopItemUi>();
 
@@ -51,6 +55,11 @@ namespace Ui.States
                     shopItemUi.Initialize(inventoryItem,this);
                     _shopItemUis.Add(shopItemUi);
                 }
+            }
+
+            foreach (var rectTransform in itemsToRebuild)
+            {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
             }
         }
 

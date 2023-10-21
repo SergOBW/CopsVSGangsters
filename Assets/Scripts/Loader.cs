@@ -28,6 +28,8 @@ public class Loader : MonoBehaviour
         weaponManagerMechanic.Initialize();
         Inventory inventory = new Inventory();
         inventory.Initialize();
+        GlobalSettings globalSettings = new GlobalSettings();
+        globalSettings.Initialize();
             
         GameObject gameManager = Instantiate(globalMechanicSetupPrefab);
         DontDestroyOnLoad(gameManager);

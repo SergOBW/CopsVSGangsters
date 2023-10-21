@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 1018f1c8803258f469d32f7fb1f57626, type: 3}
   name: Great Bag
-  price: 100
+  price: 40000

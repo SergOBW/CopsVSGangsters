@@ -8,7 +8,6 @@ namespace Ui.States
     public class UiMonoPlayState : UiMonoState
     {
         [SerializeField] private Button pauseButton;
-        [SerializeField] private TutorialUi _tutorialUi;
         [SerializeField] private QuestsUi _questsUi;
         [SerializeField] private InteractionUi _interactionUi;
         [SerializeField] private bl_IndicatorManager _indicatorManager;

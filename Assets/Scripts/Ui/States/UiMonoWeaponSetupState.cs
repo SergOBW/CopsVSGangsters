@@ -1,6 +1,7 @@
 ﻿using Abstract;
 using ForWeapon;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Ui.States
@@ -10,18 +11,18 @@ namespace Ui.States
         [SerializeField] private Button backButton;
         [SerializeField] private Camera weaponCamera;
 
-        [SerializeField] private WeaponUi weaponUi;
+        [FormerlySerializedAs("weaponUi")] [SerializeField] private ChooseWeaponUi chooseWeaponUi;
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             backButton.onClick.AddListener(BackToMenu);
             weaponCamera.gameObject.SetActive(true);
-            weaponUi.Initialize();
+            chooseWeaponUi.Initialize();
         }
 
         private void BackToMenu()
         {
-            weaponUi.DeInitialize();
+            chooseWeaponUi.DeInitialize();
             ExitState(currentMonoStateMachine.uiMonoMainMenuState);
         }
 

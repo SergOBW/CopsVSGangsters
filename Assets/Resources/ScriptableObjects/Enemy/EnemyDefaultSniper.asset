@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: EnemyDefaultSniper
   m_EditorClassIdentifier: 
   enemySoundSo: {fileID: 11400000, guid: 437570509d7b33547a7514f02d13bb43, type: 2}
-  statsSo: {fileID: 11400000, guid: 7cb12798790633146a3b0d5a2ffcf4d4, type: 2}
+  stats:
+    startHealth: 100
+    startArmour: 0
+    startSpeed: 2
+    maxSpeed: 5
+    isDead: 0
   visuals:
   - {fileID: 11400000, guid: 9e7da9b133152314b8cc8f6abd7be2ba, type: 2}
   weaponStatsSo: {fileID: 11400000, guid: cef82cf80b67c48499ab48a00358b7e9, type: 2}

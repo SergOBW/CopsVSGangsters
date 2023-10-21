@@ -12,6 +12,7 @@ namespace Ui.States
         [SerializeField] private Button weaponSetupButton;
         [SerializeField] private Button shopButton;
         [SerializeField] private Button inventoryButton;
+        [SerializeField] private Button settingsButton;
         
         [SerializeField] private List<UiElement> uiElements;
         [SerializeField] private InventoryPopup inventoryPopup;
@@ -36,6 +37,7 @@ namespace Ui.States
             playButton.onClick.RemoveListener(PlayButton);
             shopButton.onClick.RemoveListener(ShopButton);
             inventoryButton.onClick.RemoveListener(InventoryButton);
+            settingsButton.onClick.RemoveListener(OpenSettings);
             base.ExitState(monoState);
         }
         
@@ -47,6 +49,12 @@ namespace Ui.States
             playButton.onClick.AddListener(PlayButton);
             shopButton.onClick.AddListener(ShopButton);
             inventoryButton.onClick.AddListener(InventoryButton);
+            settingsButton.onClick.AddListener(OpenSettings);
+        }
+
+        private void OpenSettings()
+        {
+            currentMonoStateMachine.ShowSettings();
         }
 
         private void InventoryButton()

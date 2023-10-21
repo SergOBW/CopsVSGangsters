@@ -33,20 +33,7 @@ namespace Ui.States
             LevelStateMachine.Instance.SetLevelPlayState();
             ExitState(currentMonoStateMachine.uiMonoPlayState);
         }
-
-        public void GoToGame(InputAction.CallbackContext context)
-        {
-            switch (context.phase)
-            {
-                case InputActionPhase.Performed:
-                    //Performed.
-                    //clickText.SetActive(false);
-                    //LevelStateMachine.Instance.LevelLoaded();
-                    //ExitState(currentStateMachine.uiPlayState);
-                    break;
-            }
-        }
-
+        
         private void OnLevelUnloaded()
         {
             ExitState(currentMonoStateMachine.uiMonoMainMenuState);

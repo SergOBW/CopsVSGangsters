@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: EnemyDefaultAk47
   m_EditorClassIdentifier: 
   enemySoundSo: {fileID: 11400000, guid: 437570509d7b33547a7514f02d13bb43, type: 2}
-  statsSo: {fileID: 11400000, guid: 7cb12798790633146a3b0d5a2ffcf4d4, type: 2}
+  stats:
+    startHealth: 120
+    startArmour: 0
+    startSpeed: 2
+    maxSpeed: 5
+    isDead: 0
   visuals:
   - {fileID: 11400000, guid: 5f362301c0bead54b8acaef2ff35d563, type: 2}
   weaponStatsSo: {fileID: 11400000, guid: 5f63f011b4b4a884cae01404d667d694, type: 2}

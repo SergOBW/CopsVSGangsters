@@ -220,7 +220,7 @@ public class bl_IndicatorManager : MonoBehaviour {
         {
             foreach (var transform in childs)
             {
-                Destroy(transform);
+                Destroy(transform.gameObject);
             }
         }
         

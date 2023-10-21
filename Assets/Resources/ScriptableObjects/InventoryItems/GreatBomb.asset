@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: d4d7057eb5451bb41a7367469e050946, type: 3}
   name: Great Bomb
-  price: 100
+  price: 30000

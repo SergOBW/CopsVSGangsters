@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: ae6dcd626ec6f6148a0a46b558bbfadf, type: 3}
   name: Tactical Gloves
-  price: 100
+  price: 15000

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: e5722502790e36240ba5292101cd8b33, type: 3}
   name: Body Armour
-  price: 100
+  price: 40000

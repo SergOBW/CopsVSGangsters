@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Abstract;
+using DefaultNamespace;
+using Tayx.Graphy;
 using Ui.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +19,9 @@ public class UiMonoStateMachine : MonoStateMachine
     public UiMonoStageState uiMonoStageState;
     public UiMonoShopState uiMonoShopState;
 
+    [SerializeField] private SettingsPopup settingsPopup;
+    [SerializeField] private GraphyManager graphyManager;
+
     public static UiMonoStateMachine Instance;
 
     [SerializeField] private List<StateMachinesDebugger> _stateMachineDebugger;
@@ -32,6 +37,14 @@ public class UiMonoStateMachine : MonoStateMachine
         {
             stateMachines.Initialize();
         }
+
+        GlobalSettings.Instance.OnSettingsChanged += OnSettingsChanged;
+        OnSettingsChanged();
+    }
+
+    private void OnSettingsChanged()
+    {
+        graphyManager.gameObject.SetActive(GlobalSettings.Instance.isUsingDebug);
     }
 
     private void OnFirstLaunchSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -47,5 +60,10 @@ public class UiMonoStateMachine : MonoStateMachine
     public void InitializeStandalone()
     {
         ChangeState(uiMonoPlayState);
+    }
+
+    public void ShowSettings()
+    {
+        settingsPopup.Show();
     }
 }

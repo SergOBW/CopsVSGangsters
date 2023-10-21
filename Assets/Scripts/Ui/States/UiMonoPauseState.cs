@@ -11,8 +11,7 @@ namespace Ui.States
         [SerializeField] private Button backToHubButton;
         [SerializeField] private Button restartLevelButton;
         [SerializeField] private Button settingsButton;
-
-        [SerializeField] private SettingsPopup settingsPopup;
+        
 
         public override void EnterState(IStateMachine monoStateMachine)
         {
@@ -54,8 +53,7 @@ namespace Ui.States
 
         private void OpenSettings()
         {
-            settingsPopup.gameObject.SetActive(true);
-            settingsPopup.Show();
+            currentMonoStateMachine.ShowSettings();
         }
 
         public override void ExitState(IState monoState)

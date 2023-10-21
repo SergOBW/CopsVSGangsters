@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a217a3901fa7486d81282a6e00945cb6, type: 3}
   m_Name: Ak47_Rifle_Weapon
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 1
   range: 10
   fireRate: 1.8
   animatorOverrideController: {fileID: 22100000, guid: 3f5ed938438f00f449f77d767f701282, type: 2}

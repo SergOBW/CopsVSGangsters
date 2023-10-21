@@ -81,7 +81,7 @@ namespace Ui.States
 
         private void ReturnToGame()
         {
-            FindObjectOfType<PlayerStatsController>().ReviveBonus();
+            PlayerMonoMechanic.Instance.ReviveBonus();
             LevelStateMachine.Instance.SetLevelPlayState();
             ExitState(currentMonoStateMachine.uiMonoPlayState);
         }
