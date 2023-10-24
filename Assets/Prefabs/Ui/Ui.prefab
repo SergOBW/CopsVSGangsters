@@ -10088,6 +10088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0bf757ad4543a3b4cd1e51381c2e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 0
   pauseButton: {fileID: 4583604123830450159}
   _questsUi: {fileID: 8349311365338999181}
   _interactionUi: {fileID: 2882475264362317336}
@@ -26799,11 +26800,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7e8885517642b998e5332d15ea8a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 1
   backToHubButton: {fileID: 0}
   restartLevelButton: {fileID: 0}
   continueRewardedButton: {fileID: 7904369922647731710}
   buttonWithCursor: {fileID: 0}
-  mainAnimation: {fileID: 3961763593935830327}
 --- !u!111 &3961763593935830327
 Animation:
   m_ObjectHideFlags: 0
@@ -29595,6 +29596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f77e55ec0544969ff801d6de43be31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 1
   loadingText: {fileID: 1070904016113885349}
   clickText: {fileID: 2073029850601382958}
   clickButton: {fileID: 2218646176961012432}
@@ -33247,6 +33249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54447aba03a8429cadf6ffd89d2383eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 1
   stageButton: {fileID: 1475359650660778039}
   playButton: {fileID: 7230318350343653413}
   weaponSetupButton: {fileID: 5043169033793979107}
@@ -33667,6 +33670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74661b439be4018aba16e60a2742e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 1
   backToGameButton: {fileID: 2123620194078299916}
   backToHubButton: {fileID: 3163454491666983600}
   restartLevelButton: {fileID: 8978530000219219548}
@@ -36835,7 +36839,7 @@ GameObject:
   - component: {fileID: 7072708858641663189}
   - component: {fileID: 7072708858641663190}
   - component: {fileID: 7072708858641663191}
-  - component: {fileID: 8035407582516675088}
+  - component: {fileID: 7502255509421046349}
   m_Layer: 0
   m_Name: Slider22_Whitecustom
   m_TagString: Untagged
@@ -36969,7 +36973,7 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.101960786}
   m_EffectDistance: {x: 0, y: -6}
   m_UseGraphicAlpha: 1
---- !u!114 &8035407582516675088
+--- !u!114 &7502255509421046349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36978,9 +36982,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7072708858641663177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 083209b547029b04d86da6eee411200a, type: 3}
+  m_Script: {fileID: 11500000, guid: 868059753d613e74a9606ca4a0b8abe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneySlider: {fileID: 7072708858641663190}
   moneyText: {fileID: 7072708858353091547}
 --- !u!1 &7072708858911933872
 GameObject:
@@ -37167,6 +37172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f917feaf9b5440ea2cc871e98a09148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 1
   backButton: {fileID: 427591185752980667}
   weaponCamera: {fileID: 1339457459023629368}
   chooseWeaponUi: {fileID: 3764173419251875869}
@@ -38474,6 +38480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23f4edc35314b898c4872f921cf0f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 1
   levelsGrid: {fileID: 2220283978991430966}
   stageItemPrefab: {fileID: 1431326579118136465, guid: 660498fa7a0b3bb42be5ba5d53f829ac, type: 3}
   backToMainMenuButton: {fileID: 2735586191662927082}
@@ -41680,7 +41687,6 @@ GameObject:
   - component: {fileID: 5990476873057834206}
   - component: {fileID: 7361323741195807112}
   - component: {fileID: 2718577702064551842}
-  - component: {fileID: 6347118171213430714}
   m_Layer: 5
   m_Name: WinLevel
   m_TagString: Untagged
@@ -41765,34 +41771,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8511bd59ea144136919376a5e5c2352d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuButton: {fileID: 0}
-  nextLevelButton: {fileID: 0}
-  restartLevelButton: {fileID: 0}
-  checkUpgradeAnimation: {fileID: 0}
-  mainAnimation: {fileID: 6347118171213430714}
-  checkUpgradeUi: {fileID: 0}
-  headshotImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  hpImages:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!111 &6347118171213430714
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8027271548166251954}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d8da1c2974e2be741a22231142df4d2b, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: d8da1c2974e2be741a22231142df4d2b, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  needCursor: 1
+  claimButton: {fileID: 3976245780093767870}
+  claimDoubleButton: {fileID: 5067071278172746992}
+  moneySlider: {fileID: 1466762667186160314}
+  moneyText: {fileID: 1605997776546706727}
 --- !u!1 &8028321156495970922
 GameObject:
   m_ObjectHideFlags: 0
@@ -46149,6 +46132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36dc832cd244a84bf3367095fda7bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needCursor: 1
   backButton: {fileID: 7337843661484195063}
   shopItemsSlot: {fileID: 9069971077264687473}
   shopItemUiPrefab: {fileID: 6134168873888399242, guid: ff3319dbf0f1237468f76fc94c99acb1, type: 3}

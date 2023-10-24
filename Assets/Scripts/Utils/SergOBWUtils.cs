@@ -5,9 +5,9 @@ namespace DefaultNamespace
 {
     public static class SergOBWUtils
     {
-        public static Vector3 GetNearestNavMeshPosition(Vector3 positionToSpawn)
+        public static Vector3 GetNearestNavMeshPosition(Vector3 positionToSpawn, float maxDistance = Mathf.Infinity)
         {
-            NavMesh.SamplePosition(positionToSpawn, out NavMeshHit navMeshHit, Mathf.Infinity, NavMesh.AllAreas);
+            NavMesh.SamplePosition(positionToSpawn, out NavMeshHit navMeshHit, maxDistance, NavMesh.AllAreas);
             Vector3 myRandomPositionInsideNavMesh = navMeshHit.position;
 
             return myRandomPositionInsideNavMesh;

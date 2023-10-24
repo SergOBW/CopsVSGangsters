@@ -1,4 +1,5 @@
 using Quests;
+using Quests.HoldOnLevel;
 using Quests.Hostage;
 using Quests.Item;
 using Quests.KillEnemy;
@@ -62,6 +63,9 @@ public class QuestItemUi : MonoBehaviour
                 break;
             case LootMoneyQuest lootMoneyQuest :
                 progressionText.text = $"{lootMoneyQuest.CurrentMoneyAmount} / {lootMoneyQuest.MoneyToLoot}";
+                break;
+            case HoldOnLevelQuest holdOnLevelQuest :
+                progressionText.text = $"{(int)holdOnLevelQuest.GetCurrentTime() + 1} / {holdOnLevelQuest.GetStartedTime()}";
                 break;
         }
     }

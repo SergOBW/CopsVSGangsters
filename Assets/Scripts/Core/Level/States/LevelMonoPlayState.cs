@@ -8,7 +8,8 @@ namespace Level.States
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
-            LevelsMonoMechanic.Instance.OnLevelWin += OnLevelEnd;
+            LevelsMonoMechanic.Instance.OnLevelWin += OnLevelWin;
+            LevelsMonoMechanic.Instance.OnLevelLoose += OnLevelLoose;
             SoundMonoMechanic.Instance.SetupVolume();
             if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
             {
@@ -16,14 +17,32 @@ namespace Level.States
             }
         }
 
-        private void OnLevelEnd()
+        private void OnLevelWin()
         {
-            LevelsMonoMechanic.Instance.OnLevelWin -= OnLevelEnd;
             if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
             {
-                CrazyEvents.Instance.GameplayStop();
+                CrazySDK.Instance.HappyTime();
+                CrazySDK.Instance.GameplayStop();
             }
             ExitState(LevelStateMachine.Instance.levelMonoEndState);
+        }
+
+        private void OnLevelLoose()
+        {
+            if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
+            {
+                CrazySDK.Instance.HappyTime();
+                CrazySDK.Instance.GameplayStop();
+            }
+            LevelStateMachine.Instance.ChangeState(LevelStateMachine.Instance.levelMonoEndState);
+            ExitState(LevelStateMachine.Instance.levelMonoEndState);
+        }
+
+        public override void ExitState(IState IState)
+        {
+            LevelsMonoMechanic.Instance.OnLevelWin -= OnLevelWin;
+            LevelsMonoMechanic.Instance.OnLevelLoose -= OnLevelLoose;
+            base.ExitState(IState);
         }
     }
 }

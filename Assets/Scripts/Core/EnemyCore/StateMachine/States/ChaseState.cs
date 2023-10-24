@@ -23,10 +23,10 @@ public class ChaseState : EnemyState
     public override void UpdateState()
     {
         base.UpdateState();
-        if (currentMonoStateMachine.HasTarget(out PlayerCharacter target))
+        if (currentMonoStateMachine.HasTarget(out Transform transform))
         {
-            StatsController statsContainer = target.GetComponent<StatsController>();
-            lastSeeTargetPosition = target.transform.position;
+            StatsController statsContainer = transform.GetComponent<StatsController>();
+            lastSeeTargetPosition = transform.transform.position;
 
             float speed = navMeshAgent.speed + Time.deltaTime;
             if (speed <= maxSpeed)
@@ -42,7 +42,7 @@ public class ChaseState : EnemyState
                     ExitState(currentMonoStateMachine.findTargetState);
                     return;
                 }
-                float distance = Vector3.Distance(currentMonoStateMachine.transform.position, target.transform.position);
+                float distance = Vector3.Distance(currentMonoStateMachine.transform.position, transform.transform.position);
                 float fireRange = currentMonoStateMachine.GetFireRange();
                 float fireRangeOffest = currentMonoStateMachine.GetFireRangeOffest();
                 if (distance <= fireRange - fireRangeOffest)

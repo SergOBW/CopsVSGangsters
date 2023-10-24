@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 780325707021310065}
   - component: {fileID: 6267863418015566204}
   - component: {fileID: 462861060675394264}
-  - component: {fileID: 1183382019757999660}
+  - component: {fileID: 4243695782696329236}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -450,7 +450,7 @@ MonoBehaviour:
   - {fileID: 7754323005418844874}
   - {fileID: 4639955356401764326}
   - {fileID: 1743999464976036662}
-  - {fileID: 1183382019757999660}
+  - {fileID: 4243695782696329236}
 --- !u!114 &8941266700296672572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,8 +492,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ce3b9237a56999418645454e3c9c64c, type: 2}
   - {fileID: 11400000, guid: 65d444210e308e54492a61665033e85b, type: 2}
   - {fileID: 11400000, guid: b6349270a2e0765439647f21aa34aad4, type: 2}
-  startedLevelWinMoney: 1000
-  eachLevelWinMoney: 200
+  - {fileID: 11400000, guid: 88066d581f37b4b43ade64014be3f98d, type: 2}
 --- !u!114 &1743999464976036662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 2711780709539094374}
   hitClip: {fileID: 8300000, guid: da90e37b32255ce4ebeaf95281cb21ce, type: 3}
+  waveSound: {fileID: 8300000, guid: 3dacf997b69586145a977b74b09150db, type: 3}
   buyClip: {fileID: 8300000, guid: f523347c1bf410c4591d34d6c7efc6e2, type: 3}
   mainMixer: {fileID: 24100000, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
   mainOutputAudioMixerGroup: {fileID: -4390456094759738792, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
@@ -536,10 +536,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySos:
-  - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}
-  - {fileID: 11400000, guid: a7006d76b4899864dbf7cf5b47d57422, type: 2}
-  - {fileID: 11400000, guid: 5eb9b666d1e50cd478e885114ed142e5, type: 2}
   - {fileID: 11400000, guid: 063ba29dadbcb3244abc0fdefccf18e3, type: 2}
+  - {fileID: 11400000, guid: 5eb9b666d1e50cd478e885114ed142e5, type: 2}
+  - {fileID: 11400000, guid: a7006d76b4899864dbf7cf5b47d57422, type: 2}
+  - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}
 --- !u!114 &6267863418015566204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ea7048b9797814b9f88ae70c482e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1183382019757999660
+--- !u!114 &4243695782696329236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

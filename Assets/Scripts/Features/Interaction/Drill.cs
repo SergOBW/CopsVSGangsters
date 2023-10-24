@@ -1,5 +1,4 @@
 using Abstract.Inventory;
-using EnemyCore;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +25,6 @@ public class Drill : MonoBehaviour
         _timer = drillTimer;
         _isDrilled = true;
         _drilledDoor = drilledDoor;
-        EnemyHandleMechanic.Instance.SpawnEnemyWave();
 
         if (Inventory.Instance.HasItem("Big drill"))
         {

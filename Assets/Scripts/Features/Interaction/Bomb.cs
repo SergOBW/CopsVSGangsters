@@ -16,7 +16,6 @@ public class Bomb : MonoBehaviour
     {
         _boomDoor = boomDoor;
         _timer = timerBeforeBoom;
-        EnemyHandleMechanic.Instance.SpawnEnemyWave();
         _isUsed = true;
     }
 

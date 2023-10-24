@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f362301c0bead54b8acaef2ff35d563, type: 2}
   weaponStatsSo: {fileID: 11400000, guid: 26ca511355c14234b9a2928668c49c5e, type: 2}
   aiStats:
-    radius: 15
+    radius: 10
     angle: 110
     targetMask:
       serializedVersion: 2

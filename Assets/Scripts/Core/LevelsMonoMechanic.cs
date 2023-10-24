@@ -2,43 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Abstract;
-using DefaultNamespace;
-using EnemyCore;
+using Core;
 using JetBrains.Annotations;
 using Level;
-using Player;
 using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Yandex.Plugins.Login;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(GameModeMechanicsManager))]
 public class LevelsMonoMechanic : GlobalMonoMechanic
 {
     public static LevelsMonoMechanic Instance;
-
-    [SerializeField] private int startedLevel;
-    
-    [SerializeField] private MapsSo[] mapsSo;
-
-    [SerializeField] private int startedLevelWinMoney = 1000;
-    [SerializeField] private int eachLevelWinMoney = 200;
-    
-    
-    private GameLevelInfo _currentGameLevelInfo;
-
     public event Action OnLevelLoaded;
     public event Action OnLevelUnLoaded;
 
     public event Action OnLevelLoose;
     public event Action OnLevelWin;
-
+    
+    [SerializeField] private int startedLevel;
+    [SerializeField] private MapsSo[] mapsSo;
+    private GameLevelInfo _currentGameLevelInfo;
+    
     private int currentLevelIndex;
     private int lastCompletedLevelIndex;
-
+    
     private List<LevelSave> levelSaves;
-
     private GameModeMechanicsManager _gameModeMechanicsManager;
     private LevelStateMachine _levelStateMachine;
     private void Update()
@@ -57,12 +46,12 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         {
             _levelStateMachine.Update();
         }
-        
     }
 
     public override void Initialize()
     {
         Instance = this;
+        
         SaveGameMechanic.Instance.OnDataRefreshed+= OnDataRefreshed;
         _gameModeMechanicsManager = GetComponent<GameModeMechanicsManager>();
         
@@ -112,6 +101,34 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         StartCoroutine(LoadScene(sceneName));
     }
     
+    private void SetCurrentGameLevel()
+    {
+        int currentScenarioIndex = (int)MathF.Floor(currentLevelIndex / mapsSo.Length);
+        int currentMapIndex = currentLevelIndex % mapsSo.Length;
+
+        int maxScriptedLevels = 0;
+        
+        foreach (var mapsSo in mapsSo)
+        {
+            foreach (var scenario in mapsSo.scenarioSos)
+            {
+                maxScriptedLevels++;
+            }
+        }
+        
+        MapsSo _currentMap = mapsSo[currentMapIndex];
+        Scenario levelPassScenario;
+        if (currentLevelIndex < maxScriptedLevels)
+        {
+            levelPassScenario = _currentMap.scenarioSos[currentScenarioIndex].CreateGameScenario();
+        }
+        else
+        {
+            levelPassScenario = _currentMap.randomScenarioSos[Random.Range(0,_currentMap.randomScenarioSos.Length)].CreateGameScenario();
+        }
+        _currentGameLevelInfo = new GameLevelInfo(_currentMap,levelPassScenario);
+    }
+    
     private IEnumerator LoadScene(string sceneName)
     {
         LevelStateMachine.Instance.Initialize();
@@ -147,123 +164,29 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         OnLevelUnLoaded?.Invoke();
     }
     
-    public void NextLevel()
-    {
-        _gameModeMechanicsManager.DeInitialize();
-        if (currentLevelIndex + 1 < GetTotalLevelCount())
-        {
-            currentLevelIndex++;
-        }
-        else
-        {
-            Debug.Log("You win the game congrats!");
-        }
-        SetCurrentGameLevel();
-        StartCoroutine(LoadScene(_currentGameLevelInfo.sceneName.ToString()));
-    }
-
     public void RestartLevel()
     {
+        Debug.Log("Level restart");
         _gameModeMechanicsManager.DeInitialize();
-        StartCoroutine(LoadScene(_currentGameLevelInfo.sceneName.ToString()));
+        StartCoroutine(LoadScene(_currentGameLevelInfo.sceneName));
     }
 
     public void WinLevel()
     {
-        int completedStars = 1;
-        int money = startedLevelWinMoney + eachLevelWinMoney * currentLevelIndex;
-        if (EnemyHandleMechanic.Instance.IsHeadBonus())
-        {
-            money += 200;
-            completedStars++;
-        }
-
-        if (FindObjectOfType<PlayerStatsController>().IsHpBonus())
-        {
-            money += 200;
-            completedStars++;
-        }
-        levelSaves[currentLevelIndex].completedStars = completedStars;
-        EconomyMonoMechanic.Instance.AddMoney(money);
-        // Unlock next level
-        if (currentLevelIndex + 1 < GetTotalLevelCount())
-        {
-            levelSaves[currentLevelIndex + 1].isOpen = 1;
-        }
-        else
-        {
-            Debug.Log("You win the game congrats!");
-        }
-        SaveGameMechanic.Instance.SaveLeveSaves(levelSaves);
+        Debug.Log("Level win");
         OnLevelWin?.Invoke();
     }
 
     public void LooseLevel()
     {
-        LevelStateMachine.Instance.ChangeState(LevelStateMachine.Instance.levelMonoEndState);
+        Debug.Log("Level loose");
         OnLevelLoose?.Invoke();
     }
 
     #endregion
     
     #region Getters
-
-    public int GetTotalLevelCount()
-    {
-        int maxLevels = 0;
-        foreach (var mapSo in mapsSo)
-        {
-            maxLevels += mapSo.GetScenariosCount();
-        }
-        return maxLevels;
-    }
-
-    public LevelSave GetInfoAboutLevel(int levelNumber)
-    {
-        return levelSaves[levelNumber];
-    }
     
-    #endregion
-    
-    private void SetCurrentGameLevel()
-    {
-        int currentScenarioIndex = (int)MathF.Floor(currentLevelIndex / mapsSo.Length);
-        int currentMapIndex = currentLevelIndex % mapsSo.Length;
-
-        int maxScriptedLevels = 0;
-        
-        foreach (var mapsSo in mapsSo)
-        {
-            foreach (var scenario in mapsSo.scenarioSos)
-            {
-                maxScriptedLevels++;
-            }
-        }
-        
-        MapsSo _currentMap = mapsSo[currentMapIndex];
-        Scenario levelPassScenario;
-        if (currentLevelIndex < maxScriptedLevels)
-        {
-            levelPassScenario = _currentMap.scenarioSos[currentScenarioIndex].CreateGameScenario();
-        }
-        else
-        {
-            levelPassScenario = _currentMap.randomScenarioSos[Random.Range(0,_currentMap.randomScenarioSos.Length)].CreateGameScenario();
-        }
-        _currentGameLevelInfo = new GameLevelInfo(_currentMap,levelPassScenario);
-    }
-
-    public int GetLastSavedLevel()
-    {
-        OnDataRefreshed(SaveGameMechanic.Instance.GetGameSaves());
-        return lastCompletedLevelIndex;
-    }
-
-    public int GetStarts()
-    {
-        return levelSaves[currentLevelIndex].completedStars;
-    }
-
     [CanBeNull]
     public Scenario GetCurrentScenario()
     {
@@ -273,13 +196,13 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         }
         return null;
     }
-
-
     public int GetMapsCount()
     {
         return mapsSo.Length;
     }
-
+    
+    #endregion
+    
     private void OnApplicationFocus(bool hasFocus)
     {
         if (!hasFocus)

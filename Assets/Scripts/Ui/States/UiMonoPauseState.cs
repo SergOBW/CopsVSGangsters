@@ -21,9 +21,6 @@ namespace Ui.States
             restartLevelButton.onClick.AddListener(RestartLevelButton);
             settingsButton.onClick.AddListener(OpenSettings);
             
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            
             if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
             {
                 if (currentMonoStateMachine.PreviousState is UiMonoPlayState)

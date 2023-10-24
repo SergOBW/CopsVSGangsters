@@ -16,12 +16,7 @@ namespace Ui.States
         {
             base.EnterState(monoStateMachine);
             SubscribeOnEvents();
-            
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-
             SetupQuests();
-            
             _interactionUi.Initialize();
             _indicatorManager.SetupIndicators();
         }

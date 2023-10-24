@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695724f88f5233345bc1c746c28576c8, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  sceneName: Level1
+  sceneName: Test
   scenarioSos:
   - {fileID: 11400000, guid: 9eb26b1ecd5cc5647b73433c019a7100, type: 2}
   randomScenarioSos:

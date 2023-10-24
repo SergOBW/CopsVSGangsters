@@ -25,7 +25,7 @@ namespace EnemyCore.States
         public FindTargetWithEndPoint findTargetWithEndPoint = new FindTargetWithEndPoint();
         public ChaseWithEndPoint chaseWithEndPoint = new ChaseWithEndPoint();
 
-        private PlayerCharacter targetCharacter;
+        private Transform targetTransform;
         private Transform endPoint;
         
         public override void Initialize()
@@ -97,7 +97,6 @@ namespace EnemyCore.States
                 {
                     animationManager.SetSpeed(navMeshAgent.velocity.magnitude/navMeshAgent.speed);
                 }
-                //animationManager.SetSpeed(navMeshAgent.speed);
             }
         }
 
@@ -121,21 +120,21 @@ namespace EnemyCore.States
             return new Vector2(10, 10);
         }
 
-        public void SetTarget(PlayerCharacter character)
+        public void SetTarget(Transform transform)
         {
-            targetCharacter = character;
+            targetTransform = transform;
         }
 
         public void ClearTarget()
         {
-            targetCharacter = null;
+            targetTransform = null;
         }
         
-        public bool HasTarget(out PlayerCharacter character)
+        public bool HasTarget(out Transform transform)
         {
-            character = targetCharacter;
-
-            return character != null;
+            transform = targetTransform;
+            
+            return transform != null;
         }
 
         public float GetFireRange()
@@ -188,22 +187,21 @@ namespace EnemyCore.States
 
         public void LookAtTarget()
         {
-            if (targetCharacter == null)
+            if (targetTransform == null)
             {
                 Debug.LogError("There is no target Character");
                 return;
             }
-            //enemyAi.LookAtTarget(targetTransfrom);
-            Quaternion lookRotation = Quaternion.LookRotation(targetCharacter.transform.position - transform.position);
+            Quaternion lookRotation = Quaternion.LookRotation(targetTransform.position - transform.position);
             float time = 2 * Time.deltaTime;
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
         }
 
         public bool IsSeeTarget()
         {
-            if (targetCharacter != null)
+            if (targetTransform != null)
             {
-                return enemyAi.IsSeeTarget(targetCharacter.gameObject);
+                return enemyAi.IsSeeTarget(targetTransform.gameObject);
             }
             return false;
         }

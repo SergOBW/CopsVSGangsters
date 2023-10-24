@@ -6,14 +6,25 @@ public class LockedDoor : InteractableWithHealth
 {
     [SerializeField] private Vector3 rotateVector = new (0, -140, 0);
     [SerializeField] private Vector3 moveVector;
+
+    [SerializeField] private Transform handleTransform;
+
+    private void Awake()
+    {
+        if (handleTransform == null)
+        {
+            handleTransform = transform;
+        }
+    }
+
     protected override void Handle()
     {
         base.Handle();
         Debug.Log("Lock completed");
-        transform.DORotate(rotateVector,1f,RotateMode.LocalAxisAdd);
+        handleTransform.DORotate(rotateVector,1f,RotateMode.LocalAxisAdd);
         if (moveVector != Vector3.zero)
         {
-            transform.DOLocalMove(moveVector,1);
+            handleTransform.DOLocalMove(moveVector,1);
         }
 
         if (TryGetComponent(out NavMeshObstacle navMeshObstacle))

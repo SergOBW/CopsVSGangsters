@@ -16,7 +16,7 @@ MonoBehaviour:
   range: 2
   fireRate: 3
   animatorOverrideController: {fileID: 22100000, guid: 6c012421eca36364d9a9ebcff0aa234a, type: 2}
-  DistanceOffset: 1
+  DistanceOffset: 0.5
   weaponGraphicsSo:
   - {fileID: 11400000, guid: 1a73a15d3b2366c4f8205a4b9ad45301, type: 2}
   isGraphicsRandom: 0

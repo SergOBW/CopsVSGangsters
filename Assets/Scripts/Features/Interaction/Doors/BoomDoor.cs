@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DestroyIt;
+using EnemyCore;
 using UnityEngine;
 
 public class BoomDoor : InteractableWithHealth
@@ -9,6 +10,7 @@ public class BoomDoor : InteractableWithHealth
     private List<Bomb> _bombs = new List<Bomb>();
 
     [SerializeField] private bool canBeBoom;
+    [SerializeField] private bool needToSpawnWave;
 
     protected override void Initialize()
     {
@@ -31,6 +33,10 @@ public class BoomDoor : InteractableWithHealth
     protected override void Handle()
     {
         base.Handle();
+        if (needToSpawnWave)
+        {
+            EnemyHandleMechanic.Instance.SpawnEnemyWave();
+        }
         for (int i = 0; i < bombSlot.Length; i++)
         {
             GameObject gameObject = Instantiate(bombPrefab, bombSlot[i]);

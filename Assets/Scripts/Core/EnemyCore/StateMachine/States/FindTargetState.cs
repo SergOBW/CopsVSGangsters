@@ -9,7 +9,7 @@ namespace EnemyCore.States
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
-            if (currentMonoStateMachine.HasTarget(out PlayerCharacter character))
+            if (currentMonoStateMachine.HasTarget(out Transform transform))
             {
                 currentMonoStateMachine.ClearTarget();
             }
@@ -29,8 +29,8 @@ namespace EnemyCore.States
                     return;
                 }
                 Transform nearestValidEnemy = FindNearestValidEnemy().transform;
-                currentMonoStateMachine.SetTarget(nearestValidEnemy.GetComponent<PlayerCharacter>());
-                if (currentMonoStateMachine.HasTarget(out PlayerCharacter character))
+                currentMonoStateMachine.SetTarget(nearestValidEnemy);
+                if (currentMonoStateMachine.HasTarget(out Transform transform))
                 {
                     ExitState(currentMonoStateMachine.chaseState);
                 }

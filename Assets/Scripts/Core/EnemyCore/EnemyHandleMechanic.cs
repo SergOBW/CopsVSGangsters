@@ -168,6 +168,7 @@ namespace EnemyCore
         public void SpawnEnemyWave()
         {
             WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
+            SoundMonoMechanic.Instance.PlayWaveSpawn();
             if (waveSpawner != null)
             {
                 _spawnMonoMechanic.SpawnAtSpawnPoints(new GameObject().AddComponent<WithEndpointSetup>(),waveSpawner.GetSpawnPoints());

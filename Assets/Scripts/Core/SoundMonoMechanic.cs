@@ -8,6 +8,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
     public static SoundMonoMechanic Instance;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip hitClip;
+    [SerializeField] private AudioClip waveSound;
     [SerializeField] private AudioClip buyClip;
 
     [SerializeField] private AudioMixer mainMixer;
@@ -85,5 +86,19 @@ public class SoundMonoMechanic : GlobalMonoMechanic
     public AudioMixerGroup GetCurrentOutputMixer()
     {
         return mainOutputAudioMixerGroup;
+    }
+
+    public void PlayWaveSpawn()
+    {
+        _audioSource.volume = 0.5f;
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(waveSound);
+        }
+        else
+        {
+            _audioSource.PlayOneShot(waveSound);
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace EnemyCore.States
                 _agroLevel += Time.deltaTime;
                 if (_agroLevel >= _maxAgroLevel)
                 {
-                    currentMonoStateMachine.SetTarget(enemyGameObjects[0].GetComponent<PlayerCharacter>());
+                    currentMonoStateMachine.SetTarget(enemyGameObjects[0].transform);
                     ExitState(currentMonoStateMachine.chaseState);
                     return;
                 }

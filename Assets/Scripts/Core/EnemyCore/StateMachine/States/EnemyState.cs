@@ -87,7 +87,7 @@ namespace EnemyCore.States
         
         protected virtual void OnEnemyLost(Transform enemy)
         {
-            if (enemy == currentMonoStateMachine.HasTarget(out PlayerCharacter character))
+            if (enemy == currentMonoStateMachine.HasTarget(out Transform character))
             {
                 currentMonoStateMachine.ClearTarget();
             }

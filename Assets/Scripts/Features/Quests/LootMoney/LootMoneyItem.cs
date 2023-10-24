@@ -22,10 +22,14 @@ namespace Quests.LootMoney
         protected override void Handle()
         {
             base.Handle();
-            EconomyMonoMechanic.Instance.AddMoney(moneyAmount);
+            EconomyMonoMechanic.Instance.AddTempMoney(moneyAmount);
             Debug.Log($"Money amount {moneyAmount} was looted");
             Destroy(gameObject);
         }
-        
+
+        public int GetMoneyAmount()
+        {
+            return moneyAmount;
+        }
     }
 }

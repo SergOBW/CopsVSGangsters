@@ -19,12 +19,7 @@ namespace Ui.States
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
-            
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            
             SetupButtons();
-            
             foreach (var uiElement in uiElements)
             {
                 uiElement.Show();

@@ -1,4 +1,5 @@
 ﻿using Abstract;
+using Core;
 using CrazyGames;
 using Player;
 using UnityEngine;
@@ -12,23 +13,12 @@ namespace Ui.States
         [SerializeField] private Button restartLevelButton;
         [SerializeField] private Button continueRewardedButton;
         [SerializeField] private ButtonWithCursor buttonWithCursor;
-        
-        [SerializeField] private Animation mainAnimation;
+
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
-            mainAnimation.Play();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             continueRewardedButton.gameObject.SetActive(true);
             buttonWithCursor.gameObject.SetActive(false);
-            if (AddManager.Instance.AddAggregator == AddAggregator.CrazyGames)
-            {
-                if (currentMonoStateMachine.PreviousState is UiMonoPlayState)
-                {
-                    CrazyEvents.Instance.GameplayStop();
-                }
-            }
         }
 
         private void SetupButtons()
@@ -64,13 +54,13 @@ namespace Ui.States
         private void ContinueRewardedButton()
         {
             // Add 
-            AddManager.Instance.OnRewardedAddClosed += AddClosed;
+            AddManager.Instance.OnRewarded += AddClosed;
             AddManager.Instance.ShowRewardAdd();
         }
 
         private void AddClosed()
         {
-            AddManager.Instance.OnRewardedAddClosed -= AddClosed;
+            AddManager.Instance.OnRewarded -= AddClosed;
             buttonWithCursor.gameObject.SetActive(true);
             continueRewardedButton.gameObject.SetActive(false);
             buttonWithCursor.OnPointerDownEvent += ReturnToGame;

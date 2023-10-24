@@ -17,21 +17,19 @@ public class AddManager : GlobalMonoMechanic
     
     [SerializeField] private AddAggregator currentAddAggregator;
     public AddAggregator AddAggregator  => currentAddAggregator;
-    public event Action OnRewardedAddClosed;
     public event Action OnAddOpen;
     public event Action OnAddClose;
+    public event Action OnRewarded;
     
-    private const int CRAZY_GAMES_MIDGAME_COUNTDOWN = 185;
-    private const int YANDEX_GAMES_MIDGAME_COUNTDOWN = 65;
-    private const int YANDEX_GAMES_ADDSHOW_COUNTDOWN = 90;
-    
-    public float GameTime { get; private set; }
     public bool canShowAdd;
     public float lastAddtime;
-    private bool canShowMidgameAdd;
-
-    private bool isUnityEditor;
     public bool isMobile { get; private set; }
+    
+    private const int CRAZY_GAMES_MIDGAME_COUNTDOWN = 185;
+    
+    private const int YANDEX_GAMES_MIDGAME_COUNTDOWN = 65;
+    
+    private float _gameTime;
 
     private Interstitial _interstitial;
     private Rewarded _rewarded;
@@ -45,31 +43,24 @@ public class AddManager : GlobalMonoMechanic
             Destroy(Instance.gameObject);
         }
         Instance = this;
-        
-        
-        GameTime = 0f;
-        lastAddtime = 0f;
-        canShowMidgameAdd = true;
-        isMobile = false;
+
+
+        SetDefaults();
 #if UNITY_EDITOR
         currentAddAggregator = AddAggregator.None;
 #endif
-
+#if PLATFORM_ANDROID
+        isMobile = true;
+#endif
+#if PLATFORM_STANDALONE_WIN
+        isMobile = false;
+#endif
+        
         if (currentAddAggregator == AddAggregator.UnityAds)
         {
             GetComponentInChildren<UnityAds>().InitializeAds();
             _interstitial = GetComponent<Interstitial>();
             _rewarded = GetComponent<Rewarded>();
-#if PLATFORM_ANDROID
-            isMobile = true;
-#endif
-#if PLATFORM_STANDALONE_WIN
-            isMobile = false;
-#endif
-        }
-        if (isUnityEditor)
-        {
-            return;
         }
         if (currentAddAggregator == AddAggregator.CrazyGames)
         {
@@ -98,7 +89,6 @@ public class AddManager : GlobalMonoMechanic
                 Debug.Log(systemInfo.device.type);
             });
         }
-
         if (currentAddAggregator == AddAggregator.YandexGames)
         {
             _yandexAggregator = GetComponentInChildren<YandexAggregator>();
@@ -106,44 +96,23 @@ public class AddManager : GlobalMonoMechanic
             isMobile = _yandexAggregator.IsMobile();
         }
     }
+
+    private void SetDefaults()
+    {
+        _gameTime = 0f;
+        lastAddtime = 0f;
+        isMobile = false;
+    }
     
     public void ChangeIsMobile(bool value)
     {
         isMobile = value;
     }
-    
-    
     private void Update()
     {
-        GameTime += Time.deltaTime;
-        if (GameTime >= CanShowAdd())
-        {
-            canShowAdd = true;
-        }
-        else
-        {
-            canShowAdd = false;
-        }
-
-        if (GameTime >= GetNextAddTime() && canShowMidgameAdd && canShowAdd)
-        {
-            canShowMidgameAdd = false;
-        }
+        _gameTime += Time.deltaTime;
+        canShowAdd = _gameTime >= CanShowAdd();
     }
-
-    private float GetNextAddTime()
-    {
-        switch (currentAddAggregator)
-        {
-            case AddAggregator.CrazyGames:
-                return lastAddtime + CRAZY_GAMES_MIDGAME_COUNTDOWN;
-            case AddAggregator.YandexGames :
-                return lastAddtime + YANDEX_GAMES_ADDSHOW_COUNTDOWN;
-            default:
-                return 0f;
-        }
-    }
-    
     private float CanShowAdd()
     {
         switch (currentAddAggregator)
@@ -163,125 +132,69 @@ public class AddManager : GlobalMonoMechanic
     {
         if (canShowAdd)
         {
-            lastAddtime = GameTime;
-            if (!isUnityEditor)
+            lastAddtime = _gameTime;
+            OnAddOpen?.Invoke();
+            switch (currentAddAggregator)
             {
-                switch (currentAddAggregator)
-                {
-                    case AddAggregator.CrazyGames:
-                        CrazyAds.Instance.beginAdBreak(InterstitialAddClosed, InterstitialAddClosedWithError);
-                        break;
-                    case AddAggregator.YandexGames:
-                        _yandexAggregator.ShowInterstitial();
-                        break;
-                    case AddAggregator.UnityAds:
-                        _interstitial.Initialize();
-                        break;
-                    case AddAggregator.None:
-                        InterstitialAddClosed();
-                        break;
-                }
+                case AddAggregator.CrazyGames:
+                    CrazyAds.Instance.beginAdBreak(InterstitialAddClosed, InterstitialAddClosedWithError);
+                    break;
+                case AddAggregator.YandexGames:
+                    _yandexAggregator.ShowInterstitial();
+                    break;
+                case AddAggregator.UnityAds:
+                    _interstitial.Initialize();
+                    break;
+                case AddAggregator.None:
+                    InterstitialAddClosed();
+                    break;
             }
-        }
-        OnAddOpen?.Invoke();
-
-        if (isUnityEditor && AddAggregator != AddAggregator.UnityAds)
-        {
-            InterstitialAddClosed();
-        }
-
-        if (AddAggregator == AddAggregator.UnityAds)
-        {
-            _interstitial.Initialize();
         }
     }
 
     public void ShowRewardAdd()
     {
-        if (!isUnityEditor)
-        {
-            switch (currentAddAggregator)
-            {
-                case AddAggregator.CrazyGames:
-                    CrazyAds.Instance.beginAdBreakRewarded(RewardAddClosed, RewardAddClosedWithError);
-                    break;
-                case AddAggregator.YandexGames:
-                    _yandexAggregator.ShowRewarded();
-                    break;
-                case AddAggregator.UnityAds:
-                    _rewarded.Initialize();
-                    break;
-                case AddAggregator.None:
-                    RewardAddClosed();
-                    break;
-            }
-        }
         OnAddOpen?.Invoke();
-
-        if (isUnityEditor && AddAggregator != AddAggregator.UnityAds)
+        switch (currentAddAggregator)
         {
-            RewardAddClosed();
-        }
-
-        if (AddAggregator == AddAggregator.UnityAds)
-        {
-            _rewarded.Initialize();
+            case AddAggregator.CrazyGames:
+                CrazyAds.Instance.beginAdBreakRewarded(RewardAddClosed, RewardAddClosedWithError);
+                break;
+            case AddAggregator.YandexGames:
+                _yandexAggregator.ShowRewarded();
+                break;
+            case AddAggregator.UnityAds:
+                _rewarded.Initialize();
+                break;
+            case AddAggregator.None:
+                RewardAddClosed();
+                break;
         }
     }
 
     public void InterstitialAddClosed()
     {
         Debug.Log("Interstitial Add closed");
-        canShowMidgameAdd = true;
         OnAddClose?.Invoke();
     }
     
     public void InterstitialAddClosedWithError()
     {
-        Debug.LogError("Interstitial Add error");
-        canShowMidgameAdd = true;
+        Debug.LogError("Interstitial Add closed with error");
         OnAddClose?.Invoke();
     }
     public void RewardAddClosed()
     {
         Debug.Log("Add reward closed");
-        OnRewardedAddClosed?.Invoke();
+        OnRewarded?.Invoke();
         OnAddClose?.Invoke();
     }
     
     public void RewardAddClosedWithError()
     {
         Debug.Log("Add reward closed with error");
-        OnRewardedAddClosed?.Invoke();
         OnAddClose?.Invoke();
     }
-
-    public void TryToBuy(int id)
-    {
-        Debug.Log(id.ToString());
-        OnAddOpen?.Invoke();
-
-
-        if (isUnityEditor)
-        {
-            PurchaseSuccess(id.ToString());
-        }
-        
-    }
-
-    public void PurchaseSuccess(string id)
-    {
-        int.TryParse(id, out int parseResualt);
-        OnAddClose?.Invoke();
-    }
-    
-    public void PurchaseClose(string id)
-    {
-        Debug.Log("The purchase with id " + id + " failed!");
-        OnAddClose?.Invoke();
-    }
-
-
     public void SaveDataToExternStorage(GameSaves gameSaves)
     {
         switch (currentAddAggregator)
@@ -291,7 +204,6 @@ public class AddManager : GlobalMonoMechanic
                 break;
         }
     }
-
     public void LoadFromExternStorage()
     {
         switch (currentAddAggregator)
@@ -301,7 +213,6 @@ public class AddManager : GlobalMonoMechanic
                 break;
         }
     }
-
     public string GetCurrentLanguage()
     {
         switch (currentAddAggregator)
@@ -333,7 +244,6 @@ public class AddManager : GlobalMonoMechanic
         }
         
     }
-
     public void Login()
     {
         switch (currentAddAggregator)

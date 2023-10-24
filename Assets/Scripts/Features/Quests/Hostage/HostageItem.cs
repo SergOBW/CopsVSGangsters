@@ -1,4 +1,4 @@
-﻿using EnemyCore;
+﻿
 using Interaction;
 using UnityEngine;
 
@@ -19,7 +19,6 @@ namespace Quests.Hostage
             {
                 QuestsMechanic.Instance.TryToProgressQuest(this);
                 GetComponent<Animator>().SetTrigger("Saved");
-                EnemyHandleMechanic.Instance.SpawnEnemyWave();
                 _isUsed = true;
             }
         }

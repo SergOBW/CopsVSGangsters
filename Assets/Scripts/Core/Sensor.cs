@@ -18,8 +18,7 @@ public class Sensor : MonoBehaviour
     public LayerMask targetLayers;
 
     public List<GameObject> objects = new List<GameObject>();
-    public List<StatsController> statsControllers = new List<StatsController>();
-
+    
     private Collider[] _colliders = new Collider[50];
     private Mesh _mesh;
     private int count;
@@ -76,34 +75,10 @@ public class Sensor : MonoBehaviour
             QueryTriggerInteraction.Collide);
         
         objects.Clear();
-        if (statsControllers.Count > 0)
-        {
-            foreach (var statsController in statsControllers)
-            {
-                statsController.OnStatsDead -= StatsDead;
-            }
-        }
-        statsControllers.Clear();
         for (int i = 0; i < count; i++)
         {
             GameObject obj = _colliders[i].gameObject;
-            if (obj.TryGetComponent(out StatsController controller))
-            {
-                statsControllers.Add(controller);
-                controller.OnStatsDead += StatsDead;
-            }
-            
             objects.Add(obj);
-            
-        }
-    }
-
-    private void StatsDead(StatsController statsController)
-    {
-        if (statsControllers.Contains(statsController))
-        {
-            statsController.OnStatsDead -= StatsDead;
-            statsControllers.Remove(statsController);
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Abstract;
 using Level;
@@ -52,6 +53,15 @@ public class QuestsMechanic : GameModeMechanic
         
         CalculateHostages();
         CalculateLootItems();
+    }
+
+    private void Update()
+    {
+        if (_quests.Count <= 0) return;
+        for (int i = 0; i < _quests.Count; i++)
+        {
+            _quests[i].Update();
+        }
     }
 
     private void CalculateHostages()

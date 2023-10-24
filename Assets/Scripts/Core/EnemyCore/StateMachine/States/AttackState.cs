@@ -18,9 +18,9 @@ public class AttackState : EnemyState
     public override void UpdateState()
     {
         base.UpdateState();
-        if (currentMonoStateMachine.HasTarget(out PlayerCharacter target))
+        if (currentMonoStateMachine.HasTarget(out Transform transform))
         {
-            StatsController statsContainer = target.GetComponent<StatsController>();
+            StatsController statsContainer = transform.GetComponent<StatsController>();
             
             if (statsContainer == null || statsContainer.isDead)
             {
@@ -28,7 +28,7 @@ public class AttackState : EnemyState
                 return;
             }
             
-            float distance = Vector3.Distance(currentMonoStateMachine.transform.position, target.transform.position);
+            float distance = Vector3.Distance(currentMonoStateMachine.transform.position, transform.transform.position);
             float fireRange = currentMonoStateMachine.GetFireRange();
                 
             currentMonoStateMachine.LookAtTarget();

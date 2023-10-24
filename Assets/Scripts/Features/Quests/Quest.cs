@@ -36,6 +36,11 @@ namespace Quests
             
         }
 
+        public virtual void Update()
+        {
+            
+        }
+
         public virtual void TryToProgressQuest(QuestItem questItem)
         {
             
