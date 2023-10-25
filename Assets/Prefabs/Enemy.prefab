@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2385518440905572190
+--- !u!1 &1423608768660450595
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4609749416363780770}
-  - component: {fileID: 888338665236180206}
-  - component: {fileID: 4859365980871516903}
+  - component: {fileID: 1550351981779940826}
+  - component: {fileID: 7605475415507482020}
+  - component: {fileID: 8138801471635808233}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: EnemyDetector
@@ -18,41 +18,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4609749416363780770
+--- !u!4 &1550351981779940826
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2385518440905572190}
+  m_GameObject: {fileID: 1423608768660450595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.49, y: 0, z: -36.308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3360895184944117697}
+  - {fileID: 2636271167695064477}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &888338665236180206
+--- !u!114 &7605475415507482020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2385518440905572190}
+  m_GameObject: {fileID: 1423608768660450595}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 804555821eebf0d4ba8b4514564f9bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &4859365980871516903
+--- !u!136 &8138801471635808233
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2385518440905572190}
+  m_GameObject: {fileID: 1423608768660450595}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -69,7 +69,7 @@ CapsuleCollider:
   m_Height: 1.532909
   m_Direction: 1
   m_Center: {x: 0, y: 0.7080309, z: 0}
---- !u!1 &7870324640727226128
+--- !u!1 &1609063824836793109
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,8 +77,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3360895184944117697}
-  - component: {fileID: 8621408294682537044}
+  - component: {fileID: 2636271167695064477}
+  - component: {fileID: 1943816517441014746}
   m_Layer: 11
   m_Name: Detector
   m_TagString: EnemyDetector
@@ -86,28 +86,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3360895184944117697
+--- !u!4 &2636271167695064477
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7870324640727226128}
+  m_GameObject: {fileID: 1609063824836793109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.1, z: 0}
+  m_LocalPosition: {x: -0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4609749416363780770}
+  m_Father: {fileID: 1550351981779940826}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8621408294682537044
+--- !u!114 &1943816517441014746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7870324640727226128}
+  m_GameObject: {fileID: 1609063824836793109}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb23de0c3e10ad64bba53814e00865f2, type: 3}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 15
   angle: 60
-  height: 1
+  height: 0.5
   meshColor: {r: 1, g: 0, b: 0, a: 1}
   scanFrequency: 30
   occlusionLayers:
@@ -125,4 +125,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   objects: []
-  statsControllers: []

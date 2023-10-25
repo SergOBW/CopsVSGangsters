@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 1130897548734428760}
   - component: {fileID: 5627857123557027660}
   - component: {fileID: 8514053377749995154}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,6 +94,7 @@ MonoBehaviour:
   _enemySpawnPoints:
   - {fileID: 5569170699017715251}
   - {fileID: 4505314167253651380}
+  _triggerSpawners: []
 --- !u!65 &8514053377749995154
 BoxCollider:
   m_ObjectHideFlags: 0

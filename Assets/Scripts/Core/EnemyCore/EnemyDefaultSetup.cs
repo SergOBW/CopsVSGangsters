@@ -46,7 +46,7 @@ public class EnemyDefaultSetup : MonoBehaviour, ISpawnable
         GameObject detector = Instantiate(new GameObject(), transform);
         detector.tag = "EnemyDetector";
         detector.layer = LayerMask.NameToLayer("Interactable");
-        detector.transform.localPosition = new Vector3(0, -0.1f, 0);
+        detector.transform.localPosition = new Vector3(0, 0.1f, 0);
         
         _enemyStatsController.Initialize(currentEnemySo.stats);
         _enemySoundManager.Initialize(currentEnemySo.enemySoundSo);

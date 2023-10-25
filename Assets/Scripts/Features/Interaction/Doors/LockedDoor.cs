@@ -9,6 +9,8 @@ public class LockedDoor : InteractableWithHealth
 
     [SerializeField] private Transform handleTransform;
 
+    [SerializeField] private LockedDoor[] otherDoors;
+
     private void Awake()
     {
         if (handleTransform == null)
@@ -21,6 +23,13 @@ public class LockedDoor : InteractableWithHealth
     {
         base.Handle();
         Debug.Log("Lock completed");
+        if (otherDoors.Length > 0)
+        {
+            foreach (var lockedDoor in otherDoors)
+            {
+                lockedDoor.Handle();
+            }
+        }
         handleTransform.DORotate(rotateVector,1f,RotateMode.LocalAxisAdd);
         if (moveVector != Vector3.zero)
         {
@@ -32,4 +41,5 @@ public class LockedDoor : InteractableWithHealth
             navMeshObstacle.enabled = false;
         }
     }
+    
 }

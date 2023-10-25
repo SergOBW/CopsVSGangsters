@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -9,6 +10,12 @@ public class LightSettings : MonoBehaviour
         _light = GetComponent<Light>();
         GlobalSettings.Instance.OnSettingsChanged += OnSettingsChanged;
         OnSettingsChanged();
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Destroy");
+        GlobalSettings.Instance.OnSettingsChanged -= OnSettingsChanged;
     }
 
     private void OnSettingsChanged()

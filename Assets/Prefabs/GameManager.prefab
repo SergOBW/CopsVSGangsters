@@ -492,7 +492,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ce3b9237a56999418645454e3c9c64c, type: 2}
   - {fileID: 11400000, guid: 65d444210e308e54492a61665033e85b, type: 2}
   - {fileID: 11400000, guid: b6349270a2e0765439647f21aa34aad4, type: 2}
-  - {fileID: 11400000, guid: 88066d581f37b4b43ade64014be3f98d, type: 2}
+  - {fileID: 11400000, guid: a97f8eb3a6a0f944c8cd904f2c808c9c, type: 2}
 --- !u!114 &1743999464976036662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,4 +582,4 @@ MonoBehaviour:
     startSpeed: 0
     maxSpeed: 0
     isDead: 0
-  characterPrefab: {fileID: 845781875414455297, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
+  characterPrefab: {fileID: 1738110307215927157, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 4572690447627071345}
   - component: {fileID: 2064033636864716787}
   - component: {fileID: 3220972857165910798}
+  - component: {fileID: 5156912589012772272}
   m_Layer: 11
   m_Name: SM_Bld_Wall_Metal_Slide_02
   m_TagString: Untagged
@@ -204,6 +205,7 @@ MonoBehaviour:
   startedHealth: 1
   rotateVector: {x: 0, y: -140, z: 0}
   moveVector: {x: 0, y: 0, z: 0}
+  handleTransform: {fileID: 0}
 --- !u!65 &3220972857165910798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -225,3 +227,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.8974013, y: 3.5708692, z: 0.060775757}
   m_Center: {x: 0, y: 0.00000011920929, z: -0.0000007627532}
+--- !u!208 &5156912589012772272
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655051806947574}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.4490001, y: 1.7850001, z: 0.030000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

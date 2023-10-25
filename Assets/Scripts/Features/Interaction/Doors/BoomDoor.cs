@@ -2,12 +2,15 @@ using System.Collections.Generic;
 using DestroyIt;
 using EnemyCore;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BoomDoor : InteractableWithHealth
 {
     [SerializeField] private Transform[] bombSlot;
     [SerializeField] private GameObject bombPrefab;
     private List<Bomb> _bombs = new List<Bomb>();
+    [SerializeField]private NavMeshObstacle[] _otherNavmeshObstacle;
+    private List<NavMeshObstacle> _navMeshObstacles;
 
     [SerializeField] private bool canBeBoom;
     [SerializeField] private bool needToSpawnWave;
@@ -16,6 +19,17 @@ public class BoomDoor : InteractableWithHealth
     {
         _bombs = new List<Bomb>();
         outline = GetComponent<Outline>();
+        if (TryGetComponent(out NavMeshObstacle myNavMeshObstacle))
+        {
+            _navMeshObstacles.Add(myNavMeshObstacle);
+        }
+        if (_otherNavmeshObstacle.Length > 0)
+        {
+            foreach (var navMeshObstacle in _otherNavmeshObstacle)
+            {
+                _navMeshObstacles.Add(navMeshObstacle);
+            }
+        }
         if (canBeBoom)
         {
             outline.enabled = true;
@@ -58,7 +72,21 @@ public class BoomDoor : InteractableWithHealth
     
     public void Boom()
     {
-        GetComponent<Destructible>().Destroy();
+        if (_navMeshObstacles.Count > 0)
+        {
+            foreach (var navMeshObstacle in _navMeshObstacles)
+            {
+                navMeshObstacle.enabled = false;
+            }
+        }
+        if (TryGetComponent(out Destructible destructible))
+        {
+            destructible.Destroy();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void HandleAllBombs(float timer)

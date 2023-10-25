@@ -17,7 +17,15 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
         Instance = this;
         SaveGameMechanic.Instance.OnDataRefreshed += Refresh;
         Refresh(SaveGameMechanic.Instance.GetGameSaves());
+        LevelsMonoMechanic.Instance.OnLevelUnLoaded += OnLevelUnLoaded;
     }
+
+    private void OnLevelUnLoaded()
+    {
+        _tempMoney = 0;
+        OnTempMoneyAmountChanged?.Invoke(_tempMoney);
+    }
+
 
     private void Refresh(GameSaves gameSaves)
     {

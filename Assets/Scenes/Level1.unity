@@ -21732,7 +21732,7 @@ GameObject:
   - component: {fileID: 974067609}
   - component: {fileID: 974067608}
   - component: {fileID: 974067607}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21774,6 +21774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySpawnPoints:
   - {fileID: 335827849}
+  _triggerSpawners: []
 --- !u!4 &974067609
 Transform:
   m_ObjectHideFlags: 0
@@ -22508,7 +22509,7 @@ GameObject:
   - component: {fileID: 1021361061}
   - component: {fileID: 1021361063}
   - component: {fileID: 1021361062}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpawnEnemyTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22566,6 +22567,7 @@ MonoBehaviour:
   _enemySpawnPoints:
   - {fileID: 3629125}
   - {fileID: 1361534262}
+  _triggerSpawners: []
 --- !u!1 &1032381474
 GameObject:
   m_ObjectHideFlags: 0
@@ -42906,7 +42908,7 @@ GameObject:
   - component: {fileID: 2556909773811252643}
   - component: {fileID: 7120222399355036855}
   - component: {fileID: 6552113760936543593}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpawnEnemyTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43501,6 +43503,7 @@ MonoBehaviour:
   _enemySpawnPoints:
   - {fileID: 7026633077701244360}
   - {fileID: 1318466093368656975}
+  _triggerSpawners: []
 --- !u!4 &7329477756890813518
 Transform:
   m_ObjectHideFlags: 0

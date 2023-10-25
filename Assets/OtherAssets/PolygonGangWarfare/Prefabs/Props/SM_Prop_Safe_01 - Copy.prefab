@@ -121,6 +121,7 @@ MonoBehaviour:
   drillPrefab: {fileID: 6625943779986524784, guid: 4dbd6785574f2a44b993925a7765ed78, type: 3}
   drillTransform: {fileID: 5509347787394241683}
   vector3: {x: 0, y: -140, z: 0}
+  needSpawnWave: 1
 --- !u!65 &4467225228138547327
 BoxCollider:
   m_ObjectHideFlags: 0
