@@ -19,6 +19,7 @@ public class BoomDoor : InteractableWithHealth
     {
         _bombs = new List<Bomb>();
         outline = GetComponent<Outline>();
+        _navMeshObstacles = new List<NavMeshObstacle>();
         if (TryGetComponent(out NavMeshObstacle myNavMeshObstacle))
         {
             _navMeshObstacles.Add(myNavMeshObstacle);

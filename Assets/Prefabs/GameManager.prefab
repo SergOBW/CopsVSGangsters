@@ -582,4 +582,4 @@ MonoBehaviour:
     startSpeed: 0
     maxSpeed: 0
     isDead: 0
-  characterPrefab: {fileID: 1738110307215927157, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
+  characterPrefab: {fileID: 3535904793278494102, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}

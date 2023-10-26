@@ -17,6 +17,8 @@ public class InteractionUi : MonoBehaviour
     {
         if (_playerDetector == null)
         {
+            _image.fillAmount = 0;
+            _text.gameObject.SetActive(false);
             return;
         }
 

@@ -5035,7 +5035,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec0bb68fe7d543544aa084f4b4405d9b, type: 2}
+  - {fileID: 2100000, guid: 03ecf8889a246e743b8b08837229b299, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5592,7 +5592,7 @@ MonoBehaviour:
     muzzleflashSideSprites:
     - {fileID: 21300002, guid: f145762126630dc4a9626fec5c90628a, type: 3}
     - {fileID: 21300004, guid: f145762126630dc4a9626fec5c90628a, type: 3}
-    useLightFlash: 1
+    useLightFlash: 0
     lightFlash: {fileID: 8509328585359155073}
     playSmoke: 1
     smokeParticles: {fileID: 4559717297201372096}

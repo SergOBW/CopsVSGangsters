@@ -9,6 +9,8 @@ TagManager:
   - EndPoint
   - ClingPoint
   - Destroy
+  - CinemachineTarget
+  - WeaponCamera
   layers:
   - Default
   - TransparentFX

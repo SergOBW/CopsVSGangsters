@@ -15,10 +15,11 @@ namespace StarterAssets
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
-
-		[Header("Mouse Cursor Settings")]
-		public bool cursorLocked = true;
-		public bool cursorInputForLook = true;
+		
+		public bool loot;
+		public bool shooting;
+		public bool isReloading;
+		public bool aiming;
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -28,10 +29,7 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if(cursorInputForLook)
-			{
-				LookInput(value.Get<Vector2>());
-			}
+			LookInput(value.Get<Vector2>());
 		}
 
 		public void OnJump(InputValue value)
@@ -46,6 +44,43 @@ namespace StarterAssets
 #endif
 
 
+		public void OnMove(InputAction.CallbackContext callbackContext)
+		{
+			MoveInput(callbackContext.ReadValue<Vector2>());
+		}
+
+		public void OnLook(InputAction.CallbackContext callbackContext)
+		{
+			LookInput(callbackContext.ReadValue<Vector2>());
+		}
+		
+		public void OnReload(InputAction.CallbackContext callbackContext)
+		{
+			ReloadInput(callbackContext.performed);
+		}
+		
+		public void OnJump(InputAction.CallbackContext callbackContext)
+		{
+			JumpInput(callbackContext.performed);
+		}
+
+		public void OnSprint(InputAction.CallbackContext callbackContext)
+		{
+			SprintInput(callbackContext.performed);
+		}
+		
+		public void OnLootInput(InputAction.CallbackContext callbackContext)
+		{
+			LootInput(callbackContext.performed);
+		}
+
+		public void OnShootInput(InputAction.CallbackContext callbackContext)
+		{
+			ShootInput(callbackContext.performed);
+		}
+		
+		
+		
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
@@ -55,14 +90,15 @@ namespace StarterAssets
 		{
 			look = newLookDirection;
 		}
-		public void MoveInput(InputAction.CallbackContext callbackContext)
-		{
-			move = callbackContext.ReadValue<Vector2>();
-		} 
 
-		public void LookInput(InputAction.CallbackContext callbackContext)
+		public void ShootInput( bool isPreformed)
 		{
-			look = callbackContext.ReadValue<Vector2>();
+			shooting = isPreformed;
+		}
+		
+		public void LootInput( bool isPreformed)
+		{
+			loot = isPreformed;
 		}
 
 		public void JumpInput(bool newJumpState)
@@ -74,18 +110,12 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
-		
-		public void JumpInput(InputAction.CallbackContext callbackContext)
-		{
-			jump = callbackContext.performed;
-		}
 
-		public void SprintInput(InputAction.CallbackContext callbackContext)
+
+		public void ReloadInput(bool isPreformed)
 		{
-			sprint = callbackContext.performed;
+			isReloading = isPreformed;
 		}
-		
-		
 	}
 	
 }

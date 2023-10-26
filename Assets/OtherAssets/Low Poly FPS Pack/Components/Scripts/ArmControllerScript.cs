@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using DestroyIt;
+using StarterAssets;
 using FirstPersonController = StarterAssets.FirstPersonController;
 using Random = UnityEngine.Random;
 
@@ -232,6 +233,7 @@ public class ArmControllerScript : MonoBehaviour {
 	public bool noSwitch = false;
 
 	private FirstPersonController _firstPersonController;
+	private StarterAssetsInputs _starterAssetsInputs;
 
 	public event Action OnFire;
 	public bool IsAiming
@@ -274,6 +276,7 @@ public class ArmControllerScript : MonoBehaviour {
 		}
 
 		_firstPersonController = GetComponentInParent<FirstPersonController>();
+		_starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
 	}
 	
 	void Update () {
@@ -296,7 +299,7 @@ public class ArmControllerScript : MonoBehaviour {
 		AnimationCheck ();
 		
 		//Left click (if automatic fire is false)
-		if (Input.GetMouseButtonDown (0) && !ShootSettings.automaticFire
+		if (_starterAssetsInputs.shooting && !ShootSettings.automaticFire
 		    //Disable shooting while running and jumping
 			&& !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
 			//If shotgun shoot is true
@@ -339,17 +342,17 @@ public class ArmControllerScript : MonoBehaviour {
 		}
 
 		//Left click (used for grenade launcher)
-		if (Input.GetMouseButtonDown (0) && ShootSettings.grenadeLauncher == true
-			//Disable shooting while running and jumping
-			&& !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
+		if (_starterAssetsInputs.shooting && ShootSettings.grenadeLauncher == true
+		                                  //Disable shooting while running and jumping
+		                                  && !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
 			//Shoot
 			GrenadeLauncherShoot();
 		}
 
 		//Left click hold (used for flamethrower)
-		if (Input.GetMouseButton (0) && ShootSettings.flamethrower == true
-			//Disable shooting while running, jumping and reloading
-			&& !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
+		if (_starterAssetsInputs.shooting && ShootSettings.flamethrower == true
+		                                  //Disable shooting while running, jumping and reloading
+		                                  && !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
 			//If current ammo is higher than 0
 			if (currentAmmo > 0) {
 				//Remove ammo
@@ -376,9 +379,9 @@ public class ArmControllerScript : MonoBehaviour {
 		}
 		
 		//Left click hold (if automatic fire is true)
-		if (Input.GetMouseButton (0) && ShootSettings.automaticFire == true
-		    //Disable shooting while running and jumping
-			&& !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
+		if (_starterAssetsInputs.shooting && ShootSettings.automaticFire == true
+		                                  //Disable shooting while running and jumping
+		                                  && !isReloading && !outOfAmmo && !isShooting && !isAimShooting && !isRunning && !isJumping) {
 			//Shoot automatic
 			if (Time.time - lastFired > 1 / ShootSettings.fireRate) {
 				Shoot();
@@ -387,9 +390,9 @@ public class ArmControllerScript : MonoBehaviour {
 		}
 
 		//Left click hold (minigun shooting)
-		if (Input.GetMouseButton (0) && ShootSettings.minigun == true
-			//Disable shooting while running and jumping
-			&& !outOfAmmo && !isShooting && !isRunning && !isJumping) {
+		if (_starterAssetsInputs.shooting && ShootSettings.minigun == true
+		                                  //Disable shooting while running and jumping
+		                                  && !outOfAmmo && !isShooting && !isRunning && !isJumping) {
 			//Shoot minigun, if enable minigun shooting is true
 			if (Time.time - lastFired > 1 / ShootSettings.fireRate && enableMinigunShooting) {
 				Shoot();
@@ -404,7 +407,7 @@ public class ArmControllerScript : MonoBehaviour {
 		//Right click hold to aim
 		//Disable aiming for melee weapons and grenade
 		if (!MeleeSettings.isMeleeWeapon && !ShootSettings.grenade) {
-			if (Input.GetMouseButton (1)) {
+			if (_starterAssetsInputs.aiming) {
 				anim.SetBool ("isAiming", true);
 			} else {
 				anim.SetBool ("isAiming", false);
@@ -413,8 +416,8 @@ public class ArmControllerScript : MonoBehaviour {
 			
 		//Left click to throw grenade
 		//Disable if currently "reloading" grenade, and if running or jumping
-		if (Input.GetMouseButtonDown (0) && ShootSettings.grenade == true && 
-				!isGrenadeReloading && !isRunning && !isJumping) {
+		if (_starterAssetsInputs.shooting && ShootSettings.grenade == true && 
+		    !isGrenadeReloading && !isRunning && !isJumping) {
 			//Disable grenade throwing
 			isGrenadeReloading = true;
 			//Play throwing animations
@@ -428,13 +431,13 @@ public class ArmControllerScript : MonoBehaviour {
 		
 		//R key to reload
 		//Not used for projectile weapons, grenade or melee weapons
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !ShootSettings.projectileWeapon 
+		if (_starterAssetsInputs.isReloading && !isReloading && !ShootSettings.projectileWeapon 
 			&& !MeleeSettings.isMeleeWeapon && !ShootSettings.grenade && !ShootSettings.minigun) {
 			Reload ();
 		}
 		
 		//Run when holding down left shift and moving
-		if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0) {
+		if (_starterAssetsInputs.sprint && _starterAssetsInputs.move.y > 0) {
 			anim.SetFloat("Run", 0.2f);
 		} else {
 			//Stop running
@@ -450,7 +453,7 @@ public class ArmControllerScript : MonoBehaviour {
 		
 		//Space key to jump
 		//Disable jumping while reloading
-		if (Input.GetKeyDown (KeyCode.Space) && !isReloading && !isGrenadeReloading) {
+		if (_starterAssetsInputs.jump && !isReloading && !isGrenadeReloading) {
 			//Play jump animation
 			anim.Play("Jump");
 		}

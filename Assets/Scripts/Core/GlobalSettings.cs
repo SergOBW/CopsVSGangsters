@@ -31,9 +31,14 @@ namespace DefaultNamespace
             soundValue = 1f;
         }
 
+        public void ChangeGraphics(GraphicsQuality _graphicsQuality)
+        {
+            graphicsQuality = _graphicsQuality;
+            ChangeSettings();
+        }
+
         public void ChangeSettings()
         {
-            Debug.Log(graphicsQuality);
             OnSettingsChanged?.Invoke();
         }
     }

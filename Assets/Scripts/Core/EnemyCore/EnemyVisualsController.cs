@@ -1,4 +1,5 @@
 using DamageNumbersPro;
+using DefaultNamespace;
 using EnemyCore;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -26,6 +27,10 @@ public class EnemyVisualsController : MonoBehaviour
 
     private void Update()
     {
+        if (GlobalSettings.Instance.graphicsQuality == GraphicsQuality.Low)
+        {
+            return;
+        }
         timer += Time.deltaTime * 3;
         if (timer <= 1f)
         {

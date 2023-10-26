@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace StarterAssets
@@ -8,9 +9,29 @@ namespace StarterAssets
         [Header("Output")]
         public StarterAssetsInputs starterAssetsInputs;
 
+        private void OnEnable()
+        {
+            starterAssetsInputs = FindObjectOfType<StarterAssetsInputs>();
+        }
+
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {
             starterAssetsInputs.MoveInput(virtualMoveDirection);
+        }
+
+        public void VirtualLootInput(bool isPreformed)
+        {
+            starterAssetsInputs.LootInput(isPreformed);
+        }
+        
+        public void VirtualReloadInput(bool isPreformed)
+        {
+            starterAssetsInputs.ReloadInput(isPreformed);
+        }
+
+        public void VirtualShootInput(bool isPreformed)
+        {
+            starterAssetsInputs.ShootInput(isPreformed);
         }
 
         public void VirtualLookInput(Vector2 virtualLookDirection)

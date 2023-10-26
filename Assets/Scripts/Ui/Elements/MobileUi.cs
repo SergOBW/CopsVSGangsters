@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MobileUi : MonoBehaviour
 {
-    [SerializeField] private GameObject[] mobileInputGo;
     private bool isMobile;
 
     private void Awake()
@@ -14,24 +13,6 @@ public class MobileUi : MonoBehaviour
         {
             isMobile = AddManager.Instance.isMobile;
         }
-        Setup(isMobile);
-    }
-
-    public void Setup(bool isMobile)
-    {
-        if (isMobile)
-        {
-            foreach (var gameObject in mobileInputGo)
-            {
-                gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            foreach (var gameObject in mobileInputGo)
-            {
-                gameObject.SetActive(false);
-            }
-        }
+        gameObject.SetActive(isMobile);
     }
 }

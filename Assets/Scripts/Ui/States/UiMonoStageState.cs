@@ -36,6 +36,8 @@ namespace Ui.States
                     Destroy(stageItem.gameObject);
                 }
             }
+
+            _currentStageItems = new List<StageItem>();
             
             
             for (int i = 0; i < LevelsMonoMechanic.Instance.GetMapsCount(); i++)

@@ -1,93 +1,58 @@
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
-using Yandex.Plugins.Login;
 
 public class SettingsPopup : MonoBehaviour
 {
-    [SerializeField] private Button onSoundButton;
-    [SerializeField] private Button offSoundButton;
-
-    [SerializeField] private Image soundImage;
-
-    [SerializeField] private Sprite onSound;
-    [SerializeField] private Sprite offSound;
-
     [SerializeField] private Button closeButton;
-    [SerializeField] private Button changeGraphicsButton;
 
-    [SerializeField] private Button debugButton;
+    [SerializeField] private UiSwitcher debugSwitcher;
+    [SerializeField] private UiSwitcher soundSwitcher;
+    
 
     public void Show()
     {
         gameObject.SetActive(true);
-        /*
-        if (SoundMonoMechanic.Instance.IsSoundOn())
-        {
-            offSoundButton.gameObject.SetActive(true);
-            onSoundButton.gameObject.SetActive(false);
-            soundImage.sprite = onSound;
-        }
-        else
-        {
-            offSoundButton.gameObject.SetActive(false);
-            onSoundButton.gameObject.SetActive(true);
-            soundImage.sprite = offSound;
-        }
-        */
+        
         closeButton.onClick.AddListener(ClosePopup);
-        onSoundButton.onClick.AddListener(OnSound);
-        offSoundButton.onClick.AddListener(OffSound);
-        changeGraphicsButton.onClick.AddListener(OnChangeGraphics);
-        debugButton.onClick.AddListener(OnChangeDebug);
+        
+        debugSwitcher.Initialize(false);
+        soundSwitcher.Initialize(true);
+
+        soundSwitcher.OnSwitcherStatusChanged += OnSoundChanged;
+        debugSwitcher.OnSwitcherStatusChanged += OnChangeDebug;
     }
-    
-    public void ClosePopup()
+
+    private void ClosePopup()
     {
         closeButton.onClick.RemoveListener(ClosePopup);
-        onSoundButton.onClick.RemoveListener(OnSound);
-        offSoundButton.onClick.RemoveListener(OffSound);
-        changeGraphicsButton.onClick.RemoveListener(OnChangeGraphics);
-        debugButton.onClick.RemoveListener(OnChangeDebug);
+        
+        debugSwitcher.Deinitialize();
+        soundSwitcher.Deinitialize();
+
+        soundSwitcher.OnSwitcherStatusChanged -= OnSoundChanged;
+        debugSwitcher.OnSwitcherStatusChanged -= OnChangeDebug;
+        
         gameObject.SetActive(false);
+        
         SaveGameMechanic.Instance.Save();
     }
 
-    private void OnChangeDebug()
+    private void OnChangeDebug(bool value)
     {
-        GlobalSettings.Instance.isUsingDebug = !GlobalSettings.Instance.isUsingDebug;
+        GlobalSettings.Instance.isUsingDebug = value;
         GlobalSettings.Instance.ChangeSettings();
     }
 
-    private void OnChangeGraphics()
+    private void OnSoundChanged(bool value)
     {
-        if (GlobalSettings.Instance.graphicsQuality == GraphicsQuality.Low)
+        if (value)
         {
-            GlobalSettings.Instance.graphicsQuality = GraphicsQuality.High;
-            GlobalSettings.Instance.ChangeSettings();
-            return;
+            SoundMonoMechanic.Instance.OnSound();
         }
-
-        if (GlobalSettings.Instance.graphicsQuality == GraphicsQuality.High)
+        else
         {
-            GlobalSettings.Instance.graphicsQuality = GraphicsQuality.Low;
-            GlobalSettings.Instance.ChangeSettings();
+            SoundMonoMechanic.Instance.OffSound();
         }
-    }
-
-    private void OnSound()
-    {
-        SoundMonoMechanic.Instance.OnSound();
-        onSoundButton.gameObject.SetActive(false);
-        offSoundButton.gameObject.SetActive(true);
-        soundImage.sprite = onSound;
-    }
-
-    private void OffSound()
-    {
-        SoundMonoMechanic.Instance.OffSound();
-        onSoundButton.gameObject.SetActive(true);
-        offSoundButton.gameObject.SetActive(false);
-        soundImage.sprite = offSound;
     }
 }

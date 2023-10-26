@@ -1,19 +1,29 @@
 using Interaction;
+using StarterAssets;
 using UnityEngine;
 
+[RequireComponent(typeof(StarterAssetsInputs))]
 public class PlayerDetector : MonoBehaviour
 {
     private Camera _camera;
+    [SerializeField] private LayerMask occlusionLayers;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private float detectionDistance = 100f;
+
+    [SerializeField] private LayerMask enemyLayerMask;
+
+    [SerializeField] private StarterAssetsInputs _starterAssetsInputs;
     public IInteractable CurrentInteractable
     {
         get => _interactable;
     }
     private IInteractable _interactable;
-    private void Awake()
+    private FirstPersonController _firstPersonController;
+    private void Start()
     {
-        _camera = Camera.main;
+        _firstPersonController = GetComponent<FirstPersonController>();
+        _camera = _firstPersonController.GetCamera();
+        _starterAssetsInputs = GetComponent<StarterAssetsInputs>();
     }
 
     private void Update()
@@ -28,10 +38,18 @@ public class PlayerDetector : MonoBehaviour
         {
             if (hit.transform.TryGetComponent(out IInteractable interactable))
             {
-                if (Input.GetKey(KeyCode.F))
+                if (!AddManager.Instance.isMobile)
+                {
+                    if (_starterAssetsInputs.loot)
+                    {
+                        interactable.Interact();
+                    }
+                }
+                else
                 {
                     interactable.Interact();
                 }
+                
 
                 _interactable = interactable;
             }
@@ -39,6 +57,20 @@ public class PlayerDetector : MonoBehaviour
         else
         {
             _interactable = null;
+        }
+
+
+        if (AddManager.Instance.isMobile)
+        {
+            Ray ray2 = new Ray(_camera.transform.position, _camera.transform.forward);
+            if (Physics.Raycast(ray2,out RaycastHit hit2,float.MaxValue,enemyLayerMask))
+            {
+                _starterAssetsInputs.ShootInput(true);
+            }
+            else
+            {
+                _starterAssetsInputs.ShootInput(false);
+            }
         }
     }
 }
