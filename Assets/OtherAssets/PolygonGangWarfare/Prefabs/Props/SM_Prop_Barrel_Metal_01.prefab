@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33541060448879984}
   - component: {fileID: 23436967654029132}
   - component: {fileID: 5745439495299633821}
+  - component: {fileID: 6544714428322226469}
   m_Layer: 0
   m_Name: SM_Prop_Barrel_Metal_01
   m_TagString: Untagged
@@ -106,3 +107,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: aabaf8fa2451e6541802093bfd19c91b, type: 3}
+--- !u!114 &6544714428322226469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882497922413748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

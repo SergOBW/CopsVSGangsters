@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33855996319622554}
   - component: {fileID: 23965775098842088}
   - component: {fileID: 3427321447021191768}
+  - component: {fileID: 2260356794826351392}
   m_Layer: 0
   m_Name: SM_Bld_Roof_Flat_Closed_01
   m_TagString: Untagged
@@ -103,3 +104,24 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!65 &2260356794826351392
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534000315659726}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.3866103, y: 0.221809, z: 3.386606}
+  m_Center: {x: -1.4999999, y: 0.1109045, z: -1.5000001}
