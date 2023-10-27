@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd93c0061dc16634d8d8b5d71c18d906, type: 3}
   m_Name: Enemy_Police_Visuals
   m_EditorClassIdentifier: 
-  VisualGameObject: {fileID: 804458267603787952, guid: 4188dd2972ead0d449c3cdfba506c851, type: 3}
+  VisualGameObject: {fileID: 1153257787390130139, guid: 4188dd2972ead0d449c3cdfba506c851, type: 3}
   Scale: {x: 0.8, y: 0.8, z: 0.8}
   Position: {x: 0, y: 0, z: 0}
   Rotation: {x: 0, y: 0, z: 0}

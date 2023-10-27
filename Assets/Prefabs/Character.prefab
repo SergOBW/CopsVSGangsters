@@ -420,6 +420,7 @@ MonoBehaviour:
   loot: 0
   shooting: 0
   isReloading: 0
+  aiming: 0
 --- !u!114 &7128628532023356564
 MonoBehaviour:
   m_ObjectHideFlags: 0

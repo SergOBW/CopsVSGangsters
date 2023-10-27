@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac1346559db470a9a209bd9bc8ac599, type: 3}
+  m_Name: SMGGFX
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 198644345807152676, guid: 747d978128ed20e46a939ae9d136adc4, type: 3}
+  hitImpact: {fileID: 198157190901592544, guid: b2bb407d5f6a9a0458c1d64690b0db4a, type: 3}
+  weaponPrefab: {fileID: 123254, guid: 67f6b33f3780b4d47b34a54ab1b18eca, type: 3}
+  projectilePrefab: {fileID: 1046001694842650, guid: 7f94ed1ee4b7c1c48b0e9e93ab1dd796, type: 3}
+  animatorOverrideController: {fileID: 22100000, guid: 3f5ed938438f00f449f77d767f701282, type: 2}
+  Scale: {x: 1, y: 1, z: 1}
+  Position: {x: 0.269, y: -0.052, z: 0.044}
+  Rotation: {x: 19.798, y: 68.487, z: -105}

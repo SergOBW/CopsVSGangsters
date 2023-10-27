@@ -21,7 +21,7 @@ MonoBehaviour:
     isDead: 0
   visuals:
   - {fileID: 11400000, guid: 5f362301c0bead54b8acaef2ff35d563, type: 2}
-  weaponStatsSo: {fileID: 11400000, guid: 2391625dba4007f48890ace301bddb25, type: 2}
+  weaponStatsSo: {fileID: 11400000, guid: b1fc00a4d7a9d844497a874ca67b87e5, type: 2}
   aiStats:
     radius: 10
     angle: 110

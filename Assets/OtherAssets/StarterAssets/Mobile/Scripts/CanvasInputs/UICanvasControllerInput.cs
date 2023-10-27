@@ -31,6 +31,7 @@ namespace StarterAssets
 
         public void VirtualShootInput(bool isPreformed)
         {
+            Debug.Log(isPreformed);
             starterAssetsInputs.ShootInput(isPreformed);
         }
 

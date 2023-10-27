@@ -59,7 +59,7 @@ public class AimScript : MonoBehaviour {
 		}
 		
 		//When right click is held down
-		if(Input.GetButton("Fire2") && _armControllerScript.CanAiming()) {
+		if(_starterAssetsInputs.aiming && _armControllerScript.CanAiming()) {
 			//Move the gun to the zoom position
 			transform.localPosition = Vector3.Lerp(transform.localPosition, 
 			                                       zoomPosition, Time.deltaTime * moveSpeed);

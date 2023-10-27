@@ -41,6 +41,7 @@ namespace ForWeapon
 
             transform.localPosition = weaponGraphics.Position;
             transform.localRotation = Quaternion.Euler(weaponGraphics.Rotation);
+            transform.localScale = weaponGraphics.Scale;
         }
 
         public void PlayMuzzle()

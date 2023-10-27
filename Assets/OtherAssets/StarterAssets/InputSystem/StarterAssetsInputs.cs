@@ -91,7 +91,7 @@ namespace StarterAssets
 			look = newLookDirection;
 		}
 
-		public void ShootInput( bool isPreformed)
+		public void ShootInput(bool isPreformed)
 		{
 			shooting = isPreformed;
 		}

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using DefaultNamespace;
 using DestroyIt;
 using StarterAssets;
 using FirstPersonController = StarterAssets.FirstPersonController;
@@ -277,8 +278,39 @@ public class ArmControllerScript : MonoBehaviour {
 
 		_firstPersonController = GetComponentInParent<FirstPersonController>();
 		_starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+		
+		GlobalSettings.Instance.OnSettingsChanged += SetupGFX;
+		SetupGFX();
 	}
-	
+
+	private void SetupGFX()
+	{
+		switch (GlobalSettings.Instance.graphicsQuality)
+		{
+			case GraphicsQuality.Low:
+				Components.playSmoke = false;
+				Components.playSparks = false;
+				Components.playTracers = false;
+				Components.useMuzzleflash = false;
+				Components.useLightFlash = false;
+				break;
+			case GraphicsQuality.Medium:
+				Components.playSmoke = false;
+				Components.playSparks = false;
+				Components.playTracers = true;
+				Components.useMuzzleflash = false;
+				Components.useLightFlash = false;
+				break;
+			case GraphicsQuality.High:
+				Components.playSmoke = true;
+				Components.playSparks = true;
+				Components.playTracers = true;
+				Components.useMuzzleflash = true;
+				Components.useLightFlash = true;
+				break;
+		}
+	}
+
 	void Update () {
 
 		if (LevelStateMachine.Instance != null)
