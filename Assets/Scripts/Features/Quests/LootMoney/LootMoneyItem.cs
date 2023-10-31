@@ -3,11 +3,20 @@ using Random = UnityEngine.Random;
 
 namespace Quests.LootMoney
 {
+    public enum LootMoneyType
+    {
+        Default = 0,
+        Small = 1,
+        Big = 2,
+        Bonus = 3
+    }
     public class LootMoneyItem : InteractableWithHealth 
     {
         [SerializeField] private GameObject[] _visuals;
         
-        [SerializeField] private int moneyAmount;
+        [SerializeField] private float moneyAmount;
+
+        public LootMoneyType lootMoneyType;
 
         protected override void Initialize()
         {
@@ -23,13 +32,19 @@ namespace Quests.LootMoney
         {
             base.Handle();
             EconomyMonoMechanic.Instance.AddTempMoney(moneyAmount);
+            SoundMonoMechanic.Instance.PlayBuy();
             Debug.Log($"Money amount {moneyAmount} was looted");
             Destroy(gameObject);
         }
 
-        public int GetMoneyAmount()
+        public float GetMoneyAmount()
         {
             return moneyAmount;
+        }
+
+        public void ChangeMoneyAmount(float moneyOnEachLootItem)
+        {
+            moneyAmount = moneyOnEachLootItem;
         }
     }
 }

@@ -56,6 +56,7 @@ public class PlayerWeaponStats
     public int BulletCountPrice { get; set; }
     public float AccuracyPrice { get; set; }
     public GameObject WeaponGameObject { get; set; }
+    public Sprite WeaponIcon { get; set; }
 
     public GameObject WeaponArms;
 
@@ -98,6 +99,7 @@ public class PlayerWeaponStats
         IsOpen = false;
 
         WeaponArms = playerWeaponStatsSo.weaponArms;
+        WeaponIcon = playerWeaponStatsSo.weaponIcon;
 
         WeaponGameObject = playerWeaponStatsSo.weaponGameObject;
         weaponType = playerWeaponStatsSo.weaponType;
@@ -118,7 +120,27 @@ public class PlayerWeaponStats
 
     public void LoadSaves()
     {
-        SaveWeapon saveWeapon = SaveGameMechanic.Instance.GetWeaponSave(WeaponName);
+        GameSaves gameSaves = SaveGameMechanic.Instance.GetGameSaves();
+        SaveWeapon saveWeapon = null;
+        for (int i = 0; i < gameSaves.weapons.Count; i++)
+        {
+            if (gameSaves.weapons[i].name == WeaponName)
+            {
+                saveWeapon = gameSaves.weapons[i];
+            }
+        }
+
+        if (saveWeapon == null)
+        {
+            Debug.LogError($"There is no weapon with name {WeaponName} in saves!");
+            DamageLevel = 0;
+            ReloadSpeedLevel = 0;
+            AccuracyLevel = 0;
+            BulletCountLevel = 0;
+        
+            IsOpen = false;
+            return;
+        }
 
         DamageLevel = saveWeapon.DamageLevel;
         ReloadSpeedLevel = saveWeapon.ReloadSpeedLevel;
@@ -138,6 +160,8 @@ public class WeaponManagerMechanic : IMechanic
     
     private List<PlayerWeaponStats> _currentWeaponList;
     private PlayerWeaponStats _currentWeapon;
+
+    public event Action OnCurrentWeaponListChanged;
     
     public void Initialize()
     {
@@ -210,6 +234,7 @@ public class WeaponManagerMechanic : IMechanic
             _currentWeaponList.Add(newPlayerWeaponStats);
         }
         _currentWeapon = _currentWeaponList[0];
+        OnCurrentWeaponListChanged?.Invoke();;
     }
 
     public PlayerWeaponStats GetCurrentWeapon()

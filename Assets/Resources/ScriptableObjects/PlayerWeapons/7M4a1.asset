@@ -31,6 +31,7 @@ MonoBehaviour:
   accuracyPriceLevelMultiplayer: 1000
   bulletCountPriceLevelMultiplayer: 1000
   weaponArms: {fileID: 3010297690575668607, guid: d170b1adc92f3de4dbac2476e7fa61ae, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 97897cc5cec24e0409716f559db479a4, type: 3}
   isStarted: 0
   weaponType: 0
   weaponGameObject: {fileID: 111776, guid: 285b2a7e6af47fa46804e3777b7ba97b, type: 3}

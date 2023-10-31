@@ -5656,6 +5656,7 @@ MonoBehaviour:
   ReloadSettings:
     casingOnReload: 0
     casingDelay: 0.3
+    isAutoReload: 0
     hasBulletInMag: 0
     bulletInMag: []
     enableBulletTimer: 0.65

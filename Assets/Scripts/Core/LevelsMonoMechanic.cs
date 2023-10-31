@@ -210,4 +210,9 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
             LevelStateMachine.Instance.Pause();
         }
     }
+
+    public Sprite GetMapImage(int i)
+    {
+        return mapsSo[i].iconSprite;
+    }
 }

@@ -122,6 +122,7 @@ MonoBehaviour:
   drillTransform: {fileID: 5509347787394241683}
   vector3: {x: 0, y: -140, z: 0}
   needSpawnWave: 1
+  needBigDrill: 1
 --- !u!65 &4467225228138547327
 BoxCollider:
   m_ObjectHideFlags: 0

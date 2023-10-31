@@ -650,6 +650,7 @@ MonoBehaviour:
   ReloadSettings:
     casingOnReload: 0
     casingDelay: 0
+    isAutoReload: 0
     hasBulletInMag: 0
     bulletInMag: []
     enableBulletTimer: 1

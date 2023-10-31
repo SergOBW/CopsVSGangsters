@@ -1,3 +1,4 @@
+using System;
 using Interaction;
 using StarterAssets;
 using UnityEngine;
@@ -42,12 +43,18 @@ public class PlayerDetector : MonoBehaviour
                 {
                     if (_starterAssetsInputs.loot)
                     {
-                        interactable.Interact();
+                        if (interactable.CanInteract())
+                        {
+                            interactable.Interact();
+                        }
                     }
                 }
                 else
                 {
-                    interactable.Interact();
+                    if (interactable.CanInteract())
+                    {
+                        interactable.Interact();
+                    }
                 }
                 
 
@@ -58,18 +65,21 @@ public class PlayerDetector : MonoBehaviour
         {
             _interactable = null;
         }
+    }
 
-
+    private void LateUpdate()
+    {
+        
         if (AddManager.Instance.isMobile)
         {
             Ray ray2 = new Ray(_camera.transform.position, _camera.transform.forward);
             if (Physics.Raycast(ray2,out RaycastHit hit2,float.MaxValue,enemyLayerMask))
             {
-                _starterAssetsInputs.ShootInput(true);
+                _starterAssetsInputs.AutoShooting(true);
             }
             else
             {
-                _starterAssetsInputs.ShootInput(false);
+                _starterAssetsInputs.AutoShooting(false);
             }
         }
     }

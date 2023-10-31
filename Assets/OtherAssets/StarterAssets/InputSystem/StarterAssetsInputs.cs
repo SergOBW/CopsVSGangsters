@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -79,6 +80,11 @@ namespace StarterAssets
 			ShootInput(callbackContext.performed);
 		}
 		
+		public void OnAimInput(InputAction.CallbackContext callbackContext)
+		{
+			AimInput(callbackContext.performed);
+		}
+		
 		
 		
 		public void MoveInput(Vector2 newMoveDirection)
@@ -95,7 +101,7 @@ namespace StarterAssets
 		{
 			shooting = isPreformed;
 		}
-		
+
 		public void LootInput( bool isPreformed)
 		{
 			loot = isPreformed;
@@ -115,6 +121,26 @@ namespace StarterAssets
 		public void ReloadInput(bool isPreformed)
 		{
 			isReloading = isPreformed;
+		}
+
+		public void AimInput(bool isPreformed)
+		{
+			aiming = isPreformed;
+		}
+
+		public void AutoShooting(bool value)
+		{
+			if (value)
+			{
+				shooting = true;
+				return;
+			}
+
+			if (shooting && !value)
+			{
+				shooting = false;
+			}
+
 		}
 	}
 	

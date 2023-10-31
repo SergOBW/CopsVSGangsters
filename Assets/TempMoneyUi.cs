@@ -8,7 +8,7 @@ public class TempMoneyUi : MonoBehaviour
     [SerializeField] private Slider moneySlider;
     [SerializeField] private TMP_Text moneyText;
 
-    private int maxMoney;
+    private float maxMoney;
     private void OnEnable()
     {
         EconomyMonoMechanic.Instance.OnTempMoneyAmountChanged += OnTempMoneyAmountChanged;

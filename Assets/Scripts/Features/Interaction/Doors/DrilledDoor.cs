@@ -1,3 +1,4 @@
+using Abstract.Inventory;
 using DG.Tweening;
 using EnemyCore;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class DrilledDoor : InteractableWithHealth
 
     [SerializeField] private bool needSpawnWave;
 
+    [SerializeField] private bool needBigDrill;
+
     protected override void Handle()
     {
         base.Handle();
@@ -20,7 +23,17 @@ public class DrilledDoor : InteractableWithHealth
             EnemyHandleMechanic.Instance.SpawnEnemyWave();
         }
     }
-    
+
+    public override bool CanInteract()
+    {
+        bool isAllOk = base.CanInteract();
+        if (needBigDrill)
+        {
+            isAllOk = Inventory.Instance.HasItem("Big drill");
+        }
+        return isAllOk;
+    }
+
     public void DrillCompleted()
     {
         transform.DORotate(vector3,1f,RotateMode.LocalAxisAdd);

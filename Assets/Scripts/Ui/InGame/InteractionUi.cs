@@ -27,7 +27,7 @@ public class InteractionUi : MonoBehaviour
             if (_playerDetector.CurrentInteractable.CanInteract())
             {
                 _image.fillAmount = _playerDetector.CurrentInteractable.GetHealthNormalized();
-                _text.gameObject.SetActive(_playerDetector.CurrentInteractable.CanInteract());
+                _text.gameObject.SetActive(!AddManager.Instance.isMobile && _playerDetector.CurrentInteractable.CanInteract());
             }
             else
             {

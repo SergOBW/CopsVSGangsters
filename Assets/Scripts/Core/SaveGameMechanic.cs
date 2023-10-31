@@ -22,8 +22,6 @@ using UnityEngine;
             LoadLastSave();
         }
 
-        #region LoadData
-
         public void LoadLastSave()
         {
             _gameSaves = new GameSaves();
@@ -42,10 +40,6 @@ using UnityEngine;
 
         }
 
-        #endregion
-
-        #region SaveData
-
         public void Save()
         {
             string savesJson = JsonConvert.SerializeObject(_gameSaves);
@@ -56,8 +50,6 @@ using UnityEngine;
                 AddManager.Instance.SaveDataToExternStorage(_gameSaves);
             }
         }
-
-        #endregion
         
         public void ResetData()
         {
@@ -76,45 +68,11 @@ using UnityEngine;
             _gameSaves.LoadNew(_netGameSaves);
             Save();
         }
-
-        public float GetPlayerSensitivity()
-        {
-            return _gameSaves.sensitivity;
-        }
-        
-        public void SaveSensitivity(float value)
-        {
-            _gameSaves.sensitivity = value;
-        }
-
         public GameSaves GetGameSaves()
         {
             return _gameSaves;
         }
-
-        public SaveWeapon GetWeaponSave(string weaponName)
-        {
-            SaveWeapon saveWeapon = null;
-            for (int i = 0; i < _gameSaves.weapons.Count; i++)
-            {
-                if (_gameSaves.weapons[i].name == weaponName)
-                {
-                    saveWeapon = _gameSaves.weapons[i];
-                }
-            }
-            return saveWeapon;
-        }
-
-        public float GetMoneySave()
-        {
-            return _gameSaves.money;
-        }
-
-        public float GetSoundValue()
-        {
-            return _gameSaves.sound;
-        }
-
+        
         public void SaveWeapon(PlayerWeaponStats playerWeapon)
         {
             foreach (var saveWeapon in _gameSaves.weapons)

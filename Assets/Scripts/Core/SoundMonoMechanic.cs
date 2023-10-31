@@ -24,7 +24,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
 
     public void SetupVolume()
     {
-        volume = SaveGameMechanic.Instance.GetSoundValue();
+        volume = SaveGameMechanic.Instance.GetGameSaves().sound;
         Debug.Log("SetupVolume " + volume);
         mainMixer.SetFloat(MASTER_VOLUME_NAME,volume);
     }
@@ -90,6 +90,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
 
     public void PlayWaveSpawn()
     {
+        
         _audioSource.volume = 0.5f;
         if (_audioSource.isPlaying)
         {
@@ -100,5 +101,6 @@ public class SoundMonoMechanic : GlobalMonoMechanic
         {
             _audioSource.PlayOneShot(waveSound);
         }
+        
     }
 }

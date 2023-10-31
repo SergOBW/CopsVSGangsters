@@ -20,6 +20,7 @@ public class ArmControllerScript : MonoBehaviour {
 	bool isDrawing;
 	bool isRunning;
 	bool isJumping;
+	
 
 	bool isMeleeAttacking;
 
@@ -121,6 +122,7 @@ public class ArmControllerScript : MonoBehaviour {
 		[Header("Reload Settings")]
 		public bool casingOnReload;
 		public float casingDelay;
+		public bool isAutoReload = true;
 		
 		[Header("Bullet In Mag")]
 		public bool hasBulletInMag;
@@ -232,8 +234,7 @@ public class ArmControllerScript : MonoBehaviour {
 	public audioClips AudioClips;
 
 	public bool noSwitch = false;
-
-	private FirstPersonController _firstPersonController;
+	
 	private StarterAssetsInputs _starterAssetsInputs;
 
 	public event Action OnFire;
@@ -275,8 +276,6 @@ public class ArmControllerScript : MonoBehaviour {
 		if (ShootSettings.grenade == true) {
 			isGrenadeReloading = true;
 		}
-
-		_firstPersonController = GetComponentInParent<FirstPersonController>();
 		_starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
 		
 		GlobalSettings.Instance.OnSettingsChanged += SetupGFX;
@@ -463,7 +462,7 @@ public class ArmControllerScript : MonoBehaviour {
 		
 		//R key to reload
 		//Not used for projectile weapons, grenade or melee weapons
-		if (_starterAssetsInputs.isReloading && !isReloading && !ShootSettings.projectileWeapon 
+		if ((_starterAssetsInputs.isReloading || AutoReload()) && !isReloading && !ShootSettings.projectileWeapon 
 			&& !MeleeSettings.isMeleeWeapon && !ShootSettings.grenade && !ShootSettings.minigun) {
 			Reload ();
 		}
@@ -474,13 +473,6 @@ public class ArmControllerScript : MonoBehaviour {
 		} else {
 			//Stop running
 			anim.SetFloat("Run", 0.0f);
-		}
-		
-		if (!Input.GetKey(KeyCode.LeftShift) && _firstPersonController.CurrentSpeed > 0) {
-			//anim.SetFloat("Walk", 0.2f);
-		} else {
-			//Stop running
-			//anim.SetFloat("Walk", 0.0f);
 		}
 		
 		//Space key to jump
@@ -497,6 +489,21 @@ public class ArmControllerScript : MonoBehaviour {
 		} else if (currentAmmo > 0) {
 			outOfAmmo = false;
 		}
+	}
+
+	private bool AutoReload()
+	{
+		if (!ReloadSettings.isAutoReload)
+		{
+			return false;
+		}
+
+		if (currentAmmo == 0)
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	//Muzzleflash

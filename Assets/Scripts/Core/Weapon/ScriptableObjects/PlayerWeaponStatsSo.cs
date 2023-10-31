@@ -45,6 +45,8 @@ namespace ForWeapon
         [Header("Visuals")] 
         public GameObject weaponArms;
 
+        public Sprite weaponIcon;
+
         [Header("Options")]
         public bool isStarted;
         public WeaponType weaponType;

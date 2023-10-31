@@ -9,6 +9,8 @@ namespace StarterAssets
         [Header("Output")]
         public StarterAssetsInputs starterAssetsInputs;
 
+        private bool _isAim;
+
         private void OnEnable()
         {
             starterAssetsInputs = FindObjectOfType<StarterAssetsInputs>();
@@ -31,8 +33,13 @@ namespace StarterAssets
 
         public void VirtualShootInput(bool isPreformed)
         {
-            Debug.Log(isPreformed);
             starterAssetsInputs.ShootInput(isPreformed);
+        }
+        
+        public void VirtualAimInput()
+        {
+            _isAim = !_isAim;
+            starterAssetsInputs.AimInput(_isAim);
         }
 
         public void VirtualLookInput(Vector2 virtualLookDirection)

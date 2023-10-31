@@ -1,3 +1,4 @@
+using Abstract.Inventory;
 using DefaultNamespace;
 using Interaction;
 using UnityEngine;
@@ -7,10 +8,12 @@ public class InteractableWithHealth : Interactable
     [SerializeField] protected float startedHealth = 1f;
     private float _health;
     protected bool isDead;
+    private bool _hasBoostItem;
     protected override void Initialize()
     {
         base.Initialize();
         _health = 0;
+        _hasBoostItem = Inventory.Instance.HasItem("Tactical Gloves");
     }
 
     public override void Interact()
@@ -19,7 +22,14 @@ public class InteractableWithHealth : Interactable
         {
             if (_health < startedHealth)
             {
-                _health += Time.deltaTime;
+                if (_hasBoostItem)
+                {
+                    _health += Time.deltaTime * 2;
+                }
+                else
+                {
+                    _health += Time.deltaTime;
+                }
             }
             else
             {

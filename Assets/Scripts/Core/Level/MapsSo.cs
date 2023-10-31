@@ -7,9 +7,5 @@ public class MapsSo : ScriptableObject
     public ScenarioSo[] scenarioSos;
 
     public ScenarioSo[] randomScenarioSos;
-
-    public int GetScenariosCount()
-    {
-        return scenarioSos.Length + randomScenarioSos.Length;
-    }
+    public Sprite iconSprite;
 }

@@ -33,6 +33,7 @@ public class HealthBar : MonoBehaviour
         //healthText.text = obj.ToString();
         float startedHealth = _playerStatsController.GetStartedHealth();
         healthSlider.maxValue = startedHealth;
+        healthSlider.minValue = 0;
         healthSlider.value = obj;
     }
 }

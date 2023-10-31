@@ -43,7 +43,7 @@ namespace Ui.States
             for (int i = 0; i < LevelsMonoMechanic.Instance.GetMapsCount(); i++)
             {
                 StageItem stageItem = Instantiate(stageItemPrefab, levelsGrid);
-                stageItem.Initialize(i,this);
+                stageItem.Initialize(i,this,LevelsMonoMechanic.Instance.GetMapImage(i));
                 _currentStageItems.Add(stageItem);
             }
         }

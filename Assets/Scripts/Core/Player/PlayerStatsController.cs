@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Abstract.Inventory;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace Player
             }
 
             _statsData = stats;
+            haveArmourBonus = Inventory.Instance.HasItem("Body Armour");
             SetDefaults();
         }
 
@@ -41,7 +43,14 @@ namespace Player
 
         public override void SetDefaults()
         {
-            currentHealth = _statsData.startHealth;
+            if (haveArmourBonus)
+            {
+                currentHealth = _statsData.startHealth * 2;
+            }
+            else
+            {
+                currentHealth = _statsData.startHealth;
+            }
             isDead = _statsData.isDead;
             armour = _statsData.startArmour;
             isImmune = false;
@@ -106,15 +115,18 @@ namespace Player
             SetDefaults();
         }
 
-        public bool IsHpBonus()
-        {
-            float percent = (currentHealth / _statsData.startHealth) * 100;
-            return percent >= 50;
-        }
-
         public float GetStartedHealth()
         {
-            return _statsData.startHealth;
+            float health;
+            if (haveArmourBonus)
+            {
+                health = _statsData.startHealth * 2;
+            }
+            else
+            {
+                health = _statsData.startHealth;
+            }
+            return health;
         }
     }
 }

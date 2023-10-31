@@ -8,6 +8,11 @@ public class Drill : MonoBehaviour
     [SerializeField] private Transform drillKnife;
     [SerializeField] private TMP_Text timeRemaining;
     [SerializeField] private Slider slider;
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioClip drillIn;
+    [SerializeField] private AudioClip drillLoop;
+    [SerializeField] private AudioClip drillEnd;
 
     private DrilledDoor _drilledDoor;
 
@@ -22,7 +27,7 @@ public class Drill : MonoBehaviour
     {
         slider.minValue = 0;
         slider.maxValue = drillTimer;
-        _timer = drillTimer;
+        _timer = 0;
         _isDrilled = true;
         _drilledDoor = drilledDoor;
 
@@ -34,6 +39,11 @@ public class Drill : MonoBehaviour
         {
             _drillSpeed = 1;
         }
+        
+        Debug.Log("Play drill in");
+        audioSource.clip = drillIn;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     private void Update()
@@ -42,9 +52,22 @@ public class Drill : MonoBehaviour
         {
             return;
         }
-        if (_timer > 0)
+        if (_timer < drillTimer)
         {
-            _timer -= Time.deltaTime * _drillSpeed;
+            _timer += Time.deltaTime * _drillSpeed;
+            if (_timer >= drillIn.length && audioSource.clip != drillLoop && _timer < drillTimer - drillEnd.length)
+            {
+                Debug.Log("Play drill loop");
+                audioSource.clip = drillLoop;
+                audioSource.Play();
+            }
+
+            if (_timer >= drillTimer - drillEnd.length && audioSource.clip != drillEnd)
+            {
+                audioSource.clip = drillEnd;
+                audioSource.loop = false;
+                audioSource.Play();
+            }
         }
         else
         {
@@ -53,7 +76,7 @@ public class Drill : MonoBehaviour
         }
 
         slider.value = _timer;
-        int timerInt = (int)_timer;
+        int timerInt = (int)Mathf.Abs(_timer - drillTimer);
         timeRemaining.text = timerInt.ToString();
     }
 }

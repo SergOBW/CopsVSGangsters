@@ -11,18 +11,16 @@ namespace Save
     public class GameSaves
     {
         // Levels
-
         public List<LevelSave> LevelSaves;
-        
-        public float sensitivity;
         // Economy
         public float money;
-        
-
+        // Weapons
         public List<SaveWeapon> weapons;
-        public float sound;
-        
+        // Inventory
         public List<SaveInventory> InventoryItems;
+        // Settings
+        public float sound;
+        public float sensitivity;
         public bool IsMyDataBetter(GameSaves gameSaves)
         {
             int lastSavedLevel = -1;
@@ -49,14 +47,6 @@ namespace Save
             }
             Debug.Log("Another last completed level = " + onotherSavedLevel );
             bool isDataBetter = lastSavedLevel > onotherSavedLevel;
-            
-            Debug.Log("My  money = " + money );
-            Debug.Log("Another money = " + gameSaves.money );
-            if (lastSavedLevel == onotherSavedLevel)
-            {
-                isDataBetter = money > gameSaves.money;
-            }
-            Debug.Log("IS MY BETTER = " + isDataBetter);
 
             return isDataBetter;
         }
