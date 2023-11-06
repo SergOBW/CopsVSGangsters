@@ -158,7 +158,7 @@ MonoBehaviour:
   sinkWhenDestroyed: 0
   shouldDeactivate: 0
   isTerrainTree: 0
-  destroyedSound: {fileID: 0}
+  destroyedSound: {fileID: 8300000, guid: dc0506ce0ff56cb45a57d2ef8cd52fa1, type: 3}
   damagedSound: {fileID: 0}
   repairedSound: {fileID: 0}
 --- !u!65 &7019776546235711199
@@ -215,7 +215,7 @@ Transform:
   m_Children:
   - {fileID: 443922}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3337578
 MeshFilter:

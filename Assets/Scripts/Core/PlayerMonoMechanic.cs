@@ -33,5 +33,10 @@ namespace Core
         {
             FindObjectOfType<PlayerStatsController>().ReviveBonus();
         }
+
+        public void SetWeapon(WeaponType weaponType)
+        {
+            FindObjectOfType<PlayerCharacter>().PickWeapon(weaponType);
+        }
     }
 }

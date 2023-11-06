@@ -17,6 +17,10 @@ MonoBehaviour:
   fireRate: 1.8
   animatorOverrideController: {fileID: 22100000, guid: 3f5ed938438f00f449f77d767f701282, type: 2}
   DistanceOffset: 5
+  audioClips:
+  - {fileID: 8300000, guid: 593ec20dab900544ea9ca0553bb1cfef, type: 3}
+  - {fileID: 8300000, guid: c53d0bb9500a3794db0bc311029bf20f, type: 3}
+  - {fileID: 8300000, guid: 7781cc84c7880bc4489d1f5d7310ba3e, type: 3}
   ammoMaxInMag: 30
   weaponGraphicsSo:
   - {fileID: 11400000, guid: 2759673cb391c514fa876fc3733a907c, type: 2}

@@ -2,7 +2,7 @@
 
 namespace Quests.Item
 {
-    [CreateAssetMenu()]
+    [CreateAssetMenu(menuName = "Quests/Loot Item")]
     public class LootItemQuestSo : QuestSo
     {
         public int lootAmount;

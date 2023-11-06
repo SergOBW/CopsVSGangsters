@@ -22,10 +22,10 @@ public class QuestsMechanic : GameModeMechanic
     public override void Initialize(Scenario scenario)
     {
         base.Initialize(scenario);
-        LevelPassScenario levelPassScenario = scenario as LevelPassScenario;
-        if (levelPassScenario != null)
+        QuestScenario questScenario = scenario as QuestScenario;
+        if (questScenario != null)
         {
-            SetupNewQuests(levelPassScenario.questSos);
+            SetupNewQuests(questScenario.questSos);
         }
     }
 

@@ -14,7 +14,6 @@ public class TriggerSpawner : MonoBehaviour
         {
             if (!_isUsed)
             {
-                Debug.Log(other.name);
                 EnemyHandleMechanic.Instance.OnPlayerTriggered(_enemySpawnPoints);
                 if (_triggerSpawners.Length > 0)
                 {

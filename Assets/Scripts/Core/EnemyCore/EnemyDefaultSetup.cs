@@ -33,7 +33,14 @@ public class EnemyDefaultSetup : MonoBehaviour, ISpawnable
 
     private void CreateVisuals()
     {
-        _enemyVisualSo = currentEnemySo.visuals[Random.Range(0,currentEnemySo.visuals.Length)];
+        if (EnemyHandleMechanic.Instance.GetEnemyVisuals() != null)
+        {
+            _enemyVisualSo = EnemyHandleMechanic.Instance.GetEnemyVisuals();
+        }
+        else
+        {
+            _enemyVisualSo = currentEnemySo.defaultVisuals;
+        }
         Transform visualsGo = Instantiate(_enemyVisualSo.VisualGameObject, transform);
         visualsGo.localPosition = _enemyVisualSo.Position;
         visualsGo.localRotation = Quaternion.Euler(_enemyVisualSo.Rotation);
@@ -49,7 +56,7 @@ public class EnemyDefaultSetup : MonoBehaviour, ISpawnable
         detector.transform.localPosition = new Vector3(0, 0.1f, 0);
         
         _enemyStatsController.Initialize(currentEnemySo.stats);
-        _enemySoundManager.Initialize(currentEnemySo.enemySoundSo);
+        _enemySoundManager.Initialize(currentEnemySo.enemySoundSo,currentEnemySo.weaponStatsSo.audioClips);
         _enemyAi.Initialize(currentEnemySo.aiStats,currentEnemySo.stats.startSpeed,isWithEndPoint,currentEnemySo.stats.maxSpeed);
         _enemyAnimationManager.Initialize(_enemyVisualSo.animatorOverrideController);
         _enemyWeaponManager.Initialize();

@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: BodyArmour
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: e5722502790e36240ba5292101cd8b33, type: 3}
-  name: Body Armour
+  itemName: Body Armour
   price: 40000
+  descriptionRu: "\u0411\u0440\u043E\u043D\u0435\u0436\u0435\u043B\u0435\u0442 \u0434\u0430\u0441\u0442
+    \u0432\u0430\u043C \u0432 2 \u0440\u0430\u0437\u0430 \u0431\u043E\u043B\u044C\u0448\u0435
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u0447\u0435\u043C \u043E\u0431\u044B\u0447\u043D\u043E."
+  descriptionEn: The bulletproof vest will give you 2 times more health than usual.
+  descriptionTr: "Kur\u015Fun ge\xE7irmez yelek size normalden 2 kat daha fazla sa\u011Fl\u0131k
+    verecektir."

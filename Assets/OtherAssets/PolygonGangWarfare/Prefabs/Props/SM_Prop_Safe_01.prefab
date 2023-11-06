@@ -142,6 +142,8 @@ MonoBehaviour:
   drillPrefab: {fileID: 6625943779986524784, guid: 4dbd6785574f2a44b993925a7765ed78, type: 3}
   drillTransform: {fileID: 6424176092053450058}
   vector3: {x: 0, y: -140, z: 0}
+  needSpawnWave: 0
+  needBigDrill: 1
 --- !u!1 &1475092186081742
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +182,7 @@ Transform:
   - {fileID: 4741786184605128}
   - {fileID: 6981151326959961856}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33397571732525944
 MeshFilter:
@@ -658,7 +660,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 406862537414532128}
-  moneyAmount: 1000
+  lootMoneyType: 3
 --- !u!4 &406862537414783562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 444258, guid: 83eb6da912953354fb9d71e922ca8db8, type: 3}
@@ -776,7 +778,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 884464854216706050}
-  moneyAmount: 5000
+  lootMoneyType: 3
 --- !u!114 &1917282195853208262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,7 +909,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 1345681756728567699}
-  moneyAmount: 5000
+  lootMoneyType: 3
 --- !u!114 &4721991087165596983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,7 +1040,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 2501625105048410946}
-  moneyAmount: 5000
+  lootMoneyType: 3
 --- !u!114 &6064190109916872645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,7 +1166,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 4516528712150731047}
-  moneyAmount: 5000
+  lootMoneyType: 3
 --- !u!114 &1222926274951985396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1297,7 +1299,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 4552911631520359862}
-  moneyAmount: 1000
+  lootMoneyType: 3
 --- !u!4 &4552911631520425264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 436990, guid: 1ad0616779bf4d64f9da99cc0ec8df53, type: 3}
@@ -1420,7 +1422,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 5151591176528099070}
-  moneyAmount: 1000
+  lootMoneyType: 3
 --- !u!65 &2390082210899698128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1559,7 +1561,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 5680773405021367740}
-  moneyAmount: 1000
+  lootMoneyType: 3
 --- !u!65 &6087960779407556022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1693,7 +1695,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 6655498952299014784}
-  moneyAmount: 5000
+  lootMoneyType: 3
 --- !u!114 &1200217438308347162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1826,7 +1828,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 8671644304593468253}
-  moneyAmount: 1000
+  lootMoneyType: 3
 --- !u!1001 &8914732385859224652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1939,7 +1941,7 @@ MonoBehaviour:
   startedHealth: 1
   _visuals:
   - {fileID: 8914732385859079708}
-  moneyAmount: 5000
+  lootMoneyType: 3
 --- !u!114 &3478794409376014031
 MonoBehaviour:
   m_ObjectHideFlags: 0

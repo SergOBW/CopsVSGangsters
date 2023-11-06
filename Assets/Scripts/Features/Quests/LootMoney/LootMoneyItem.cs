@@ -14,7 +14,7 @@ namespace Quests.LootMoney
     {
         [SerializeField] private GameObject[] _visuals;
         
-        [SerializeField] private float moneyAmount;
+        private float _moneyAmount;
 
         public LootMoneyType lootMoneyType;
 
@@ -31,20 +31,19 @@ namespace Quests.LootMoney
         protected override void Handle()
         {
             base.Handle();
-            EconomyMonoMechanic.Instance.AddTempMoney(moneyAmount);
+            EconomyMonoMechanic.Instance.AddTempMoney(_moneyAmount);
             SoundMonoMechanic.Instance.PlayBuy();
-            Debug.Log($"Money amount {moneyAmount} was looted");
             Destroy(gameObject);
         }
 
         public float GetMoneyAmount()
         {
-            return moneyAmount;
+            return _moneyAmount;
         }
 
         public void ChangeMoneyAmount(float moneyOnEachLootItem)
         {
-            moneyAmount = moneyOnEachLootItem;
+            _moneyAmount = moneyOnEachLootItem;
         }
     }
 }

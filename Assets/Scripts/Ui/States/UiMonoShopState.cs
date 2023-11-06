@@ -15,6 +15,7 @@ namespace Ui.States
         [SerializeField] private ShopItemUi shopItemUiPrefab;
         private List<ShopItemUi> _shopItemUis = new List<ShopItemUi>();
         [SerializeField] private RectTransform[] itemsToRebuild;
+        [SerializeField] private InfoPopup infoPopup;
 
         public override void EnterState(IStateMachine monoStateMachine)
         {
@@ -28,6 +29,7 @@ namespace Ui.States
         {
             backButton.onClick.RemoveListener(GoToMenu);
             Inventory.Instance.OnInventoryChanged -= RefreshUi;
+            infoPopup.Close();
             base.ExitState(monoState);
         }
 
@@ -66,6 +68,11 @@ namespace Ui.States
         private void GoToMenu()
         {
             ExitState(currentMonoStateMachine.uiMonoMainMenuState);
+        }
+
+        public void ShowInfoPopup(InventoryItem currentInventoryItem)
+        {
+            infoPopup.Show(currentInventoryItem);
         }
     }
 }

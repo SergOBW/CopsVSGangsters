@@ -618,3 +618,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 5986788867864590311}
+  _addMoneyPopup: {fileID: 0}
+  addMoneyButton: {fileID: 611786824970924143}

@@ -22,7 +22,6 @@ public class LockedDoor : InteractableWithHealth
     protected override void Handle()
     {
         base.Handle();
-        Debug.Log("Lock completed");
         if (otherDoors.Length > 0)
         {
             foreach (var lockedDoor in otherDoors)

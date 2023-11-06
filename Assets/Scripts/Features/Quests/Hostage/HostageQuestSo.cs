@@ -2,7 +2,7 @@
 
 namespace Quests.Hostage
 {
-    [CreateAssetMenu()]
+    [CreateAssetMenu(menuName = "Quests/Hostage")]
     public class HostageQuestSo : QuestSo
     {
         public int hostagesAmount;

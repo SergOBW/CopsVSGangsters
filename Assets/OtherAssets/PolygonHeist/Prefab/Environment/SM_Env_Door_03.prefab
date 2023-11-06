@@ -70,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82eea613240273e4fbac81ab40352d00, type: 2}
+  - {fileID: 2100000, guid: 6ed3a2aee34ae0543a89098c8a260c90, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,7 +148,9 @@ MonoBehaviour:
   - {fileID: 8757227752250281711}
   - {fileID: 6520549016797825093}
   bombPrefab: {fileID: 1956127856900825039, guid: 8bef00a98348a29479b3be6d3be4a6e7, type: 3}
+  _otherNavmeshObstacle: []
   canBeBoom: 0
+  needToSpawnWave: 0
 --- !u!114 &1042775988279446373
 MonoBehaviour:
   m_ObjectHideFlags: 0

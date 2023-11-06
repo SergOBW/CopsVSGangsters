@@ -236,6 +236,7 @@ public class ArmControllerScript : MonoBehaviour {
 	public bool noSwitch = false;
 	
 	private StarterAssetsInputs _starterAssetsInputs;
+	public WeaponType weaponType;
 
 	public event Action OnFire;
 	public bool IsAiming
@@ -949,7 +950,6 @@ public class ArmControllerScript : MonoBehaviour {
 			
 			if (hit.transform.tag == "Destroy") {
 				//Spawn bullet impact on surface
-				Debug.Log("Hit destroy");
 				if (hit.transform.TryGetComponent(out Destructible destructible))
 				{
 					destructible.Destroy();
@@ -1067,7 +1067,6 @@ public class ArmControllerScript : MonoBehaviour {
 			
 			if (hit.transform.tag == "Destroy") {
 				//Spawn bullet impact on surface
-				Debug.Log("Hit destroy");
 				if (hit.transform.TryGetComponent(out Destructible destructible))
 				{
 					destructible.Destroy();

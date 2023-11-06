@@ -22,12 +22,12 @@ public class Bomb : MonoBehaviour
     private bool _hasBooster;
     public void Setup(BoomDoor boomDoor)
     {
+        timerBeforeBoom = Random.Range(5, 10);
         _boomDoor = boomDoor;
         _timer = 0;
         _isUsed = true;
         _hasBooster = Inventory.Instance.HasItem("Great Bomb");
         audioSource.clip = bombIn;
-        audioSource.loop = true;
         audioSource.Play();
     }
 
@@ -48,9 +48,10 @@ public class Bomb : MonoBehaviour
                 _timer += Time.deltaTime;
             }
 
-            if (_timer >= timerBeforeBoom - bombIn.length && audioSource.clip != bombLoop)
+            if (_timer >= bombIn.length && audioSource.clip != bombLoop)
             {
                 audioSource.clip = bombLoop;
+                audioSource.loop = true;
                 audioSource.Play();
             }
         }

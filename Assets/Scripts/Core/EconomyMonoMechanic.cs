@@ -1,6 +1,8 @@
 using System;
 using Abstract;
+using Abstract.Inventory;
 using Level;
+using Level.LootMoneyScenario;
 using Quests.LootMoney;
 using Save;
 using UnityEngine;
@@ -13,6 +15,9 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
     public static EconomyMonoMechanic Instance;
     public event Action<float> OnMoneyAmountChanged;
     public event Action<float> OnTempMoneyAmountChanged;
+
+    private LootMoneyScenario _lootMoneyScenario;
+    private float _currentMoneyToWin;
     
     public override void Initialize()
     {
@@ -25,18 +30,30 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
 
     private void SetupLevel()
     {
-        LootMoneyItem[] lootMoneyItems = FindObjectsOfType<LootMoneyItem>();
-        float moneyOnLevel = 20000;
+        switch (LevelsMonoMechanic.Instance.GetCurrentScenario())
+        {
+            case LootMoneyScenario lootMoneyScenario:
+                SetupLootMoneyLevel(lootMoneyScenario);
+                break;
+        }
+    }
 
-        CalculatePrices(moneyOnLevel,lootMoneyItems);
-
+    private void SetupLootMoneyLevel(LootMoneyScenario lootMoneyScenario)
+    {
+        _lootMoneyScenario = lootMoneyScenario;
+        _currentMoneyToWin = CalculateMoneyToWinCount();
+        CalculatePrices();
     }
     
-    private void CalculatePrices(float totalCost,LootMoneyItem[] lootMoneyItems)
+    private void CalculatePrices()
     {
         int numLarge = 0;
         int numMedium = 0;
         int numSmall = 0;
+        int numBonus = 0;
+        
+        LootMoneyItem[] lootMoneyItems = FindObjectsOfType<LootMoneyItem>();
+        
         foreach (var lootMoneyItem in lootMoneyItems)
         {
             if (lootMoneyItem.lootMoneyType == LootMoneyType.Big)
@@ -52,14 +69,18 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
             {
                 numSmall++;
             }
+
+            if (lootMoneyItem.lootMoneyType == LootMoneyType.Bonus)
+            {
+                numBonus++;
+            }
         }
         
-        float mediumCost = totalCost / (1.5f * numLarge + numMedium + 0.5f * numSmall); // расчет стоимости среднего товара
+        float mediumCost = _lootMoneyScenario.startingMoneyOnLevel / (numLarge * 1.5f + numMedium + numSmall* 0.5f); // расчет стоимости среднего товара
         float smallCost = 0.5f * mediumCost; // стоимость маленького товара
         float largeCost = 1.5f * mediumCost; // стоимость большого товара
+        float bonusCost = _lootMoneyScenario.startingBonusMoney / numBonus;
         
-        
-
         // Выводим стоимость каждого типа товаров.
         foreach (var lootMoneyItem in lootMoneyItems)
         {
@@ -76,17 +97,16 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
             {
                 lootMoneyItem.ChangeMoneyAmount(smallCost);
             }
+
+            if (lootMoneyItem.lootMoneyType == LootMoneyType.Bonus)
+            {
+                lootMoneyItem.ChangeMoneyAmount(bonusCost);
+            }
         }
         
-        
-        Debug.Log(lootMoneyItems.Length);
-        Debug.Log(totalCost);
-        
-        Debug.Log(totalCost / lootMoneyItems.Length);
-        
-        Debug.Log(largeCost);
-        Debug.Log(mediumCost);
-        Debug.Log(smallCost);
+        Debug.Log($"Medium cost {mediumCost}");
+        Debug.Log($"Large cost {largeCost}");
+        Debug.Log($"Small cost {smallCost}");
     }
 
     private void OnLevelUnLoaded()
@@ -94,13 +114,24 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
         _tempMoney = 0;
         OnTempMoneyAmountChanged?.Invoke(_tempMoney);
     }
-
-
+    
     private void Refresh(GameSaves gameSaves)
     {
         _currentMoney = gameSaves.money;
         OnMoneyAmountChanged?.Invoke(_currentMoney);
     }
+    
+    private float CalculateMoneyToWinCount()
+    {
+        float moneyToWin = _lootMoneyScenario.startingMoneyOnLevel;
+        if (Inventory.Instance.HasItem("Big drill"))
+        {
+            moneyToWin += _lootMoneyScenario.startingBonusMoney;
+        }
+        return moneyToWin;
+    }
+
+    #region Public
 
     public bool TryToSpend(float value)
     {
@@ -124,27 +155,35 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
 
     public void AddTempMoney(float value)
     {
-        _tempMoney += value;
+        _tempMoney += (int)Math.Ceiling (value);
+        if (_tempMoney >= _currentMoneyToWin && LevelStateMachine.Instance.IsPlayState())
+        {
+            LevelsMonoMechanic.Instance.WinLevel();
+        }
         OnTempMoneyAmountChanged?.Invoke(_tempMoney);
     }
 
-    public void CalculateMoney()
-    {
-        AddMoney((int)_tempMoney);
-    }
-    
-    public float GetCurrentMoney()
-    {
-        return _currentMoney;
-    }
-
-    public float GetCurrentTempMoney()
-    {
-        return _tempMoney;
-    }
-
+    public void CalculateMoney()=>AddMoney((int)_tempMoney);
+    public float GetCurrentMoney() => _currentMoney;
+    public float GetCurrentTempMoney() => _tempMoney;
     public void DoDoubleBonus()
     {
         _tempMoney *= 2;
+        LevelsMonoMechanic.Instance.DoDoubleBonus();
     }
+    public float GetCurrentMoneyToWin()=> _currentMoneyToWin;
+    public float GetMaxMoney(int levelIndex)
+    {
+        switch (LevelsMonoMechanic.Instance.GetLevelScenario(levelIndex))
+        {
+            case LootMoneyScenario lootMoneyScenario:
+                return lootMoneyScenario.startingMoneyOnLevel + lootMoneyScenario.startingBonusMoney;
+        }
+
+        return 0;
+    }
+
+    #endregion
+    
+    
 }

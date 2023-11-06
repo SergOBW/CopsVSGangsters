@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerBeforeBoom: 5
   audioSource: {fileID: -2632243556491426883}
-  bombIn: {fileID: 8300000, guid: c0f34bf6dc0faf24eb50808ead51168c, type: 3}
+  bombIn: {fileID: 8300000, guid: 2553a43a25b2967468d3e4d34bb19cc4, type: 3}
   bombLoop: {fileID: 8300000, guid: 566985cf67fd4214bab72659f6256bb4, type: 3}
   boomSound: {fileID: 8300000, guid: d78495f39c36d9b469bbd2d1c75e392a, type: 3}
   _text: {fileID: 6078812337394233193}
@@ -63,7 +63,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8832593143676367004, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -73,9 +73,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -108,7 +108,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -216,8 +216,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9e23e359c593e3d4fbe83b88f0745e45, type: 2}
-  m_sharedMaterial: {fileID: 798369665245541951, guid: 9e23e359c593e3d4fbe83b88f0745e45, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.6
+  m_fontSize: 21.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

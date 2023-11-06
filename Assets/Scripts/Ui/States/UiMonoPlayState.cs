@@ -1,4 +1,5 @@
 ﻿using Abstract;
+using Core;
 using Level;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,42 +46,25 @@ namespace Ui.States
             pauseButton.onClick.RemoveListener(PauseGame);
         }
         
-        private void OnLevelPaused()
-        {
-            ExitState(currentMonoStateMachine.uiMonoPauseState);
-        }
+        private void OnLevelPaused() => ExitState(currentMonoStateMachine.uiMonoPauseState);
 
-        private void OnLevelLoose()
-        {
-            ExitState(currentMonoStateMachine.uiMonoLooseState);
-        }
+        private void OnLevelLoose() => ExitState(currentMonoStateMachine.uiMonoLooseState);
 
-        private void OnLevelWin()
-        {
-            ExitState(currentMonoStateMachine.uiMonoWinState);
-        }
+        private void OnLevelWin()=>ExitState(currentMonoStateMachine.uiMonoWinState);
         
-        private void PauseGame()
-        {
-            LevelStateMachine.Instance.Pause();
-        }
+        private void PauseGame() => LevelStateMachine.Instance.Pause();
         
         private void SetupQuests()
         {
-            Scenario scenario;
-            scenario = LevelsMonoMechanic.Instance.GetCurrentScenario();
-            if (scenario == null)
+            if (LevelsMonoMechanic.Instance.GetCurrentScenario() is QuestScenario )
             {
-                return;
+                _questsUi.Initialize();
             }
-            switch (scenario)
-            {
-                case WaveDefenseScenario waveDefenseScenario :
-                    break;
-                case LevelPassScenario levelPassScenario:
-                    _questsUi.Initialize();
-                    break;
-            }
+        }
+
+        public void SetWeapon(int weaponType)
+        {
+            PlayerMonoMechanic.Instance.SetWeapon((WeaponType)weaponType);
         }
         
     }

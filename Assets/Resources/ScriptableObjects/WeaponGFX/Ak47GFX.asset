@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 198644345807152676, guid: 747d978128ed20e46a939ae9d136adc4, type: 3}
   hitImpact: {fileID: 198157190901592544, guid: b2bb407d5f6a9a0458c1d64690b0db4a, type: 3}
-  weaponPrefab: {fileID: 192002, guid: 1957f9132bae9ee409a3ed81a827453d, type: 3}
+  weaponPrefab: {fileID: 8078710449865735537, guid: 1957f9132bae9ee409a3ed81a827453d, type: 3}
   projectilePrefab: {fileID: 1046001694842650, guid: 7f94ed1ee4b7c1c48b0e9e93ab1dd796, type: 3}
   animatorOverrideController: {fileID: 22100000, guid: 3f5ed938438f00f449f77d767f701282, type: 2}
   Scale: {x: 1, y: 1, z: 1}

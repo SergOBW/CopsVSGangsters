@@ -16,18 +16,16 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     public static LevelsMonoMechanic Instance;
     public event Action OnLevelLoaded;
     public event Action OnLevelUnLoaded;
-
     public event Action OnLevelLoose;
     public event Action OnLevelWin;
     
-    [SerializeField] private int startedLevel;
     [SerializeField] private MapsSo[] mapsSo;
     private GameLevelInfo _currentGameLevelInfo;
     
     private int currentLevelIndex;
     private int lastCompletedLevelIndex;
     
-    private List<LevelSave> levelSaves;
+    private List<SaveLevel> levelSaves;
     private GameModeMechanicsManager _gameModeMechanicsManager;
     private LevelStateMachine _levelStateMachine;
     private void Update()
@@ -67,10 +65,10 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
 
         if (levelSaves == null)
         {
-            levelSaves = new List<LevelSave>();
+            levelSaves = new List<SaveLevel>();
             lastCompletedLevelIndex = 0;
-            LevelSave levelSave = new LevelSave{ completedStars = 0, isOpen = 1 };
-            levelSaves.Add(levelSave);
+            SaveLevel saveLevel = new SaveLevel{ lootedMoney = 0, isOpen = 1 };
+            levelSaves.Add(saveLevel);
 
             Debug.LogError("There is no Level saves");
             return;
@@ -88,45 +86,23 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
 
     #region LevelOperations
 
+    public void Play()
+    {
+        SelectLevel(lastCompletedLevelIndex);
+    }
     public void SelectLevel(int levelId = 0)
     {
-        if (levelId == 0)
-        {
-            levelId = startedLevel;
-            Debug.Log("Need to load last level from save manager");
-        }
         currentLevelIndex = levelId;
-        SetCurrentGameLevel();
+        _currentGameLevelInfo = GetCurrentGameLevelInfo();
         string sceneName = _currentGameLevelInfo.sceneName;
         StartCoroutine(LoadScene(sceneName));
     }
     
-    private void SetCurrentGameLevel()
+    private GameLevelInfo GetCurrentGameLevelInfo()
     {
-        int currentScenarioIndex = (int)MathF.Floor(currentLevelIndex / mapsSo.Length);
-        int currentMapIndex = currentLevelIndex % mapsSo.Length;
-
-        int maxScriptedLevels = 0;
-        
-        foreach (var mapsSo in mapsSo)
-        {
-            foreach (var scenario in mapsSo.scenarioSos)
-            {
-                maxScriptedLevels++;
-            }
-        }
-        
-        MapsSo _currentMap = mapsSo[currentMapIndex];
-        Scenario levelPassScenario;
-        if (currentLevelIndex < maxScriptedLevels)
-        {
-            levelPassScenario = _currentMap.scenarioSos[currentScenarioIndex].CreateGameScenario();
-        }
-        else
-        {
-            levelPassScenario = _currentMap.randomScenarioSos[Random.Range(0,_currentMap.randomScenarioSos.Length)].CreateGameScenario();
-        }
-        _currentGameLevelInfo = new GameLevelInfo(_currentMap,levelPassScenario);
+        MapsSo _currentMap = mapsSo[currentLevelIndex];
+        Scenario levelScenario = _currentMap.defaultScenario.CreateGameScenario();
+        return new GameLevelInfo(_currentMap,levelScenario);
     }
     
     private IEnumerator LoadScene(string sceneName)
@@ -174,9 +150,20 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     public void WinLevel()
     {
         Debug.Log("Level win");
+        levelSaves[currentLevelIndex].lootedMoney = EconomyMonoMechanic.Instance.GetCurrentTempMoney();
+        if (currentLevelIndex + 1 <= levelSaves.Count)
+        {
+            levelSaves[currentLevelIndex + 1].isOpen = 1;
+        }
+        SaveGameMechanic.Instance.SaveLeveSaves(levelSaves);
         OnLevelWin?.Invoke();
     }
 
+    public void DoDoubleBonus()
+    {
+        levelSaves[currentLevelIndex].lootedMoney = EconomyMonoMechanic.Instance.GetCurrentTempMoney();
+        SaveGameMechanic.Instance.SaveLeveSaves(levelSaves);
+    }
     public void LooseLevel()
     {
         Debug.Log("Level loose");
@@ -201,6 +188,16 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         return mapsSo.Length;
     }
     
+    public Sprite GetMapImage(int i)
+    {
+        return mapsSo[i].iconSprite;
+    }
+
+    public SaveLevel GetLevelSave(int i)
+    {
+        return levelSaves[i];
+    }
+    
     #endregion
     
     private void OnApplicationFocus(bool hasFocus)
@@ -211,8 +208,8 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
         }
     }
 
-    public Sprite GetMapImage(int i)
+    public Scenario GetLevelScenario(int i)
     {
-        return mapsSo[i].iconSprite;
+        return mapsSo[i].defaultScenario.CreateGameScenario();
     }
 }

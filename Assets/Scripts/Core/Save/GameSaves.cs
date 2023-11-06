@@ -11,13 +11,13 @@ namespace Save
     public class GameSaves
     {
         // Levels
-        public List<LevelSave> LevelSaves;
-        // Economy
-        public float money;
+        public List<SaveLevel> LevelSaves;
         // Weapons
         public List<SaveWeapon> weapons;
         // Inventory
         public List<SaveInventory> InventoryItems;
+        // Economy
+        public float money;
         // Settings
         public float sound;
         public float sensitivity;
@@ -53,12 +53,26 @@ namespace Save
 
         public void CreateStartedSaves()
         {
-            LevelSaves = new List<LevelSave>();
+            LevelSaves = new List<SaveLevel>();
             weapons = new List<SaveWeapon>();
             InventoryItems = new List<SaveInventory>();
             money = 0;
             sensitivity = 1f;
             sound = 1f;
+            
+            MapsSo[] mapsSos = Resources.LoadAll<MapsSo>("ScriptableObjects/Maps");
+
+            for (int i = 0; i < mapsSos.Length; i++)
+            {
+                SaveLevel saveLevel = new SaveLevel();
+                if (i == 0)
+                {
+                    saveLevel.isOpen = 1;
+                }
+
+                saveLevel.levelName = mapsSos[i].sceneName;
+                LevelSaves.Add(saveLevel);
+            }
 
             PlayerWeaponStatsSo[] playerWeaponStatsSos = Resources.LoadAll<PlayerWeaponStatsSo>("ScriptableObjects/PlayerWeapons");
             for (int i = 0; i < playerWeaponStatsSos.Length; i++)
@@ -108,11 +122,10 @@ namespace Save
             isBought = inventoryItem.isBought;
         }
     }
-    
-    [Serializable]
-    public class LevelSave
+    public class SaveLevel
     {
-        public int completedStars;
+        public string levelName;
+        public float lootedMoney;
         public int isOpen;
     }
 }

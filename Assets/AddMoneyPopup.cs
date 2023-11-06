@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AddMoneyPopup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Button closeButton;
+    public void Show()
     {
-        
+        gameObject.SetActive(true);
+        closeButton.onClick.AddListener(Close);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Close()
     {
-        
+        closeButton.onClick.RemoveListener(Close);
+        gameObject.SetActive(false);
     }
 }

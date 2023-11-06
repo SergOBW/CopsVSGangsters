@@ -15492,10 +15492,10 @@ AudioSource:
   m_GameObject: {fileID: 6858806648748989465}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 882174545bcfa4a4183eb89699eafe1d, type: 2}
+  OutputAudioMixerGroup: {fileID: -2012375782871432362, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15588,7 +15588,7 @@ AudioSource:
   m_GameObject: {fileID: 6858806648748989465}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 882174545bcfa4a4183eb89699eafe1d, type: 2}
+  OutputAudioMixerGroup: {fileID: -2012375782871432362, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
   m_audioClip: {fileID: 8300000, guid: c8862557ba4c0b64ba678de7ff1538ed, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -15768,6 +15768,7 @@ MonoBehaviour:
     shootSound: {fileID: 8300000, guid: 38b8b4ab5aeedc8488227cfcdeac6977, type: 3}
     reloadSound: {fileID: 8300000, guid: 1fa9533cb356b9144bf2035a95400229, type: 3}
   noSwitch: 0
+  weaponType: 1
 --- !u!114 &8116040164005228130
 MonoBehaviour:
   m_ObjectHideFlags: 0

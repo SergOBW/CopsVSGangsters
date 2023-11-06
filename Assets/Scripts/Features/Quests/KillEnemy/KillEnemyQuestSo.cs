@@ -2,7 +2,7 @@
 
 namespace Quests.KillEnemy
 {
-    [CreateAssetMenu()]
+    [CreateAssetMenu(menuName = "Quests/Kill Enemy")]
     public class KillEnemyQuestSo : QuestSo
     {
         public int killAmount;

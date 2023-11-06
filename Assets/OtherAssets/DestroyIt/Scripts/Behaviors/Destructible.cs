@@ -297,6 +297,7 @@ namespace DestroyIt
 
             CurrentHitPoints = 0;
             PlayDamageEffects();
+            
 
             DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, CurrentHitPoints, _isObliterated);
         }

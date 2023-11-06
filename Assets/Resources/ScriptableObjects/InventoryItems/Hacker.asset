@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: Hacker
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: a658901f145479049b080bac657ce9b4, type: 3}
-  name: Hacker
+  itemName: Hacker
   price: 15000
+  descriptionRu: "\u0412\u044B \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435\u0441\u044C
+    \u0445\u0430\u043A\u0435\u0440\u043E\u043C \u0438 \u0432\u0437\u043B\u0430\u043C\u044B\u0432\u0430\u0435\u0442\u0435
+    \u0432\u0441\u0435 \u0434\u0432\u0435\u0440\u0438 \u043A\u043E\u0442\u043E\u0440\u044B\u0435
+    \u043C\u043E\u0436\u043D\u043E \u043E\u0442\u043A\u0440\u044B\u0442\u044C."
+  descriptionEn: You become a hacker and break into all the doors that can be opened.
+  descriptionTr: "Bir hacker oluyorsunuz ve a\xE7\u0131labilecek t\xFCm kap\u0131lara
+    giriyorsunuz."

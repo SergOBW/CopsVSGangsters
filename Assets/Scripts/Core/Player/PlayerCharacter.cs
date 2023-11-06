@@ -73,11 +73,11 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         _currentWeaponIndex = 0;
-        PickWeapon(_currentWeaponIndex);
+        PickWeapon(WeaponType.Secondary);
     }
 
 
-    private void PickWeapon(int index)
+    public void PickWeapon(WeaponType weaponType)
     {
         if (_currentWeapon != null)
         {
@@ -88,7 +88,15 @@ public class PlayerCharacter : MonoBehaviour
         {
             armControllerScript.gameObject.SetActive(false);
         }
-        _currentWeapon = _armControllerScripts[index];
+
+        foreach (var armController in _armControllerScripts)
+        {
+            if (armController.weaponType == weaponType)
+            {
+                _currentWeapon = armController;
+                break;
+            }
+        }
         _currentWeapon.gameObject.SetActive(true);
         _currentWeapon.OnFire += OnOnFireEvent;
     }
@@ -116,8 +124,30 @@ public class PlayerCharacter : MonoBehaviour
                 //Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
                 if (_currentWeaponIndex != indexNext)
                     _currentWeaponIndex = indexNext;
-                PickWeapon(_currentWeaponIndex);
+                //PickWeapon(_currentWeaponIndex);
                 break;
+        }
+    }
+    
+    public void OnNumberInput(InputAction.CallbackContext callbackContext)
+    {
+        int numKeyValue;
+        if (callbackContext.performed)
+        {
+            int.TryParse(callbackContext.control.name, out numKeyValue);
+            switch (numKeyValue)
+            {
+                case 1:
+                    PickWeapon(WeaponType.Primary);
+                    break;
+                case 2:
+                    PickWeapon(WeaponType.Secondary);
+                    break;
+                case 3:
+                    PickWeapon(WeaponType.Melee);
+                    break;
+            }
+            
         }
     }
 

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd93c0061dc16634d8d8b5d71c18d906, type: 3}
+  m_Name: Enemy_Cook_Visuals
+  m_EditorClassIdentifier: 
+  VisualGameObject: {fileID: 1142855326203630071, guid: d5368b1c8ff2a8444b0b280a990f7eb3, type: 3}
+  Scale: {x: 0.8, y: 0.8, z: 0.8}
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  animatorOverrideController: {fileID: 22100000, guid: 3f5ed938438f00f449f77d767f701282, type: 2}

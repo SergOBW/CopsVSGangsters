@@ -74,7 +74,7 @@ namespace Ui.States
         private void PlayButton()
         {
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMonoMechanic.Instance.SelectLevel();
+            LevelsMonoMechanic.Instance.Play();
         }
         
     }

@@ -49,6 +49,8 @@ using UnityEngine;
             {
                 AddManager.Instance.SaveDataToExternStorage(_gameSaves);
             }
+            
+            OnDataRefreshed?.Invoke(_gameSaves);
         }
         
         public void ResetData()
@@ -92,7 +94,7 @@ using UnityEngine;
             Save();
         }
 
-        public void SaveLeveSaves(List<LevelSave> levelSaves)
+        public void SaveLeveSaves(List<SaveLevel> levelSaves)
         {
             _gameSaves.LevelSaves = levelSaves;
             Save();

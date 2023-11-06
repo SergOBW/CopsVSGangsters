@@ -89,13 +89,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0.5
   _visuals:
   - {fileID: 2331568783036149979}
   - {fileID: 6419848565180215298}
   - {fileID: 1373551279942687333}
   - {fileID: 2275923053060291947}
-  moneyAmount: 1000
+  lootMoneyType: 0
 --- !u!1001 &1371864431764898545
 PrefabInstance:
   m_ObjectHideFlags: 0

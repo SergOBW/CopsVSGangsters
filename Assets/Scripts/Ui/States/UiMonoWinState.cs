@@ -39,6 +39,9 @@ namespace Ui.States
         {
             AddManager.Instance.OnAddClose += SetupButtons;
             AddManager.Instance.ShowInterstitialAdd();
+            moneySlider.maxValue = EconomyMonoMechanic.Instance.GetCurrentMoneyToWin();
+            moneySlider.value = EconomyMonoMechanic.Instance.GetCurrentTempMoney();
+            moneyText.text = ((int)EconomyMonoMechanic.Instance.GetCurrentTempMoney()).ToString();
         }
 
         private void SetupButtons()

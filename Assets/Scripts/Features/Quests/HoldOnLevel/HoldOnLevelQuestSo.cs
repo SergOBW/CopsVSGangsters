@@ -2,7 +2,7 @@
 
 namespace Quests.HoldOnLevel
 {
-    [CreateAssetMenu()]
+    [CreateAssetMenu(menuName = "Quests/Hold on level")]
     public class HoldOnLevelQuestSo : QuestSo
     {
         public float timer;

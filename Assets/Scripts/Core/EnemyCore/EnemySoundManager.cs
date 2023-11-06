@@ -4,17 +4,13 @@ using UnityEngine;
 public class EnemySoundContainer
 {
     public AudioClip[] dieClip;
-    public AudioClip[] longRangeAttack;
-    public AudioClip[] shortAtackClip;
-    public AudioClip[] woundringClip;
+    public AudioClip[] defaultAttackClips;
     public AudioClip[] hitClips;
 
     public EnemySoundContainer(EnemySoundSo enemySoundSo)
     {
         dieClip = enemySoundSo.dieClip;
-        longRangeAttack = enemySoundSo.longRangeAttack;
-        shortAtackClip = enemySoundSo.shortAtackClip;
-        woundringClip = enemySoundSo.woundringClip;
+        defaultAttackClips = enemySoundSo.longRangeAttack;
         hitClips = enemySoundSo.hitClips;
     }
 }
@@ -22,9 +18,7 @@ public class EnemySoundContainer
 public class EnemySoundManager : MonoBehaviour
 {
     private AudioClip[] dieClip;
-    private AudioClip[] longRangeAttack;
-    private AudioClip[] shortAtackClip;
-    private AudioClip[] woundringClip;
+    private AudioClip attackClip;
     private AudioClip[] hitClips;
     private AudioSource audioSource;
 
@@ -37,9 +31,21 @@ public class EnemySoundManager : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         
         dieClip = enemySoundContainer.dieClip;
-        longRangeAttack = enemySoundContainer.longRangeAttack;
-        shortAtackClip = enemySoundContainer.shortAtackClip;
-        woundringClip = enemySoundContainer.woundringClip;
+        attackClip = enemySoundContainer.defaultAttackClips[Random.Range(0,enemySoundContainer.defaultAttackClips.Length)];
+        hitClips = enemySoundContainer.hitClips;
+    }
+    
+    public void Initialize(EnemySoundSo enemySoundSo, AudioClip[] attackClips)
+    {
+        enemySoundContainer = new EnemySoundContainer(enemySoundSo);
+        
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 1;
+        audioSource.spatialBlend = 1;
+        audioSource.maxDistance = 50;
+        
+        dieClip = enemySoundContainer.dieClip;
+        attackClip = attackClips[Random.Range(0,attackClips.Length)];
         hitClips = enemySoundContainer.hitClips;
     }
     
@@ -53,34 +59,21 @@ public class EnemySoundManager : MonoBehaviour
         }
     }
     
-    public void PlayShortAttack()
+    public void PlayAttack()
     {
-        Stop();
-        if (CanPlay() && shortAtackClip.Length > 0)
+        if (CanPlay() && attackClip!= null)
         {
-            var newClip = shortAtackClip[Random.Range(0, shortAtackClip.Length)];
-            audioSource.clip = newClip;
-            audioSource.Play();
-        }
-    }
-    
-    public void PlayLongAttack()
-    {
-        if (CanPlay() && longRangeAttack.Length > 0)
-        {
-            Stop();
-            audioSource.clip = longRangeAttack[Random.Range(0,longRangeAttack.Length)];
-            audioSource.Play();
-        }
-    }
-    
-    public void PlayWounder()
-    {
-        if (CanPlay() && woundringClip.Length >0)
-        {
-            Stop();
-            audioSource.clip = woundringClip[Random.Range(0,woundringClip.Length)];
-            audioSource.Play();
+            if (audioSource.isPlaying)
+            {
+                Stop();
+                audioSource.clip = attackClip;
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.clip = attackClip;
+                audioSource.Play();
+            }
         }
     }
 
@@ -104,7 +97,6 @@ public class EnemySoundManager : MonoBehaviour
 
     private bool CanPlay()
     {
-        
         if (audioSource == null)
         {
             Debug.LogError("There is no audioSourse on enemy");

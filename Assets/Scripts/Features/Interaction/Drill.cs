@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Drill : MonoBehaviour
 {
-    [SerializeField] private Transform drillKnife;
     [SerializeField] private TMP_Text timeRemaining;
     [SerializeField] private Slider slider;
     [SerializeField] private AudioSource audioSource;
@@ -25,22 +24,15 @@ public class Drill : MonoBehaviour
 
     public void StartDrill(DrilledDoor drilledDoor)
     {
+        drillTimer = Random.Range(10, 15);
         slider.minValue = 0;
         slider.maxValue = drillTimer;
         _timer = 0;
         _isDrilled = true;
         _drilledDoor = drilledDoor;
 
-        if (Inventory.Instance.HasItem("Big drill"))
-        {
-            _drillSpeed = 2;
-        }
-        else
-        {
-            _drillSpeed = 1;
-        }
+        _drillSpeed = Inventory.Instance.HasItem("Big drill") ? 2 : 1;
         
-        Debug.Log("Play drill in");
         audioSource.clip = drillIn;
         audioSource.loop = true;
         audioSource.Play();
@@ -57,7 +49,6 @@ public class Drill : MonoBehaviour
             _timer += Time.deltaTime * _drillSpeed;
             if (_timer >= drillIn.length && audioSource.clip != drillLoop && _timer < drillTimer - drillEnd.length)
             {
-                Debug.Log("Play drill loop");
                 audioSource.clip = drillLoop;
                 audioSource.Play();
             }

@@ -19,8 +19,7 @@ MonoBehaviour:
     startSpeed: 2
     maxSpeed: 5
     isDead: 0
-  visuals:
-  - {fileID: 11400000, guid: 9e7da9b133152314b8cc8f6abd7be2ba, type: 2}
+  defaultVisuals: {fileID: 11400000, guid: 5f362301c0bead54b8acaef2ff35d563, type: 2}
   weaponStatsSo: {fileID: 11400000, guid: cef82cf80b67c48499ab48a00358b7e9, type: 2}
   aiStats:
     radius: 10

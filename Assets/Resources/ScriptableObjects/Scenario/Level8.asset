@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ec15bc423d4def82fe1034e342c336, type: 3}
+  m_Name: Level8
+  m_EditorClassIdentifier: 
+  Name: Level1
+  questSos:
+  - {fileID: 11400000, guid: 715a6a37ccb4b194284c71ebf2c7298a, type: 2}
+  enemySoIntDictionary:
+    enemySos:
+    - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}
+    - {fileID: 11400000, guid: 063ba29dadbcb3244abc0fdefccf18e3, type: 2}
+    - {fileID: 11400000, guid: a7006d76b4899864dbf7cf5b47d57422, type: 2}
+    - {fileID: 11400000, guid: 5eb9b666d1e50cd478e885114ed142e5, type: 2}
+    enemyAmount: 0200000003000000
+  visualsSo:
+  - {fileID: 11400000, guid: 5f362301c0bead54b8acaef2ff35d563, type: 2}
+  - {fileID: 11400000, guid: a921f8c33f0fbcd41b59fe134de8d63b, type: 2}
+  startingMoneyOnLevel: 24000
+  startingBonusMoney: 2000

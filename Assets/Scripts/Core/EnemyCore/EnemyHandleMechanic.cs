@@ -4,14 +4,13 @@ using Abstract;
 using EnemyCore.States;
 using Level;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace EnemyCore
 {
     public class EnemyHandleMechanic : GameModeMechanic
     {
-        [SerializeField] private EnemySo[] enemySos;
+        [SerializeField] private EnemySo defaultEnemySo;
         
         public static EnemyHandleMechanic Instance;
         private int _enemyCount;
@@ -33,7 +32,7 @@ namespace EnemyCore
             int enemyCount = 0;
             switch (scenario)
             {
-                case LevelPassScenario _levelPassScenario:
+                case QuestScenario _levelPassScenario:
                     enemyCount = SetLevelPassScenario(_levelPassScenario);
                     break;
                 case WaveDefenseScenario _waveDefenseScenario :
@@ -53,10 +52,10 @@ namespace EnemyCore
             }
         }
 
-        private int SetLevelPassScenario(LevelPassScenario _levelPassScenario)
+        private int SetLevelPassScenario(QuestScenario questScenario)
         {
             int enemyCount = 0;
-            foreach (var enemyAmount in _levelPassScenario.enemySoIntDictionary.enemyAmount)
+            foreach (var enemyAmount in questScenario.enemySoIntDictionary.enemyAmount)
             {
                 enemyCount += enemyAmount;
             }
@@ -124,18 +123,6 @@ namespace EnemyCore
                 _enemyStatsControllers.Remove(enemyStatsController.name);
                 _enemyCount--;
             }
-            
-            if (_enemyCount <= 0)
-            {
-                if (currentScenario.GetType() == typeof(LevelPassScenario))
-                {
-                    return;
-                }
-                if (LevelsMonoMechanic.Instance != null)
-                {
-                    LevelsMonoMechanic.Instance.WinLevel();
-                }
-            }
         }
         
         public override void DeInitialize()
@@ -154,10 +141,26 @@ namespace EnemyCore
             float percent = ((float)_headShotHits + 1 / (float)StartedEnemyCount) * 100f;
             return percent >= 50;
         }
+        
+        public VisualsSo GetEnemyVisuals()
+        {
+            VisualsSo enemyVisuals = null;
+            if (LevelsMonoMechanic.Instance.GetCurrentScenario()is QuestScenario questScenario)
+            {
+                enemyVisuals = questScenario.GetRandomVisuals();
+            }
+
+            return enemyVisuals;
+        }
 
         public EnemySo GetEnemySo()
         {
-            return enemySos[Random.Range(0, enemySos.Length)];
+            EnemySo enemySo = defaultEnemySo;
+            if (LevelsMonoMechanic.Instance.GetCurrentScenario()is QuestScenario questScenario)
+            {
+                enemySo = questScenario.GetRandomEnemy();
+            }
+            return enemySo;
         }
 
         public void OnPlayerTriggered(SpawnPoint[] spawnPoint)

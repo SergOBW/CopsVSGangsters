@@ -9,15 +9,13 @@ namespace Ui.States
     public class UiMonoWeaponSetupState : UiMonoState
     {
         [SerializeField] private Button backButton;
-        private GameObject weaponCamera;
+        [SerializeField]private GameObject weaponCamera;
 
         [FormerlySerializedAs("weaponUi")] [SerializeField] private ChooseWeaponUi chooseWeaponUi;
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             backButton.onClick.AddListener(BackToMenu);
-            weaponCamera = GameObject.FindGameObjectWithTag("WeaponCamera");
-            Debug.Log(weaponCamera);
             if (weaponCamera != null)
             {
                 weaponCamera.SetActive(true);

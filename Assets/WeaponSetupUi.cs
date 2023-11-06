@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class WeaponSetupUi : MonoBehaviour
 {
     [SerializeField] private Image primaryImage;
+    [SerializeField] private GameObject primaryGameObject;
     [SerializeField] private Image secondaryImage;
     [SerializeField] private Image meleeImage;
     private void OnEnable()
@@ -35,5 +36,15 @@ public class WeaponSetupUi : MonoBehaviour
                     break;
             }
         }
+        
+        primaryGameObject.SetActive(false);
+        foreach (var playerWeaponStats in WeaponManagerMechanic.Instance.GetCurrentWeapons())
+        {
+            if (playerWeaponStats.weaponType == WeaponType.Primary)
+            {
+                primaryGameObject.SetActive(true);
+            }
+        }
+        
     }
 }

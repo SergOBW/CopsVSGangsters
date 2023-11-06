@@ -17,6 +17,6 @@ MonoBehaviour:
   weaponPrefab: {fileID: 123254, guid: 67f6b33f3780b4d47b34a54ab1b18eca, type: 3}
   projectilePrefab: {fileID: 1046001694842650, guid: 7f94ed1ee4b7c1c48b0e9e93ab1dd796, type: 3}
   animatorOverrideController: {fileID: 22100000, guid: 3f5ed938438f00f449f77d767f701282, type: 2}
-  Scale: {x: 1, y: 1, z: 1}
-  Position: {x: 0.269, y: -0.052, z: 0.044}
+  Scale: {x: 1.2, y: 1.2, z: 1.2}
+  Position: {x: 0.0896, y: 0.0216, z: 0.0338}
   Rotation: {x: 19.798, y: 68.487, z: -105}

@@ -1,25 +1,67 @@
+using System;
 using Abstract;
+using Level.States;
 using UnityEngine;
 using UnityEngine.Audio;
-using Yandex.Plugins.Login;
 
 public class SoundMonoMechanic : GlobalMonoMechanic
 {
     public static SoundMonoMechanic Instance;
-    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _effectsAudioSource;
+    [SerializeField] private AudioSource _musicAudioSource;
+
+    [SerializeField] private AudioClip inGameMusicClip;
+    
     [SerializeField] private AudioClip hitClip;
     [SerializeField] private AudioClip waveSound;
     [SerializeField] private AudioClip buyClip;
 
     [SerializeField] private AudioMixer mainMixer;
-    [SerializeField] private AudioMixerGroup mainOutputAudioMixerGroup;
     private const string MASTER_VOLUME_NAME = "MasterVolume";
     private float volume;
 
     public override void Initialize()
     {
         Instance = this;
+        LevelStateMachine.Instance.OnStateChangedEvent += OnStateChangedEvent;
         SetupVolume();
+    }
+
+    private void OnStateChangedEvent(IState previous, IState current)
+    {
+        switch (current)
+        {
+            case LevelMonoPlayState :
+                OnLevelLoaded();
+                break;
+            case LevelMonoEndState :
+                OnLevelUnLoaded();
+                break;
+            case LevelMonoPauseState:
+                PauseMusic();
+                break;
+        }
+    }
+
+    private void OnLevelLoaded()
+    {
+        if (_musicAudioSource.clip != null)
+        {
+            _musicAudioSource.Play();
+            return;
+        }
+        _musicAudioSource.clip = inGameMusicClip;
+        _musicAudioSource.loop = true;
+        _musicAudioSource.Play();
+    }
+    private void OnLevelUnLoaded()
+    {
+        _musicAudioSource.Stop();
+    }
+
+    private void PauseMusic()
+    {
+        _musicAudioSource.Pause();
     }
 
     public void SetupVolume()
@@ -51,56 +93,44 @@ public class SoundMonoMechanic : GlobalMonoMechanic
         SaveGameMechanic.Instance.SaveSound(volume);
     }
 
-    public bool IsSoundOn()
-    {
-        Debug.Log(volume);
-        Debug.Log(volume >= 0.99);
-        return volume >= 0.99;
-    }
-
     public void PlayHit()
     {
-        _audioSource.volume = 0.5f;
-        if (_audioSource.isPlaying)
+        _effectsAudioSource.volume = 0.5f;
+        if (_effectsAudioSource.isPlaying)
         {
-            _audioSource.Stop();
-            _audioSource.PlayOneShot(hitClip);
+            _effectsAudioSource.Stop();
+            _effectsAudioSource.PlayOneShot(hitClip);
         }
         else
         {
-            _audioSource.PlayOneShot(hitClip);
+            _effectsAudioSource.PlayOneShot(hitClip);
         }
     }
 
     public void PlayBuy()
     {
-        _audioSource.volume = 1;
-        _audioSource.PlayOneShot(buyClip);
-    }
-
-    public AudioMixer GetCurrentMixer()
-    {
-        return mainMixer;
-    }
-
-    public AudioMixerGroup GetCurrentOutputMixer()
-    {
-        return mainOutputAudioMixerGroup;
+        _effectsAudioSource.volume = 1;
+        _effectsAudioSource.PlayOneShot(buyClip);
     }
 
     public void PlayWaveSpawn()
     {
         
-        _audioSource.volume = 0.5f;
-        if (_audioSource.isPlaying)
+        _effectsAudioSource.volume = 0.5f;
+        if (_effectsAudioSource.isPlaying)
         {
-            _audioSource.Stop();
-            _audioSource.PlayOneShot(waveSound);
+            _effectsAudioSource.Stop();
+            _effectsAudioSource.PlayOneShot(waveSound);
         }
         else
         {
-            _audioSource.PlayOneShot(waveSound);
+            _effectsAudioSource.PlayOneShot(waveSound);
         }
         
+    }
+
+    public AudioMixer GetAudioMixer()
+    {
+        return mainMixer;
     }
 }

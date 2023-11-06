@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b35edeeb1c0496dab871eafcc86e080, type: 3}
+  m_Name: EnemyDefaultSound
+  m_EditorClassIdentifier: 
+  dieClip:
+  - {fileID: 8300000, guid: 1b8e72995008d554aa4e740754ed53ec, type: 3}
+  longRangeAttack:
+  - {fileID: 8300000, guid: 908a4c84083f55745afacd5d74afc4b3, type: 3}
+  - {fileID: 8300000, guid: faa992dca8b27184aa06edd5dd86828c, type: 3}
+  shortAtackClip:
+  - {fileID: 8300000, guid: 0a86836a91980574aaee744629c8289e, type: 3}
+  woundringClip: []
+  hitClips: []

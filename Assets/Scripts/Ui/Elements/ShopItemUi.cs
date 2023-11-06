@@ -13,6 +13,8 @@ public class ShopItemUi : MonoBehaviour
     
     [SerializeField] private Button buyButton;
 
+    [SerializeField] private Button openInfoButton;
+
     private InventoryItem _currentInventoryItem;
     private UiMonoShopState _shopState;
     public void Initialize(InventoryItem inventoryItem, UiMonoShopState uiMonoShopState)
@@ -24,6 +26,7 @@ public class ShopItemUi : MonoBehaviour
         itemNameText.text = inventoryItem.name;
         itemPriceText.text = inventoryItem.price.ToString();
         buyButton.onClick.AddListener(BuyInventoryItem);
+        openInfoButton.onClick.AddListener(ShowInfoPopup);
     }
 
     private void BuyInventoryItem()
@@ -34,5 +37,10 @@ public class ShopItemUi : MonoBehaviour
             Inventory.Instance.AddItem(_currentInventoryItem.name);
             _shopState.RefreshUi();
         }
+    }
+
+    private void ShowInfoPopup()
+    {
+        _shopState.ShowInfoPopup(_currentInventoryItem);
     }
 }

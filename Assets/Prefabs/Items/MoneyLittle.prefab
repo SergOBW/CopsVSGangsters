@@ -115,7 +115,7 @@ MonoBehaviour:
   - {fileID: 144145552547233272}
   - {fileID: 6225520678339961769}
   - {fileID: 7205929147425425251}
-  moneyAmount: 500
+  lootMoneyType: 1
 --- !u!1001 &29056994149441332
 PrefabInstance:
   m_ObjectHideFlags: 0

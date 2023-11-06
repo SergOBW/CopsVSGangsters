@@ -13,6 +13,7 @@ namespace EnemyCore.States
         private EnemyAi enemyAi;
         private EnemyStatsController enemyStatsController;
         private EnemyAnimationManager animationManager;
+        private EnemySoundManager _soundManager;
 
         // States
         public AttackState attackState = new AttackState();
@@ -167,8 +168,10 @@ namespace EnemyCore.States
                 statsController.transform.GetComponent<bl_DamageCallback>().OnDamage(info);
             }
             statsController.TakeDamage(weaponManager.GetDamage());
+            _soundManager.PlayAttack();
             weaponManager.Shoot();
             animationManager.ShootReaction();
+            
         }
         
         public Transform GetEndPoint()
@@ -183,6 +186,7 @@ namespace EnemyCore.States
             weaponManager = GetComponent<EnemyWeaponManager>();
             enemyStatsController = GetComponent<EnemyStatsController>();
             animationManager = GetComponent<EnemyAnimationManager>();
+            _soundManager = GetComponent<EnemySoundManager>();
         }
 
         public void LookAtTarget()

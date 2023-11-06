@@ -25,7 +25,7 @@ public class EnemySo : ScriptableObject
     
     public Stats stats;
     
-    public VisualsSo[] visuals;
+    public VisualsSo defaultVisuals;
 
     public WeaponStatsSo weaponStatsSo;
 

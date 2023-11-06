@@ -24,7 +24,7 @@ public class GameModeMechanicsManager : MonoBehaviour
             case WaveDefenseScenario waveDefenseScenario:
                 InitializeWaveDefenceGame(waveDefenseScenario);
                 break;
-            case LevelPassScenario levelPassScenario:
+            case QuestScenario levelPassScenario:
                 InitializeLevelByLevelGame(levelPassScenario);
                 break;
             default: InitializeExploration(gameLevelInfo.currentGameScenario);
@@ -45,12 +45,12 @@ public class GameModeMechanicsManager : MonoBehaviour
         }
     }
     
-    private void InitializeLevelByLevelGame(LevelPassScenario levelPassScenario)
+    private void InitializeLevelByLevelGame(QuestScenario questScenario)
     {
         //Debug.Log("The LevelPassScenario initialized scenario name = " + levelPassScenario.Name);
         foreach (var gameModeMechanic in levelByLevelMechanics)
         {
-            gameModeMechanic.Initialize(levelPassScenario);
+            gameModeMechanic.Initialize(questScenario);
         }
     }
     
