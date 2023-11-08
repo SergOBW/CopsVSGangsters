@@ -151,7 +151,7 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     {
         Debug.Log("Level win");
         levelSaves[currentLevelIndex].lootedMoney = EconomyMonoMechanic.Instance.GetCurrentTempMoney();
-        if (currentLevelIndex + 1 <= levelSaves.Count)
+        if (currentLevelIndex + 1 < levelSaves.Count)
         {
             levelSaves[currentLevelIndex + 1].isOpen = 1;
         }

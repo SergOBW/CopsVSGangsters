@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2260356794826351392}
   m_Layer: 0
   m_Name: SM_Bld_Roof_Flat_Closed_01
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

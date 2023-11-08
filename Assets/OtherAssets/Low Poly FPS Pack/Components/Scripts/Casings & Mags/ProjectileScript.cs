@@ -108,6 +108,14 @@ public class ProjectileScript : MonoBehaviour {
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
 		foreach (Collider hit in colliders) {
 			Rigidbody rb = hit.GetComponent<Rigidbody> ();
+			
+			if (hit.transform.tag == "Blood") {
+				
+				if (hit.transform.TryGetComponent(out IDamageble iDamaging))
+				{
+					iDamaging.Damage();
+				}
+			}
 
 			//Add force to nearby rigidbodies
 			if (rb != null)

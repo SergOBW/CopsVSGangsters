@@ -631,7 +631,7 @@ MonoBehaviour:
     ammo: 1
     automaticFire: 0
     fireRate: 0
-    bulletDistance: 500
+    bulletDistance: 1.5
     bulletForce: 500
     useShotgunSpread: 0
     spreadSize: 2

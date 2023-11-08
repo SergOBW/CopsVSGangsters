@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2975231549253519102}
   m_Layer: 11
   m_Name: SM_Env_Door_02
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   rotateVector: {x: 0, y: -140, z: 0}
   moveVector: {x: 0, y: 0, z: 0}
   handleTransform: {fileID: 0}
+  otherDoors: []
 --- !u!208 &2975231549253519102
 NavMeshObstacle:
   m_ObjectHideFlags: 0

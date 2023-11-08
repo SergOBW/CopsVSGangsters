@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3210010623082456233}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Brick_Window_03
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

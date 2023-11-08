@@ -11,6 +11,8 @@ TagManager:
   - Destroy
   - CinemachineTarget
   - WeaponCamera
+  - Concrete
+  - Concrete (Static)
   layers:
   - Default
   - TransparentFX

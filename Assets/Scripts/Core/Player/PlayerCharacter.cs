@@ -69,6 +69,8 @@ public class PlayerCharacter : MonoBehaviour
             {
                 aimScript.SetPlayerCamera(armsCamera);
             }
+
+            armControllerScript.SetupWeapon(playerWeaponStats);
             _armControllerScripts.Add(armControllerScript);
         }
 
@@ -98,6 +100,7 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
         _currentWeapon.gameObject.SetActive(true);
+        WeaponManagerMechanic.Instance.PickWeapon(_currentWeapon.currentWeaponStats);
         _currentWeapon.OnFire += OnOnFireEvent;
     }
     

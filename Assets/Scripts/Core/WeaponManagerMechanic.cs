@@ -291,4 +291,10 @@ public class WeaponManagerMechanic : IMechanic
         }
         return false;
     }
+
+    public void PickWeapon(PlayerWeaponStats currentWeaponCurrentWeaponStats)
+    {
+        _currentWeapon = currentWeaponCurrentWeaponStats;
+        
+    }
 }

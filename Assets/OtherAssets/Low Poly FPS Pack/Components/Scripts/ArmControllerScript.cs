@@ -1245,4 +1245,9 @@ public class ArmControllerScript : MonoBehaviour {
 	{
 		isAiming = p0;
 	}
+	public PlayerWeaponStats currentWeaponStats;
+	public void SetupWeapon(PlayerWeaponStats playerWeaponStats)
+	{
+		currentWeaponStats = playerWeaponStats;
+	}
 }

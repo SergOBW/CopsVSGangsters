@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65628420676058276}
   m_Layer: 0
   m_Name: SM_Env_Pillar_01
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

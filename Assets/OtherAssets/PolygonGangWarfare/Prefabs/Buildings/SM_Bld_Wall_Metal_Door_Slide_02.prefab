@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23396713509119804}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Metal_Door_Slide_02
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   rotateVector: {x: 0, y: -140, z: 0}
   moveVector: {x: 0, y: 0, z: 0}
   handleTransform: {fileID: 0}
+  otherDoors: []
 --- !u!65 &3220972857165910798
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -142,6 +142,7 @@ MonoBehaviour:
   rotateVector: {x: 0, y: -140, z: 0}
   moveVector: {x: 0, y: 0, z: 0}
   handleTransform: {fileID: 0}
+  otherDoors: []
 --- !u!208 &1696192602621875799
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ GameObject:
   - component: {fileID: 3994689462809576808}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Brick_Door_01
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

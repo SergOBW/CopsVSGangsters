@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7183025362133161422}
   m_Layer: 0
   m_Name: SM_Bld_Walkway_Rail_03
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

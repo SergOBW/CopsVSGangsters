@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 64593157116557500}
   m_Layer: 0
   m_Name: SM_Env_VaultDoor_Frame_01
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,6 +418,7 @@ MonoBehaviour:
   drillTransform: {fileID: 202955902589210869}
   vector3: {x: 0, y: -140, z: 0}
   needSpawnWave: 0
+  needBigDrill: 0
 --- !u!1 &1282237390679929381
 GameObject:
   m_ObjectHideFlags: 0

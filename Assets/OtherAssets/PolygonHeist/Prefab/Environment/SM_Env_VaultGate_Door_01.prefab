@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6319633994769262674}
   m_Layer: 11
   m_Name: SM_Env_VaultGate_Door_01
-  m_TagString: Untagged
+  m_TagString: Concrete (Static)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,8 @@ MonoBehaviour:
   drillPrefab: {fileID: 6625943779986524784, guid: 4dbd6785574f2a44b993925a7765ed78, type: 3}
   drillTransform: {fileID: 7199972049523876327}
   vector3: {x: 0, y: -140, z: 0}
+  needSpawnWave: 0
+  needBigDrill: 0
 --- !u!1 &5994456576801118585
 GameObject:
   m_ObjectHideFlags: 0
