@@ -1,3 +1,4 @@
+using Abstract.Inventory;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,6 +18,16 @@ public class LockedDoor : InteractableWithHealth
         {
             handleTransform = transform;
         }
+    }
+
+    public void ForceHandle()
+    {
+        if (!Inventory.Instance.HasItem("Hacker"))
+        {
+            return;
+        }
+
+        Handle();
     }
 
     protected override void Handle()

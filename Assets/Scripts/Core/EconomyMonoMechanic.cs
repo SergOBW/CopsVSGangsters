@@ -128,6 +128,11 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
         {
             moneyToWin += _lootMoneyScenario.startingBonusMoney;
         }
+
+        if (Inventory.Instance.HasItem("Great Bag"))
+        {
+            moneyToWin *= 1.5f;
+        }
         return moneyToWin;
     }
 
@@ -155,6 +160,10 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
 
     public void AddTempMoney(float value)
     {
+        if (Inventory.Instance.HasItem("Great Bag"))
+        {
+            value *= 1.5f;
+        }
         _tempMoney += (int)Math.Ceiling (value);
         if (_tempMoney >= _currentMoneyToWin && LevelStateMachine.Instance.IsPlayState())
         {
@@ -177,7 +186,12 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
         switch (LevelsMonoMechanic.Instance.GetLevelScenario(levelIndex))
         {
             case LootMoneyScenario lootMoneyScenario:
-                return lootMoneyScenario.startingMoneyOnLevel + lootMoneyScenario.startingBonusMoney;
+                float tempMoney = lootMoneyScenario.startingMoneyOnLevel + lootMoneyScenario.startingBonusMoney;
+                if (Inventory.Instance.HasItem("Great Bag"))
+                {
+                    tempMoney *= 1.5f;
+                }
+                return tempMoney;
         }
 
         return 0;

@@ -28,24 +28,20 @@ public class ChooseWeaponUi : MonoBehaviour
         _allPlayerWeaponStatsList = new List<PlayerWeaponStats>();
         _allPlayerWeaponStatsList = WeaponManagerMechanic.Instance.GetPlayerWeaponStats();
         
-        for (int i = 0; i < _allPlayerWeaponStatsList.Count; i++)
-        {
-            if (_allPlayerWeaponStatsList[i].WeaponName == WeaponManagerMechanic.Instance.GetCurrentWeapon().WeaponName)
-            {
-                _currentIndex = i;
-                break;
-            }
-        }
+        _currentIndex = 0;
+
+        WeaponManagerMechanic.Instance.OnPlayerLoadOutChanges += RefreshUi;
         
         nextButton.onClick.AddListener(Next);
         previousButton.onClick.AddListener(Previous);
         equipWeaponButton.onClick.AddListener(EquipWeapon);
         weaponBuyButton.onClick.AddListener(BuyWeapon);
-        SetupNewWeapon(_allPlayerWeaponStatsList[_currentIndex]);
+        RefreshUi();
     }
     
     public void DeInitialize()
     {
+        WeaponManagerMechanic.Instance.OnPlayerLoadOutChanges -= RefreshUi;
         nextButton.onClick.RemoveListener(Next);
         previousButton.onClick.RemoveListener(Previous);
         equipWeaponButton.onClick.RemoveListener(EquipWeapon);
@@ -56,11 +52,13 @@ public class ChooseWeaponUi : MonoBehaviour
     {
         _currentWepaonStats = playerWeaponStats;
         FindObjectOfType<WeaponPreview>().ShowWeapon(_currentIndex);
-        RefreshUi();
     }
 
     private void RefreshUi()
     {
+        _allPlayerWeaponStatsList = WeaponManagerMechanic.Instance.GetPlayerWeaponStats();
+        SetupNewWeapon(_allPlayerWeaponStatsList[_currentIndex]);
+        
         damageText.text = _currentWepaonStats.Damage.ToString();
         accuracyText.text = _currentWepaonStats.Accuracy.ToString();
         reloadSpeed.text = _currentWepaonStats.ReloadSpeed.ToString();
@@ -69,24 +67,9 @@ public class ChooseWeaponUi : MonoBehaviour
 
         weaponName.text = _currentWepaonStats.WeaponName;
 
-        if (_currentWepaonStats.IsOpen)
-        {
-            weaponBuyButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            weaponBuyButton.gameObject.SetActive(true);
-        }
+        weaponBuyButton.gameObject.SetActive(!_currentWepaonStats.IsOpen);
 
-        if (_currentWepaonStats.IsEquiped)
-        {
-            equipWeaponButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            equipWeaponButton.gameObject.SetActive(true);
-        }
-        
+        equipWeaponButton.gameObject.SetActive(!_currentWepaonStats.IsEquiped);
     }
 
     private void Next()
@@ -101,7 +84,7 @@ public class ChooseWeaponUi : MonoBehaviour
         }
         
         
-        SetupNewWeapon(_allPlayerWeaponStatsList[_currentIndex]);
+        RefreshUi();
     }
     
     private void Previous()
@@ -114,24 +97,18 @@ public class ChooseWeaponUi : MonoBehaviour
         {
             _currentIndex--;
         }
-        SetupNewWeapon(_allPlayerWeaponStatsList[_currentIndex]);
+        RefreshUi();
     }
 
     private void BuyWeapon()
     {
-        if (WeaponManagerMechanic.Instance.TryToBuy(_currentWepaonStats))
-        {
-            RefreshUi();
-        }
+        WeaponManagerMechanic.Instance.TryToBuy(_currentWepaonStats);
     }
 
 
     private void EquipWeapon()
     {
-        if (WeaponManagerMechanic.Instance.TryToEquip(_currentWepaonStats))
-        {
-            RefreshUi();
-        }
+        WeaponManagerMechanic.Instance.TryToEquip(_currentWepaonStats);
     }
     
 }

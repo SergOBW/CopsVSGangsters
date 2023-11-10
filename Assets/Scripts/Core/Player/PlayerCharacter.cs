@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Player;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -166,5 +167,10 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         return _currentWeaponIndex;
+    }
+
+    public void DoHealthBonus()
+    {
+       GetComponent<PlayerStatsController>().Heal();
     }
 }

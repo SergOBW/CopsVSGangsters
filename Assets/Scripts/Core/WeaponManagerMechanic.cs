@@ -122,11 +122,12 @@ public class PlayerWeaponStats
     {
         GameSaves gameSaves = SaveGameMechanic.Instance.GetGameSaves();
         SaveWeapon saveWeapon = null;
-        for (int i = 0; i < gameSaves.weapons.Count; i++)
+        foreach (var save in gameSaves.weapons)
         {
-            if (gameSaves.weapons[i].name == WeaponName)
+            if (save.weaponName == WeaponName)
             {
-                saveWeapon = gameSaves.weapons[i];
+                saveWeapon = save;
+                break;
             }
         }
 
@@ -139,6 +140,7 @@ public class PlayerWeaponStats
             BulletCountLevel = 0;
         
             IsOpen = false;
+            IsEquiped = false;
             return;
         }
 
@@ -148,6 +150,8 @@ public class PlayerWeaponStats
         BulletCountLevel = saveWeapon.BulletCountLevel;
         
         IsOpen = saveWeapon.IsOpen;
+        IsEquiped = saveWeapon.isEquiped;
+        //Debug.Log($"Loading saves {WeaponName} is open = {IsOpen} , is equiped = {IsEquiped}");
     }
 }
 
@@ -158,57 +162,63 @@ public class WeaponManagerMechanic : IMechanic
     private PlayerWeaponStatsSo[] _playerWeaponStatsSo;
     private Dictionary<string, PlayerWeaponStats> _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
     
-    private List<PlayerWeaponStats> _currentWeaponList;
+    private List<PlayerWeaponStats> _playerLoadout;
     private PlayerWeaponStats _currentWeapon;
 
-    public event Action OnCurrentWeaponListChanged;
+    public event Action OnPlayerLoadOutChanges;
     
     public void Initialize()
     {
         Instance = this;
         _playerWeaponStatsSo = Resources.LoadAll<PlayerWeaponStatsSo>("ScriptableObjects/PlayerWeapons");
-        _currentWeaponList = new List<PlayerWeaponStats>();
-        SaveGameMechanic.Instance.OnDataRefreshed += Setup;
-        Setup(SaveGameMechanic.Instance.GetGameSaves());
+        _playerLoadout = new List<PlayerWeaponStats>();
+        SaveGameMechanic.Instance.OnDataRefreshed += RefreshWeaponInfo;
+        RefreshWeaponInfo(SaveGameMechanic.Instance.GetGameSaves());
     }
     
-    private void Setup(GameSaves gameSaves)
+    private void RefreshWeaponInfo(GameSaves gameSaves)
     {
         _playerWeaponStatsDictionary = new Dictionary<string, PlayerWeaponStats>();
-        List<PlayerWeaponStats> _avaibleWeaponStats = new List<PlayerWeaponStats>();
         for (int i = 0; i < _playerWeaponStatsSo.Length; i++)
         {
             PlayerWeaponStats newPlayerWeapon = new PlayerWeaponStats(_playerWeaponStatsSo[i]);
             newPlayerWeapon.LoadSaves();
             newPlayerWeapon.CalculateStats();
             _playerWeaponStatsDictionary.Add(newPlayerWeapon.WeaponName, newPlayerWeapon);
-            if (newPlayerWeapon.isStarted || newPlayerWeapon.IsOpen)
-            {
-                _avaibleWeaponStats.Add(newPlayerWeapon);
-            }
         }
 
-        foreach (var playerWeaponStats in _avaibleWeaponStats)
+        RefreshLoadOut();
+    }
+
+    private void RefreshLoadOut()
+    {
+        _playerLoadout = new List<PlayerWeaponStats>();
+        foreach (var playerWeaponStats in _playerWeaponStatsDictionary.Values)
         {
-            SetWeapon(playerWeaponStats.WeaponName);
+            if (playerWeaponStats.IsEquiped)
+            {
+                _playerLoadout.Add(playerWeaponStats);
+            }
         }
+        OnPlayerLoadOutChanges?.Invoke();
     }
     public void SetWeapon(string weaponName)
     {
-        PlayerWeaponStats newPlayerWeaponStats = new PlayerWeaponStats(ScriptableObject.CreateInstance<PlayerWeaponStatsSo>());
-        if (_playerWeaponStatsDictionary.TryGetValue(weaponName, out var value))
+        PlayerWeaponStats newPlayerWeaponStats;
+        if (!_playerWeaponStatsDictionary.TryGetValue(weaponName, out var value))
         {
-            newPlayerWeaponStats = value;
+            Debug.LogError("There is no weapon in dictionary");
+            return;
         }
 
-        if (_currentWeaponList.Count <= 0)
+        newPlayerWeaponStats = value;
+        if (_playerLoadout.Contains(newPlayerWeaponStats))
         {
-            newPlayerWeaponStats.IsEquiped = true;
-            _currentWeaponList.Add(newPlayerWeaponStats);
+            Debug.LogError("Weapon is in loadout");
             return;
         }
         bool isInCurrent = false;
-        foreach (var playerWeaponStats in _currentWeaponList)
+        foreach (var playerWeaponStats in _playerLoadout)
         {
             if (playerWeaponStats.weaponType == newPlayerWeaponStats.weaponType)
             {
@@ -218,23 +228,26 @@ public class WeaponManagerMechanic : IMechanic
 
         if (isInCurrent)
         {
-            for (int i = 0; i < _currentWeaponList.Count; i++)
+            for (int i = 0; i < _playerLoadout.Count; i++)
             {
-                if (_currentWeaponList[i].weaponType == newPlayerWeaponStats.weaponType)
+                if (_playerLoadout[i].weaponType == newPlayerWeaponStats.weaponType)
                 {
-                    _currentWeaponList[i].IsEquiped = false;
-                    _currentWeaponList[i] = newPlayerWeaponStats;
-                    _currentWeaponList[i].IsEquiped = true;
+                    _playerLoadout[i].IsEquiped = false;
+                    SaveGameMechanic.Instance.SaveWeapon(_playerLoadout[i]);
+                    _playerLoadout[i] = newPlayerWeaponStats;
+                    _playerLoadout[i].IsEquiped = true;
                 }
             }
         }
         else
         {
             newPlayerWeaponStats.IsEquiped = true;
-            _currentWeaponList.Add(newPlayerWeaponStats);
+            _playerLoadout.Add(newPlayerWeaponStats);
         }
-        _currentWeapon = _currentWeaponList[0];
-        OnCurrentWeaponListChanged?.Invoke();;
+        
+        SaveGameMechanic.Instance.SaveWeapon(newPlayerWeaponStats);
+        SaveGameMechanic.Instance.Save();
+        OnPlayerLoadOutChanges?.Invoke();;
     }
 
     public PlayerWeaponStats GetCurrentWeapon()
@@ -244,7 +257,7 @@ public class WeaponManagerMechanic : IMechanic
 
     public List<PlayerWeaponStats> GetCurrentWeapons()
     {
-        return _currentWeaponList;
+        return _playerLoadout;
     }
 
     public List<PlayerWeaponStats> GetPlayerWeaponStats()
@@ -258,38 +271,44 @@ public class WeaponManagerMechanic : IMechanic
         return list;
     }
 
-    public bool TryToEquip(PlayerWeaponStats currentWepaonStats)
+    public void TryToEquip(PlayerWeaponStats currentWepaonStats)
     {
         if (!_playerWeaponStatsDictionary.ContainsKey(currentWepaonStats.WeaponName))
         {
             Debug.LogError($"The weapon - {currentWepaonStats.WeaponName}, is not in game");
-            return false;
+            return;
         }
 
         if (!currentWepaonStats.IsOpen)
         {
             Debug.LogError($"The weapon - {currentWepaonStats.WeaponName}, is not unlocked");
-            return false;
+            return;
         }
         SetWeapon(currentWepaonStats.WeaponName);
-        return true;
     }
 
-    public bool TryToBuy(PlayerWeaponStats currentWepaonStats)
+    public void TryToBuy(PlayerWeaponStats currentWepaonStats)
     {
-        if (!_playerWeaponStatsDictionary.ContainsKey(currentWepaonStats.WeaponName))
+        if (!_playerWeaponStatsDictionary.TryGetValue(currentWepaonStats.WeaponName, out var value))
         {
-            Debug.LogError($"There is no weapon with this name - {currentWepaonStats.WeaponName}");
-            return false;
+            Debug.LogError("There is no weapon in dictionary");
+            return;
         }
-        if (EconomyMonoMechanic.Instance.TryToSpend(currentWepaonStats.WeaponBuyPrice))
+
+        currentWepaonStats = value;
+        if (currentWepaonStats.IsOpen)
+        {
+            Debug.LogError($"The gun {currentWepaonStats.WeaponName} is already buyed");
+            return;
+        }
+        
+        if (EconomyMonoMechanic.Instance.TryToSpend(currentWepaonStats.WeaponBuyPrice) )
         {
             currentWepaonStats.IsOpen = true;
-            _currentWeaponList.Add(currentWepaonStats);
             SaveGameMechanic.Instance.SaveWeapon(currentWepaonStats);
-            return true;
+            SaveGameMechanic.Instance.Save();
+            SetWeapon(currentWepaonStats.WeaponName);
         }
-        return false;
     }
 
     public void PickWeapon(PlayerWeaponStats currentWeaponCurrentWeaponStats)

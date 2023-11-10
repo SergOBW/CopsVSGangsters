@@ -10,13 +10,13 @@ public class WeaponSetupUi : MonoBehaviour
     [SerializeField] private Image meleeImage;
     private void OnEnable()
     {
-        WeaponManagerMechanic.Instance.OnCurrentWeaponListChanged += Refresh;
+        WeaponManagerMechanic.Instance.OnPlayerLoadOutChanges += Refresh;
         Refresh();
     }
 
     private void OnDisable()
     {
-        WeaponManagerMechanic.Instance.OnCurrentWeaponListChanged -= Refresh;
+        WeaponManagerMechanic.Instance.OnPlayerLoadOutChanges -= Refresh;
     }
 
     private void Refresh()

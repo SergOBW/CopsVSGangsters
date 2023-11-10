@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 4Shotgun
   m_EditorClassIdentifier: 
   weaponName: Shotgun
-  weaponBuyPrice: 3000
+  weaponBuyPrice: 6000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000
   startedAccuracyCost: 1000

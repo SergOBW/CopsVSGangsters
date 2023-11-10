@@ -95,10 +95,20 @@ namespace Player
             OnPlayerDie?.Invoke();
         }
         
-        public override void Heal(float amount)
+        public override void Heal(float amount =0)
         {
+            if (amount== 0)
+            {
+                if (haveArmourBonus)
+                {
+                    currentHealth = _statsData.startHealth * 2;
+                }
+                else
+                {
+                    currentHealth = _statsData.startHealth;
+                }
+            }
             base.Heal(amount);
-            currentHealth = _statsData.startHealth;
             OnHealthChanged?.Invoke(currentHealth);
         }
 

@@ -98,7 +98,7 @@ public static class bl_IndicatorUtils
     public static void SetIndicator(this GameObject go,Color customColor)
     {
         //Just in case that go is destroy
-        if (go == null)
+        if (go.gameObject == null)
             return;
 
         bl_IndicatorInfo info = new bl_IndicatorInfo(go.transform.position);

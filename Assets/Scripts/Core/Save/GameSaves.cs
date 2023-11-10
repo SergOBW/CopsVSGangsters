@@ -23,30 +23,63 @@ namespace Save
         public float sensitivity;
         public bool IsMyDataBetter(GameSaves gameSaves)
         {
-            int lastSavedLevel = -1;
-            for (int i = 0; i < LevelSaves.Count; i++)
+            bool isDataBetter = false;
+            int myOpenedLevels = 0;
+            int onotherOpenedLevels = 0;
+            foreach (var saveLevel in LevelSaves)
             {
-                if (LevelSaves[i].isOpen == 0)
+                if (saveLevel.isOpen == 1)
                 {
-                    lastSavedLevel = i - 1;
-                    break;
+                    myOpenedLevels++;
+                }
+            }
+            foreach (var saveLevel in gameSaves.LevelSaves)
+            {
+                if (saveLevel.isOpen == 1)
+                {
+                    onotherOpenedLevels++;
+                }
+            }
+            int myOpenedWeapons = 0;
+            int onotherOpenedWeapons = 0;
+            foreach (var saveWeapon in weapons)
+            {
+                if (saveWeapon.IsOpen)
+                {
+                    myOpenedWeapons++;
+                }
+            }
+            foreach (var saveWeapon in gameSaves.weapons)
+            {
+                if (saveWeapon.IsOpen)
+                {
+                    onotherOpenedWeapons++;
                 }
             }
             
-            Debug.Log("My last completed level = " + lastSavedLevel );
+            bool isLevelsBetter = myOpenedLevels > onotherOpenedLevels;
 
-            int onotherSavedLevel = -1;
-            
-            for (int i = 0; i < gameSaves.LevelSaves.Count; i++)
+            int myPoints = myOpenedWeapons + InventoryItems.Count;
+            int otherPoints = onotherOpenedWeapons + gameSaves.InventoryItems.Count;
+
+            if (isLevelsBetter)
             {
-                if (gameSaves.LevelSaves[i].isOpen == 0)
+                isDataBetter = true;
+                return isDataBetter;
+            }
+
+            if (myOpenedLevels == onotherOpenedLevels)
+            {
+                if (myPoints > otherPoints)
                 {
-                    onotherSavedLevel = i - 1;
-                    break;
+                    isDataBetter = true;
+                }
+
+                if (myPoints == otherPoints)
+                {
+                    isDataBetter = money > gameSaves.money;
                 }
             }
-            Debug.Log("Another last completed level = " + onotherSavedLevel );
-            bool isDataBetter = lastSavedLevel > onotherSavedLevel;
 
             return isDataBetter;
         }
@@ -77,7 +110,7 @@ namespace Save
             PlayerWeaponStatsSo[] playerWeaponStatsSos = Resources.LoadAll<PlayerWeaponStatsSo>("ScriptableObjects/PlayerWeapons");
             for (int i = 0; i < playerWeaponStatsSos.Length; i++)
             {
-                SaveWeapon newSaveWeapon = new SaveWeapon(playerWeaponStatsSos[i].weaponName, "default",playerWeaponStatsSos[i].isStarted);
+                SaveWeapon newSaveWeapon = new SaveWeapon(playerWeaponStatsSos[i].weaponName, playerWeaponStatsSos[i].isStarted,playerWeaponStatsSos[i].isStarted);
                 weapons.Add(newSaveWeapon);
             }
         }
@@ -87,6 +120,11 @@ namespace Save
             if (deserializeObject == null)
             {
                 Debug.LogError("Loaded data is null!");
+                return;
+            }
+
+            if (IsMyDataBetter(deserializeObject))
+            {
                 return;
             }
             if (deserializeObject.LevelSaves is { Count: > 0})

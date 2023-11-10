@@ -27,9 +27,11 @@ using UnityEngine;
             _gameSaves = new GameSaves();
             _gameSaves.CreateStartedSaves();
             
-            string gameSavesJson = PlayerPrefs.GetString(GAME_SAVES_KEY);
-
-            _gameSaves.LoadNew(JsonConvert.DeserializeObject<GameSaves>(gameSavesJson));
+            string gameSavesJson = PlayerPrefs.GetString(GAME_SAVES_KEY,"none");
+            if (gameSavesJson != "none")
+            {
+                _gameSaves.LoadNew(JsonConvert.DeserializeObject<GameSaves>(gameSavesJson));
+            }
             
             if (AddManager.Instance != null)
             {
@@ -79,10 +81,11 @@ using UnityEngine;
         {
             foreach (var saveWeapon in _gameSaves.weapons)
             {
-                if (saveWeapon.name == playerWeapon.WeaponName)
+                if (saveWeapon.weaponName == playerWeapon.WeaponName)
                 {
+                    Debug.Log($"Saving {playerWeapon.WeaponName} is equiped ={playerWeapon.IsEquiped}, is open = {playerWeapon.IsOpen}");
                     saveWeapon.IsOpen = playerWeapon.IsOpen;
-                    saveWeapon.attachments = "default";
+                    saveWeapon.isEquiped = playerWeapon.IsEquiped;
                     saveWeapon.AccuracyLevel = playerWeapon.AccuracyLevel;
                     saveWeapon.DamageLevel = playerWeapon.DamageLevel;
                     saveWeapon.BulletCountLevel = playerWeapon.BulletCountLevel;
@@ -91,7 +94,6 @@ using UnityEngine;
                 }
             }
             
-            Save();
         }
 
         public void SaveLeveSaves(List<SaveLevel> levelSaves)

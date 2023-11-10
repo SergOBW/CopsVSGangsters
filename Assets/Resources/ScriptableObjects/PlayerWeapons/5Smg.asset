@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5Smg
   m_EditorClassIdentifier: 
   weaponName: Smg
-  weaponBuyPrice: 6000
+  weaponBuyPrice: 9000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000
   startedAccuracyCost: 1000

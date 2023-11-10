@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Abstract.Inventory;
+using UnityEngine;
 
 namespace Quests.HoldOnLevel
 {
@@ -13,6 +14,10 @@ namespace Quests.HoldOnLevel
             if (holdOnLevelQuestSo != null)
             {
                 _startingTimer = holdOnLevelQuestSo.timer;
+                if (Inventory.Instance.HasItem("Hacker"))
+                {
+                    _startingTimer += 30;
+                }
                 _currentTimer = 0;
                 _isQuestCompleted = false;
             }
@@ -32,6 +37,7 @@ namespace Quests.HoldOnLevel
             {
                 _isQuestCompleted = true;
                 FireOnQuestCompletedEvent(this);
+                LevelsMonoMechanic.Instance.WinLevel();
             }
         }
 

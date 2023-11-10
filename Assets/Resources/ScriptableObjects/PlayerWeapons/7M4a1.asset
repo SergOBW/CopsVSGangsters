@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 7M4a1
   m_EditorClassIdentifier: 
   weaponName: M4a1
-  weaponBuyPrice: 10000
+  weaponBuyPrice: 15000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000
   startedAccuracyCost: 1000
@@ -21,7 +21,7 @@ MonoBehaviour:
   startedDamage: 35
   startedReloadSpeed: 1
   startedAccuracy: 5
-  startedBulletCount: 25
+  startedBulletCount: 30
   damageLevelMultiplayer: 5
   reloadSpeedLevelMultiplayer: 0.2
   accuracyLevelMultiplayer: 1

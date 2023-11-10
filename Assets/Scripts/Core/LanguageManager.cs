@@ -16,7 +16,7 @@ public class LanguageManager : IMechanic
     public event Action<Language> OnLanguageChanged;
     
     private bool _isUnityEditor;
-    private string _startedLanguage = "en";
+    private string _startedLanguage = "ru";
     
     public void Initialize()
     {
@@ -24,7 +24,7 @@ public class LanguageManager : IMechanic
 #if UNITY_EDITOR
         _isUnityEditor = true;
 #endif
-        string lang = "en";
+        string lang = "ru";
         if (_isUnityEditor)
         {
             ChangeLanguage(_startedLanguage);

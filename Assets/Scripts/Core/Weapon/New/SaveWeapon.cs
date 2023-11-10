@@ -2,32 +2,27 @@
 {
     public class SaveWeapon
     {
-        public string name;
-        public string attachments;
+        public string weaponName;
         public bool IsOpen;
+        public bool isEquiped;
         
         public int DamageLevel;
         public int ReloadSpeedLevel;
         public int AccuracyLevel;
         public int BulletCountLevel;
 
-        public SaveWeapon(string name, string attachments, bool isOpen)
+        public SaveWeapon(string weaponName, bool isOpen, bool isEquiped)
         {
-            this.name = name;
-            
-            this.attachments = attachments;
+            this.weaponName = weaponName;
             
             IsOpen = isOpen;
+            this.isEquiped = isEquiped;
 
             DamageLevel = 0;
             ReloadSpeedLevel = 0;
             AccuracyLevel = 0;
             BulletCountLevel = 0;
         }
-
-        public void SetAttachments(string attachments)
-        {
-            this.attachments = attachments;
-        }
+        
     }
 }

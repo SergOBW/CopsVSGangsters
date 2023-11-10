@@ -1,4 +1,5 @@
 using Abstract;
+using Abstract.Inventory;
 using DefaultNamespace;
 using Player;
 using UnityEngine;
@@ -22,6 +23,14 @@ namespace Core
             playerGameObject.GetComponent<PlayerCharacter>().SetupArms();
             playerStatsController.Initialize(playerStats);
             playerStatsController.OnPlayerDie += LooseLevel;
+            if (Inventory.Instance.HasItem("Hacker"))
+            {
+                LockedDoor[] lockedDoors = FindObjectsOfType<LockedDoor>();
+                foreach (var lockedDoor in lockedDoors)
+                {
+                    lockedDoor.ForceHandle();
+                }
+            }
         }
 
         private void LooseLevel()

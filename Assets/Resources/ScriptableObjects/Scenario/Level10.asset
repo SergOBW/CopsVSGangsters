@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Level1
   questSos:
-  - {fileID: 11400000, guid: 715a6a37ccb4b194284c71ebf2c7298a, type: 2}
+  - {fileID: 11400000, guid: 7a3a31aa8bce0564fa81f689481d7668, type: 2}
   enemySoIntDictionary:
     enemySos:
     - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}
@@ -25,4 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3af8760ed6317c24889166ee90b55be9, type: 2}
   - {fileID: 11400000, guid: 89db996618f2bcf4ea3aa0e5c2e5d3f3, type: 2}
   startingMoneyOnLevel: 28000
-  startingBonusMoney: 2000
+  startingBonusMoney: 5000

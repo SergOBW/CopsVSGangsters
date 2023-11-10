@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6Ak47
   m_EditorClassIdentifier: 
   weaponName: Ak47
-  weaponBuyPrice: 8000
+  weaponBuyPrice: 12000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000
   startedAccuracyCost: 1000

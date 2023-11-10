@@ -10,7 +10,6 @@ namespace Ui.States
     public class UiMonoLooseState : UiMonoState
     {
         [SerializeField] private Button backToHubButton;
-        [SerializeField] private Button restartLevelButton;
         [SerializeField] private Button continueRewardedButton;
         [SerializeField] private ButtonWithCursor buttonWithCursor;
 
@@ -19,20 +18,28 @@ namespace Ui.States
             base.EnterState(monoStateMachine);
             continueRewardedButton.gameObject.SetActive(true);
             buttonWithCursor.gameObject.SetActive(false);
+            
+            if (AddManager.Instance.canShowAdd)
+            {
+                SoundMonoMechanic.Instance.DisableSound();
+                TryToShowAdd();
+            }
+            else
+            {
+                SetupButtons();
+            }
         }
 
         private void SetupButtons()
         {
             AddManager.Instance.OnAddClose -= SetupButtons;
             backToHubButton.onClick.AddListener(BackToHubButton);
-            restartLevelButton.onClick.AddListener(RestartLevelButton);
             continueRewardedButton.onClick.AddListener(ContinueRewardedButton);
         }
 
         public override void ExitState(IState monoState)
         {
             backToHubButton.onClick.RemoveListener(BackToHubButton);
-            restartLevelButton.onClick.RemoveListener(RestartLevelButton);
             continueRewardedButton.onClick.RemoveListener(ContinueRewardedButton);
             base.ExitState(monoState);
         }
@@ -41,12 +48,6 @@ namespace Ui.States
         {
             ExitState(currentMonoStateMachine.uiMonoLoadingState);
             LevelsMonoMechanic.Instance.ExitLevel();
-        }
-
-        private void RestartLevelButton()
-        {
-            ExitState(currentMonoStateMachine.uiMonoLoadingState);
-            LevelsMonoMechanic.Instance.RestartLevel();
         }
 
         #region CuntinueReward
@@ -80,19 +81,6 @@ namespace Ui.States
         {
             AddManager.Instance.OnAddClose += SetupButtons;
             AddManager.Instance.ShowInterstitialAdd();
-        }
-        
-        public void OnAnimationCompleted()
-        {
-            if (AddManager.Instance.canShowAdd)
-            {
-                SoundMonoMechanic.Instance.DisableSound();
-                TryToShowAdd();
-            }
-            else
-            {
-                SetupButtons();
-            }
         }
     }
 }
