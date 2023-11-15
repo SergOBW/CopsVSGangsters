@@ -1,5 +1,6 @@
 using System;
 using Abstract;
+using Abstract.Inventory;
 using CrazyGames;
 using Save;
 using UnityEngine;
@@ -35,6 +36,7 @@ public class AddManager : GlobalMonoMechanic
     private Rewarded _rewarded;
 
     private YandexAggregator _yandexAggregator;
+    public string currencyImage;
     
     public override void Initialize()
     {
@@ -252,5 +254,29 @@ public class AddManager : GlobalMonoMechanic
                 _yandexAggregator.Login();
                 break;
         }
+    }
+
+    public void TryToBuyItem(string itemName)
+    {
+        if (Inventory.Instance.HasItem(itemName))
+        {
+            Debug.Log($"There already has item {itemName}");
+            return;
+        }
+        switch (currentAddAggregator)
+        {
+            case AddAggregator.YandexGames:
+                _yandexAggregator.TryToBuyItem(itemName);
+                break;
+            case AddAggregator.None:
+                Inventory.Instance.AddItem(itemName);
+                break;
+        }
+        
+    }
+
+    public void SetCurrencyImage(string url)
+    {
+        currencyImage = url;
     }
 }

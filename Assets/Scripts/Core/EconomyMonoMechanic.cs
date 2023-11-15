@@ -198,6 +198,16 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
     }
 
     #endregion
-    
-    
+
+
+    public void DoRewardedAddBonus()
+    {
+        AddMoney(1000);
+        SaveGameMechanic.Instance.Save();
+    }
+
+    public int GetMoneyBonus()
+    {
+        return 1000;
+    }
 }

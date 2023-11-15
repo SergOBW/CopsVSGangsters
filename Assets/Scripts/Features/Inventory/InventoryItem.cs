@@ -7,6 +7,7 @@ namespace Abstract.Inventory
         public Sprite itemIcon;
         public string name;
         public int price;
+        public int yanPrice;
 
         public bool isBought;
         
@@ -19,6 +20,7 @@ namespace Abstract.Inventory
             itemIcon = inventoryItemSo.itemIcon;
             name = inventoryItemSo.itemName;
             price = inventoryItemSo.price;
+            yanPrice = inventoryItemSo.yanPrice;
 
             descriptionEn = inventoryItemSo.descriptionEn;
             descriptionRu = inventoryItemSo.descriptionRu;

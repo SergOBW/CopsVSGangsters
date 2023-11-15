@@ -214,6 +214,11 @@ public class YandexAggregator : MonoBehaviour
         LoginManager.Instance.SetAvatar(avatar);
     }
 
+    public void SetCurrencyImage(string url)
+    {
+        AddManager.Instance.SetCurrencyImage(url);
+    }
+
     public void LoginFirstTime()
     {
         LoginManager.Instance.LoginFirstTime();
@@ -222,5 +227,37 @@ public class YandexAggregator : MonoBehaviour
     public void SetLoginType(string type)
     {
         LoginManager.Instance.SetLoginType(type);
+    }
+
+    public void TryToBuyItem(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Money Pack":
+                BuyItem(0.ToString());
+                break;
+            case "Big drill":
+                BuyItem(1.ToString());
+                break;
+
+            case "Body Armour":
+                BuyItem(2.ToString());
+                break;
+
+            case "Great Bag":
+                BuyItem(3.ToString());
+                break;
+
+            case "Great Bomb":
+                BuyItem(4.ToString());
+                break;
+
+            case "Hacker":
+                BuyItem(5.ToString());
+                break;
+            case "Tactical Gloves":
+                BuyItem(6.ToString());
+                break;
+        }
     }
 }

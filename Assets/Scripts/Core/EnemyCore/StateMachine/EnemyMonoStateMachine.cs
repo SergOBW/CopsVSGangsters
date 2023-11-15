@@ -155,7 +155,7 @@ namespace EnemyCore.States
 
         public void Attack(StatsController statsController)
         {
-            if (statsController.isDead)
+            if (statsController.isDead || !LevelStateMachine.Instance.IsPlayState())
             {
                 return;
             }

@@ -17,12 +17,18 @@ namespace Ui.States
         [SerializeField] private RectTransform[] itemsToRebuild;
         [SerializeField] private InfoPopup infoPopup;
 
+        [SerializeField] private Button yanButton;
+        [SerializeField] private Button moneyButton;
+
+        private bool _isYan;
+
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
             backButton.onClick.AddListener(GoToMenu);
             Inventory.Instance.OnInventoryChanged += RefreshUi;
-            RefreshUi();
+            _isYan = false;
+            RefreshState();
         }
 
         public override void ExitState(IState monoState)
@@ -54,7 +60,7 @@ namespace Ui.States
                 if (!currentInventoryItems.Contains(inventoryItem))
                 {
                     ShopItemUi shopItemUi = Instantiate(shopItemUiPrefab, shopItemsSlot);
-                    shopItemUi.Initialize(inventoryItem,this);
+                    shopItemUi.Initialize(inventoryItem,this,_isYan);
                     _shopItemUis.Add(shopItemUi);
                 }
             }
@@ -70,6 +76,33 @@ namespace Ui.States
             ExitState(currentMonoStateMachine.uiMonoMainMenuState);
         }
 
+        private void RefreshState()
+        {
+            if (_isYan)
+            {
+                yanButton.interactable = false;
+                moneyButton.interactable = true;
+            }
+            else
+            {
+                yanButton.interactable = true;
+                moneyButton.interactable = false;
+            }
+
+            RefreshUi();
+        }
+
+        public void SetYan()
+        {
+            _isYan = true;
+            RefreshState();
+        }
+        
+        public void SetMoney()
+        {
+            _isYan = false;
+            RefreshState();
+        }
         public void ShowInfoPopup(InventoryItem currentInventoryItem)
         {
             infoPopup.Show(currentInventoryItem);
