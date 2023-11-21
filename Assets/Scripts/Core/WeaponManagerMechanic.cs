@@ -57,6 +57,8 @@ public class PlayerWeaponStats
     public float AccuracyPrice { get; set; }
     public GameObject WeaponGameObject { get; set; }
     public Sprite WeaponIcon { get; set; }
+    public string WeaponNameRu { get; set; }
+    public string WeaponNameTr { get; set; }
 
     public GameObject WeaponArms;
 
@@ -67,6 +69,8 @@ public class PlayerWeaponStats
     {
         // Initialize
         WeaponName = playerWeaponStatsSo.weaponName;
+        WeaponNameRu = playerWeaponStatsSo.weaponNameRu;
+        WeaponNameTr = playerWeaponStatsSo.weaponNameTr;
         WeaponBuyPrice = playerWeaponStatsSo.weaponBuyPrice;
         // Prices
         _startedDamageCost = playerWeaponStatsSo.startedDamageCost;

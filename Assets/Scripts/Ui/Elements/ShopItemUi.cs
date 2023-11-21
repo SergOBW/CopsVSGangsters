@@ -1,3 +1,4 @@
+using System;
 using Abstract.Inventory;
 using TMPro;
 using Ui.States;
@@ -29,7 +30,21 @@ public class ShopItemUi : MonoBehaviour
         _isYan = isYan;
         
         itemIconImage.sprite = inventoryItem.itemIcon;
-        itemNameText.text = inventoryItem.name;
+        switch (LanguageManager.Instance.GetLanguage())
+        {
+            default:
+                itemNameText.text = inventoryItem.name;
+                break;
+            case Language.en:
+                itemNameText.text = inventoryItem.name;
+                break;
+            case Language.ru:
+                itemNameText.text = inventoryItem.nameRu;
+                break;
+            case Language.tr:
+                itemNameText.text = inventoryItem.nameTr;
+                break;
+        }
         itemMoneyPrice.text = _isYan ? inventoryItem.yanPrice.ToString() : inventoryItem.price.ToString();
         openInfoButton.onClick.AddListener(ShowInfoPopup);
         if (_isYan)
@@ -52,12 +67,18 @@ public class ShopItemUi : MonoBehaviour
         Debug.Log("Buy yan");
     }
 
+    private void OnDestroy()
+    {
+        buyButton.onClick.RemoveListener(BuyInventoryItem);
+        buyYanButton.onClick.RemoveListener(BuyItemForYan);
+    }
+
     private void BuyInventoryItem()
     {
         if (EconomyMonoMechanic.Instance.TryToSpend(_currentInventoryItem.price))
         {
             buyButton.onClick.RemoveListener(BuyInventoryItem);
-            buyYanButton.onClick.RemoveListener(BuyInventoryItem);
+            buyYanButton.onClick.RemoveListener(BuyItemForYan);
             Inventory.Instance.AddItem(_currentInventoryItem.name);
             _shopState.RefreshUi();
         }

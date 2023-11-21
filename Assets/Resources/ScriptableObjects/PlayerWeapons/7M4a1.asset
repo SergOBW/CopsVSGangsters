@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 7M4a1
   m_EditorClassIdentifier: 
   weaponName: M4a1
+  weaponNameRu: M4a1
+  weaponNameTr: M4a1
   weaponBuyPrice: 15000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000

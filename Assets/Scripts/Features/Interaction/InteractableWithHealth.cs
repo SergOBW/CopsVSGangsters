@@ -6,7 +6,7 @@ using UnityEngine;
 public class InteractableWithHealth : Interactable
 {
     [SerializeField] protected float startedHealth = 1f;
-    private float _health;
+    protected float _health;
     protected bool isDead;
     private bool _hasBoostItem;
     protected override void Initialize()
@@ -44,6 +44,11 @@ public class InteractableWithHealth : Interactable
         if (outline != null)
         {
             outline.enabled = false;
+        }
+
+        if (!isDead)
+        {
+            isDead = true;
         }
     }
 

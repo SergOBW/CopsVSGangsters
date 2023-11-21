@@ -159,8 +159,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 90/90
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5f58c05479cb14f588efcdfcbdab347c, type: 2}
-  m_sharedMaterial: {fileID: 7423409246693961632, guid: 5f58c05479cb14f588efcdfcbdab347c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 563f1e232a9b5bd469fb403cf34142ae, type: 2}
+  m_sharedMaterial: {fileID: 6471180413964846771, guid: 563f1e232a9b5bd469fb403cf34142ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -529,7 +529,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8491507544688153698}
   m_FillRect: {fileID: 8820490770181630630}
   m_HandleRect: {fileID: 0}
@@ -652,8 +652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
-  m_SizeDelta: {x: 414.07336, y: 119.20216}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.00050163}
+  m_SizeDelta: {x: 414.0734, y: 553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3357154600123991388
 CanvasRenderer:
@@ -687,8 +687,8 @@ MonoBehaviour:
 
     <#92a4b4><size=70%>Stage 1~30'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc2cc93475f76427c86a8262bee36b88, type: 2}
-  m_sharedMaterial: {fileID: 2269793554123077917, guid: dc2cc93475f76427c86a8262bee36b88, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 563f1e232a9b5bd469fb403cf34142ae, type: 2}
+  m_sharedMaterial: {fileID: 6471180413964846771, guid: 563f1e232a9b5bd469fb403cf34142ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -712,10 +712,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
+  m_fontSize: 72
   m_fontSizeBase: 56
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

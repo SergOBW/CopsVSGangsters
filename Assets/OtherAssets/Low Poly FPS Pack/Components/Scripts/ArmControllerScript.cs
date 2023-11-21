@@ -238,6 +238,8 @@ public class ArmControllerScript : MonoBehaviour {
 	private StarterAssetsInputs _starterAssetsInputs;
 	public WeaponType weaponType;
 
+	private Camera _camera;
+
 	public event Action OnFire;
 	public bool IsAiming
 	{
@@ -846,8 +848,8 @@ public class ArmControllerScript : MonoBehaviour {
 		OnFire?.Invoke();
 		
 		//Send out the raycast from the "bulletSpawnPoint" position
-		if (Physics.Raycast (Spawnpoints.bulletSpawnPoint.transform.position, 
-		                     Spawnpoints.bulletSpawnPoint.transform.forward, out hit, ShootSettings.bulletDistance,_layerMask)) {
+		if (Physics.Raycast (_camera.transform.position, 
+			    _camera.transform.forward, out hit, ShootSettings.bulletDistance,_layerMask)) {
 			
 			//If a rigibody is hit, add bullet force to it
 			if (hit.rigidbody != null)
@@ -963,8 +965,8 @@ public class ArmControllerScript : MonoBehaviour {
 	{
 		RaycastHit hit;
 		Ray ray = new Ray (transform.position, transform.forward);
-		if (Physics.Raycast (Spawnpoints.bulletSpawnPoint.transform.position, 
-		                     Spawnpoints.bulletSpawnPoint.transform.forward, out hit, ShootSettings.bulletDistance,_layerMask)) {
+		if (Physics.Raycast (_camera.transform.position, 
+			    _camera.transform.forward, out hit, ShootSettings.bulletDistance,_layerMask)) {
 			
 			//If a rigibody is hit, add bullet force to it
 			if (hit.rigidbody != null)
@@ -1249,5 +1251,10 @@ public class ArmControllerScript : MonoBehaviour {
 	public void SetupWeapon(PlayerWeaponStats playerWeaponStats)
 	{
 		currentWeaponStats = playerWeaponStats;
+	}
+
+	public void SetCamera(Camera armsCamera)
+	{
+		_camera = armsCamera;
 	}
 }

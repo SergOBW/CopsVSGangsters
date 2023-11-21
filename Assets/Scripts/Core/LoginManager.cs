@@ -52,6 +52,7 @@ namespace Yandex.Plugins.Login
             if (AddManager.Instance != null)
             {
                 AddManager.Instance.LoadFromExternStorage();
+                AddManager.Instance.CheckForPurchases();
             }
         }
 
@@ -67,6 +68,7 @@ namespace Yandex.Plugins.Login
                 if (AddManager.Instance != null)
                 {
                     AddManager.Instance.LoadFromExternStorage();
+                    AddManager.Instance.CheckForPurchases();
                 }
             }
             Debug.Log("Set login type = " + type);

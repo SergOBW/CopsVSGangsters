@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Abstract;
 using DefaultNamespace;
 using Tayx.Graphy;
+using TMPro;
 using Ui.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,6 +24,10 @@ public class UiMonoStateMachine : MonoStateMachine
     [SerializeField] private SettingsPopup settingsPopup;
     [SerializeField] private GraphyManager graphyManager;
 
+    [SerializeField] private GameObject noBigDrillPopup;
+    [SerializeField] private GameObject addPopup;
+    private TMP_Text addPopupText;
+
     public static UiMonoStateMachine Instance;
 
     [SerializeField] private List<StateMachinesDebugger> _stateMachineDebugger;
@@ -29,6 +35,7 @@ public class UiMonoStateMachine : MonoStateMachine
     public override void Initialize()
     {
         Instance = this;
+        addPopupText = addPopup.GetComponentInChildren<TMP_Text>();
         ChangeState(uiMonoLoadingState);
         
         SceneManager.sceneLoaded += OnFirstLaunchSceneLoaded;
@@ -57,13 +64,53 @@ public class UiMonoStateMachine : MonoStateMachine
         }
     }
 
-    public void InitializeStandalone()
-    {
-        ChangeState(uiMonoPlayState);
-    }
-
     public void ShowSettings()
     {
         settingsPopup.Show();
+    }
+
+    public void ShowNoBigDrillPopup()
+    {
+        noBigDrillPopup.SetActive(true);
+    }
+
+    public void HideNoBigDrillPopup()
+    {
+        noBigDrillPopup.SetActive(false);
+    }
+    
+    public void ShowAddPopup(float time)
+    {
+        addPopup.gameObject.SetActive(true);
+        string timeString;
+        if (time <= 1f)
+        {
+            timeString = Math.Round(time, 2,MidpointRounding.AwayFromZero).ToString();
+        }
+        else
+        {
+            timeString = Math.Ceiling(time).ToString();
+        }
+
+        switch (LanguageManager.Instance.GetLanguage())
+        {
+            case Language.en:
+                addPopupText.text = $"Advertising through  {timeString}";
+                break;
+            case Language.ru: 
+                addPopupText.text = $"Реклама через   {timeString}";
+                break;
+            case Language.tr: 
+                addPopupText.text = $"Reklam aracılığıyla   {timeString}";
+                break;
+            default: 
+                addPopupText.text = $"Advertising through  {timeString}";
+                break;
+        }
+    }
+
+    public void DisableAddPopup()
+    {
+        addPopup.gameObject.SetActive(false);
     }
 }

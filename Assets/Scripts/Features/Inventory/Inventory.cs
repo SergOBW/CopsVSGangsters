@@ -31,6 +31,7 @@ namespace Abstract.Inventory
             {
                 allInventoryItems.Add(new InventoryItem(inventoryItemSo));
             }
+            allInventoryItems.Add(new InventoryItem("Money Pack"));
             List<SaveInventory> saveInventory = gameSaves.InventoryItems;
             if (saveInventory.Count > 0)
             {
@@ -64,6 +65,7 @@ namespace Abstract.Inventory
         {
             foreach (var inventoryItem in currentInventoryItems)
             {
+                Debug.Log($"Has item {itemName} : {inventoryItem.name}");
                 if (inventoryItem.name == itemName)
                 {
                     return true;
@@ -75,15 +77,32 @@ namespace Abstract.Inventory
 
         public void AddItem(string name)
         {
+            if (HasItem(name))
+            {
+                Save();
+                return;
+            }
             foreach (var inventoryItem in allInventoryItems)
             {
                 if (inventoryItem.name == name)
                 {
+                    Debug.Log("Adding item " + inventoryItem.name);
+                    inventoryItem.isBought = true;
                     currentInventoryItems.Add(inventoryItem);
+                    Debug.Log($"Current invetnory items = {currentInventoryItems.Count}");
                     break;
                 }
             }
-            Debug.Log(currentInventoryItems.Count);
+            Save();
+            if (name == "Money Pack")
+            {
+                EconomyMonoMechanic.Instance.AddMoney(1000000);
+            }
+        }
+
+        private void Save()
+        {
+            Debug.Log("Saving");
             List<SaveInventory> list = new List<SaveInventory>();
             foreach (var inventoryItem in currentInventoryItems)
             {

@@ -1,8 +1,10 @@
 using System;
 using Abstract;
+using DefaultNamespace;
 using Level.States;
 using UnityEngine;
 using UnityEngine.Audio;
+using Object = UnityEngine.Object;
 
 public class SoundMonoMechanic : GlobalMonoMechanic
 {
@@ -17,6 +19,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
     [SerializeField] private AudioClip buyClip;
 
     [SerializeField] private AudioMixer mainMixer;
+    [SerializeField] private AudioMixerGroup audioMixerGroup;
     private const string MASTER_VOLUME_NAME = "MasterVolume";
     private float volume;
 
@@ -24,6 +27,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
     {
         Instance = this;
         LevelStateMachine.Instance.OnStateChangedEvent += OnStateChangedEvent;
+        GlobalSettings.Instance.OnSettingsChanged += SetupVolume;
         SetupVolume();
     }
 
@@ -66,7 +70,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
 
     public void SetupVolume()
     {
-        volume = SaveGameMechanic.Instance.GetGameSaves().sound;
+        volume = GlobalSettings.Instance.soundValue;
         Debug.Log("SetupVolume " + volume);
         mainMixer.SetFloat(MASTER_VOLUME_NAME,volume);
     }
@@ -129,8 +133,27 @@ public class SoundMonoMechanic : GlobalMonoMechanic
         
     }
 
+    public void PlayClipAtPoint(AudioClip clip, Vector3 position,  float volume = 1)
+    {
+        GameObject gameObject = new GameObject("One shot audio");
+        gameObject.transform.position = position;
+        AudioSource audioSource = (AudioSource) gameObject.AddComponent(typeof (AudioSource));
+        audioSource.outputAudioMixerGroup = audioMixerGroup;
+        audioSource.clip = clip;
+        audioSource.spatialBlend = 1f;
+        audioSource.volume = 0.5f;
+        audioSource.Play();
+        
+        Object.Destroy((Object) gameObject, clip.length * ((double) Time.timeScale < 0.009999999776482582 ? 0.01f : Time.timeScale));
+    }
+
     public AudioMixer GetAudioMixer()
     {
         return mainMixer;
+    }
+
+    public AudioMixerGroup GetAudioMixerGroup()
+    {
+        return audioMixerGroup;
     }
 }

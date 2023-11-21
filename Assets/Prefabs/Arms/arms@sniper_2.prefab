@@ -15468,7 +15468,7 @@ MonoBehaviour:
   ReloadSettings:
     casingOnReload: 0
     casingDelay: 0.5
-    isAutoReload: 0
+    isAutoReload: 1
     hasBulletInMag: 0
     bulletInMag: []
     enableBulletTimer: 0
@@ -16007,7 +16007,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 3.15
+  field of view: 3.5
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

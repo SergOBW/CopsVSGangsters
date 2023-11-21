@@ -10906,7 +10906,7 @@ MonoBehaviour:
   ReloadSettings:
     casingOnReload: 0
     casingDelay: 0
-    isAutoReload: 0
+    isAutoReload: 1
     hasBulletInMag: 1
     bulletInMag:
     - {fileID: 8503434692123783351}

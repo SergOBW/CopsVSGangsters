@@ -27,6 +27,10 @@ namespace Quests.HoldOnLevel
         public override void Update()
         {
             base.Update();
+            if (!LevelStateMachine.Instance.IsPlayState())
+            {
+                return;
+            }
             if (_currentTimer < _startingTimer)
             {
                 FireOnQuestUpdatedEvent(this);

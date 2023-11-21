@@ -11,6 +11,7 @@ public class LockedDoor : InteractableWithHealth
     [SerializeField] private Transform handleTransform;
 
     [SerializeField] private LockedDoor[] otherDoors;
+    
 
     private void Awake()
     {

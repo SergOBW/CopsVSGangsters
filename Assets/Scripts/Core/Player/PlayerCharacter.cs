@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
 using Player;
 using StarterAssets;
 using UnityEngine;
@@ -72,11 +73,14 @@ public class PlayerCharacter : MonoBehaviour
             }
 
             armControllerScript.SetupWeapon(playerWeaponStats);
+            armControllerScript.SetCamera(armsCamera);
             _armControllerScripts.Add(armControllerScript);
         }
 
         _currentWeaponIndex = 0;
         PickWeapon(WeaponType.Secondary);
+        SetupSensitivity(GlobalSettings.Instance.sensitivity);
+        GlobalSettings.Instance.OnSettingsChanged += () =>  SetupSensitivity(GlobalSettings.Instance.sensitivity);
     }
 
 

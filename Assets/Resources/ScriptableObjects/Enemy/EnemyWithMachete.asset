@@ -20,7 +20,7 @@ MonoBehaviour:
     maxSpeed: 5
     isDead: 0
   defaultVisuals: {fileID: 11400000, guid: 5f362301c0bead54b8acaef2ff35d563, type: 2}
-  weaponStatsSo: {fileID: 11400000, guid: 26ca511355c14234b9a2928668c49c5e, type: 2}
+  weaponStatsSo: {fileID: 11400000, guid: b9cb0b8ce4ef96746bffa92a7be47b0d, type: 2}
   aiStats:
     radius: 10
     angle: 110

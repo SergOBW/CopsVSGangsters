@@ -1,4 +1,5 @@
 ﻿using System;
+using Save;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -15,6 +16,7 @@ namespace DefaultNamespace
         public bool isUsingDebug;
 
         public static GlobalSettings Instance;
+        public float sensitivity;
 
         public event Action OnSettingsChanged;
         
@@ -22,6 +24,15 @@ namespace DefaultNamespace
         {
             Instance = this;
             SetupDefault();
+            SetupGameSaves(SaveGameMechanic.Instance.GetGameSaves()); 
+            SaveGameMechanic.Instance.OnDataRefreshed += SetupGameSaves;
+        }
+
+        private void SetupGameSaves(GameSaves obj)
+        {
+            sensitivity = obj.sensitivity;
+            soundValue = obj.sound;
+            ChangeSettings();
         }
 
         private void SetupDefault()
@@ -29,6 +40,7 @@ namespace DefaultNamespace
             graphicsQuality = GraphicsQuality.Low;
             isUsingDebug = false;
             soundValue = 1f;
+            sensitivity = 1f;
         }
 
         public void ChangeGraphics(GraphicsQuality _graphicsQuality)
@@ -40,6 +52,28 @@ namespace DefaultNamespace
         public void ChangeSettings()
         {
             OnSettingsChanged?.Invoke();
+        }
+
+        public void ChangeSensitivity(float value)
+        {
+            sensitivity = value;
+            SaveGameMechanic.Instance.SaveSensitivity(sensitivity);
+            ChangeSettings();
+        }
+
+        public void ChangeVolume(float value)
+        {
+            if (value <= -1)
+            {
+                value *= 30;
+            }
+            else
+            {
+                value *= 2;
+            }
+            soundValue = value;
+            SaveGameMechanic.Instance.SaveSound(soundValue);
+            ChangeSettings();
         }
     }
 }

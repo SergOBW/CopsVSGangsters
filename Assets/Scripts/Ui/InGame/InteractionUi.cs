@@ -39,6 +39,7 @@ public class InteractionUi : MonoBehaviour
         {
             _image.fillAmount = 0;
             _text.gameObject.SetActive(false);
+            UiMonoStateMachine.Instance.HideNoBigDrillPopup();
         }
 
     }

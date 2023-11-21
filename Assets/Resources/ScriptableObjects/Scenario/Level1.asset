@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Level1
   questSos:
-  - {fileID: 11400000, guid: 715a6a37ccb4b194284c71ebf2c7298a, type: 2}
+  - {fileID: 11400000, guid: 2dbca94185761c14781782c30e253cb5, type: 2}
   - {fileID: 11400000, guid: 1b9a53df0e2d1e54bba5345d65ff4d36, type: 2}
   enemySoIntDictionary:
     enemySos:

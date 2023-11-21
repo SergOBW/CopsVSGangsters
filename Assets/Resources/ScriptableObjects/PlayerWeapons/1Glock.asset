@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 1Glock
   m_EditorClassIdentifier: 
   weaponName: Glock
+  weaponNameRu: "\u0413\u043B\u043E\u043A"
+  weaponNameTr: Glock
   weaponBuyPrice: 0
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000

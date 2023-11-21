@@ -39,6 +39,10 @@ public class InventoryPopup : MonoBehaviour
         _itemUis = new List<InventoryItemUi>();
         foreach (var inventoryItem in Inventory.Instance.GetCurrentInventoryItems())
         {
+            if (inventoryItem.price <= 0)
+            {
+                return;
+            }
             InventoryItemUi inventoryItemUi = Instantiate(inventoryItemUiPrefab, itemsSlot);
             inventoryItemUi.Setup(inventoryItem.itemIcon);
             _itemUis.Add(inventoryItemUi);

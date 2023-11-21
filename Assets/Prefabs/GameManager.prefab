@@ -518,6 +518,7 @@ MonoBehaviour:
   currentAddAggregator: 2
   canShowAdd: 0
   lastAddtime: 0
+  currencyImage: 
 --- !u!1 &8254582670927975062
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +642,7 @@ MonoBehaviour:
   waveSound: {fileID: 8300000, guid: 3dacf997b69586145a977b74b09150db, type: 3}
   buyClip: {fileID: 8300000, guid: f523347c1bf410c4591d34d6c7efc6e2, type: 3}
   mainMixer: {fileID: 24100000, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
+  audioMixerGroup: {fileID: 24300002, guid: 3fcdb23bde063e94fa0b60ccf87604d6, type: 2}
 --- !u!114 &4639955356401764326
 MonoBehaviour:
   m_ObjectHideFlags: 0

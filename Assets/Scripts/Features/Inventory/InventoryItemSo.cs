@@ -13,5 +13,7 @@ namespace Abstract.Inventory
         public string descriptionRu;
         public string descriptionEn;
         public string descriptionTr;
+        public string nameRu;
+        public string nameTr;
     }
 }

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Level1
   questSos:
-  - {fileID: 11400000, guid: 2677e2fb9ec020f4eb3eafcc25df5659, type: 2}
+  - {fileID: 11400000, guid: 7a3a31aa8bce0564fa81f689481d7668, type: 2}
   enemySoIntDictionary:
     enemySos:
     - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}
-    - {fileID: 11400000, guid: 063ba29dadbcb3244abc0fdefccf18e3, type: 2}
+    - {fileID: 11400000, guid: 05dabe124a9cc004cbe9bb04b1442fef, type: 2}
     - {fileID: 11400000, guid: 9b8115ed561b1f845b64735160ed2007, type: 2}
     enemyAmount: 0200000003000000
   visualsSo:

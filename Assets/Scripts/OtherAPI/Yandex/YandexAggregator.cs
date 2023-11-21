@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Abstract.Inventory;
 using Newtonsoft.Json;
 using Save;
 using UnityEngine;
@@ -31,7 +34,7 @@ public class YandexAggregator : MonoBehaviour
     private static extern void LoadExtern();
     
     [DllImport("__Internal")]
-    private static extern void CheckForPayments(string id);
+    private static extern void GetPurchases();
     
     [DllImport("__Internal")]
 
@@ -195,7 +198,6 @@ public class YandexAggregator : MonoBehaviour
             AddManager.Instance.ChangeIsMobile(IsMobile());
             LanguageManager.Instance.ChangeLanguage(GetLanguage());
             TryToLogin();
-            //Debug.Log("Direct initialization");
         }
     }
 
@@ -213,15 +215,44 @@ public class YandexAggregator : MonoBehaviour
     {
         LoginManager.Instance.SetAvatar(avatar);
     }
-
-    public void SetCurrencyImage(string url)
-    {
-        AddManager.Instance.SetCurrencyImage(url);
-    }
-
+    
     public void LoginFirstTime()
     {
         LoginManager.Instance.LoginFirstTime();
+    }
+    
+    public void PurchaseSuccess(string id)
+    {
+        Debug.Log("Purchase success id = " + id);
+        switch (id)
+        {
+            case "0":
+                Inventory.Instance.AddItem("Money Pack");
+                break;
+            case "1":
+                Inventory.Instance.AddItem("Big drill");
+                break;
+            case "2":
+                Inventory.Instance.AddItem("Body Armour");
+                break;
+            case "3":
+                Inventory.Instance.AddItem("Great Bag");
+                break;
+            case "4":
+                Inventory.Instance.AddItem("Great Bomb");
+                break;
+            case "5":
+                Inventory.Instance.AddItem("Hacker");
+                break;
+            case "6":
+                Inventory.Instance.AddItem("Tactical Gloves");
+                break;
+        }
+    }
+
+    public void PurchaseError(string id)
+    {
+        Debug.Log("There some error with buying " + id);
     }
 
     public void SetLoginType(string type)
@@ -231,33 +262,66 @@ public class YandexAggregator : MonoBehaviour
 
     public void TryToBuyItem(string itemName)
     {
+        Debug.Log($"Item name = {itemName}");
         switch (itemName)
         {
             case "Money Pack":
-                BuyItem(0.ToString());
+                BuyItem("0");
                 break;
             case "Big drill":
-                BuyItem(1.ToString());
+                BuyItem("1");
                 break;
-
             case "Body Armour":
-                BuyItem(2.ToString());
+                BuyItem("2");
                 break;
-
             case "Great Bag":
-                BuyItem(3.ToString());
+                BuyItem("3");
                 break;
-
             case "Great Bomb":
-                BuyItem(4.ToString());
+                BuyItem("4");
                 break;
-
             case "Hacker":
-                BuyItem(5.ToString());
+                BuyItem("5");
                 break;
             case "Tactical Gloves":
-                BuyItem(6.ToString());
+                BuyItem("6");
                 break;
+        }
+    }
+    
+    public class JsonObject
+    {
+        public string productID  { get; set; }
+        public string purchaseToken { get; set; }
+        public string developerPayload { get; set; }
+    }
+    
+    public void SetPurchases(string purchases)
+    {
+        List<JsonObject> json = new List<JsonObject>();
+        json = JsonConvert.DeserializeObject<List<JsonObject>>(purchases);
+        Debug.Log("Purchases : " + json);
+        if (json.Count > 0)
+        {
+            foreach (var jsonObject in json)
+            {
+                PurchaseSuccess(jsonObject.productID);
+            }
+        }
+        else
+        {
+            Debug.Log("There is no more purchases");
+        }
+    }
+    public void CheckForPurchases()
+    {
+        if (LoginManager.Instance.isLogin && _isSDKInitialized)
+        {
+            GetPurchases();
+        }
+        else
+        {
+            Debug.LogError("You try to load purchases without login or sdk initialized");
         }
     }
 }

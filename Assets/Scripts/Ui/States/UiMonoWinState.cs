@@ -1,4 +1,5 @@
-﻿using Abstract;
+﻿using System.Collections;
+using Abstract;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,12 +19,19 @@ namespace Ui.States
             base.EnterState(monoStateMachine);
             if (AddManager.Instance.canShowAdd)
             {
-                TryToShowAdd();
+                SoundMonoMechanic.Instance.DisableSound();
+                StartCoroutine(ShowAddWithDelay());
             }
             else
             {
                 SetupButtons();
             }
+        }
+        
+        private IEnumerator ShowAddWithDelay()
+        {
+            yield return new WaitForSeconds(0.5f);
+            TryToShowAdd();
         }
         public override void ExitState(IState monoState)
         {
@@ -39,15 +47,15 @@ namespace Ui.States
         {
             AddManager.Instance.OnAddClose += SetupButtons;
             AddManager.Instance.ShowInterstitialAdd();
-            moneySlider.maxValue = EconomyMonoMechanic.Instance.GetCurrentMoneyToWin();
-            moneySlider.value = EconomyMonoMechanic.Instance.GetCurrentTempMoney();
-            moneyText.text = ((int)EconomyMonoMechanic.Instance.GetCurrentTempMoney()).ToString();
         }
 
         private void SetupButtons()
         {
             claimButton.onClick.AddListener(MainMenu);
             claimDoubleButton.onClick.AddListener(DoubleDoubleButton);
+            moneySlider.maxValue = EconomyMonoMechanic.Instance.GetCurrentMoneyToWin();
+            moneySlider.value = EconomyMonoMechanic.Instance.GetCurrentTempMoney();
+            moneyText.text = ((int)EconomyMonoMechanic.Instance.GetCurrentTempMoney()).ToString();
         }
 
         private void DoubleDoubleButton()
@@ -60,6 +68,9 @@ namespace Ui.States
         private void OnRewarded()
         {
             EconomyMonoMechanic.Instance.DoDoubleBonus();
+            moneySlider.maxValue = EconomyMonoMechanic.Instance.GetCurrentMoneyToWin();
+            moneySlider.value = EconomyMonoMechanic.Instance.GetCurrentTempMoney();
+            moneyText.text = ((int)EconomyMonoMechanic.Instance.GetCurrentTempMoney()).ToString();
         }
 
         private void MainMenu()

@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: 2Hammer
   m_EditorClassIdentifier: 
   weaponName: Hammer
+  weaponNameRu: "\u041C\u043E\u043B\u043E\u0442\u043E\u043A"
+  weaponNameTr: Hammer
   weaponBuyPrice: 0
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000
   startedAccuracyCost: 1000
   startedBulletCountCost: 1000
-  startedDamage: 15
+  startedDamage: 5
   startedReloadSpeed: 1
   startedAccuracy: 5
   startedBulletCount: 7

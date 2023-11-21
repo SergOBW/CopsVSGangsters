@@ -2,7 +2,6 @@
 using Abstract;
 using Abstract.Inventory;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Ui.States
@@ -19,6 +18,7 @@ namespace Ui.States
 
         [SerializeField] private Button yanButton;
         [SerializeField] private Button moneyButton;
+        
 
         private bool _isYan;
 
@@ -59,6 +59,10 @@ namespace Ui.States
             {
                 if (!currentInventoryItems.Contains(inventoryItem))
                 {
+                    if (inventoryItem.price <= 0)
+                    {
+                        return;
+                    }
                     ShopItemUi shopItemUi = Instantiate(shopItemUiPrefab, shopItemsSlot);
                     shopItemUi.Initialize(inventoryItem,this,_isYan);
                     _shopItemUis.Add(shopItemUi);

@@ -30,16 +30,6 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     private LevelStateMachine _levelStateMachine;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            foreach (var levelSave in levelSaves)
-            {
-                levelSave.isOpen = 1;
-            }
-            
-            SaveGameMechanic.Instance.SaveLeveSaves(levelSaves);
-        }
-
         if (_levelStateMachine != null)
         {
             _levelStateMachine.Update();
@@ -71,6 +61,22 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
             levelSaves.Add(saveLevel);
 
             Debug.LogError("There is no Level saves");
+            return;
+        }
+
+        bool isAllLevelsCompleted = true;
+        foreach (var saveLevel in levelSaves)
+        {
+            if (saveLevel.isOpen == 0)
+            {
+                isAllLevelsCompleted = false;
+                break;
+            }
+        }
+
+        if (isAllLevelsCompleted)
+        {
+            lastCompletedLevelIndex = levelSaves.Count - 1;
             return;
         }
 
@@ -211,5 +217,15 @@ public class LevelsMonoMechanic : GlobalMonoMechanic
     public Scenario GetLevelScenario(int i)
     {
         return mapsSo[i].defaultScenario.CreateGameScenario();
+    }
+
+    public void OpenAllLevels()
+    {
+        foreach (var levelSave in levelSaves)
+        {
+            levelSave.isOpen = 1;
+        }
+            
+        SaveGameMechanic.Instance.SaveLeveSaves(levelSaves);
     }
 }

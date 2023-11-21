@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 406862537414532128}
   lootMoneyType: 3
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 884464854216706050}
   lootMoneyType: 3
@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 1345681756728567699}
   lootMoneyType: 3
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 2501625105048410946}
   lootMoneyType: 3
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 4516528712150731047}
   lootMoneyType: 3
@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 4552911631520359862}
   lootMoneyType: 3
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 5151591176528099070}
   lootMoneyType: 3
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 5680773405021367740}
   lootMoneyType: 3
@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 6655498952299014784}
   lootMoneyType: 3
@@ -1825,7 +1825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 8671644304593468253}
   lootMoneyType: 3
@@ -1938,7 +1938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startedHealth: 1
+  startedHealth: 0
   _visuals:
   - {fileID: 8914732385859079708}
   lootMoneyType: 3

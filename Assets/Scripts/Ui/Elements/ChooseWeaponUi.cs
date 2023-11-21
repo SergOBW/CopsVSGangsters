@@ -65,7 +65,21 @@ public class ChooseWeaponUi : MonoBehaviour
 
         weaponPrice.text = _currentWepaonStats.WeaponBuyPrice.ToString();
 
-        weaponName.text = _currentWepaonStats.WeaponName;
+        switch (LanguageManager.Instance.GetLanguage())
+        {
+            case Language.en:
+                weaponName.text = _currentWepaonStats.WeaponName;
+                break;
+            case Language.ru:
+                weaponName.text = _currentWepaonStats.WeaponNameRu;
+                break;
+            case Language.tr:
+                weaponName.text = _currentWepaonStats.WeaponNameTr;
+                break;
+            default:
+                weaponName.text = _currentWepaonStats.WeaponName;
+                break;
+        }
 
         weaponBuyButton.gameObject.SetActive(!_currentWepaonStats.IsOpen);
 

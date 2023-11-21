@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac1346559db470a9a209bd9bc8ac599, type: 3}
+  m_Name: MacheteBatGFX
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 0}
+  hitImpact: {fileID: 0}
+  weaponPrefab: {fileID: 1592597363156974, guid: 8f98ac991da4c464d8e5549cf334e99d, type: 3}
+  projectilePrefab: {fileID: 0}
+  animatorOverrideController: {fileID: 22100000, guid: 6c012421eca36364d9a9ebcff0aa234a, type: 2}
+  Scale: {x: 1, y: 1, z: 1}
+  Position: {x: 0.07, y: 0.049, z: 0.069}
+  Rotation: {x: 17.672, y: 76.549, z: -90.996}

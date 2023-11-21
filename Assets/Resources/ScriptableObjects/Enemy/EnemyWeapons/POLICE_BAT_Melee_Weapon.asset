@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d84788f5aa4bb0892c2b4db9332f71, type: 3}
   m_Name: POLICE_BAT_Melee_Weapon
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 2.5
   range: 2
   fireRate: 3
   animatorOverrideController: {fileID: 22100000, guid: 6c012421eca36364d9a9ebcff0aa234a, type: 2}

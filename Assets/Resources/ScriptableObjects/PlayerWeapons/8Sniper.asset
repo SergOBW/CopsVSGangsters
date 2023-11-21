@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 8Sniper
   m_EditorClassIdentifier: 
   weaponName: Sniper
+  weaponNameRu: "\u0421\u043D\u0430\u0439\u043F\u0435\u0440\u043A\u0430"
+  weaponNameTr: Sniper
   weaponBuyPrice: 15000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000

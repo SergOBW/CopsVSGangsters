@@ -18,7 +18,7 @@ MonoBehaviour:
   enemySoIntDictionary:
     enemySos:
     - {fileID: 11400000, guid: 64bfc124ab300a74d9f7210ea74e5622, type: 2}
-    - {fileID: 11400000, guid: 063ba29dadbcb3244abc0fdefccf18e3, type: 2}
+    - {fileID: 11400000, guid: 05dabe124a9cc004cbe9bb04b1442fef, type: 2}
     - {fileID: 11400000, guid: a7006d76b4899864dbf7cf5b47d57422, type: 2}
     enemyAmount: 0200000003000000
   visualsSo:

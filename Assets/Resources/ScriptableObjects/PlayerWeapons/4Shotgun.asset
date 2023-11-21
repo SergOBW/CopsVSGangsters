@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 4Shotgun
   m_EditorClassIdentifier: 
   weaponName: Shotgun
+  weaponNameRu: "\u0414\u0440\u043E\u0431\u043E\u0432\u0438\u043A"
+  weaponNameTr: Shotgun
   weaponBuyPrice: 6000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000

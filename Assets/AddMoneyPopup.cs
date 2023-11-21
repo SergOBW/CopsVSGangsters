@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Abstract.Inventory;
 using TMPro;
@@ -13,8 +14,7 @@ public class AddMoneyPopup : MonoBehaviour
 
     [SerializeField] private GameObject watchRewardGo;
     [SerializeField] private GameObject buyYanGo;
-
-    [SerializeField] private RawImage yanIcon;
+    
     [SerializeField] private TMP_Text moneyAmount;
     
     
@@ -23,29 +23,21 @@ public class AddMoneyPopup : MonoBehaviour
         gameObject.SetActive(true);
         closeButton.onClick.AddListener(Close);
         buyYanGo.SetActive(!Inventory.Instance.HasItem("Money Pack"));
-        watchRewardGo.SetActive(true);
+        watchRewardGo.SetActive(AddManager.Instance.CanShowRewardAdd());
         buyYan.onClick.AddListener(TryToBuy);
         watchReward.onClick.AddListener(WatchReward);
         moneyAmount.text = $"+ {EconomyMonoMechanic.Instance.GetMoneyBonus()}";
-        if (AddManager.Instance.AddAggregator == AddAggregator.YandexGames)
-        {
-            StartCoroutine(DownLoadImage(AddManager.Instance.currencyImage));
-        }
-    }
-    
-    IEnumerator DownLoadImage(string mediaUrl)
-    {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(mediaUrl);
-        yield return request.SendWebRequest();
-        if (request.result == UnityWebRequest.Result.ConnectionError ||
-            request.result == UnityWebRequest.Result.ProtocolError)
-        {
-            Debug.Log(request.error);
-        }
-        else
-            yanIcon.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
     }
 
+    private void Update()
+    {
+        Refresh();
+    }
+
+    private void Refresh()
+    {
+        buyYanGo.SetActive(!Inventory.Instance.HasItem("Money Pack"));
+    }
     private void WatchReward()
     {
         AddManager.Instance.OnRewarded += OnRewarded;
@@ -61,6 +53,7 @@ public class AddMoneyPopup : MonoBehaviour
     {
         AddManager.Instance.OnRewarded -= OnRewarded;
         EconomyMonoMechanic.Instance.DoRewardedAddBonus();
+        watchRewardGo.SetActive(AddManager.Instance.CanShowRewardAdd());
     }
 
     public void Close()

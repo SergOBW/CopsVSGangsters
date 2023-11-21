@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 9Rpg
   m_EditorClassIdentifier: 
   weaponName: Rpg
+  weaponNameRu: "\u0420\u043F\u0433"
+  weaponNameTr: Rpg
   weaponBuyPrice: 15000
   startedDamageCost: 1000
   startedReloadSpeedCost: 1000

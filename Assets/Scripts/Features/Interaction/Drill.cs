@@ -40,7 +40,7 @@ public class Drill : MonoBehaviour
 
     private void Update()
     {
-        if (!_isDrilled)
+        if (!_isDrilled || !LevelStateMachine.Instance.IsPlayState())
         {
             return;
         }

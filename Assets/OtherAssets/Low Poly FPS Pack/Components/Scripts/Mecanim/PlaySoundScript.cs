@@ -9,7 +9,7 @@ public class PlaySoundScript : StateMachineBehaviour {
 		(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		//Play sound clip at camera
-		AudioSource.PlayClipAtPoint(soundClip, 
+		SoundMonoMechanic.Instance.PlayClipAtPoint(soundClip, 
 		                            Camera.main.transform.position);
 	}
 }

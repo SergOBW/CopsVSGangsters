@@ -181,7 +181,7 @@ namespace DestroyIt
 
             // Check for any audio clips we may need to play
             if (oldObj.destroyedSound != null)
-                AudioSource.PlayClipAtPoint(oldObj.destroyedSound, oldObj.transform.position);
+                SoundMonoMechanic.Instance.PlayClipAtPoint(oldObj.destroyedSound, oldObj.transform.position);
 
             // Look for any debris objects clinging to the old object and un-parent them before destroying the old object.
             oldObj.ReleaseClingingDebris();

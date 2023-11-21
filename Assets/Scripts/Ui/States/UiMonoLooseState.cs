@@ -1,4 +1,5 @@
-﻿using Abstract;
+﻿using System.Collections;
+using Abstract;
 using Core;
 using CrazyGames;
 using Player;
@@ -22,12 +23,18 @@ namespace Ui.States
             if (AddManager.Instance.canShowAdd)
             {
                 SoundMonoMechanic.Instance.DisableSound();
-                TryToShowAdd();
+                StartCoroutine(ShowAddWithDelay());
             }
             else
             {
                 SetupButtons();
             }
+        }
+
+        private IEnumerator ShowAddWithDelay()
+        {
+            yield return new WaitForSeconds(0.5f);
+            TryToShowAdd();
         }
 
         private void SetupButtons()

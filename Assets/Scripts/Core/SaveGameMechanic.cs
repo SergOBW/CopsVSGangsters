@@ -111,13 +111,16 @@ using UnityEngine;
         public void SaveSound(float volume)
         {
             _gameSaves.sound = volume;
-            Save();
         }
 
         public void SaveInventory(List<SaveInventory> currentInventoryItems)
         {
             _gameSaves.InventoryItems = currentInventoryItems;
-            Debug.Log(_gameSaves.InventoryItems);
             Save();
+        }
+
+        public void SaveSensitivity(float sensitivity)
+        {
+            _gameSaves.sensitivity = sensitivity;
         }
     }

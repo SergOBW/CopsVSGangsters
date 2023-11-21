@@ -43,6 +43,7 @@ public class EnemySoundManager : MonoBehaviour
         audioSource.volume = 1;
         audioSource.spatialBlend = 1;
         audioSource.maxDistance = 50;
+        audioSource.outputAudioMixerGroup = SoundMonoMechanic.Instance.GetAudioMixerGroup();
         
         dieClip = enemySoundContainer.dieClip;
         attackClip = attackClips[Random.Range(0,attackClips.Length)];

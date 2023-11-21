@@ -86,11 +86,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45ef4cb474c5cb9193bb45bfecc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outline: {fileID: 459609415294528455}
+  startedHealth: 1
   _visuals:
   - {fileID: 4838530377939866095}
-  moneyAmount: 5000
-  maxHealth: 2
+  lootMoneyType: 0
 --- !u!1001 &4837266263201405985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272923785727438, guid: 1ead0b0ff923b7e48b3777820f272bff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4878771043283258, guid: 1ead0b0ff923b7e48b3777820f272bff, type: 3}
       propertyPath: m_RootOrder

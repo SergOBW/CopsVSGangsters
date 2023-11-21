@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum WeaponType
 {
@@ -14,6 +15,9 @@ namespace ForWeapon
     {
         [Header("Weapon name")]
         public string weaponName;
+
+        public string weaponNameRu;
+        public string weaponNameTr;
 
         public int weaponBuyPrice;
         

@@ -19,18 +19,21 @@ public class InfoPopup : MonoBehaviour
         {
             case Language.en:
                 descriptionText.text = inventoryItem.descriptionEn;
+                titleText.text = inventoryItem.name;
                 break;
             case Language.ru:
                 descriptionText.text = inventoryItem.descriptionRu;
+                titleText.text = inventoryItem.nameRu;
                 break;
             case Language.tr:
                 descriptionText.text = inventoryItem.descriptionTr;
+                titleText.text = inventoryItem.nameTr;
                 break;
             default:
                 descriptionText.text = inventoryItem.descriptionEn;
+                titleText.text = inventoryItem.name;
                 break;
         }
-        titleText.text = inventoryItem.name;
         
         _closeButton.onClick.AddListener(Close);
     }

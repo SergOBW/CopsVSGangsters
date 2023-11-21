@@ -4,6 +4,7 @@ using Abstract.Inventory;
 using CrazyGames;
 using Save;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum AddAggregator
 {
@@ -23,7 +24,8 @@ public class AddManager : GlobalMonoMechanic
     public event Action OnRewarded;
     
     public bool canShowAdd;
-    public float lastAddtime;
+    public float lastInterstitialAddTime { get; private set; }
+    public float lastRewardAddTime { get; private set; }
     public bool isMobile { get; private set; }
     
     private const int CRAZY_GAMES_MIDGAME_COUNTDOWN = 185;
@@ -36,7 +38,7 @@ public class AddManager : GlobalMonoMechanic
     private Rewarded _rewarded;
 
     private YandexAggregator _yandexAggregator;
-    public string currencyImage;
+    private float addTimer;
     
     public override void Initialize()
     {
@@ -102,7 +104,8 @@ public class AddManager : GlobalMonoMechanic
     private void SetDefaults()
     {
         _gameTime = 0f;
-        lastAddtime = 0f;
+        lastInterstitialAddTime = 0f;
+        lastRewardAddTime = -60;
         isMobile = false;
     }
     
@@ -114,19 +117,36 @@ public class AddManager : GlobalMonoMechanic
     {
         _gameTime += Time.deltaTime;
         canShowAdd = _gameTime >= CanShowAdd();
+        /*
+        if (canShowAdd && LevelStateMachine.Instance.IsPlayState())
+        {
+            addTimer -= Time.deltaTime;
+            if (addTimer <= 0f)
+            {
+                LevelStateMachine.Instance.Pause();
+                ShowInterstitialAdd();
+            }
+            UiMonoStateMachine.Instance.ShowAddPopup(addTimer);
+        }
+        else
+        {
+            UiMonoStateMachine.Instance.DisableAddPopup();
+            addTimer = 3f;
+        }
+        */
     }
     private float CanShowAdd()
     {
         switch (currentAddAggregator)
         {
             case AddAggregator.CrazyGames:
-                return lastAddtime + CRAZY_GAMES_MIDGAME_COUNTDOWN;
+                return lastInterstitialAddTime + CRAZY_GAMES_MIDGAME_COUNTDOWN;
             case AddAggregator.YandexGames :
-                return lastAddtime + YANDEX_GAMES_MIDGAME_COUNTDOWN;
+                return lastInterstitialAddTime + YANDEX_GAMES_MIDGAME_COUNTDOWN;
             case AddAggregator.UnityAds :
-                return lastAddtime + 61;
+                return lastInterstitialAddTime + 61;
             default:
-                return 0f;
+                return lastInterstitialAddTime + 61;
         }
     }
 
@@ -134,7 +154,7 @@ public class AddManager : GlobalMonoMechanic
     {
         if (canShowAdd)
         {
-            lastAddtime = _gameTime;
+            lastInterstitialAddTime = _gameTime;
             OnAddOpen?.Invoke();
             switch (currentAddAggregator)
             {
@@ -156,6 +176,7 @@ public class AddManager : GlobalMonoMechanic
 
     public void ShowRewardAdd()
     {
+        lastRewardAddTime = _gameTime;
         OnAddOpen?.Invoke();
         switch (currentAddAggregator)
         {
@@ -275,8 +296,18 @@ public class AddManager : GlobalMonoMechanic
         
     }
 
-    public void SetCurrencyImage(string url)
+    public void CheckForPurchases()
     {
-        currencyImage = url;
+        switch (currentAddAggregator)
+        {
+            case AddAggregator.YandexGames:
+                _yandexAggregator.CheckForPurchases();
+                break;
+        }
+    }
+
+    public bool CanShowRewardAdd()
+    {
+        return lastRewardAddTime + 60 <= _gameTime;
     }
 }

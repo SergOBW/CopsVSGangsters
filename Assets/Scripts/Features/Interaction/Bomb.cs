@@ -33,7 +33,7 @@ public class Bomb : MonoBehaviour
 
     private void Update()
     {
-        if (!_isUsed)
+        if (!_isUsed || !LevelStateMachine.Instance.IsPlayState())
         {
             return;
         }

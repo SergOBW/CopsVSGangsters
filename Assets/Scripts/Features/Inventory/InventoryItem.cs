@@ -14,11 +14,15 @@ namespace Abstract.Inventory
         public string descriptionRu;
         public string descriptionEn;
         public string descriptionTr;
+        public string nameRu;
+        public string nameTr;
 
         public InventoryItem(InventoryItemSo inventoryItemSo)
         {
             itemIcon = inventoryItemSo.itemIcon;
             name = inventoryItemSo.itemName;
+            nameRu = inventoryItemSo.nameRu;
+            nameTr = inventoryItemSo.nameTr;
             price = inventoryItemSo.price;
             yanPrice = inventoryItemSo.yanPrice;
 
@@ -27,6 +31,11 @@ namespace Abstract.Inventory
             descriptionTr = inventoryItemSo.descriptionTr;
             
             isBought = false;
+        }
+
+        public InventoryItem(string name)
+        {
+            this.name = name;
         }
     }
 }

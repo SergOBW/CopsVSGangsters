@@ -27,9 +27,17 @@ public class DrilledDoor : InteractableWithHealth
     public override bool CanInteract()
     {
         bool isAllOk = base.CanInteract();
-        if (needBigDrill)
+        if (needBigDrill && isAllOk)
         {
             isAllOk = Inventory.Instance.HasItem("Big drill");
+            if (!isAllOk)
+            {
+                UiMonoStateMachine.Instance.ShowNoBigDrillPopup();
+            }
+            else
+            {
+                UiMonoStateMachine.Instance.HideNoBigDrillPopup();
+            }
         }
         return isAllOk;
     }

@@ -41,14 +41,6 @@ public class LevelStateMachine : StateMachine
         }
     }
 
-    public void Tutorial()
-    {
-        if (IsPlayState())
-        {
-            CurrentState.ExitState(levelMonoTutorialPauseState);
-        }
-    }
-
     public void UnPause()
     {
         if (CurrentState == levelMonoPauseState)
@@ -66,4 +58,5 @@ public class LevelStateMachine : StateMachine
     {
         ChangeState(levelMonoNoneState);
     }
+    
 }

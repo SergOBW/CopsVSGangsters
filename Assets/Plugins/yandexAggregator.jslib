@@ -35,32 +35,54 @@ mergeInto(LibraryManager.library, {
     });
   },
 
-    BuyItem: function (_id) {
-    _id = Pointer_stringify(_id);
-    console.log(_id + ' Whanna be byed');
-    payments.purchase({ id: _id }).then(purchase => {
-      // Покупка успешно совершена!
-      myGameInstance.SendMessage('Ads', 'PurchaseSuccess', _id);
-    }).catch(err => {
-      // Покупка не удалась: в консоли разработчика не добавлен товар с таким id,
-      // пользователь не авторизовался, передумал и закрыл окно оплаты,
-      // истекло отведенное на покупку время, не хватило денег и т. д.
-      console.log(_id);
+  BuyItem: function (_id) {
+    _id = UTF8ToString(_id);
+    if(payments != null){
+      console.log(_id + ' Whanna be byed');
+      payments.purchase({ id: _id }).then(purchase => {
+        // Покупка успешно совершена!
+        console.log('Success buy id = ' + _id)
+        myGameInstance.SendMessage('YandexAggregator', 'PurchaseSuccess', _id);
+      }).catch(err => {
+        console.log(err);
+        myGameInstance.SendMessage('YandexAggregator', 'PurchaseError', _id);
+      })
+    } 
+    else {
+      console.log('Payments was null, initializing ' + _id);
+      YaSDK.getPayments({ signed: true }).then(_payments => {
+      // Покупки доступны.
+      payments = _payments;
+      console.log(_id + ' Whanna be byed');
+      payments.purchase({ id: _id }).then(purchase => {
+        // Покупка успешно совершена!
+        console.log('Success buy id = ' + _id)
+        myGameInstance.SendMessage('YandexAggregator', 'PurchaseSuccess', _id);
+      }).catch(err => {
+        console.log(err);
+        myGameInstance.SendMessage('YandexAggregator', 'PurchaseError', _id);
+      })}).catch(err => {
       console.log(err);
-      myGameInstance.SendMessage('Ads', 'PurchaseClose', _id);
     })
-  },
+    }
+},
 
-  CheckForPayments: function (_id) {
-    _id = Pointer_stringify(_id);
+  GetPurchases: function () {
+    console.log('Getting purchases');
+    if(payments != null){
+      payments.getPurchases().then(purchases => {
+        var purchasesString = JSON.stringify(purchases);
+        myGameInstance.SendMessage('YandexAggregator', 'SetPurchases', purchasesString);
+      }).catch(err => {
+        console.log(err);
+      })
+    } else 
+    YaSDK.getPayments({ signed: true }).then(_payments => {
+    payments = _payments;
     payments.getPurchases().then(purchases => {
-      if (purchases.some(purchase => purchase.productID === _id)) {
-        console.log(_id);
-        myGameInstance.SendMessage('Ads', 'PurchaseSuccess', _id);
-      }
-    }).catch(err => {
-      // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
-    })
+      var purchasesString = JSON.stringify(purchases);
+      myGameInstance.SendMessage('YandexAggregator', 'SetPurchases', purchasesString);
+    }).catch(err => {console.log(err);})})
   },
 
   GetLang: function () {

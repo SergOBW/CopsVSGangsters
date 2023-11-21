@@ -27,10 +27,15 @@ public class GlobalMechanicSetup : MonoBehaviour
         }
         
         
-        if (Input.GetKeyDown(KeyCode.M))
+        if (d1 && Input.GetKeyDown(KeyCode.M))
         {
             EconomyMonoMechanic.Instance.AddMoney(1000000);
             SaveGameMechanic.Instance.SaveMoney();
+        }
+        
+        if (d1 && Input.GetKeyDown(KeyCode.L))
+        {
+            LevelsMonoMechanic.Instance.OpenAllLevels();
         }
         
     }

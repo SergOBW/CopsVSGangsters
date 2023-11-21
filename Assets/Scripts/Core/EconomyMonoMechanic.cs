@@ -202,12 +202,12 @@ public class EconomyMonoMechanic : GlobalMonoMechanic
 
     public void DoRewardedAddBonus()
     {
-        AddMoney(1000);
+        AddMoney(5000);
         SaveGameMechanic.Instance.Save();
     }
 
     public int GetMoneyBonus()
     {
-        return 1000;
+        return 5000;
     }
 }
