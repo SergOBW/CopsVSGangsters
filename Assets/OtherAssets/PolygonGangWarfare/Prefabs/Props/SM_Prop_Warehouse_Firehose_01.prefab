@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4221773030053462}
   - component: {fileID: 33950279470567098}
   - component: {fileID: 23612665745603396}
-  - component: {fileID: 3500680530302093787}
+  - component: {fileID: 6761520745903137244}
+  - component: {fileID: -7631118696613962117}
   m_Layer: 0
   m_Name: SM_Prop_Warehouse_Firehose_01
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3500680530302093787
-MeshCollider:
+--- !u!65 &6761520745903137244
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +103,18 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: b3d986969b1a49241ae2ade7238ce21d, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.82600206, y: 1.8555301, z: 0.40267676}
+  m_Center: {x: 0.0000003874302, y: 0.9255562, z: 0.09574509}
+--- !u!114 &-7631118696613962117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025550601625030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

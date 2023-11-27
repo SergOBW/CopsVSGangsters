@@ -60,6 +60,7 @@ public class UiMonoStateMachine : MonoStateMachine
         {
             // This is the hub
             SceneManager.sceneLoaded -= OnFirstLaunchSceneLoaded;
+            AddManager.Instance.GameReady();
             CurrentState.ExitState(uiMonoMainMenuState);
         }
     }
@@ -71,12 +72,18 @@ public class UiMonoStateMachine : MonoStateMachine
 
     public void ShowNoBigDrillPopup()
     {
-        noBigDrillPopup.SetActive(true);
+        if (!noBigDrillPopup.activeInHierarchy)
+        {
+            noBigDrillPopup.SetActive(true);
+        }
     }
 
     public void HideNoBigDrillPopup()
     {
-        noBigDrillPopup.SetActive(false);
+        if (noBigDrillPopup.activeInHierarchy)
+        {
+            noBigDrillPopup.SetActive(false);
+        }
     }
     
     public void ShowAddPopup(float time)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33267139424720284}
   - component: {fileID: 23874831167080700}
   - component: {fileID: 95736701588329348}
+  - component: {fileID: -5398288519512507311}
   m_Layer: 0
   m_Name: SM_Bld_Floor_Lines_02
   m_TagString: Concrete (Static)
@@ -105,3 +106,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5398288519512507311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700643144418090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

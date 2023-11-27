@@ -17,9 +17,9 @@ namespace Ui.States
         public override void EnterState(IStateMachine monoStateMachine)
         {
             base.EnterState(monoStateMachine);
+            SoundMonoMechanic.Instance.DisableSound();
             if (AddManager.Instance.canShowAdd)
             {
-                SoundMonoMechanic.Instance.DisableSound();
                 StartCoroutine(ShowAddWithDelay());
             }
             else

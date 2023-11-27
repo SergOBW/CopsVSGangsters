@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33291353112928212}
   - component: {fileID: 23796961067815828}
   - component: {fileID: 2837917401618712669}
+  - component: {fileID: 3666449859156659268}
   m_Layer: 0
   m_Name: SM_Prop_Shelf_01
   m_TagString: Untagged
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2070204, y: 1.9290595, z: 0.50835365}
   m_Center: {x: 0.000000059604645, y: 0.96452975, z: 0}
+--- !u!114 &3666449859156659268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047606854514074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

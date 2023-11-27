@@ -27,7 +27,6 @@ public class SoundMonoMechanic : GlobalMonoMechanic
     {
         Instance = this;
         LevelStateMachine.Instance.OnStateChangedEvent += OnStateChangedEvent;
-        GlobalSettings.Instance.OnSettingsChanged += SetupVolume;
         SetupVolume();
     }
 
@@ -70,7 +69,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
 
     public void SetupVolume()
     {
-        volume = GlobalSettings.Instance.soundValue;
+        volume = GlobalSettings.Instance.GetSoundValue();
         Debug.Log("SetupVolume " + volume);
         mainMixer.SetFloat(MASTER_VOLUME_NAME,volume);
     }
@@ -80,23 +79,7 @@ public class SoundMonoMechanic : GlobalMonoMechanic
         volume = -300;
         mainMixer.SetFloat(MASTER_VOLUME_NAME,volume);
     }
-
-    public void OnSound()
-    {
-        Debug.Log("On sound");
-        volume = 1;
-        mainMixer.SetFloat(MASTER_VOLUME_NAME,volume);
-        SaveGameMechanic.Instance.SaveSound(volume);
-    }
-
-    public void OffSound()
-    {
-        Debug.Log("Off sound");
-        volume = -300;
-        mainMixer.SetFloat(MASTER_VOLUME_NAME,volume);
-        SaveGameMechanic.Instance.SaveSound(volume);
-    }
-
+    
     public void PlayHit()
     {
         _effectsAudioSource.volume = 0.5f;

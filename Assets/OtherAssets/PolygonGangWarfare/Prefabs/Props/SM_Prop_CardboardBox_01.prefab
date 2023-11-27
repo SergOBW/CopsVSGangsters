@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33042784245718188}
   - component: {fileID: 23558064334205210}
   - component: {fileID: 3591042929233736577}
+  - component: {fileID: 736971071882414229}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_01
   m_TagString: Untagged
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.57408065, y: 0.57408017, z: 0.5740799}
   m_Center: {x: -0.0000007748604, y: 0.28696194, z: 0.0000007599592}
+--- !u!114 &736971071882414229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381177987206152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33519473251600554}
   - component: {fileID: 23942614587516552}
   - component: {fileID: 7060456494691518581}
+  - component: {fileID: 3300730727855705400}
   m_Layer: 0
   m_Name: SM_Bld_Roof_End_02
   m_TagString: Concrete (Static)
@@ -103,3 +104,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &3300730727855705400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721185279613470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

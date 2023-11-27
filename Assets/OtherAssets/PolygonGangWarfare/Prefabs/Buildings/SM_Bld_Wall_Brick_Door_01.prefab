@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2579695768188019151}
   - component: {fileID: 9212567482085809684}
   - component: {fileID: 1696192602621875799}
+  - component: {fileID: 4671227325087894543}
   m_Layer: 11
   m_Name: SM_Bld_Wall_Door_01
   m_TagString: Untagged
@@ -159,6 +160,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.507, y: 1.107, z: 0.038000003}
   m_TimeToStationary: 0.5
+--- !u!41 &4671227325087894543
+OcclusionPortal:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566161505917560}
+  m_Open: 0
+  m_Center: {x: 0.5026086, y: 1.1029311, z: 0.039592408}
+  m_Size: {x: 1.1411163, y: 2.499089, z: 0.22361557}
 --- !u!1 &1942481827586046
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +184,7 @@ GameObject:
   - component: {fileID: 4475208888133608091}
   - component: {fileID: 8722435870544612373}
   - component: {fileID: 3994689462809576808}
+  - component: {fileID: 354251930093523100}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Brick_Door_01
   m_TagString: Concrete (Static)
@@ -309,3 +321,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.97133255, y: 3, z: 0.38997632}
   m_Center: {x: -0.48566628, y: 1.5, z: 0.002226919}
+--- !u!114 &354251930093523100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942481827586046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

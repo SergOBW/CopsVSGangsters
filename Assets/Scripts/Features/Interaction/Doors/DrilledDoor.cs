@@ -45,6 +45,10 @@ public class DrilledDoor : InteractableWithHealth
     public void DrillCompleted()
     {
         transform.DORotate(vector3,1f,RotateMode.LocalAxisAdd);
+        if (TryGetComponent(out OcclusionPortal occlusionPortal))
+        {
+            occlusionPortal.open = true;
+        }
     }
 }
 

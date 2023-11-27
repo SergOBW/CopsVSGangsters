@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3945426962171350270}
   - component: {fileID: 3480367938226875438}
   - component: {fileID: 8997550760937681364}
+  - component: {fileID: 6146922897372614821}
   m_Layer: 11
   m_Name: SM_Bld_Metal_Door_01
   m_TagString: Untagged
@@ -159,6 +160,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.507, y: 1.107, z: 0.038000003}
   m_TimeToStationary: 0.5
+--- !u!41 &6146922897372614821
+OcclusionPortal:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225348361830998}
+  m_Open: 0
+  m_Center: {x: 0.48757625, y: 1.0391141, z: 0.0941989}
+  m_Size: {x: 1.3917751, y: 2.5339415, z: 0.24933502}
 --- !u!1 &1263782947947864
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +184,7 @@ GameObject:
   - component: {fileID: 6883627776069113807}
   - component: {fileID: 1604174477109209451}
   - component: {fileID: 657168090319913853}
+  - component: {fileID: -4553754686993840004}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Metal_Door_01
   m_TagString: Concrete (Static)
@@ -309,3 +321,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0398955, y: 0.60730934, z: 0.3208327}
   m_Center: {x: -1.5031599, y: 2.6963453, z: 0.020831972}
+--- !u!114 &-4553754686993840004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263782947947864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

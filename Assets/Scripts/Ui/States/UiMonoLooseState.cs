@@ -19,10 +19,9 @@ namespace Ui.States
             base.EnterState(monoStateMachine);
             continueRewardedButton.gameObject.SetActive(true);
             buttonWithCursor.gameObject.SetActive(false);
-            
+            SoundMonoMechanic.Instance.DisableSound();
             if (AddManager.Instance.canShowAdd)
             {
-                SoundMonoMechanic.Instance.DisableSound();
                 StartCoroutine(ShowAddWithDelay());
             }
             else

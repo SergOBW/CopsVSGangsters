@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33550506897482704}
   - component: {fileID: 23267893647017590}
   - component: {fileID: 7431304625933619897}
+  - component: {fileID: 9158752179090631452}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Brick_01
   m_TagString: Concrete (Static)
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33550506897482704
 MeshFilter:
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 0.38997638}
   m_Center: {x: -1.5, y: 1.5, z: 0.0022269636}
+--- !u!114 &9158752179090631452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408222397898624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

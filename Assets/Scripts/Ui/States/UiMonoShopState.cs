@@ -82,6 +82,13 @@ namespace Ui.States
 
         private void RefreshState()
         {
+            if (AddManager.Instance.AddAggregator != AddAggregator.YandexGames)
+            {
+                yanButton.gameObject.SetActive(false);
+                moneyButton.interactable = false;
+                RefreshUi();
+                return;
+            }
             if (_isYan)
             {
                 yanButton.interactable = false;
@@ -92,7 +99,6 @@ namespace Ui.States
                 yanButton.interactable = true;
                 moneyButton.interactable = false;
             }
-
             RefreshUi();
         }
 

@@ -38,14 +38,15 @@ namespace DefaultNamespace
         private void SetupDefault()
         {
             graphicsQuality = GraphicsQuality.Low;
-            isUsingDebug = false;
-            soundValue = 1f;
+            isUsingDebug = true;
+            soundValue = 0.4f;
             sensitivity = 1f;
         }
 
         public void ChangeGraphics(GraphicsQuality _graphicsQuality)
         {
             graphicsQuality = _graphicsQuality;
+            GameSettings.Instance.ChangeRenderPipeLine(graphicsQuality);
             ChangeSettings();
         }
 
@@ -63,17 +64,14 @@ namespace DefaultNamespace
 
         public void ChangeVolume(float value)
         {
-            if (value <= -1)
-            {
-                value *= 30;
-            }
-            else
-            {
-                value *= 2;
-            }
             soundValue = value;
             SaveGameMechanic.Instance.SaveSound(soundValue);
             ChangeSettings();
+        }
+
+        public float GetSoundValue()
+        {
+            return Mathf.Log10(soundValue) * 20;
         }
     }
 }

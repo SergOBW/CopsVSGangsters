@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2380512}
   - component: {fileID: 65879068566500736}
   - component: {fileID: 65734309297059700}
+  - component: {fileID: 5617013091973471249}
   m_Layer: 0
   m_Name: SM_Env_Path_Junction_01
   m_TagString: Concrete (Static)
@@ -127,3 +128,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5310593, y: 0.1704874, z: 5}
   m_Center: {x: 2.5029092, y: 0.052693576, z: -2.5}
+--- !u!114 &5617013091973471249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

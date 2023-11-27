@@ -20,13 +20,16 @@ namespace Ui.States
             SetupQuests();
             _interactionUi.Initialize();
             _indicatorManager.SetupIndicators();
+            transform.rotation = Quaternion.identity;
         }
         
         public override void ExitState(IState monoState)
         {
+            transform.rotation = Quaternion.identity;
             UnSubscribeOnEvents();
             _indicatorManager.UnRegister();
             _hudDamageManager.UnRegister();
+            _interactionUi.DeInitialize();
             base.ExitState(monoState);
         }
 

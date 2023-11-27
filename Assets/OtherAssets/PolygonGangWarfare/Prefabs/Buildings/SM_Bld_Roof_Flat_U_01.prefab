@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33392331952024370}
   - component: {fileID: 23603799813358886}
   - component: {fileID: 141609993179736066}
+  - component: {fileID: -1702949136071147870}
   m_Layer: 0
   m_Name: SM_Bld_Roof_Flat_U_01
   m_TagString: Concrete (Static)
@@ -103,3 +104,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-1702949136071147870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313713858467788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

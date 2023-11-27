@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 4139371444544136}
   - component: {fileID: 33204187929449162}
   - component: {fileID: 23323871758014360}
+  - component: {fileID: 6519068522273446990}
   m_Layer: 0
   m_Name: SM_Bld_Interior_Wall_Door_01
   m_TagString: Concrete (Static)
@@ -251,3 +252,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6519068522273446990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429049943508204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

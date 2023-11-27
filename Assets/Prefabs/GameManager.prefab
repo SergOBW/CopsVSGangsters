@@ -517,8 +517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAddAggregator: 2
   canShowAdd: 0
-  lastAddtime: 0
-  currencyImage: 
 --- !u!1 &8254582670927975062
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +535,7 @@ GameObject:
   - component: {fileID: 6267863418015566204}
   - component: {fileID: 462861060675394264}
   - component: {fileID: 4243695782696329236}
+  - component: {fileID: 8074957790328483598}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -710,4 +709,19 @@ MonoBehaviour:
     startSpeed: 0
     maxSpeed: 0
     isDead: 0
-  characterPrefab: {fileID: 626788231801077862, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
+  characterPrefab: {fileID: 7257063126906084298, guid: d4e46f7e2d540cf4e86b28aca7cd22eb, type: 3}
+--- !u!114 &8074957790328483598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254582670927975062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b042d627210d4d4d8f2dcdf2444a46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowRenderPipelineAsset: {fileID: 11400000, guid: 69480fc1192f04488be5781c2ec080a9, type: 2}
+  mediumRenderPipelineAsset: {fileID: 11400000, guid: e00893132ee3140498fd2709faa1a711, type: 2}
+  hightRenderPipelineAsset: {fileID: 11400000, guid: 8b79b977e86dc420c9a4b7b6c05a74a8, type: 2}

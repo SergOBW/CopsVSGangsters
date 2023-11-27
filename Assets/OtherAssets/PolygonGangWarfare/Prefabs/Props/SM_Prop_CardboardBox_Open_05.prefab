@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4634185796719566}
   - component: {fileID: 33614335110245970}
   - component: {fileID: 23645777904467214}
-  - component: {fileID: 7779807552808200617}
+  - component: {fileID: -8125625791360453611}
+  - component: {fileID: 5486426232828803363}
   m_Layer: 0
   m_Name: SM_Prop_CardboardBox_Open_05
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7779807552808200617
-MeshCollider:
+--- !u!65 &-8125625791360453611
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +103,18 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: bb6c91e4d779a2844824466b6c30e407, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1.1477623, y: 0.79822403, z: 0.9635364}
+  m_Center: {x: 0.21291561, y: 0.39761487, z: -0.0007286072}
+--- !u!114 &5486426232828803363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480903761489530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

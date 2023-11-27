@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33165656623794318}
   - component: {fileID: 23096001974633772}
   - component: {fileID: 9045667103728997356}
+  - component: {fileID: -3529177002513994979}
   m_Layer: 0
   m_Name: SM_Bld_Floor_Exterior_Riser_01
   m_TagString: Concrete (Static)
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.2655172, y: 1, z: 3.265514}
   m_Center: {x: -1.4999986, y: -0.5, z: -1.5}
+--- !u!114 &-3529177002513994979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994340796713634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

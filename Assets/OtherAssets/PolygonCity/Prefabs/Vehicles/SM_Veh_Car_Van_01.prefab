@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 3320634}
   - component: {fileID: 2369120}
   - component: {fileID: 6701644115396350057}
+  - component: {fileID: 5820280971872880418}
   m_Layer: 0
   m_Name: SM_Veh_Car_Van_01
   m_TagString: Untagged
@@ -305,6 +306,18 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &5820280971872880418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &148594
 GameObject:
   m_ObjectHideFlags: 0

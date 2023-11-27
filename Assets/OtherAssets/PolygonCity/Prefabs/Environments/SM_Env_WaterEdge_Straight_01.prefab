@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 64938448435922512}
   - component: {fileID: 64292720224050656}
   - component: {fileID: 64888456603710102}
+  - component: {fileID: -5971976859565905719}
   m_Layer: 0
   m_Name: SM_Env_WaterEdge_Straight_01
   m_TagString: Concrete (Static)
@@ -175,3 +176,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43233700385141446, guid: 67bf5f140894289489c2666f950d7c3d, type: 2}
+--- !u!114 &-5971976859565905719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

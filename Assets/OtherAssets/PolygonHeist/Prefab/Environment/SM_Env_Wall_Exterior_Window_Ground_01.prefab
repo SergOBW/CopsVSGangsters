@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3399848}
   - component: {fileID: 2333554}
   - component: {fileID: 65620932369412238}
+  - component: {fileID: 1396698205695140236}
   m_Layer: 0
   m_Name: SM_Env_Wall_Exterior_Window_Ground_01
   m_TagString: Concrete (Static)
@@ -189,3 +190,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 3, z: 0.22838306}
   m_Center: {x: -2.5, y: 1.5, z: 0.11419058}
+--- !u!114 &1396698205695140236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

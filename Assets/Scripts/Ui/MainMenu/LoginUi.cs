@@ -16,6 +16,11 @@ public class LoginUi : MonoBehaviour
 
     private void OnEnable()
     {
+        if (AddManager.Instance.AddAggregator != AddAggregator.YandexGames)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         LoginManager.Instance.OnAvatarChanged += OnAvatarChanged;
         LoginManager.Instance.OnNickNameChanged += OnNickNameChanged;
         loginPopup.SetActive(false);

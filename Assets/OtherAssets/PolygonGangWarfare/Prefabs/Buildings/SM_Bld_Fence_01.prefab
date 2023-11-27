@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33948472399920958}
   - component: {fileID: 23422263320840080}
   - component: {fileID: 8106049737090032590}
+  - component: {fileID: 4513165629861368315}
   m_Layer: 0
   m_Name: SM_Bld_Fence_01
   m_TagString: Concrete (Static)
@@ -106,3 +107,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ca5cc893e233775479413503fbe3c023, type: 3}
+--- !u!114 &4513165629861368315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939884417730520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

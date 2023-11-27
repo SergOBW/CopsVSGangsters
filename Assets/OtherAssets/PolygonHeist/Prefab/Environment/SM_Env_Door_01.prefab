@@ -201,6 +201,8 @@ GameObject:
   - component: {fileID: 3674056942186065793}
   - component: {fileID: 2470778991938239391}
   - component: {fileID: 9040210143510219757}
+  - component: {fileID: -6566257299669285183}
+  - component: {fileID: 8295248186929881024}
   m_Layer: 11
   m_Name: SM_Env_Door_01
   m_TagString: Concrete (Static)
@@ -223,7 +225,7 @@ Transform:
   - {fileID: 485748}
   - {fileID: 1396297196734462063}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3331480
 MeshFilter:
@@ -431,6 +433,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15744042, y: 0.44895577, z: 0.106723785}
   m_Center: {x: -0.74780965, y: 0.95167327, z: 0}
+--- !u!114 &-6566257299669285183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!41 &8295248186929881024
+OcclusionPortal:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130278}
+  m_Open: 1
+  m_Center: {x: -0.51, y: 1.1182272, z: 0.00003555417}
+  m_Size: {x: 1, y: 2.2641482, z: 0.16546783}
 --- !u!1 &1437178969541369528
 GameObject:
   m_ObjectHideFlags: 0

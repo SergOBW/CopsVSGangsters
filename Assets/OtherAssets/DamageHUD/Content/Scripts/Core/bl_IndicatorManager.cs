@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Player;
+using Unity.Mathematics;
 
 public class bl_IndicatorManager : MonoBehaviour {
     [Header("List")]
@@ -47,6 +48,7 @@ public class bl_IndicatorManager : MonoBehaviour {
     {
         // Register this callback
         bl_DamageDelegate.OnIndicator += OnNewIndicator;
+        _canvas.transform.rotation = quaternion.identity;
         LocalPlayer = FindObjectOfType<PlayerStatsController>().transform;
     }
 
@@ -57,6 +59,7 @@ public class bl_IndicatorManager : MonoBehaviour {
     {
         // UnRegister this callback
         bl_DamageDelegate.OnIndicator -= OnNewIndicator;
+        _canvas.transform.rotation = quaternion.identity;
     }
 
     /// <summary>

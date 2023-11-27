@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 2317488}
   - component: {fileID: 64403533157552192}
   - component: {fileID: 6451606906594159028}
+  - component: {fileID: -6573248923730054814}
   m_Layer: 0
   m_Name: SM_Veh_Car_Sedan_01
   m_TagString: Untagged
@@ -886,3 +887,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-6573248923730054814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

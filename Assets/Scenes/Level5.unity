@@ -5,11 +5,11 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
-    smallestHole: 0.25
+    smallestOccluder: 1
+    smallestHole: 0.15
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: d29d485965daf8644b0032a1ceed17f5
+  m_OcclusionCullingData: {fileID: 36300000, guid: a73eb2f5df3de9e4e9c4a91ad5c9bc8f, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -5232,6 +5232,10 @@ PrefabInstance:
     - target: {fileID: 1066163181033354, guid: d43be5240afa0b84e8dfb2d435d20f97, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Wall_Metal_Door_Slide_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066163181033354, guid: d43be5240afa0b84e8dfb2d435d20f97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4159039556373540, guid: d43be5240afa0b84e8dfb2d435d20f97, type: 3}
       propertyPath: m_RootOrder
@@ -23235,6 +23239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Wall_Brick_Door_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1942481827586046, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4379403042115512, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -27206,6 +27214,10 @@ PrefabInstance:
       value: SM_Prop_Barrel_Plastic_03
       objectReference: {fileID: 0}
     - target: {fileID: 1761743680110140, guid: 9d769efa82c3bac47a39e0e908e4bcf9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761743680110140, guid: 9d769efa82c3bac47a39e0e908e4bcf9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -27575,6 +27587,10 @@ PrefabInstance:
     - target: {fileID: 1091559363813388, guid: 503c289e482e3b74db765bdfe1fca1f8, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Wall_Brick_Door_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091559363813388, guid: 503c289e482e3b74db765bdfe1fca1f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4061826627549394, guid: 503c289e482e3b74db765bdfe1fca1f8, type: 3}
       propertyPath: m_RootOrder
@@ -32330,6 +32346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Wall_Brick_Door_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1942481827586046, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4379403042115512, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -35090,7 +35110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1810124159967856, guid: 5bc2c56bc49e7a54ca45cd7ab031b7fc, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4137840855527492, guid: 5bc2c56bc49e7a54ca45cd7ab031b7fc, type: 3}
       propertyPath: m_RootOrder
@@ -40517,6 +40537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Wall_Metal_Door_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1263782947947864, guid: 0831ea93c24ecc64495788bd26a16992, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4307604570773776, guid: 0831ea93c24ecc64495788bd26a16992, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -41674,6 +41698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Wall_Brick_Door_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1942481827586046, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4379403042115512, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -42542,6 +42570,10 @@ PrefabInstance:
     - target: {fileID: 1930418634889312, guid: a707d88dcbb19844d9bad90838e17917, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Chair_Guy_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930418634889312, guid: a707d88dcbb19844d9bad90838e17917, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1930418634889312, guid: a707d88dcbb19844d9bad90838e17917, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -47784,7 +47816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 190666, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 443860, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
       propertyPath: m_RootOrder
@@ -47830,9 +47862,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1093006205889942086, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518058171410861368, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4629565441028418807, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755119214904844136, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964735445715270129, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994456576801118585, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6319633994769262674, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
       propertyPath: needSpawnWave
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592154573256218999, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830017707452240643, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293038970751577646, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458680525001085387, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894913533081212255, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113368767056028823, guid: cfb9610eed55a2343a9417c40ff7ae34, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48391,6 +48471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Wall_Brick_Door_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1942481827586046, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4379403042115512, guid: 12ba9388e2593994e86b21a27d396f1a, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -48625,7 +48709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 129016, guid: bb8c5b0fdbcdced488ac5e20b3ed361d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 401172, guid: bb8c5b0fdbcdced488ac5e20b3ed361d, type: 3}
       propertyPath: m_RootOrder
@@ -53048,6 +53132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Wall_Metal_Door_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1263782947947864, guid: 0831ea93c24ecc64495788bd26a16992, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4307604570773776, guid: 0831ea93c24ecc64495788bd26a16992, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -54373,7 +54461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1810124159967856, guid: 5bc2c56bc49e7a54ca45cd7ab031b7fc, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4137840855527492, guid: 5bc2c56bc49e7a54ca45cd7ab031b7fc, type: 3}
       propertyPath: m_RootOrder
@@ -57062,7 +57150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 165128, guid: 065269f34c1c3894bbe95c53b10d259d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 429746, guid: 065269f34c1c3894bbe95c53b10d259d, type: 3}
       propertyPath: m_RootOrder

@@ -41,6 +41,11 @@ public class LockedDoor : InteractableWithHealth
                 lockedDoor.Handle();
             }
         }
+
+        if (TryGetComponent(out OcclusionPortal occlusionPortal))
+        {
+            occlusionPortal.open = true;
+        }
         handleTransform.DORotate(rotateVector,1f,RotateMode.LocalAxisAdd);
         if (moveVector != Vector3.zero)
         {

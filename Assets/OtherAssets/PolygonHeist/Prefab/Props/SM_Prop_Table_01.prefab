@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2353224}
   - component: {fileID: 64912701524288904}
   - component: {fileID: 5920188152226830929}
+  - component: {fileID: -966998591194961498}
   m_Layer: 0
   m_Name: SM_Prop_Table_01
   m_TagString: Untagged
@@ -126,3 +127,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-966998591194961498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

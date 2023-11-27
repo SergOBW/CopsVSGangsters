@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4548620681597234}
   - component: {fileID: 33965511806626200}
   - component: {fileID: 23519228381988646}
+  - component: {fileID: 6146749656263466925}
   m_Layer: 0
   m_Name: SM_Bld_Roof_Connector_End_01
   m_TagString: Concrete (Static)
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6146749656263466925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431902121287672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

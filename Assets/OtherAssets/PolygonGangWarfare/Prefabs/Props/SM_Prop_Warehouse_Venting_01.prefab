@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4221035425589610}
   - component: {fileID: 33796537287040832}
   - component: {fileID: 23399179149273578}
-  - component: {fileID: 3682719118978864908}
+  - component: {fileID: 334134694036902358}
+  - component: {fileID: 1042624725329553458}
   m_Layer: 0
   m_Name: SM_Prop_Warehouse_Venting_01
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33796537287040832
 MeshFilter:
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3682719118978864908
-MeshCollider:
+--- !u!65 &334134694036902358
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +103,18 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 4bb50e39fafa59f408a8f1a3653f0543, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.0869586, y: 1.3097078, z: 1.021177}
+  m_Center: {x: 1.460107, y: 0, z: -0.16463922}
+--- !u!114 &1042624725329553458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288341982075588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

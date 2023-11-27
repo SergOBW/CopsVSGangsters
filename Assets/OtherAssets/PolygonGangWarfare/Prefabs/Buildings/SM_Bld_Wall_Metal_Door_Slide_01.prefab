@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3313564191822983138}
   - component: {fileID: 4178320747985946649}
   - component: {fileID: 4286110312297264457}
+  - component: {fileID: 7707936122572040142}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Metal_Door_Slide_01
   m_TagString: Concrete (Static)
@@ -35,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 4280899359520372}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33744083013758662
 MeshFilter:
@@ -150,6 +151,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.0117195, y: 0.22575426, z: 0.25532377}
   m_Center: {x: -1.5000002, y: 2.8929822, z: 0.07541281}
+--- !u!114 &7707936122572040142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559928832183904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1701409934396032
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +177,7 @@ GameObject:
   - component: {fileID: 6195850394566839917}
   - component: {fileID: 7000223263148330512}
   - component: {fileID: 7587691103932562049}
+  - component: {fileID: 5836522780303016439}
   m_Layer: 11
   m_Name: SM_Bld_Wall_Metal_Slide_01
   m_TagString: Untagged
@@ -292,3 +306,13 @@ MonoBehaviour:
   moveVector: {x: 1.27, y: 0, z: 0}
   handleTransform: {fileID: 0}
   otherDoors: []
+--- !u!41 &5836522780303016439
+OcclusionPortal:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701409934396032}
+  m_Open: 0
+  m_Center: {x: -0.003861785, y: -0.017681956, z: 0}
+  m_Size: {x: 2.613773, y: 2.9726593, z: 1}

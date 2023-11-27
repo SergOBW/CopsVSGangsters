@@ -22,11 +22,11 @@ public class AddMoneyPopup : MonoBehaviour
     {
         gameObject.SetActive(true);
         closeButton.onClick.AddListener(Close);
-        buyYanGo.SetActive(!Inventory.Instance.HasItem("Money Pack"));
         watchRewardGo.SetActive(AddManager.Instance.CanShowRewardAdd());
         buyYan.onClick.AddListener(TryToBuy);
         watchReward.onClick.AddListener(WatchReward);
         moneyAmount.text = $"+ {EconomyMonoMechanic.Instance.GetMoneyBonus()}";
+        Refresh();
     }
 
     private void Update()
@@ -36,6 +36,11 @@ public class AddMoneyPopup : MonoBehaviour
 
     private void Refresh()
     {
+        if (AddManager.Instance.AddAggregator != AddAggregator.YandexGames)
+        {
+            buyYanGo.SetActive(false);
+            return;
+        }
         buyYanGo.SetActive(!Inventory.Instance.HasItem("Money Pack"));
     }
     private void WatchReward()

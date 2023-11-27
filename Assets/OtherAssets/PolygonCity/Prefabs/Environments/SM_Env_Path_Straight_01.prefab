@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2346836}
   - component: {fileID: 65595867999432260}
   - component: {fileID: 131720771584402653}
+  - component: {fileID: -1371740089381951208}
   m_Layer: 0
   m_Name: SM_Env_Path_Straight_01
   m_TagString: Concrete (Static)
@@ -125,3 +126,15 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-1371740089381951208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

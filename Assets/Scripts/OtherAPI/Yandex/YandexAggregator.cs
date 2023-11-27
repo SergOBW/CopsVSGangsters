@@ -90,6 +90,13 @@ public class YandexAggregator : MonoBehaviour
             AddManager.Instance.ChangeIsMobile(IsMobile());
             LanguageManager.Instance.ChangeLanguage(GetLanguage());
             TryToLogin();
+        }
+    }
+
+    public void TrowGameReadyEvent()
+    {
+        if (_isSDKInitialized)
+        {
             GameReady();
         }
     }

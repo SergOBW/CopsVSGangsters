@@ -13,6 +13,11 @@ public class InteractionUi : MonoBehaviour
         _image.fillAmount = 0;
     }
 
+    public void DeInitialize()
+    {
+        UiMonoStateMachine.Instance.HideNoBigDrillPopup();
+    }
+
     private void Update()
     {
         if (_playerDetector == null)

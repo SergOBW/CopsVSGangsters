@@ -65,7 +65,7 @@ public class QuestItemUi : MonoBehaviour
                 progressionText.text = $"{lootMoneyQuest.CurrentMoneyAmount} / {lootMoneyQuest.MoneyToLoot}";
                 break;
             case HoldOnLevelQuest holdOnLevelQuest :
-                progressionText.text = $"{(int)holdOnLevelQuest.GetCurrentTime() + 1} / {holdOnLevelQuest.GetStartedTime()}";
+                progressionText.text = $"{(int)(holdOnLevelQuest.GetStartedTime() - holdOnLevelQuest.GetCurrentTime())}";
                 break;
         }
     }

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 1042775988279446373}
   - component: {fileID: 7936149851331407853}
   - component: {fileID: 2096309586629485290}
+  - component: {fileID: -319183589986394239}
+  - component: {fileID: 6725034839106041231}
   m_Layer: 11
   m_Name: SM_Env_Door_03
   m_TagString: Concrete (Static)
@@ -40,7 +42,7 @@ Transform:
   - {fileID: 8757227752250281711}
   - {fileID: 6520549016797825093}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3339882
 MeshFilter:
@@ -270,6 +272,28 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.56600004, y: 1.118, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &-319183589986394239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!41 &6725034839106041231
+OcclusionPortal:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143170}
+  m_Open: 0
+  m_Center: {x: -0.59357965, y: 1.1303493, z: -0.008389689}
+  m_Size: {x: 1.2199471, y: 2.3067682, z: 0.15140893}
 --- !u!1 &522806081954348927
 GameObject:
   m_ObjectHideFlags: 0

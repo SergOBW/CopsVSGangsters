@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33935277494395028}
   - component: {fileID: 23128085171006290}
   - component: {fileID: 9095389796482076088}
+  - component: {fileID: 2076581411900742420}
   m_Layer: 0
   m_Name: SM_Prop_Table_Metal_Preset_04
   m_TagString: Untagged
@@ -107,3 +108,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5df482d0aa021d44ba6c88eefbe49b71, type: 3}
+--- !u!114 &2076581411900742420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261613641580850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

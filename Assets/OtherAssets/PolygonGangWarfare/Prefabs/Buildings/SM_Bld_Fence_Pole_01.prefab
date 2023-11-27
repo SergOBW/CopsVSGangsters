@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33770471087809882}
   - component: {fileID: 23420680675908010}
   - component: {fileID: 8312448504755815983}
+  - component: {fileID: 3143547168192560891}
   m_Layer: 0
   m_Name: SM_Bld_Fence_Pole_01
   m_TagString: Concrete (Static)
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1435852, y: 2.4284058, z: 0.1435852}
   m_Center: {x: -0.0000007636845, y: 1.2142029, z: 0.0000011436641}
+--- !u!114 &3143547168192560891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316377326066908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

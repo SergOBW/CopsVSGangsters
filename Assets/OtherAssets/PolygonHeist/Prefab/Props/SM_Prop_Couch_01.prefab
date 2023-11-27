@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3323454}
   - component: {fileID: 2320220}
   - component: {fileID: 64739347031492816}
+  - component: {fileID: 7867109754601392374}
   m_Layer: 0
   m_Name: SM_Prop_Couch_01
   m_TagString: Untagged
@@ -107,6 +108,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43488829176148806, guid: 3879d5016acbb2c4abca7e592ab6c0d4, type: 2}
+--- !u!114 &7867109754601392374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9140334413088704796
 GameObject:
   m_ObjectHideFlags: 0

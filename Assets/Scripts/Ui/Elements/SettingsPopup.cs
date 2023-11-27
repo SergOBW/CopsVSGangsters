@@ -20,13 +20,10 @@ public class SettingsPopup : MonoBehaviour
         closeButton.onClick.AddListener(ClosePopup);
 
         debugSwitcher.Initialize(false);
-        soundSwitcher.Initialize(true);
-
-        soundSwitcher.OnSwitcherStatusChanged += OnSoundChanged;
         debugSwitcher.OnSwitcherStatusChanged += OnChangeDebug;
         
-        soundSlider.maxValue = 5f;
-        soundSlider.minValue = -3f;
+        soundSlider.maxValue = 1f;
+        soundSlider.minValue = 0.001f;
 
         soundSlider.value = GlobalSettings.Instance.soundValue;
 
@@ -54,9 +51,6 @@ public class SettingsPopup : MonoBehaviour
         closeButton.onClick.RemoveListener(ClosePopup);
         
         debugSwitcher.Deinitialize();
-        soundSwitcher.Deinitialize();
-
-        soundSwitcher.OnSwitcherStatusChanged -= OnSoundChanged;
         debugSwitcher.OnSwitcherStatusChanged -= OnChangeDebug;
         
         gameObject.SetActive(false);
@@ -71,16 +65,5 @@ public class SettingsPopup : MonoBehaviour
         GlobalSettings.Instance.isUsingDebug = value;
         GlobalSettings.Instance.ChangeSettings();
     }
-
-    private void OnSoundChanged(bool value)
-    {
-        if (value)
-        {
-            SoundMonoMechanic.Instance.OnSound();
-        }
-        else
-        {
-            SoundMonoMechanic.Instance.OffSound();
-        }
-    }
+    
 }

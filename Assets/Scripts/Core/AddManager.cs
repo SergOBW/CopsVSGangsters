@@ -155,6 +155,7 @@ public class AddManager : GlobalMonoMechanic
         if (canShowAdd)
         {
             lastInterstitialAddTime = _gameTime;
+            SoundMonoMechanic.Instance.DisableSound();
             OnAddOpen?.Invoke();
             switch (currentAddAggregator)
             {
@@ -174,10 +175,21 @@ public class AddManager : GlobalMonoMechanic
         }
     }
 
+    public void GameReady()
+    {
+        switch (currentAddAggregator)
+        {
+            case AddAggregator.YandexGames:
+                _yandexAggregator.TrowGameReadyEvent();
+                break;
+        }
+    }
+
     public void ShowRewardAdd()
     {
         lastRewardAddTime = _gameTime;
         OnAddOpen?.Invoke();
+        SoundMonoMechanic.Instance.DisableSound();
         switch (currentAddAggregator)
         {
             case AddAggregator.CrazyGames:

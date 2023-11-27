@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2318672}
   - component: {fileID: 2019018061004371066}
   - component: {fileID: 6292165045783382037}
+  - component: {fileID: -3240459412944690831}
   m_Layer: 0
   m_Name: SM_Env_Ocean_Tile_01
   m_TagString: Concrete (Static)
@@ -125,3 +126,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 0.43344823, z: 30.000004}
   m_Center: {x: -14.995285, y: 0.19393556, z: 15.126102}
+--- !u!114 &-3240459412944690831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

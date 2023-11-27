@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 64668191467348866}
   - component: {fileID: 64602831113632122}
   - component: {fileID: 64748851039610652}
+  - component: {fileID: 8204985289093915033}
   m_Layer: 0
   m_Name: SM_Env_Bridge_Wall_01
   m_TagString: Concrete (Static)
@@ -175,3 +176,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43867843993059310, guid: 7060787e086bcea4d9b099d024413d10, type: 2}
+--- !u!114 &8204985289093915033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

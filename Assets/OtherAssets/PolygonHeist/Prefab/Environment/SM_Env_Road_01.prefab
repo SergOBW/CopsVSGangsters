@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3348442}
   - component: {fileID: 2393150}
   - component: {fileID: 65639517977217164}
+  - component: {fileID: -5214574121039551418}
   m_Layer: 0
   m_Name: SM_Env_Road_01
   m_TagString: Concrete (Static)
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 0.000000011175871, z: 5}
   m_Center: {x: -2.5, y: 0.0000000055879354, z: -2.5}
+--- !u!114 &-5214574121039551418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

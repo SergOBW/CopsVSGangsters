@@ -91,7 +91,7 @@ namespace Save
             InventoryItems = new List<SaveInventory>();
             money = 0;
             sensitivity = 1f;
-            sound = 1f;
+            sound = 0.4f;
             
             MapsSo[] mapsSos = Resources.LoadAll<MapsSo>("ScriptableObjects/Maps");
 

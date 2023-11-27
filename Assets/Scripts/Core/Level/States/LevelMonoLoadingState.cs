@@ -1,4 +1,5 @@
 ﻿using Abstract;
+using CrazyGames;
 using UnityEngine.SceneManagement;
 
 namespace Level.States

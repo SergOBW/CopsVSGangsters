@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4895814929804092}
   - component: {fileID: 33451391479666776}
   - component: {fileID: 23266479183047896}
+  - component: {fileID: 4272272947928823835}
+  - component: {fileID: 4164075479826158119}
   m_Layer: 0
   m_Name: SM_Prop_Cigarette_Tray_01
   m_TagString: Untagged
@@ -83,3 +85,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4272272947928823835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979557458371514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!205 &4164075479826158119
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979557458371514}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0000007674098, y: 0.033839114, z: 0.041927338}
+  m_Size: 0.24657984
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0089461645
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23266479183047896}
+  m_Enabled: 1

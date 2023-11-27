@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 23571487148991304}
   - component: {fileID: 666721786434819099}
   - component: {fileID: 3284880695581186872}
+  - component: {fileID: 4370043897247823563}
+  - component: {fileID: 6628130235611042369}
   m_Layer: 0
   m_Name: SM_Prop_Woodstack_01
   m_TagString: Untagged
@@ -126,3 +128,34 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &4370043897247823563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264858475675208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!205 &6628130235611042369
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264858475675208}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.007438123, y: 0.19760525, z: -0.03771758}
+  m_Size: 4.853501
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0089461645
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23571487148991304}
+  m_Enabled: 1
