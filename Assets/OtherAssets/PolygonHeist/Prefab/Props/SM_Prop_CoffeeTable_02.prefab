@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3310794}
   - component: {fileID: 2303310}
   - component: {fileID: 64814117861117840}
-  - component: {fileID: -761705402531118345}
   m_Layer: 0
   m_Name: SM_Prop_CoffeeTable_02
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43010957302882592, guid: ad6c0b4f8238023448940e85f951700b, type: 2}
---- !u!114 &-761705402531118345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

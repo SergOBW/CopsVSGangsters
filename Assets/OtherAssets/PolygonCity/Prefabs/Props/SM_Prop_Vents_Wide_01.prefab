@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 64380918286652788}
   - component: {fileID: 64990923826594714}
   - component: {fileID: 64493623079772200}
-  - component: {fileID: 6529364195283236644}
   m_Layer: 0
   m_Name: SM_Prop_Vents_Wide_01
   m_TagString: Untagged
@@ -176,15 +175,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43467057654099092, guid: 1bb9fd35b369e8549b242cd83cad927f, type: 2}
---- !u!114 &6529364195283236644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

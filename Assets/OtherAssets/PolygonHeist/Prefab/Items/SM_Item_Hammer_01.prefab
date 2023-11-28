@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3335256}
   - component: {fileID: 2395708}
   - component: {fileID: 64516662220427428}
-  - component: {fileID: 4982776775603523108}
   m_Layer: 0
   m_Name: SM_Item_Hammer_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43695124716559036, guid: e089a8101556434408ea5f7fc98c9078, type: 2}
---- !u!114 &4982776775603523108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

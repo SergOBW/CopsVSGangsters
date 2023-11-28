@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4109064963270696}
   - component: {fileID: 33644477277837202}
   - component: {fileID: 23432547992080310}
-  - component: {fileID: -9144883006106320032}
   m_Layer: 0
   m_Name: SM_Prop_FlatPackCardboardBoxes_03
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-9144883006106320032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206541559017012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

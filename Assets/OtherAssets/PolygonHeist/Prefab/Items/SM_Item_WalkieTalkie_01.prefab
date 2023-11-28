@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3352654}
   - component: {fileID: 2396422}
   - component: {fileID: 64498013183649866}
-  - component: {fileID: -1666628859417913077}
   m_Layer: 0
   m_Name: SM_Item_WalkieTalkie_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43810813874331252, guid: 909461772c00e5a4387bc4373874dc76, type: 2}
---- !u!114 &-1666628859417913077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

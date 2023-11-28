@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33821070094679690}
   - component: {fileID: 23324623015453584}
   - component: {fileID: 7183025362133161422}
-  - component: {fileID: -5706925421881618292}
   m_Layer: 0
   m_Name: SM_Bld_Walkway_Rail_03
   m_TagString: Concrete (Static)
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2320098, y: 1.1435913, z: 0.10000002}
   m_Center: {x: -0.58576363, y: 0.6136245, z: -0.000000011175871}
---- !u!114 &-5706925421881618292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823211824123202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

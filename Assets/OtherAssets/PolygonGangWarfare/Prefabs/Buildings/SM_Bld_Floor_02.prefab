@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4346567629768222}
   - component: {fileID: 33058511733112638}
   - component: {fileID: 23521552033628654}
-  - component: {fileID: -1610726931659692752}
   m_Layer: 0
   m_Name: SM_Bld_Floor_02
   m_TagString: Concrete (Static)
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-1610726931659692752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011376304957260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

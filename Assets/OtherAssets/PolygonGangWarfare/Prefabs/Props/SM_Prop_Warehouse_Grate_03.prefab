@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4547426913455494}
   - component: {fileID: 33070176073786664}
   - component: {fileID: 23710901036623556}
-  - component: {fileID: -8833065490710157103}
   m_Layer: 0
   m_Name: SM_Prop_Warehouse_Grate_03
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8833065490710157103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475618172211800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

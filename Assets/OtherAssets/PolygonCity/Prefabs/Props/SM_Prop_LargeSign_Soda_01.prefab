@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3338366}
   - component: {fileID: 2375026}
   - component: {fileID: 64675428142620496}
-  - component: {fileID: -2589083827709469172}
   - component: {fileID: 7189194336678352066}
   m_Layer: 0
   m_Name: SM_Prop_LargeSign_Soda_01
@@ -108,18 +107,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43679534955826882, guid: d96dc2ae87528cc429f3c08d7728dc2b, type: 2}
---- !u!114 &-2589083827709469172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!205 &7189194336678352066
 LODGroup:
   m_ObjectHideFlags: 0

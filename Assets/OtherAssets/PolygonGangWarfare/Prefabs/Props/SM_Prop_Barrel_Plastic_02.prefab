@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33168460986731848}
   - component: {fileID: 23543014306458836}
   - component: {fileID: 3225666887064832652}
-  - component: {fileID: -527340585132326739}
   m_Layer: 0
   m_Name: SM_Prop_Barrel_Plastic_02
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.76170385, y: 1.0526019, z: 0.7885095}
   m_Center: {x: 0.006835684, y: 0.52489364, z: 0.0015303046}
---- !u!114 &-527340585132326739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062499603887538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

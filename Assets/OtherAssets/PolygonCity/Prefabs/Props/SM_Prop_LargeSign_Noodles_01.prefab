@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3391524}
   - component: {fileID: 2378120}
   - component: {fileID: 64913371283089776}
-  - component: {fileID: -711734247852043087}
   m_Layer: 0
   m_Name: SM_Prop_LargeSign_Noodles_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43002386461216116, guid: 6c299de727247ec44a9af1ce9f08aa0e, type: 2}
---- !u!114 &-711734247852043087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

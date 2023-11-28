@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3342806}
   - component: {fileID: 2371968}
   - component: {fileID: 65331344759125860}
-  - component: {fileID: -6281640371315332211}
   m_Layer: 0
   m_Name: SM_Prop_Billboard_Sign_01
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.1927023, y: 2.0277271, z: 0.11808798}
   m_Center: {x: 0, y: 1.8370981, z: 0.2438185}
---- !u!114 &-6281640371315332211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

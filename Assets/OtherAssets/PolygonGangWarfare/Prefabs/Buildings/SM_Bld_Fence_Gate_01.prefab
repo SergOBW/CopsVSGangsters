@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33748622213797714}
   - component: {fileID: 23678896870040104}
   - component: {fileID: 5175694934702179119}
-  - component: {fileID: 1357280649622428823}
   m_Layer: 0
   m_Name: SM_Bld_Fence_Gate_01
   m_TagString: Concrete (Static)
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 904d9a0e3c9df0b40b46d719eaacd7e1, type: 3}
---- !u!114 &1357280649622428823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396709346711902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

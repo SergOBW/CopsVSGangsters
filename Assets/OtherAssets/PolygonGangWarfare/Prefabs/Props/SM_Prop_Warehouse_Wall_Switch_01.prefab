@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4123371941010234}
   - component: {fileID: 33570173384282698}
   - component: {fileID: 23348118550588138}
-  - component: {fileID: 3129294869417181923}
   m_Layer: 0
   m_Name: SM_Prop_Warehouse_Wall_Switch_01
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3129294869417181923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709792980020826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

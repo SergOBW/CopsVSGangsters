@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33371672980495490}
   - component: {fileID: 23658300049541032}
   - component: {fileID: 1487982407495564629}
-  - component: {fileID: -3351360838687349715}
   m_Layer: 0
   m_Name: SM_Bld_Interior_Wall_Corner_01
   m_TagString: Concrete (Static)
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3364108, y: 3, z: 0.34049845}
   m_Center: {x: 0.004344091, y: 1.5, z: 0.004849501}
---- !u!114 &-3351360838687349715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096085601648770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

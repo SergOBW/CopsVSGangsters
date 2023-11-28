@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3313564191822983138}
   - component: {fileID: 4178320747985946649}
   - component: {fileID: 4286110312297264457}
-  - component: {fileID: 7707936122572040142}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Metal_Door_Slide_01
   m_TagString: Concrete (Static)
@@ -151,18 +150,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.0117195, y: 0.22575426, z: 0.25532377}
   m_Center: {x: -1.5000002, y: 2.8929822, z: 0.07541281}
---- !u!114 &7707936122572040142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559928832183904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1701409934396032
 GameObject:
   m_ObjectHideFlags: 0

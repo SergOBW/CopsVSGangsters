@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3348192}
   - component: {fileID: 2335810}
   - component: {fileID: 64238885372011034}
-  - component: {fileID: 6848172487086944595}
   m_Layer: 0
   m_Name: SM_Prop_ParkingMeter_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43437773302094732, guid: 73b8147a244d60548aadbde24799118f, type: 2}
---- !u!114 &6848172487086944595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

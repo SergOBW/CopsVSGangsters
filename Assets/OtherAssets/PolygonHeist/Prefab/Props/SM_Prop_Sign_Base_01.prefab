@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3359376}
   - component: {fileID: 2333502}
   - component: {fileID: 64929060679266382}
-  - component: {fileID: -1408640183033768343}
   m_Layer: 0
   m_Name: SM_Prop_Sign_Base_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43230802920340852, guid: e52ee57ddece5954389bc2780141ecbc, type: 2}
---- !u!114 &-1408640183033768343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

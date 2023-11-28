@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33859853748159588}
   - component: {fileID: 23851856716035390}
   - component: {fileID: 648283712290351331}
-  - component: {fileID: 5722322473091507279}
   m_Layer: 0
   m_Name: SM_Prop_Table_Metal_01
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2533007, y: 0.9217651, z: 0.8759865}
   m_Center: {x: 0, y: 0.46088254, z: 0}
---- !u!114 &5722322473091507279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963815331319966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

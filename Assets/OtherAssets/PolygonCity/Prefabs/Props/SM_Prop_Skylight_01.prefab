@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3317208}
   - component: {fileID: 2382762}
   - component: {fileID: 64685992054565372}
-  - component: {fileID: 1363832819185632641}
   m_Layer: 0
   m_Name: SM_Prop_Skylight_01
   m_TagString: Untagged
@@ -108,18 +107,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43368602784815448, guid: fc2d1af9045b6a04ba1e198772d298ae, type: 2}
---- !u!114 &1363832819185632641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &158630
 GameObject:
   m_ObjectHideFlags: 0

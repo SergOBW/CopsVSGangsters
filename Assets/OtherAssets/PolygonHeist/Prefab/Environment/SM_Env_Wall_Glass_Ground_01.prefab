@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 3374302}
   - component: {fileID: 2319836}
   - component: {fileID: 65796846243971258}
-  - component: {fileID: -38931113219404361}
   m_Layer: 0
   m_Name: SM_Env_Wall_Glass_Ground_01
   m_TagString: Concrete (Static)
@@ -274,15 +273,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 3.0000007, z: 0.16360283}
   m_Center: {x: -2.5, y: 1.5000004, z: 0.081801414}
---- !u!114 &-38931113219404361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

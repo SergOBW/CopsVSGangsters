@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4923742873806466}
   - component: {fileID: 33539130869739750}
   - component: {fileID: 23962246441463008}
-  - component: {fileID: -341425088558790348}
   m_Layer: 0
   m_Name: SM_Prop_Billboard_Sign_02
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-341425088558790348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705926226923432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3335770}
   - component: {fileID: 2386190}
   - component: {fileID: 64422531387561294}
-  - component: {fileID: 4194419339800096426}
   m_Layer: 0
   m_Name: SM_Prop_LargeSign_BowlingBall_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43814805656745376, guid: a622cb99b9b9d9d4f90980f197b67e3f, type: 2}
---- !u!114 &4194419339800096426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

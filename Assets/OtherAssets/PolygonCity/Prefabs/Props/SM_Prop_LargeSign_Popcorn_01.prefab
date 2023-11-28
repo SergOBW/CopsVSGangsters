@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3325644}
   - component: {fileID: 2310962}
   - component: {fileID: 64107981238128558}
-  - component: {fileID: 6132471913195852449}
   m_Layer: 0
   m_Name: SM_Prop_LargeSign_Popcorn_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43026004842365862, guid: 699bd323e5ba6b740975ea215d673349, type: 2}
---- !u!114 &6132471913195852449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

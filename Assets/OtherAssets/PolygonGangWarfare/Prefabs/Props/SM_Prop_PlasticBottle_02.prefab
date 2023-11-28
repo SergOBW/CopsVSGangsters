@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4178816744184494}
   - component: {fileID: 33409338481587848}
   - component: {fileID: 23989071607779944}
-  - component: {fileID: -8156123944722357441}
   - component: {fileID: 1579747292608493492}
   m_Layer: 0
   m_Name: SM_Prop_PlasticBottle_02
@@ -85,18 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8156123944722357441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740944439148982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!205 &1579747292608493492
 LODGroup:
   m_ObjectHideFlags: 0

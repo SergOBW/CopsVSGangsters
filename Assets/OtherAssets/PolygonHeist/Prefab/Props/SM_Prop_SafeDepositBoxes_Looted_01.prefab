@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 64946941229412072}
   - component: {fileID: 64603275416185070}
   - component: {fileID: 64225008406122596}
-  - component: {fileID: 5691784302747342126}
   m_Layer: 0
   m_Name: SM_Prop_SafeDepositBoxes_Looted_01
   m_TagString: Untagged
@@ -199,15 +198,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43100627212576534, guid: 6ba1c636d2560ca4b83e0c967cffa374, type: 2}
---- !u!114 &5691784302747342126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

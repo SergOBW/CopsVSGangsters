@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3330464}
   - component: {fileID: 2301024}
   - component: {fileID: 65279166131242460}
-  - component: {fileID: -5765013265532812266}
   m_Layer: 0
   m_Name: SM_Prop_Paper_04
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.322052, y: 2.220446e-16, z: 0.4636917}
   m_Center: {x: 0.010757446, y: 0, z: -0.0024909973}
---- !u!114 &-5765013265532812266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3329502}
   - component: {fileID: 2383012}
   - component: {fileID: 64590500129667256}
-  - component: {fileID: 7055149207551267960}
   m_Layer: 0
   m_Name: SM_Prop_Jewellery_Rings_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43510760436872054, guid: 0a7f690c0100e7c48a34001bc25b4560, type: 2}
---- !u!114 &7055149207551267960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

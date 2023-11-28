@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4056777421079802}
   - component: {fileID: 33327326660730330}
   - component: {fileID: 23694781530940180}
-  - component: {fileID: -6849765762202701113}
   m_Layer: 0
   m_Name: SM_Bld_Walkway_Stairs_01
   m_TagString: Concrete (Static)
@@ -88,18 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-6849765762202701113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016427807390262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1110245870435486583
 GameObject:
   m_ObjectHideFlags: 0

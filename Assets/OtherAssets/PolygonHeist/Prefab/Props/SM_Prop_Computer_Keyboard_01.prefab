@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3369564}
   - component: {fileID: 2341634}
   - component: {fileID: 64052953540972208}
-  - component: {fileID: -3843838701881079087}
   m_Layer: 0
   m_Name: SM_Prop_Computer_Keyboard_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43504033960557392, guid: cb42e0ad3eade214ea05750db314e777, type: 2}
---- !u!114 &-3843838701881079087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

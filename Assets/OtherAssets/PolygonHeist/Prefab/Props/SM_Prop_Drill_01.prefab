@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3355072}
   - component: {fileID: 2377026}
   - component: {fileID: 64970251337672402}
-  - component: {fileID: 5017831270404174562}
   m_Layer: 0
   m_Name: SM_Prop_Drill_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43631365087760956, guid: 0fd8171e451a4e7469002ad9db8ec9f8, type: 2}
---- !u!114 &5017831270404174562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

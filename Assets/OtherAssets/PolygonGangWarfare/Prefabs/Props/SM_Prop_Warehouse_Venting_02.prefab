@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33562804579127202}
   - component: {fileID: 23831508903017802}
   - component: {fileID: 2952461714803030124}
-  - component: {fileID: 7530945701861922473}
   m_Layer: 0
   m_Name: SM_Prop_Warehouse_Venting_02
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0797867, y: 1.3025366, z: 1.0140057}
   m_Center: {x: 0.46010667, y: 0, z: -0.16463917}
---- !u!114 &7530945701861922473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744700210204462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

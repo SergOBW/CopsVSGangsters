@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4018699810765494}
   - component: {fileID: 33407396985618302}
   - component: {fileID: 23249141014389146}
-  - component: {fileID: -5319170106596339732}
   m_Layer: 0
   m_Name: SM_Prop_Warehouse_Fan_01
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5319170106596339732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356115450899856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

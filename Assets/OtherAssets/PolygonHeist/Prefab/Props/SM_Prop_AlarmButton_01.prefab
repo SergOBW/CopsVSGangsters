@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3332328}
   - component: {fileID: 2316926}
   - component: {fileID: 64388445148294908}
-  - component: {fileID: -1180819258157986767}
   m_Layer: 0
   m_Name: SM_Prop_AlarmButton_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43176331869355910, guid: 5b056109de00b274683e2625be40602a, type: 2}
---- !u!114 &-1180819258157986767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3306442}
   - component: {fileID: 2361650}
   - component: {fileID: 64750786692557386}
-  - component: {fileID: -4212194074090124832}
   m_Layer: 0
   m_Name: SM_Prop_SafeDepositBox_Cover_03
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43260787191443320, guid: 4e0566e02c865e945aaa16cc58f0d80c, type: 2}
---- !u!114 &-4212194074090124832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

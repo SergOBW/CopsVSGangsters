@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3302210}
   - component: {fileID: 2398964}
   - component: {fileID: 65038192994286188}
-  - component: {fileID: 6439504024288581740}
   m_Layer: 0
   m_Name: SM_Prop_AirVent_01
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8493748, y: 0.4253955, z: 0.04702878}
   m_Center: {x: -0.0000009536743, y: 0, z: 0.02351439}
---- !u!114 &6439504024288581740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

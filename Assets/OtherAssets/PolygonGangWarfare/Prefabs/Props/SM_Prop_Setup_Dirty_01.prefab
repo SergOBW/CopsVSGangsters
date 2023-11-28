@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 23007993702135164}
   - component: {fileID: 8519167673794335174}
   - component: {fileID: 1887333483783399212}
-  - component: {fileID: 2585330699612595644}
   m_Layer: 0
   m_Name: SM_Prop_Setup_Dirty_01
   m_TagString: Untagged
@@ -128,15 +127,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &2585330699612595644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531275865982350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

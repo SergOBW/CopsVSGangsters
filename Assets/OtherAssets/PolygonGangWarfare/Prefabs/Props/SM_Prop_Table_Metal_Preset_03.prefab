@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33384568135257610}
   - component: {fileID: 23078314223720468}
   - component: {fileID: 6361908293263071376}
-  - component: {fileID: 3893807585448891390}
   - component: {fileID: 6883169608365226294}
   m_Layer: 0
   m_Name: SM_Prop_Table_Metal_Preset_03
@@ -107,18 +106,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &3893807585448891390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562021129834948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &6883169608365226294
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3303728}
   - component: {fileID: 2364732}
   - component: {fileID: 64477038915078350}
-  - component: {fileID: 6887504336275985755}
   m_Layer: 0
   m_Name: SM_Prop_SatDish_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43869470579766426, guid: 4b6726b5b25e0644eb4a405302576710, type: 2}
---- !u!114 &6887504336275985755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

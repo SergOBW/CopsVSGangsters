@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2321832}
   - component: {fileID: 64848059756271048}
   - component: {fileID: 7501366510572861948}
-  - component: {fileID: -2807572641478420798}
   m_Layer: 0
   m_Name: SM_Prop_Roof_Aircon_03
   m_TagString: Untagged
@@ -127,15 +126,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &-2807572641478420798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

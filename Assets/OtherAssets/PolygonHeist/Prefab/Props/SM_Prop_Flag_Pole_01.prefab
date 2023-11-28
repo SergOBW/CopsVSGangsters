@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3300020}
   - component: {fileID: 2386130}
   - component: {fileID: 64304497912635504}
-  - component: {fileID: 2943467781501767467}
   m_Layer: 0
   m_Name: SM_Prop_Flag_Pole_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43024842454242838, guid: 5a8f8c4e8f84ef54f9cff0b3fcd3e00a, type: 2}
---- !u!114 &2943467781501767467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

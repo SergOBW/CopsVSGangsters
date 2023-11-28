@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4213105756899284}
   - component: {fileID: 33238333592736332}
   - component: {fileID: 23969845443335254}
-  - component: {fileID: -7400271869583029010}
+  - component: {fileID: 5389186853276911570}
   m_Layer: 0
   m_Name: SM_Prop_Book_Group_03
   m_TagString: Untagged
@@ -84,15 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-7400271869583029010
-MonoBehaviour:
+--- !u!205 &5389186853276911570
+LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594542196351936}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.14878875, z: 0}
+  m_Size: 0.9699559
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.011212931
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23969845443335254}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

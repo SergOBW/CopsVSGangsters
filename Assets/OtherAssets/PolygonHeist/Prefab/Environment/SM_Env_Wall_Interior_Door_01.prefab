@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 65400823019609514}
   - component: {fileID: 65966711998327168}
   - component: {fileID: 65794028393933492}
-  - component: {fileID: -2849381194143266832}
   m_Layer: 0
   m_Name: SM_Env_Wall_Interior_Door_01
   m_TagString: Concrete (Static)
@@ -150,15 +149,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9226961, y: 2.2221262, z: 0.22060871}
   m_Center: {x: -4.0386443, y: 1.1110631, z: 0.110304356}
---- !u!114 &-2849381194143266832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

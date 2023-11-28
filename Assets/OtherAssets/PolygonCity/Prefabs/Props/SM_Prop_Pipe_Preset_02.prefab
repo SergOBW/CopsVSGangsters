@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3371208}
   - component: {fileID: 2359000}
   - component: {fileID: 64650431490597944}
-  - component: {fileID: -5914483469646245731}
   m_Layer: 0
   m_Name: SM_Prop_Pipe_Preset_02
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43670528079003920, guid: 9bf62cb849508fe4980ba4b671b8a675, type: 2}
---- !u!114 &-5914483469646245731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2406715231937346711}
   - component: {fileID: 3216445442408961133}
   - component: {fileID: 2975231549253519102}
-  - component: {fileID: 88539186393725315}
   - component: {fileID: 8758929225504933590}
   m_Layer: 11
   m_Name: SM_Env_Door_02
@@ -162,18 +161,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.50100005, y: 1.118, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &88539186393725315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!41 &8758929225504933590
 OcclusionPortal:
   m_ObjectHideFlags: 0

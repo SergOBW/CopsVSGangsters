@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4828125873152652}
   - component: {fileID: 33215365569171996}
   - component: {fileID: 23184504261459810}
-  - component: {fileID: -3468337736784234628}
   m_Layer: 0
   m_Name: SM_Prop_Bag_Blue_02
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-3468337736784234628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537372679975442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

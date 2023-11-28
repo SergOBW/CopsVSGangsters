@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3353264}
   - component: {fileID: 2305438}
   - component: {fileID: 64572177289289592}
-  - component: {fileID: -5248806222662015537}
   m_Layer: 0
   m_Name: SM_Prop_Computer_Screen_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43872029086403512, guid: 89165370569c9b74193b3424b87d2bfd, type: 2}
---- !u!114 &-5248806222662015537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

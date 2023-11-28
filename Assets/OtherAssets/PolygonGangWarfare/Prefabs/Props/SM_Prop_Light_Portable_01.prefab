@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4076868869643384}
   - component: {fileID: 33333386160334030}
   - component: {fileID: 23861181678247932}
-  - component: {fileID: 7328506944731431825}
   m_Layer: 0
   m_Name: SM_Prop_Light_Portable_01
   m_TagString: Untagged
@@ -85,18 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7328506944731431825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072707556556728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1113491316714104
 GameObject:
   m_ObjectHideFlags: 0

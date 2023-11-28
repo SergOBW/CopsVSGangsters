@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 8931522614534714843}
   - component: {fileID: 6581159075056801509}
   - component: {fileID: 6619344525947168688}
-  - component: {fileID: 8553933062447959205}
   m_Layer: 0
   m_Name: SM_Prop_Desk_01
   m_TagString: Untagged
@@ -431,15 +430,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1588974, y: 0.474505, z: 0.480017}
   m_Center: {x: -1.0289469, y: 1.1083968, z: 0.4345443}
---- !u!114 &8553933062447959205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

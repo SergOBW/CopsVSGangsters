@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3367378}
   - component: {fileID: 2390316}
   - component: {fileID: 65886896856730162}
-  - component: {fileID: 4072617916882253182}
   m_Layer: 0
   m_Name: SM_Env_Roof_02
   m_TagString: Concrete (Static)
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.5008736, y: 1.2332287, z: 5.750437}
   m_Center: {x: -2.5000072, y: 0.61661434, z: -2.1247911}
---- !u!114 &4072617916882253182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4816814288856890}
   - component: {fileID: 33487135352238168}
   - component: {fileID: 23318973321257508}
-  - component: {fileID: -1507606419048618930}
   m_Layer: 0
   m_Name: SM_Prop_Sign_KeepOut_01
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-1507606419048618930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669101628050676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

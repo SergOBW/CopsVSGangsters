@@ -5,7 +5,7 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 3
+    smallestOccluder: 1
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: ba5ebf2ca1566bc4183a004b9706d3a3
@@ -9564,7 +9564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476129584}
   m_LocalRotation: {x: -0, y: 0.70756596, z: -0, w: 0.7066474}
-  m_LocalPosition: {x: -12.21, y: 4.014, z: 4.68}
+  m_LocalPosition: {x: -12.21, y: 4.74, z: 4.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

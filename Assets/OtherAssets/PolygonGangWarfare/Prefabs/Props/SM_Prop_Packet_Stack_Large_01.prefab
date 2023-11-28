@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33210374454484762}
   - component: {fileID: 23330719127382298}
   - component: {fileID: 6064802052177695638}
-  - component: {fileID: 5510179315318754535}
   - component: {fileID: 2157836670823559861}
   m_Layer: 0
   m_Name: SM_Prop_Packet_Stack_Large_01
@@ -107,18 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7027698, y: 0.831892, z: 1.1899002}
   m_Center: {x: 0, y: 0.415946, z: -0.000000029802322}
---- !u!114 &5510179315318754535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383645672588356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!205 &2157836670823559861
 LODGroup:
   m_ObjectHideFlags: 0
@@ -133,7 +120,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.0089461645
+  - screenRelativeHeight: 0.015
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23330719127382298}

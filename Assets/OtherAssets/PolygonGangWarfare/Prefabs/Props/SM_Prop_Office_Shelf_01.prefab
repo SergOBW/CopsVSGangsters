@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33448239583372208}
   - component: {fileID: 23990464372780864}
   - component: {fileID: 2642899935129276857}
-  - component: {fileID: 5160005093296411339}
   m_Layer: 0
   m_Name: SM_Prop_Office_Shelf_01
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.150532, y: 1.7797284, z: 0.44762573}
   m_Center: {x: 0.000000029802322, y: 0.8898642, z: 0}
---- !u!114 &5160005093296411339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656861967613064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

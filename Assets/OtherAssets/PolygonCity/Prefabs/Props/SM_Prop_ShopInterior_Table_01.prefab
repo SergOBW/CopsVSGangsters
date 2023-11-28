@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 64378015011893068}
   - component: {fileID: 64532044088349158}
   - component: {fileID: 2651602228944485229}
-  - component: {fileID: -246559291961957878}
   m_Layer: 0
   m_Name: SM_Prop_ShopInterior_Table_01
   m_TagString: Untagged
@@ -196,15 +195,3 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &-246559291961957878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

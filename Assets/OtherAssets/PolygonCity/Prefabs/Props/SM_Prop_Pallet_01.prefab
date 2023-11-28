@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3301158}
   - component: {fileID: 2381068}
   - component: {fileID: 65730770215184616}
-  - component: {fileID: 1484371746918945096}
   - component: {fileID: 8936869639271695809}
   m_Layer: 0
   m_Name: SM_Prop_Pallet_01
@@ -107,18 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2618408, y: 0.38927907, z: 2.059216}
   m_Center: {x: -0.000015258789, y: 0.19463953, z: 0.00083613396}
---- !u!114 &1484371746918945096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!205 &8936869639271695809
 LODGroup:
   m_ObjectHideFlags: 0

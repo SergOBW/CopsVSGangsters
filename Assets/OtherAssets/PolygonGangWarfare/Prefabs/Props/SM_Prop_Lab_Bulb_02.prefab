@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4190609375027802}
   - component: {fileID: 33343623402529344}
   - component: {fileID: 23672274350832684}
-  - component: {fileID: -6703990706714015287}
   m_Layer: 0
   m_Name: SM_Prop_Lab_Bulb_02
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-6703990706714015287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176648309386716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

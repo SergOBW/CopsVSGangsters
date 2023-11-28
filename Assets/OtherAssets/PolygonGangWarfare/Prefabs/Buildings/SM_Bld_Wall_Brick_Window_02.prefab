@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 33574955961619212}
   - component: {fileID: 23153140690793060}
   - component: {fileID: 7461663901044953086}
-  - component: {fileID: -7964311014600078121}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Brick_Window_02
   m_TagString: Concrete (Static)
@@ -190,15 +189,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 0.38997602}
   m_Center: {x: -1.5, y: 1.5, z: 0.0022267923}
---- !u!114 &-7964311014600078121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430287621122956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

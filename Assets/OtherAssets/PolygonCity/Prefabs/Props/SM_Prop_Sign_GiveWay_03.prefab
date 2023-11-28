@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 64201576318343938}
   - component: {fileID: 64650572853725412}
   - component: {fileID: 64049939306022770}
-  - component: {fileID: 3456240868345742818}
   m_Layer: 0
   m_Name: SM_Prop_Sign_GiveWay_03
   m_TagString: Untagged
@@ -153,15 +152,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43483656652726534, guid: f98f0a02a34044745896a35d8904780c, type: 2}
---- !u!114 &3456240868345742818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

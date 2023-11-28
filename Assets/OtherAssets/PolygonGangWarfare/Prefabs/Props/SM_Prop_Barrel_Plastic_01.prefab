@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 23142566544400838}
   - component: {fileID: 4381707139705038048}
   - component: {fileID: 6887291386591658333}
-  - component: {fileID: 2325148482664192940}
   - component: {fileID: 7041750818628365274}
   m_Layer: 0
   m_Name: SM_Prop_Barrel_Plastic_01
@@ -129,18 +128,6 @@ CapsuleCollider:
   m_Height: 1.0526019
   m_Direction: 1
   m_Center: {x: 0.0068356693, y: 0.52489364, z: 0.0015303046}
---- !u!114 &2325148482664192940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171884133479456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!205 &7041750818628365274
 LODGroup:
   m_ObjectHideFlags: 0
@@ -155,15 +142,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23142566544400838}
-  - screenRelativeHeight: 0.3
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23142566544400838}
-  - screenRelativeHeight: 0.01
+  - screenRelativeHeight: 0.015
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23142566544400838}

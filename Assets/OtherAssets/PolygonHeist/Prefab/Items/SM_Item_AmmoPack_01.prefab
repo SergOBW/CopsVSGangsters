@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 3389942}
   - component: {fileID: 2371654}
   - component: {fileID: 64492659085017478}
-  - component: {fileID: -7554258682646158326}
   m_Layer: 0
   m_Name: SM_Item_AmmoPack_01
   m_TagString: Untagged
@@ -192,18 +191,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43392411045888974, guid: ce1cf3baac72c9e49a909e11e8a3f445, type: 2}
---- !u!114 &-7554258682646158326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &184968
 GameObject:
   m_ObjectHideFlags: 0

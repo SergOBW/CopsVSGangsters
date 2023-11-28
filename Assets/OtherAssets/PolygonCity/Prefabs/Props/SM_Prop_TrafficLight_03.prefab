@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3305130}
   - component: {fileID: 2371018}
   - component: {fileID: 64050140772948160}
-  - component: {fileID: -2440712224559286614}
   m_Layer: 0
   m_Name: SM_Prop_TrafficLight_03
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43410036030676038, guid: 842128fe0449a0b4884b38f0ef7758fe, type: 2}
---- !u!114 &-2440712224559286614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3311710}
   - component: {fileID: 2373288}
   - component: {fileID: 64693344982737064}
-  - component: {fileID: -6405545126983410479}
   m_Layer: 0
   m_Name: SM_Prop_PotPlant_02
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43683482501068326, guid: 2fa24c546ed6be64aa99119cab5d0929, type: 2}
---- !u!114 &-6405545126983410479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

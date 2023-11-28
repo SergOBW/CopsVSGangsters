@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3385934}
   - component: {fileID: 2360398}
   - component: {fileID: 64914442019264434}
-  - component: {fileID: -7874836055329491151}
   m_Layer: 0
   m_Name: SM_Prop_LargeSign_Burger_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43176491429045612, guid: bd253679fa6c79540bfac9881c16d099, type: 2}
---- !u!114 &-7874836055329491151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

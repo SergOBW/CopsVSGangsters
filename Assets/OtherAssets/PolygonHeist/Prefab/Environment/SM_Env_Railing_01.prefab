@@ -194,7 +194,6 @@ GameObject:
   - component: {fileID: 3393646}
   - component: {fileID: 2374428}
   - component: {fileID: 65795604126585262}
-  - component: {fileID: 4941425947940313997}
   m_Layer: 0
   m_Name: SM_Env_Railing_01
   m_TagString: Concrete (Static)
@@ -289,15 +288,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.999999, y: 1.3384404, z: 0.108444214}
   m_Center: {x: -2.4999995, y: 0.3786075, z: 0}
---- !u!114 &4941425947940313997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3310382}
   - component: {fileID: 2321416}
   - component: {fileID: 64577032608133660}
-  - component: {fileID: 3350404489522555662}
   m_Layer: 0
   m_Name: SM_Prop_Soda_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43568870867469366, guid: b6a175dc42b79984c842dd65b893d5de, type: 2}
---- !u!114 &3350404489522555662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

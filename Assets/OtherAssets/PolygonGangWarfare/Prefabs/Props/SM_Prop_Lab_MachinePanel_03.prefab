@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4890576462069238}
   - component: {fileID: 33855384582360630}
   - component: {fileID: 23867661671198378}
-  - component: {fileID: -8445259676857210265}
   m_Layer: 0
   m_Name: SM_Prop_Lab_MachinePanel_03
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8445259676857210265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1815153753538918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

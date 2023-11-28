@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4966135160658110}
   - component: {fileID: 33087033638467986}
   - component: {fileID: 23799854638192754}
-  - component: {fileID: -9077640506613305226}
   - component: {fileID: 6492309119304263845}
   m_Layer: 0
   m_Name: SM_Prop_MiniStove_01
@@ -85,18 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-9077640506613305226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508897618944822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!205 &6492309119304263845
 LODGroup:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3392690}
   - component: {fileID: 2382352}
   - component: {fileID: 64961739401065730}
-  - component: {fileID: -5916807125630458995}
   m_Layer: 0
   m_Name: SM_Item_Crowbar_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43904992637156930, guid: 4744d720627d33c4fb34c85a62a9f073, type: 2}
---- !u!114 &-5916807125630458995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

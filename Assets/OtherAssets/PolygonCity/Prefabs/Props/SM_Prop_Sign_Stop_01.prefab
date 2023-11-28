@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 64757441853960774}
   - component: {fileID: 64917802663602978}
   - component: {fileID: 64519867846482628}
-  - component: {fileID: 7528779726174376785}
   m_Layer: 0
   m_Name: SM_Prop_Sign_Stop_01
   m_TagString: Untagged
@@ -153,15 +152,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43702194203290602, guid: f0fc41c98c8dd934ea62c0438b7b8c6d, type: 2}
---- !u!114 &7528779726174376785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

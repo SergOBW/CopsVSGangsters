@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3379640}
   - component: {fileID: 2356168}
   - component: {fileID: 64469701477885790}
-  - component: {fileID: -2681536399870469590}
   m_Layer: 0
   m_Name: SM_Prop_Jewellery_Necklace_03
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43751332147956024, guid: 60b6e89eb0177374293832e523a2de33, type: 2}
---- !u!114 &-2681536399870469590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

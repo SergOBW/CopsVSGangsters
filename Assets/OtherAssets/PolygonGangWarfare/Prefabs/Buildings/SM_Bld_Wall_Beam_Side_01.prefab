@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33249085935832212}
   - component: {fileID: 23350003625809184}
   - component: {fileID: 3487036926136960124}
-  - component: {fileID: -4013167584786198053}
   m_Layer: 0
   m_Name: SM_Bld_Wall_Beam_Side_01
   m_TagString: Concrete (Static)
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9572814, y: 0.2624557, z: 0.17781392}
   m_Center: {x: -1.4999996, y: 2.8121428, z: 0.16019182}
---- !u!114 &-4013167584786198053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696475544437648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

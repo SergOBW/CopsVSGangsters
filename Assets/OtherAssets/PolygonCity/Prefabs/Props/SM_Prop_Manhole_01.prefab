@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3376500}
   - component: {fileID: 2304880}
   - component: {fileID: 64247554785730974}
-  - component: {fileID: -7513133753816484105}
   m_Layer: 0
   m_Name: SM_Prop_Manhole_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43547645759800138, guid: a6e97b66daa2b15408d96c34f3f20699, type: 2}
---- !u!114 &-7513133753816484105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

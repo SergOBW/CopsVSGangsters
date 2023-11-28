@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4639080316558610}
   - component: {fileID: 33320234059388764}
   - component: {fileID: 23667136772246750}
-  - component: {fileID: -5537681496747340991}
   m_Layer: 0
   m_Name: SM_Prop_Toy_Samurai_Full_Painted_01
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5537681496747340991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808461765384478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

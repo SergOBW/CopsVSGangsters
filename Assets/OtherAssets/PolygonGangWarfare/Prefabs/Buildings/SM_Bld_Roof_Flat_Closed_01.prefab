@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 23965775098842088}
   - component: {fileID: 3427321447021191768}
   - component: {fileID: 2260356794826351392}
-  - component: {fileID: 4588637232268669439}
   m_Layer: 0
   m_Name: SM_Bld_Roof_Flat_Closed_01
   m_TagString: Concrete (Static)
@@ -126,15 +125,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.3866103, y: 0.221809, z: 3.386606}
   m_Center: {x: -1.4999999, y: 0.1109045, z: -1.5000001}
---- !u!114 &4588637232268669439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534000315659726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

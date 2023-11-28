@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3336302}
   - component: {fileID: 2396494}
   - component: {fileID: 65869419225072112}
-  - component: {fileID: -1058086259744917491}
   m_Layer: 0
   m_Name: SM_Env_Wall_Interior_Ground_01
   m_TagString: Concrete (Static)
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.000004, y: 3.0000005, z: 0.16360474}
   m_Center: {x: -2.5000057, y: 1.5000002, z: 0.08180237}
---- !u!114 &-1058086259744917491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

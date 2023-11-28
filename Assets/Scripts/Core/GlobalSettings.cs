@@ -38,7 +38,7 @@ namespace DefaultNamespace
         private void SetupDefault()
         {
             graphicsQuality = GraphicsQuality.Low;
-            isUsingDebug = true;
+            isUsingDebug = false;
             soundValue = 0.4f;
             sensitivity = 1f;
         }

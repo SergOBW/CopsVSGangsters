@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 64607017958938790}
   - component: {fileID: 64840681528467256}
   - component: {fileID: 64601565030500850}
-  - component: {fileID: 8916555411827687299}
   m_Layer: 0
   m_Name: SM_Prop_Deckchair_01
   m_TagString: Untagged
@@ -176,15 +175,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43953024262524786, guid: a5b0405fbf2da7341aa401bffee849aa, type: 2}
---- !u!114 &8916555411827687299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

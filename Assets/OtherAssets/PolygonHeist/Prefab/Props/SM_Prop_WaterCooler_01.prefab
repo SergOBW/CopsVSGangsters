@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3352570}
   - component: {fileID: 2388592}
   - component: {fileID: 64225058838595736}
-  - component: {fileID: 3795578707237219638}
   m_Layer: 0
   m_Name: SM_Prop_WaterCooler_01
   m_TagString: Untagged
@@ -108,18 +107,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43167882451550462, guid: ec73334efad125c468be4d6d0a75d8c1, type: 2}
---- !u!114 &3795578707237219638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &190516
 GameObject:
   m_ObjectHideFlags: 0

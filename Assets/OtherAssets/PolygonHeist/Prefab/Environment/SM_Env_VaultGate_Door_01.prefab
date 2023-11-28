@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 65634776113458994}
   - component: {fileID: 423255599294166492}
   - component: {fileID: 6319633994769262674}
-  - component: {fileID: 8882237974512747161}
   - component: {fileID: 6100504964977085067}
   m_Layer: 11
   m_Name: SM_Env_VaultGate_Door_01
@@ -146,18 +145,6 @@ MonoBehaviour:
   vector3: {x: 0, y: -140, z: 0}
   needSpawnWave: 0
   needBigDrill: 0
---- !u!114 &8882237974512747161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!41 &6100504964977085067
 OcclusionPortal:
   m_ObjectHideFlags: 0
@@ -166,8 +153,8 @@ OcclusionPortal:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190666}
   m_Open: 1
-  m_Center: {x: 0.730069, y: 1.5298309, z: -0.00019259751}
-  m_Size: {x: 1.5946661, y: 3.069305, z: 0.47861966}
+  m_Center: {x: 0.730069, y: 1.5298309, z: -0.0033904687}
+  m_Size: {x: 1.5946661, y: 3.069305, z: 0.18668963}
 --- !u!1 &5994456576801118585
 GameObject:
   m_ObjectHideFlags: 0

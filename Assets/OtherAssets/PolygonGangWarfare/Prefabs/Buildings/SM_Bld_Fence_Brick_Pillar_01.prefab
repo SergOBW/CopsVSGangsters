@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33438283446741002}
   - component: {fileID: 23986099899290624}
   - component: {fileID: 1420200045234235196}
-  - component: {fileID: 5217388884815446367}
   m_Layer: 0
   m_Name: SM_Bld_Fence_Brick_Pillar_01
   m_TagString: Concrete (Static)
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.588595, y: 3.2165434, z: 0.5794363}
   m_Center: {x: 0.004965931, y: 1.6082717, z: -0.013968229}
---- !u!114 &5217388884815446367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351921354885988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

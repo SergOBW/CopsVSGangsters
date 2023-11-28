@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4031616895558512}
   - component: {fileID: 33797799570252570}
   - component: {fileID: 23445897036817646}
-  - component: {fileID: -7977823509950276896}
   - component: {fileID: 5553596987679480781}
   m_Layer: 0
   m_Name: SM_Prop_Papers_03
@@ -85,18 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-7977823509950276896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658299789411996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!205 &5553596987679480781
 LODGroup:
   m_ObjectHideFlags: 0

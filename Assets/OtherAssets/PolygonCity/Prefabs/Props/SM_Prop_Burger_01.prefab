@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3369430}
   - component: {fileID: 2348392}
   - component: {fileID: 64281602321540160}
-  - component: {fileID: 8675026577723443790}
   m_Layer: 0
   m_Name: SM_Prop_Burger_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43495560659606826, guid: 02c882be55c48dc44a39b0688715f981, type: 2}
---- !u!114 &8675026577723443790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

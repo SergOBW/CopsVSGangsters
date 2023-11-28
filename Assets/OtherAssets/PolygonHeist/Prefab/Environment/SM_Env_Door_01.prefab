@@ -201,7 +201,6 @@ GameObject:
   - component: {fileID: 3674056942186065793}
   - component: {fileID: 2470778991938239391}
   - component: {fileID: 9040210143510219757}
-  - component: {fileID: -6566257299669285183}
   - component: {fileID: 8295248186929881024}
   m_Layer: 11
   m_Name: SM_Env_Door_01
@@ -433,18 +432,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15744042, y: 0.44895577, z: 0.106723785}
   m_Center: {x: -0.74780965, y: 0.95167327, z: 0}
---- !u!114 &-6566257299669285183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!41 &8295248186929881024
 OcclusionPortal:
   m_ObjectHideFlags: 0

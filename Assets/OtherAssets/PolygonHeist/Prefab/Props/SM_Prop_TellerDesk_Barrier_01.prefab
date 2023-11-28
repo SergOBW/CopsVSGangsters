@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 458896}
   - component: {fileID: 3337578}
   - component: {fileID: 2355380}
-  - component: {fileID: -3447356472299249675}
   m_Layer: 0
   m_Name: SM_Prop_TellerDesk_Barrier_01
   m_TagString: Untagged
@@ -267,15 +266,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-3447356472299249675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

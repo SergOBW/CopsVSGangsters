@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4005455470919108}
   - component: {fileID: 33129361092059116}
   - component: {fileID: 23915809429038156}
-  - component: {fileID: -8021215416511381100}
   m_Layer: 0
   m_Name: SM_Prop_Warehouse_Venting_Support_01
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-8021215416511381100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526449763782066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

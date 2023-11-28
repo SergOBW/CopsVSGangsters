@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3361456}
   - component: {fileID: 2372586}
   - component: {fileID: 65040922923219834}
-  - component: {fileID: -5930476501959328896}
   m_Layer: 0
   m_Name: SM_Prop_Sign_Attachment_01
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.506186, y: 0.8618239, z: 0.32672215}
   m_Center: {x: 0.00000023841858, y: 0.43091196, z: 0}
---- !u!114 &-5930476501959328896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

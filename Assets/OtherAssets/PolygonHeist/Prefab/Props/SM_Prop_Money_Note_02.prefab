@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3384634}
   - component: {fileID: 2378604}
   - component: {fileID: 64048933606932386}
-  - component: {fileID: 6836293713428736005}
   m_Layer: 0
   m_Name: SM_Prop_Money_Note_02
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43291455276881728, guid: bbb0318057255f14eaa5b0f1c8aad886, type: 2}
---- !u!114 &6836293713428736005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

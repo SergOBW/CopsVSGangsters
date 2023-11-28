@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3310944}
   - component: {fileID: 2320910}
   - component: {fileID: 65668008787186444}
-  - component: {fileID: 5448919274273413897}
   m_Layer: 0
   m_Name: SM_Env_Ceiling_07
   m_TagString: Concrete (Static)
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.9999995, y: 0.25318968, z: 5.000001}
   m_Center: {x: -2.4999998, y: -0.12659413, z: 2.5000005}
---- !u!114 &5448919274273413897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

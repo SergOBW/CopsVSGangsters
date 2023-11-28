@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3366662}
   - component: {fileID: 2319368}
   - component: {fileID: 65255327772355394}
-  - component: {fileID: 930009235350587764}
   m_Layer: 0
   m_Name: SM_Prop_Sidewalk_Panel_01
   m_TagString: Untagged
@@ -106,15 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.444252, y: 0.059853822, z: 0.43781826}
   m_Center: {x: -0.000017404556, y: 0.029926881, z: 0.0000014156103}
---- !u!114 &930009235350587764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

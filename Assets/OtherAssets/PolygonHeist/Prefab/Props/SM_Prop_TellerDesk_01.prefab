@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3321188}
   - component: {fileID: 2387800}
   - component: {fileID: 64804346588608148}
-  - component: {fileID: 2498741285406649143}
   m_Layer: 0
   m_Name: SM_Prop_TellerDesk_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43687157391013378, guid: b17e0bf20106d4942a78b24468b9fd01, type: 2}
---- !u!114 &2498741285406649143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3396580}
   - component: {fileID: 2304432}
   - component: {fileID: 64964738474586936}
-  - component: {fileID: -450332999389821339}
   m_Layer: 0
   m_Name: SM_Item_DuffleBag_Open_Full_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43175207959209356, guid: a7765d47ecbaada46a9f7253aac000a2, type: 2}
---- !u!114 &-450332999389821339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

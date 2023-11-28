@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3399814}
   - component: {fileID: 2304562}
   - component: {fileID: 64163891976285358}
-  - component: {fileID: -3347609306361810880}
   m_Layer: 0
   m_Name: SM_Prop_LargeSign_Taco_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43074963026197556, guid: b047b84dcdf7546468e28858cf4a93b3, type: 2}
---- !u!114 &-3347609306361810880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

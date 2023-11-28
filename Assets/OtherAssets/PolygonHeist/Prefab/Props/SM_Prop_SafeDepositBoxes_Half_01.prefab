@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3389066}
   - component: {fileID: 2344242}
   - component: {fileID: 64654272708787662}
-  - component: {fileID: 5562331448177630802}
   m_Layer: 0
   m_Name: SM_Prop_SafeDepositBoxes_Half_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43901485383707468, guid: aa1444344da8bde4ea090c4113ba9365, type: 2}
---- !u!114 &5562331448177630802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

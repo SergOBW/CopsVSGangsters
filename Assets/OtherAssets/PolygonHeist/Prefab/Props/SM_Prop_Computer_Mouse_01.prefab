@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3301792}
   - component: {fileID: 2313222}
   - component: {fileID: 64112808788240888}
-  - component: {fileID: 9123347740293917065}
   m_Layer: 0
   m_Name: SM_Prop_Computer_Mouse_01
   m_TagString: Untagged
@@ -107,15 +106,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43237611624717684, guid: 4495d403b164b6f428e1914bce45f623, type: 2}
---- !u!114 &9123347740293917065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52a9c63a78765c47a877cbb16bf8ded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
