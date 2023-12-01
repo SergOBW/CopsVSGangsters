@@ -103,36 +103,7 @@ public class YandexAggregator : MonoBehaviour
 
     public bool IsMobile()
     {
-        bool isMobile = false;
-        
-        if (_isSDKInitialized)
-        {
-            string deviceType = GetDeviceTypeFromYandex();
-            switch (deviceType)
-            {
-                case "desktop" :
-                    isMobile = false;
-                    break;
-                case "mobile" :
-                    isMobile =  true;
-                    break;
-                case "tablet" :
-                    isMobile = true;
-                    break;
-                case "tv" :
-                    isMobile = false;
-                    break;
-                case "error" :
-                    //Debug.Log("Error with YASDK");
-                    return false;
-                default:
-                    return false;
-            }
-        }
-        
-        
-        //Debug.Log(" IS MOBILE = " + isMobile);
-        return isMobile;
+        return Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform;
     }
 
     public string GetLanguage()

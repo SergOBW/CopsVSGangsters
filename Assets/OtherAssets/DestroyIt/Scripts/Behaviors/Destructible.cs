@@ -297,7 +297,17 @@ namespace DestroyIt
 
             CurrentHitPoints = 0;
             PlayDamageEffects();
-            
+
+            if (TryGetComponent(out OcclusionPortal occlusionPortal))
+            {
+                occlusionPortal.open = true;
+            }
+
+            OcclusionPortal occlusionPortalParent = GetComponentInParent<OcclusionPortal>();
+            if (occlusionPortalParent != null)
+            {
+                occlusionPortalParent.open = true;
+            }
 
             DestructionManager.Instance.ProcessDestruction(this, destroyedPrefab, CurrentHitPoints, _isObliterated);
         }

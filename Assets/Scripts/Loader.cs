@@ -41,6 +41,8 @@ public class Loader : MonoBehaviour
         ui.GetComponent<UiMonoStateMachine>().Initialize();
             
         LoadTheScene();
+        
+        Debug.Log(Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform);
     }
     
 
